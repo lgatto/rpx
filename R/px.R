@@ -52,7 +52,7 @@ setMethod("pxid", "PXDataset",
 setMethod("pxurl", "PXDataset",
           function(object) {
               p <- "//cvParam[@accession = 'PRIDE:0000411']"
-              x <- xmlAttrs(getNodeSet(doc = xx@Data, path = p)[[1]])["value"]
+              x <- xmlAttrs(getNodeSet(doc = object@Data, path = p)[[1]])["value"]
               names(x) <- NULL
               x
           })
@@ -61,7 +61,7 @@ setMethod("pxurl", "PXDataset",
 setMethod("pxtax", "PXDataset",
           function(object) {
               p <- "//cvParam[@accession = 'MS:1001469']"
-              x <- xmlAttrs(getNodeSet(doc = xx@Data, path = p)[[1]])["value"]
+              x <- xmlAttrs(getNodeSet(doc = object@Data, path = p)[[1]])["value"]
               names(x) <- NULL
               x
           })
@@ -71,7 +71,7 @@ setMethod("pxtax", "PXDataset",
 setMethod("pxref", "PXDataset",
           function(object) {
               p <- "//cvParam[@accession = 'PRIDE:0000400']"
-              x <- xmlAttrs(getNodeSet(doc = xx@Data, path = p)[[1]])["value"]
+              x <- xmlAttrs(getNodeSet(doc = object@Data, path = p)[[1]])["value"]
               names(x) <- NULL
               x
           })
@@ -109,9 +109,9 @@ setMethod("pxget", "PXDataset",
           })
 
 ## constructor
-PXDataset <- function(pxid) {
+PXDataset <- function(id) {
     url <- paste0("http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=",
-                  pxid, "&outputMode=XML&test=no")
+                  id, "&outputMode=XML&test=no")
     ns10 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.0.xsd"
     ns <- ns11 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.1.0.xsd"
     v <- sub("\" .+$", "",  sub("^.+formatVersion=\"", "", readLines(url)[2]))
@@ -120,7 +120,7 @@ PXDataset <- function(pxid) {
     pxdata <- doc[["doc"]]$children$ProteomeXchangeDataset
     .formatVersion <- xmlAttrs(pxdata)["formatVersion"]
     .id <- xmlAttrs(pxdata)["id"]
-    stopifnot(pxid == .id)
+    stopifnot(id == .id)
     stopifnot(v == .formatVersion)
     .PXDataset(id = .id,
                formatVersion = .formatVersion,

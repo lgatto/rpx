@@ -1,4 +1,4 @@
-Package: pxdata
+Package: pxr
 Type: Package
 Title: R Interface to the ProteomeXchange Repository
 Version: 0.1.0
@@ -9,7 +9,7 @@ Author: Laurent Gatto
 Maintainer: Laurent Gatto <lg390@cam.ac.uk>
 Description: This package implements and interface to the proteomics 
 	     data submitted to the ProteomeXchange consortium.
-Depends: R
+Depends: methods
 Imports: XML, RCurl
 License: GPL-2
 VignetteBuilder: knitr
