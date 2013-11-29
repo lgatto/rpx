@@ -1,1 +1,16 @@
-export(annoucement)
+import(XML)
+import(RCurl)
+
+export(PXDataset)
+
+exportClasses(PXDataset)
+
+exportMethods(show,
+              pxid,
+              pxurl,
+              pxtax,
+              pxref,
+              pxfiles,
+              pxget)
+
+
