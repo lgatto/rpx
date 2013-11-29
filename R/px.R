@@ -21,10 +21,10 @@ setMethod("show", "PXDataset",
               if (n < 3) {
                   cat(paste(fls, collapse = ", "), "\n")
               } else {
-                  cat(paste(fls[1], collapse = ", "))
+                  cat("[1]", paste(fls[1], collapse = ", "))
                   cat(" ... ")
-                  cat(paste(fls[n], collapse = ", "), "\n")
-                  cat(" Use 'pxfiles()' to see them all.\n")
+                  cat("[", n, "] ", paste(fls[n], collapse = ", "), "\n", sep = "")
+                  cat(" Use 'pxfiles()' to see all files.\n")
               }
           })
 

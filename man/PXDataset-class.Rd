@@ -5,11 +5,17 @@
 \alias{class:PXDataset}
 \alias{PXDataset}
 \alias{pxfiles,PXDataset-method}
+\alias{pxfiles}
 \alias{pxget,PXDataset-method}
+\alias{pxget}
 \alias{pxid,PXDataset-method}
+\alias{pxid}
 \alias{pxref,PXDataset-method}
+\alias{pxref}
 \alias{pxtax,PXDataset-method}
+\alias{pxtax}
 \alias{pxurl,PXDataset-method}
+\alias{pxurl}
 \alias{show,PXDataset-method}
 
 \title{Class \code{"PXDataset"}}
