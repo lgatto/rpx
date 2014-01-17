@@ -1,6 +1,3 @@
-require("RCurl")
-require("XML")
-
 .PXDataset <- setClass("PXDataset",
                        slots = list(
                            ## attributes
@@ -110,21 +107,30 @@ setMethod("pxget", "PXDataset",
 
 ## constructor
 PXDataset <- function(id) {
-    url <- paste0("http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=",
-                  id, "&outputMode=XML&test=no")
-    ns10 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.0.xsd"
-    ns <- ns11 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.1.0.xsd"
-    v <- sub("\" .+$", "",  sub("^.+formatVersion=\"", "", readLines(url)[2]))
-    if (length(grep("1.0.0", v)) == 1) ns <- ns10    
-    doc <- xmlTreeParse(url)
-    pxdata <- doc[["doc"]]$children$ProteomeXchangeDataset
-    .formatVersion <- xmlAttrs(pxdata)["formatVersion"]
-    .id <- xmlAttrs(pxdata)["id"]
-    stopifnot(id == .id)
-    stopifnot(v == .formatVersion)
-    .PXDataset(id = .id,
-               formatVersion = .formatVersion,
-               Data = pxdata)
+   url <- paste0("http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=",
+                 id, "&outputMode=XML&test=no")
+   ns10 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.0.xsd"
+   ns <- ns11 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.1.0.xsd"
+   x <- readLines(url)
+   x <- x[x != ""]   
+   v <- sub("\".+$", "",  sub("^.+formatVersion=\"", "", x[2]))
+   if (length(grep("1.0.0", v)) == 1) ns <- ns10    
+   doc <- xmlTreeParse(url)
+   pxdata <- doc[["doc"]]$children$ProteomeXchangeDataset
+   .formatVersion <- xmlAttrs(pxdata)["formatVersion"]
+   .id <- xmlAttrs(pxdata)["id"]
+   if (length(.id) != 1)
+       stop("Got ", length(.id), " identifiers: ",
+            paste(.id, collapse = ", "), ".")
+   if (id != .id)
+       warning("Identifier '", id, "' not found. Retrieved '",
+               .id, "' instead.")
+   if (v != .formatVersion)
+       warning("Format version does not match. Got '",
+               .formatVersion, "' instead of '", v, "'.")
+   .PXDataset(id = .id,
+              formatVersion = .formatVersion,
+              Data = pxdata)
 }
 
 
