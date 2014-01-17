@@ -1,8 +1,8 @@
-\name{pxannouced}
-\alias{pxannouced}
+\name{pxannounced}
+\alias{pxannounced}
 \title{Return recent PX announcements}
 \usage{
-pxannouced()
+pxannounced()
 }
 \value{
 A \code{data.frame} with announcements data set

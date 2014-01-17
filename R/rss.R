@@ -7,7 +7,7 @@
 ##' @author Laurent Gatto
 ##' @examples
 ##' pxannounced()
-pxannouced <- function() {
+pxannounced <- function() {
     rss <- "https://groups.google.com/forum/feed/proteomexchange/msgs/rss_v2_0.xml"
     dest <- tempfile()
     download.file(rss, dest, method = "wget", quiet = TRUE)
