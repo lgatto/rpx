@@ -114,6 +114,11 @@ PXDataset <- function(id) {
    ns10 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.0.xsd"
    ns <- ns11 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.1.0.xsd"
    x <- readLines(url)
+   if (grep("ERROR", x)) {
+       x <- x[grep("message=", x)]
+       x <- sub("message=", "", x)
+       stop(x)
+   }       
    x <- x[x != ""]   
    v <- sub("\".+$", "",  sub("^.+formatVersion=\"", "", x[2]))
    if (length(grep("1.0.0", v)) == 1) ns <- ns10    
