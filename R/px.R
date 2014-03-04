@@ -21,7 +21,7 @@ setMethod("show", "PXDataset",
                   cat("[1]", paste(fls[1], collapse = ", "))
                   cat(" ... ")
                   cat("[", n, "] ", paste(fls[n], collapse = ", "), "\n", sep = "")
-                  cat(" Use 'pxfiles()' to see all files.\n")
+                  cat(" Use 'pxfiles(.)' to see all files.\n")
               }
           })
 
@@ -82,7 +82,7 @@ setMethod("pxfiles", "PXDataset",
 
 
 setMethod("pxget", "PXDataset",
-          function(object, list, ...) {
+          function(object, list, force=FALSE, ...) {
               fls <- pxfiles(object)
               url <- pxurl(object)
               if (missing(list)) 
@@ -100,7 +100,9 @@ setMethod("pxget", "PXDataset",
               message("Downloading ", length(urls), " file",
                       ifelse(length(urls) > 1, "s", ""))
               for (i in 1:length(urls)) {
-                  download.file(urls[i], toget[i], ...)
+                  if (file.exists(toget[i]) && !force)
+                      message(toget[i], " already present.")
+                  else download.file(urls[i], toget[i], ...)
               }
               invisible(toget)
           })
