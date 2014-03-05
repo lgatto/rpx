@@ -20,13 +20,11 @@
 
 \title{Class \code{"PXDataset"}}
 
-\description{
-  An S4 class to store and access information about ProteomeXchange (PX)
-  data sets. 
-}
+\description{ An S4 class to store and access information about
+  ProteomeXchange (PX) data sets.  }
 
-\section{Objects from the Class}{
-  Objects can be created with the constructor \code{PXDataset}
+\section{Objects from the Class}{ Objects can be created with the
+  constructor \code{PXDataset}
 
 }
 \section{Slots}{

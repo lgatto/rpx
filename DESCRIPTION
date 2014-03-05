@@ -1,7 +1,7 @@
 Package: pxr
 Type: Package
 Title: R Interface to the ProteomeXchange Repository
-Version: 0.2.0
+Version: 0.99.0
 Authors@R: c(person(given = "Laurent", family = "Gatto",
 	            email = "lg390@cam.ac.uk", 
                     role = c("aut","cre")))
@@ -10,7 +10,7 @@ Maintainer: Laurent Gatto <lg390@cam.ac.uk>
 Description: This package implements and interface to the proteomics 
 	     data submitted to the ProteomeXchange consortium.
 Depends: methods
-Imports: XML, RCurl
+Imports: XML, RCurl, utils
 Suggests: MSnbase, Biostrings, BiocStyle
 License: GPL-2
 VignetteBuilder: knitr

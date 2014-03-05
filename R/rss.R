@@ -8,7 +8,8 @@
 ##' @examples
 ##' pxannounced()
 pxannounced <- function() {
-    rss <- "https://groups.google.com/forum/feed/proteomexchange/msgs/rss_v2_0.xml"
+    rss <-
+        "https://groups.google.com/forum/feed/proteomexchange/msgs/rss_v2_0.xml"
     dest <- tempfile()
     download.file(rss, dest, method = "wget", quiet = TRUE)
     doc <- xmlParse(dest)
@@ -32,6 +33,5 @@ pxannounced <- function() {
     ann <- data.frame(Data.Set = dat,
                       Publication.Data = pubs,
                       Message = msg)
-    return(ann)
-    
+    return(ann) 
 }

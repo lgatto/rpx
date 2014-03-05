@@ -20,7 +20,8 @@ setMethod("show", "PXDataset",
               } else {
                   cat("[1]", paste(fls[1], collapse = ", "))
                   cat(" ... ")
-                  cat("[", n, "] ", paste(fls[n], collapse = ", "), "\n", sep = "")
+                  cat("[", n, "] ", paste(fls[n], collapse = ", "),
+                      "\n", sep = "")
                   cat(" Use 'pxfiles(.)' to see all files.\n")
               }
           })
@@ -109,35 +110,36 @@ setMethod("pxget", "PXDataset",
 
 ## constructor
 PXDataset <- function(id) {
-   url <- paste0("http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=",
-                 id, "&outputMode=XML&test=no")
-   ns10 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.0.xsd"
-   ns <- ns11 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.1.0.xsd"
-   x <- readLines(url)
-   if (length(grep("ERROR", x)) > 0) {
-       x <- x[grep("message=", x)]
-       x <- sub("message=", "", x)
-       stop(x)
-   }       
-   x <- x[x != ""]   
-   v <- sub("\".+$", "",  sub("^.+formatVersion=\"", "", x[2]))
-   if (length(grep("1.0.0", v)) == 1) ns <- ns10    
-   doc <- xmlTreeParse(url)
-   pxdata <- doc[["doc"]]$children$ProteomeXchangeDataset
-   .formatVersion <- xmlAttrs(pxdata)["formatVersion"]
-   .id <- xmlAttrs(pxdata)["id"]
-   if (length(.id) != 1)
-       stop("Got ", length(.id), " identifiers: ",
-            paste(.id, collapse = ", "), ".")
-   if (id != .id)
-       warning("Identifier '", id, "' not found. Retrieved '",
-               .id, "' instead.")
-   if (v != .formatVersion)
-       warning("Format version does not match. Got '",
-               .formatVersion, "' instead of '", v, "'.")
-   .PXDataset(id = .id,
-              formatVersion = .formatVersion,
-              Data = pxdata)
+    url <- paste0(
+        "http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=",
+        id, "&outputMode=XML&test=no")
+    ns10 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.0.xsd"
+    ns <- ns11 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.1.0.xsd"
+    x <- readLines(url)
+    if (length(grep("ERROR", x)) > 0) {
+        x <- x[grep("message=", x)]
+        x <- sub("message=", "", x)
+        stop(x)
+    }       
+    x <- x[x != ""]   
+    v <- sub("\".+$", "",  sub("^.+formatVersion=\"", "", x[2]))
+    if (length(grep("1.0.0", v)) == 1) ns <- ns10    
+    doc <- xmlTreeParse(url)
+    pxdata <- doc[["doc"]]$children$ProteomeXchangeDataset
+    .formatVersion <- xmlAttrs(pxdata)["formatVersion"]
+    .id <- xmlAttrs(pxdata)["id"]
+    if (length(.id) != 1)
+        stop("Got ", length(.id), " identifiers: ",
+             paste(.id, collapse = ", "), ".")
+    if (id != .id)
+        warning("Identifier '", id, "' not found. Retrieved '",
+                .id, "' instead.")
+    if (v != .formatVersion)
+        warning("Format version does not match. Got '",
+                .formatVersion, "' instead of '", v, "'.")
+    .PXDataset(id = .id,
+               formatVersion = .formatVersion,
+               Data = pxdata)
 }
 
 
