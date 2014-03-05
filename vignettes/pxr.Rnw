@@ -1,5 +1,6 @@
+%\VignetteEngine{knitr}
 %\VignetteIndexEntry{An interface to proteomics data repositories}
-%\VignetteKeywords{Infrastructure, Bioinformatics, Proteomics, ConnecTools, Mass spectrometry, DataImport}
+%\VignetteKeywords{Infrastructure, Bioinformatics, Proteomics, Mass spectrometry}
 %\VignettePackage{pxr}
 
 \documentclass[12pt,a4paper,english]{scrartcl}
