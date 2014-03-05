@@ -7,12 +7,10 @@
 ##' @author Laurent Gatto
 ##' @examples
 ##' pxannounced()
-pxannounced <- function() {
+pxannounced <- function(...) {
     rss <-
         "https://groups.google.com/forum/feed/proteomexchange/msgs/rss_v2_0.xml"
-    dest <- tempfile()
-    download.file(rss, dest, method = "wget", quiet = TRUE)
-    doc <- xmlParse(dest)
+    doc <- xmlParse(getURL(rss))
 
     ## parse title
     ttls <- getNodeSet(doc, "//title")    
