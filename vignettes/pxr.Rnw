@@ -1,0 +1,168 @@
+%\VignetteIndexEntry{An interface to proteomics data repositories}
+%\VignetteKeywords{Infrastructure, Bioinformatics, Proteomics, ConnecTools, Mass spectrometry, DataImport}
+%\VignettePackage{pxr}
+
+\documentclass[12pt,a4paper,english]{scrartcl}
+
+<<style, eval=TRUE, echo=FALSE, results='asis'>>=
+BiocStyle::latex()
+@
+
+\bioctitle{\Biocpkg{pxr}: an \R{} interface to the ProteomeXchange repository}
+\author{ 
+  Laurent Gatto\\
+  Computational Proteomics Unit\footnote{\url{http://cpu.sysbiol.cam.ac.uk}}
+}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+<<env, echo=FALSE>>=
+suppressPackageStartupMessages(library("Biostrings"))
+suppressPackageStartupMessages(library("MSnbase"))
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}\label{sec:intro} 
+
+The goal of the \Biocpkg{pxr} package is to provide programmatic
+access to proteomics data from \R{}, in particular to the
+ProteomeXchange (PX) central repository (see
+\url{http://www.proteomexchange.org/} and
+\url{http://central.proteomexchange.org/}). Additional repositories
+are likely to be added in the future.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The \Biocpkg{pxr} package}\label{sec:functions}
+
+\subsection*{\Robject{PXDataset} objects}
+
+The central object that handles data access is the \Robject{PXDataset}
+class. Such an instance can be generated passing a valid PX experiment
+identifier to the \Rfunction{PXDataset} constructor.
+
+<<pxdata>>=
+library("pxr")
+id <- "PXD000001"
+px <- PXDataset(id)
+px
+@
+
+\subsection*{Data and meta-data}
+
+Several attributes can be extracted from an \Robject{PXDataset}
+instance, as described below. 
+
+\bigskip
+
+The experiment identifier, that was originally used to create the
+\Robject{PXDataset} instance can be extracted with the
+\Rfunction{pxid} method:
+
+<<pxid>>=
+pxid(px)
+@
+
+The file transfer url where the data files can be accessed can be
+queried with the\Rfunction{pxurl} method:
+
+<<purl>>=
+pxurl(px)
+@
+
+The species the data has been generated the data can be obtain calling
+the \Rfunction{pxtax} function:
+
+<<pxtax>>=
+pxtax(px)
+@
+
+
+Relevant bibliographic references can be queries with the
+\Rfunction{pxref} function:
+
+<<pxref>>=
+strwrap(pxref(px))
+@
+
+All files available for the PX experiment can be obtained with the
+\Rfunction{pxfiles} method:
+
+<<pxfiles>>=
+pxfiles(px)
+@
+
+
+The complete or partial data set can be downloaded with the
+\Rfunction{pxget} function. The function takes and instance of class
+\Robject{PXDataset} as first mandatory argument.
+
+The next argument, \Rcode{list}, specifies what files to be
+downloaded. If missing, a menu is printed and the user can select a
+file. If set as \Rcode{all}, all files of the experiment are
+downloaded in the working directory. Alternatively, numerics or
+logicals can also be used to subset the relevant files to be
+downloaded based on the \Rfunction{pxfiles(.)} output.
+
+The last argument, \Rcode{force}, can be set to \Rcode{TRUE} to force
+the download of files that already exists in the working
+directlory. By default, \Rfunction{pxget} will not download and
+overwrite a file if already available.
+
+<<pxget>>=
+pxget(px, "erwinia_carotovora.fasta")
+dir(pattern = "dat")
+@
+
+By default, \Rfunction{pxget} will not download and overwrite a file
+if already available. The last argument, \Rcode{force}, can be set to
+\Rcode{TRUE} to force the download of files that already exists in the
+working directlory.  
+
+<<pxget2>>=
+pxget(px, 8) ## same as above
+@
+
+\subsection*{A simple use-case}
+
+Below, we show how to automate the extraction of files of interest
+(fasta and mzTab files), download them and read them using appropriate
+Bioconductor infrastructure.
+
+<<more, warning=FALSE>>=
+(mzt <- grep("F0.+mztab", pxfiles(px), value = TRUE))
+(fas <- grep("fasta", pxfiles(px), value = TRUE))
+pxget(px, c(mzt, fas))
+
+library("Biostrings")
+readAAStringSet(fas)
+
+library("MSnbase")
+(x <- readMzTabData(mzt, "PEP"))
+head(exprs(x))
+head(fData(x)[, 1:2])
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Session information}\label{sec:sessionInfo} 
+<<sessioninfo, results='asis', echo=FALSE>>=
+toLatex(sessionInfo(), locale = FALSE)
+@
+
+%% \bibliography{pxr}
+
+\end{document}
