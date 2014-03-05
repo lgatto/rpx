@@ -10,7 +10,11 @@
 pxannounced <- function(...) {
     rss <-
         "https://groups.google.com/forum/feed/proteomexchange/msgs/rss_v2_0.xml"
-    doc <- xmlParse(getURL(rss))
+    doc <- tryCatch(getURL(rss),
+                    error = function(e) {
+                        getURL(rss, ssl.verifypeer = FALSE)
+                    })    
+    doc <- xmlParse(doc)
 
     ## parse title
     ttls <- getNodeSet(doc, "//title")    
