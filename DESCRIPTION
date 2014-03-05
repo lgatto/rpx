@@ -11,7 +11,7 @@ Description: This package implements and interface to the proteomics
 	     data submitted to the ProteomeXchange consortium.
 Depends: methods
 Imports: XML, RCurl
-Suggests: MSnbase, BiocStyle
+Suggests: MSnbase, Biostrings, BiocStyle
 License: GPL-2
 VignetteBuilder: knitr
 biocViews: Bioinformatics, Proteomics, MassSpectrometry, 
