@@ -7,7 +7,7 @@
 ##' @author Laurent Gatto
 ##' @examples
 ##' pxannounced()
-pxannounced <- function(...) {
+pxannounced <- function() {
     rss <-
         "https://groups.google.com/forum/feed/proteomexchange/msgs/rss_v2_0.xml"
     doc <- tryCatch(getURL(rss),
