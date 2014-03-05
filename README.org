@@ -1,3 +1,2 @@
 - maybe also provide interface to the PRIDE repo
-- pull latest rss feed an anounce latest additions
 - is it possibly to get a list of all valid PX ids?
