@@ -19,9 +19,8 @@ BiocStyle::latex()
 
 \maketitle
 
-\tableofcontents
-
-\newpage
+% \tableofcontents
+% \newpage
 
 <<env, echo=FALSE>>=
 suppressPackageStartupMessages(library("Biostrings"))
@@ -133,6 +132,13 @@ working directlory.
 
 <<pxget2>>=
 pxget(px, 8) ## same as above
+@
+
+Finally, a list of recent PX additions and updates can be obtained
+using the \Rfunction{pxannounced()} function:
+
+<<pxan>>=
+pxannounced()
 @
 
 \subsection*{A simple use-case}
