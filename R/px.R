@@ -79,7 +79,7 @@ setMethod("pxfiles", "PXDataset",
           function(object) {
               ftpdir <- paste0(pxurl(object), "/")
               ans <- strsplit(getURL(ftpdir, dirlistonly = TRUE), "\n")[[1]]
-              if (Sys.info()['sysname'])
+              if (Sys.info()['sysname'] == "Windows")
                   ans <- sub("\r$", "", ans)
               ans
           })
