@@ -1,3 +1,7 @@
+CHANGES IN VERSION 0.99.1
+-------------------------
+ o fixing pxfiles ending by \r on Windows [2014-03-05 Wed]
+
 CHANGES IN VERSION 0.99.0
 -------------------------
  o added a vignette [2014-03-05 Wed]

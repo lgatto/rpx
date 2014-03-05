@@ -78,7 +78,10 @@ setMethod("pxref", "PXDataset",
 setMethod("pxfiles", "PXDataset",
           function(object) {
               ftpdir <- paste0(pxurl(object), "/")
-              strsplit(getURL(ftpdir, dirlistonly = TRUE), "\n")[[1]]
+              ans <- strsplit(getURL(ftpdir, dirlistonly = TRUE), "\n")[[1]]
+              if (Sys.info()['sysname'])
+                  ans <- sub("\r$", "", ans)
+              ans
           })
 
 
