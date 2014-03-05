@@ -7,7 +7,7 @@ Authors@R: c(person(given = "Laurent", family = "Gatto",
                     role = c("aut","cre")))
 Author: Laurent Gatto 
 Maintainer: Laurent Gatto <lg390@cam.ac.uk>
-Description: This package implements and interface to the proteomics 
+Description: This package implements and interface to proteomics 
 	     data submitted to the ProteomeXchange consortium.
 Depends: methods
 Imports: XML, RCurl, utils
