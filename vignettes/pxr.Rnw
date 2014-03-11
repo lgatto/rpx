@@ -3,7 +3,7 @@
 %\VignetteKeywords{Infrastructure, Bioinformatics, Proteomics, Mass spectrometry}
 %\VignettePackage{pxr}
 
-\documentclass[12pt,a4paper,english]{scrartcl}
+\documentclass[12pt]{article}
 
 <<style, eval=TRUE, echo=FALSE, results='asis'>>=
 BiocStyle::latex()
@@ -121,18 +121,17 @@ downloaded based on the \Rfunction{pxfiles(.)} output.
 
 The last argument, \Rcode{force}, can be set to \Rcode{TRUE} to force
 the download of files that already exists in the working
-directlory. By default, \Rfunction{pxget} will not download and
-overwrite a file if already available.
+directory. 
 
 <<pxget>>=
 pxget(px, "erwinia_carotovora.fasta")
-dir(pattern = "dat")
+dir(pattern = "fasta")
 @
 
 By default, \Rfunction{pxget} will not download and overwrite a file
-if already available. The last argument, \Rcode{force}, can be set to
-\Rcode{TRUE} to force the download of files that already exists in the
-working directlory.  
+if already available. The last argument of \Rfunction{pxget},
+\Rcode{force}, can be set to \Rcode{TRUE} to force the download of
+files that already exists in the working directory.
 
 <<pxget2>>=
 pxget(px, 8) ## same as above
