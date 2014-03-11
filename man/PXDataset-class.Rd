@@ -77,8 +77,9 @@
 }
 
 \references{
-  Vizcaino et al. (2013) ProteomeXchange: globally co-ordinated
-  proteomics data submission and dissemination. Nature Biotechnology.
+  Vizcaino J.A. et al. 'ProteomeXchange: globally co-ordinated
+  proteomics data submission and dissemination', Nature Biotechnology
+  2014, 32, 223 -- 226, doi:10.1038/nbt.2839.
 }
 
 \author{

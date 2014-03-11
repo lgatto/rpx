@@ -12,6 +12,7 @@ BiocStyle::latex()
 \bioctitle{\Biocpkg{pxr}: an \R{} interface to the ProteomeXchange repository}
 \author{ 
   Laurent Gatto\\
+  \email{lg390@cam.ac.uk}\\
   Computational Proteomics Unit\footnote{\url{http://cpu.sysbiol.cam.ac.uk}}
 }
 
@@ -34,10 +35,13 @@ suppressPackageStartupMessages(library("MSnbase"))
 
 The goal of the \Biocpkg{pxr} package is to provide programmatic
 access to proteomics data from \R{}, in particular to the
-ProteomeXchange (PX) central repository (see
-\url{http://www.proteomexchange.org/} and
-\url{http://central.proteomexchange.org/}). Additional repositories
-are likely to be added in the future.
+ProteomeXchange\footnote{ 
+  Vizca\'ino J.A. et al. \textit{ProteomeXchange: globally
+    co-ordinated proteomics data submission and dissemination}, Nature
+  Biotechnology 2014, 32, 223 -- 226, doi:10.1038/nbt.2839.
+} (PX) central repository (see \url{http://www.proteomexchange.org/}
+and \url{http://central.proteomexchange.org/}). Additional
+repositories are likely to be added in the future.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
