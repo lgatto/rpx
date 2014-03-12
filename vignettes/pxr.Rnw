@@ -9,6 +9,8 @@
 BiocStyle::latex()
 @
 
+\usepackage{ae} %% don't like the helvetica font
+
 \bioctitle{\Biocpkg{pxr}: an \R{} interface to the ProteomeXchange repository}
 \author{ 
   Laurent Gatto\\
