@@ -113,11 +113,14 @@ setMethod("pxget", "PXDataset",
 
 ## constructor
 PXDataset <- function(id) {
+    ## Supported formats: 1.0, 1.1 and 1.2
     url <- paste0(
         "http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=",
         id, "&outputMode=XML&test=no")
     ns10 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.0.xsd"
-    ns <- ns11 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.1.0.xsd"
+    ## 1.1 and 1.2 only differ by a few minor changes
+    ns11 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.1.0.xsd"
+    ns <- ns12 <- "http://proteomexchange.googlecode.com/svn/schema/proteomeXchange-1.2.0.xsd"
     x <- readLines(url)
     if (length(grep("ERROR", x)) > 0) {
         x <- x[grep("message=", x)]

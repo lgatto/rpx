@@ -20,13 +20,17 @@
 
 \title{Class \code{"PXDataset"}}
 
-\description{ An S4 class to store and access information about
-  ProteomeXchange (PX) data sets.  }
-
-\section{Objects from the Class}{ Objects can be created with the
-  constructor \code{PXDataset}
-
+\description{
+  An S4 class to store and access information about ProteomeXchange (PX)
+  data sets. Schema versions 1.0, 1.1 and 1.2 are supported and are
+  documented on the PX code repository:
+  https://code.google.com/p/proteomexchange/source/browse/schema/
 }
+
+\section{Objects from the Class}{
+  Objects can be created with the constructor \code{PXDataset}.
+}
+
 \section{Slots}{
   \describe{
     \item{\code{id}:}{Object of class \code{"character"} storing the
@@ -80,6 +84,9 @@
   Vizcaino J.A. et al. 'ProteomeXchange: globally co-ordinated
   proteomics data submission and dissemination', Nature Biotechnology
   2014, 32, 223 -- 226, doi:10.1038/nbt.2839.
+
+  Source repository for the ProteomeXchange project:
+  https://code.google.com/p/proteomexchange/
 }
 
 \author{

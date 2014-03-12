@@ -1,3 +1,9 @@
+CHANGES IN VERSION 0.99.5
+-------------------------
+ o Suggestions, biocView and typos reported by Nate Hayden
+   [2014-03-12 Wed]
+ o added Runit test [2014-03-12 Wed] 
+
 CHANGES IN VERSION 0.99.4
 -------------------------
  o Update reference in man and vignette [2014-03-11 Tue]
