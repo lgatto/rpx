@@ -81,7 +81,7 @@ pxid(px)
 @
 
 The file transfer url where the data files can be accessed can be
-queried with the\Rfunction{pxurl} method:
+queried with the \Rfunction{pxurl} method:
 
 <<purl>>=
 pxurl(px)
@@ -96,7 +96,7 @@ pxtax(px)
 
 
 Relevant bibliographic references can be queried with the
-\Rfunction{pxref} function:
+\Rfunction{pxref} method:
 
 <<pxref>>=
 strwrap(pxref(px))
@@ -114,12 +114,12 @@ The complete or partial data set can be downloaded with the
 \Rfunction{pxget} function. The function takes an instance of class
 \Robject{PXDataset} as first mandatory argument.
 
-The next argument, \Rcode{list}, specifies what files to be
-downloaded. If missing, a menu is printed and the user can select a
-file. If set as \Rcode{all}, all files of the experiment are
-downloaded in the working directory. Alternatively, numerics or
-logicals can also be used to subset the relevant files to be
-downloaded based on the \Rfunction{pxfiles(.)} output.
+The next argument, \Rcode{list}, specifies what files to download. If
+missing, a menu is printed and the user can select a file. If set to
+\Rcode{"all"}, all files of the experiment are downloaded in the
+working directory. Alternatively, numerics or logicals can also be
+used to subset the relevant files to be downloaded based on the
+\Rfunction{pxfiles(.)} output.
 
 The last argument, \Rcode{force}, can be set to \Rcode{TRUE} to force
 the download of files that already exists in the working
@@ -175,6 +175,6 @@ head(fData(x)[, 1:2])
 toLatex(sessionInfo(), locale = FALSE)
 @
 
-%% \bibliography{pxr}
+%% \bibliography{rpx}
 
 \end{document}
