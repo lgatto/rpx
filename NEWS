@@ -1,3 +1,11 @@
+CHANGES IN VERSION 0.99.7
+-------------------------
+ o renamed to rpx due to CRAN nameclash [2014-03-28]
+
+CHANGES IN VERSION 0.99.6
+-------------------------
+ o more typos in vignette [2014-03-12 Wed] 
+
 CHANGES IN VERSION 0.99.5
 -------------------------
  o Suggestions, biocView and typos reported by Nate Hayden
