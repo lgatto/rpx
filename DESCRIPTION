@@ -1,4 +1,4 @@
-Package: pxr
+Package: rpx
 Type: Package
 Title: R Interface to the ProteomeXchange Repository
 Version: 0.99.6
