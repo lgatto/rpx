@@ -1,0 +1,6 @@
+setGeneric("pxid", function(object) standardGeneric("pxid"))
+setGeneric("pxurl", function(object) standardGeneric("pxurl"))
+setGeneric("pxtax", function(object) standardGeneric("pxtax"))
+setGeneric("pxref", function(object) standardGeneric("pxref"))
+setGeneric("pxfiles", function(object) standardGeneric("pxfiles"))
+setGeneric("pxget", function(object, ...) standardGeneric("pxget"))
