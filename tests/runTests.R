@@ -1,1 +1,1 @@
-BiocGenerics:::testPackage("pxr")
+BiocGenerics:::testPackage("rpx")
