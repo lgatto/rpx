@@ -1,3 +1,8 @@
+CHANGES IN VERSION 0.99.8
+-------------------------
+ o In pxref, dealing with cases without any or pending publications
+   [2014-04-01 Tue]
+
 CHANGES IN VERSION 0.99.7
 -------------------------
  o renamed to rpx due to CRAN name clash [2014-03-28]

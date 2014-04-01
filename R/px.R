@@ -65,13 +65,25 @@ setMethod("pxtax", "PXDataset",
           })
 
 
-
 setMethod("pxref", "PXDataset",
-          function(object) {
+          function(object) {              
               p <- "//cvParam[@accession = 'PRIDE:0000400']"
-              x <- xmlAttrs(getNodeSet(doc = object@Data, path = p)[[1]])["value"]
-              names(x) <- NULL
-              x
+              q <- "//cvParam[@accession = 'PRIDE:0000432']"    
+              refnode <- getNodeSet(doc = object@Data, path = p)
+              pendingrefnode <- getNodeSet(doc = object@Data, path = q)
+              ans <- NA
+              if (length(refnode) > 0) {
+                  ## there is a publication
+                  ans <- xmlAttrs(refnode[[1]])["value"]
+                  names(ans) <- NULL
+              } else if (length(pendingrefnode) > 0) { 
+                  ## maybe a pending publication?                  
+                  ans <- xmlAttrs(pendingrefnode[[1]])["name"]
+                  names(ans) <- NULL                  
+              } else {
+                  message("No (pending) publication found")
+              }
+              return(ans)
           })
 
 
