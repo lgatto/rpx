@@ -1,7 +1,12 @@
-CHANGES IN VERSION 0.99.8
+CHANGES IN VERSION 0.99.9
 -------------------------
  o In pxref, dealing with cases without any or pending publications
    [2014-04-01 Tue]
+
+CHANGES IN VERSION 0.99.8
+-------------------------
+ o fix leftover issues from renaming package (d.tenenbaum)
+   [2014-03-30 Sun]
 
 CHANGES IN VERSION 0.99.7
 -------------------------
