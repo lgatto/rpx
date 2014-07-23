@@ -1,7 +1,7 @@
 Package: rpx
 Type: Package
 Title: R Interface to the ProteomeXchange Repository
-Version: 0.99.9
+Version: 1.1.1
 Authors@R: c(person(given = "Laurent", family = "Gatto",
 	            email = "lg390@cam.ac.uk", 
                     role = c("aut","cre")))
@@ -11,7 +11,7 @@ Description: This package implements an interface to proteomics
 	     data submitted to the ProteomeXchange consortium.
 Depends: methods
 Imports: XML, RCurl, utils
-Suggests: MSnbase, Biostrings, BiocStyle, BiocGenerics, RUnit
+Suggests: MSnbase, Biostrings, BiocStyle, BiocGenerics, RUnit, knitr
 License: GPL-2
 VignetteBuilder: knitr
 biocViews: Proteomics, MassSpectrometry, DataImport, ThirdPartyClient
