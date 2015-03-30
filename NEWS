@@ -1,3 +1,8 @@
+CHANGES IN VERSION 1.3.1
+------------------------
+o update vignette to reflect new files in px example, and avoid
+  downloaded the raw data [2015-03-31 Tue]
+
 CHANGES IN VERSION 0.99.9
 -------------------------
  o In pxref, dealing with cases without any or pending publications
