@@ -136,7 +136,8 @@ if already available. The last argument of \Rfunction{pxget},
 files that already exists in the working directory.
 
 <<pxget2>>=
-pxget(px, 8) ## same as above
+(i <- grep("fasta", pxfiles(px)))
+pxget(px, i) ## same as above
 @
 
 Finally, a list of recent PX additions and updates can be obtained
