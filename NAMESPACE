@@ -30,5 +30,5 @@ exportMethods(show,
               pxfiles,
               pxget)
 
-export(pxannounced)
-
+export(pxannounced,
+       pxnodes)
