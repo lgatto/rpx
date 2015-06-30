@@ -15,3 +15,17 @@ test_px1 <- function() {
     checkEquals(pxtax(px1), "Erwinia carotovora")
     checkEquals(pxurl(px1), url)    
 }
+
+test_pxv <- function() {
+    p <- PXDataset("PXD000001") ## v 1.0.0
+    checkEquals(p@formatVersion, "1.0.0")
+    q <- PXDataset("PXD000507")
+    checkEquals(q@formatVersion, "1.2.0")
+    ## can't find a version 1.1.0
+    xx <- as.character(pxannounced()[, "Data.Set"])
+    ## take 1/2 to reduce time
+    i <- seq(1, length(xx), 2)
+    vv <- sapply(xx[i], function(x) PXDataset(x)@formatVersion)
+    ## This will fail as soon as a new schema version is out
+    checkTrue(all(unique(vv) %in% c("1.0.0", "1.1.0", "1.2.0")))
+}
