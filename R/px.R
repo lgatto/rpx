@@ -26,7 +26,20 @@ setMethod("show", "PXDataset",
               }
           })
 
+##' Returns the node names of the underliyng XML content of an
+##' \code{PXDataset} object, available in the \code{Data} slot. This
+##' function is meant to be used if additional parsing of the XML
+##' structure is needed.
+##'
+##' @title Return the nodes of a \code{PXDataset}
+##' @param pxdata An instance of class \code{PXDataset}.
+##' @param name The name of a node.
+##' @param all Should node from all levels be returned. Default is
+##' \code{FALSE}.
+##' @return A \code{character} with XML node names.
+##' @author Laurent Gatto
 pxnodes <- function(pxdata, name, all = FALSE) {
+    stopifnot(inherits(pxdata, "PXDataset"))
     if (all) {
         ans <- names(unlist(pxdata@Data))
         ans <- ans[grep("children", ans)]
