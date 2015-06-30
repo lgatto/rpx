@@ -147,6 +147,13 @@ using the \Rfunction{pxannounced()} function:
 pxannounced()
 @
 
+Finally, a list of recent PX additions and updates can be obtained
+using the \Rfunction{pxannounced()} function:
+
+<<pxan>>=
+pxannounced()
+@
+
 \subsection*{A simple use-case}
 
 Below, we show how to automate the extraction of files of interest
