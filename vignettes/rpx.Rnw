@@ -151,7 +151,9 @@ pxannounced()
 
 Below, we show how to automate the extraction of files of interest
 (fasta and mzTab files), download them and read them using appropriate
-Bioconductor infrastructure.
+Bioconductor infrastructure. (Note that we read version 0.9 of the
+MzTab format below. For recent data, the \Rcode{version} argument
+would be omitted.)
 
 <<more, warning=FALSE>>=
 (mzt <- grep("F0.+mztab", pxfiles(px), value = TRUE))
@@ -162,7 +164,7 @@ library("Biostrings")
 readAAStringSet(fas)
 
 library("MSnbase")
-(x <- readMzTabData(mzt, "PEP"))
+(x <- readMzTabData(mzt, "PEP", version = "0.9"))
 head(exprs(x))
 head(fData(x)[, 1:2])
 @
