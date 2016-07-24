@@ -162,7 +162,7 @@ library("Biostrings")
 readAAStringSet(fas)
 
 library("MSnbase")
-(x <- readMzTabData(mzt, "PEP"))
+(x <- readMzTabData(mzt, "PEP", version = "0.9"))
 head(exprs(x))
 head(fData(x)[, 1:2])
 @
