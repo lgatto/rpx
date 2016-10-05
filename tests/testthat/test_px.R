@@ -28,10 +28,12 @@ test_that("PXD000001", {
 
 
 test_that("PXD version", {
-    p <- PXDataset("PXD000001") ## v 1.2.0
+    p <- PXDataset("PXD000001")
     expect_identical(p@formatVersion, c(formatVersion = "1.2.0"))
-    q <- PXDataset("PXD004938")
-    expect_identical(q@formatVersion, c(formatVersion = "1.3.0"))
+    p <- PXDataset("PXD000561")
+    expect_identical(p@formatVersion, c(formatVersion = "1.2.0"))
+    p <- PXDataset("PXD004938")
+    expect_identical(p@formatVersion, c(formatVersion = "1.3.0"))
 })
 
 test_that("PX announcements", {
