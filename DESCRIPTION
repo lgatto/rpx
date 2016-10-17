@@ -1,7 +1,7 @@
 Package: rpx
 Type: Package
 Title: R Interface to the ProteomeXchange Repository
-Version: 1.9.4
+Version: 1.10.0
 Authors@R: c(person(given = "Laurent", family = "Gatto",
 	            email = "lg390@cam.ac.uk", 
                     role = c("aut","cre")))
