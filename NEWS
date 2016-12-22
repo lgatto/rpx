@@ -1,3 +1,15 @@
+CHANGES IN VERSION 1.11.1
+-------------------------
+ o Migrate vignette to BiocStyle::html_document2 <2016-12-22 Thu>
+
+CHANGES IN VERSION 1.11.0
+-------------------------
+ o Bioconductor devel 3.5
+
+CHANGES IN VERSION 1.10.0
+-------------------------
+ o Bioconductor release 3.4
+ 
 CHANGES IN VERSION 1.9.4
 ------------------------
  o Updating unit tests <2016-10-04 Tue>

@@ -1,14 +1,12 @@
+[![Build Status](https://travis-ci.org/lgatto/rpx.svg?branch=master)](https://travis-ci.org/lgatto/rpx)
+[![codecov](https://codecov.io/gh/lgatto/rpx/branch/master/graph/badge.svg)](https://codecov.io/gh/lgatto/rpx)
+
 ## R Interface to the ProteomeXchange Repository
 
-Thre `rpx` package is a simple interface to proteomics data submitted
-to the ProteomeXchange consortium. See the official Bioconductor
-[page](http://bioconductor.org/packages/release/bioc/html/rpx.html),
-and in particular the
-[vignette](http://bioconductor.org/packages/release/bioc/vignettes/rpx/inst/doc/rpx.pdf)
-for details.
+Thre `rpx` package is a simple interface to proteomics data available
+in the ProteomeXchange repository. The official Bioconductor is
+[here](http://bioconductor.org/packages/release/bioc/html/rpx.html). The
+[GitHub](http://lgatto.github.io/rpx) page allows to browse the
+documentation and the vignette.
 
 
-### TODO/notes
-
-- maybe also provide interface to the PRIDE repo
-- is it possibly to get a list of all valid PX ids?

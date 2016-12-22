@@ -1,1 +1,10 @@
 sandbox
+.travis.yml
+articles
+authors.html
+index.html
+jquery.sticky-kit.min.js
+link.svg
+pkgdown.css
+pkgdown.js
+reference
