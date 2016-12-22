@@ -154,7 +154,11 @@ head(exprs(x))
 head(fData(x)[, 1:2])
 ```
 
+# Questions and help
 
+Eithe post questions on the
+[Bioconductor support forum](https://support.bioconductor.org/) or
+open a GitHub [issue](https://github.com/lgatto/rpx/issues).
 
 # Session information
 
