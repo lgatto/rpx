@@ -165,3 +165,8 @@ open a GitHub [issue](https://github.com/lgatto/rpx/issues).
 ```{r si}
 sessionInfo()
 ```
+
+```{r clean, echo = FALSE}
+unlink("erwinia_carotovora.fasta")
+unlink("F063721.dat-mztab.txt")
+```
