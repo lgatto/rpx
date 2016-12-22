@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/lgatto/rpx.svg?branch=master)](https://travis-ci.org/lgatto/rpx)
+[![codecov](https://codecov.io/gh/lgatto/rpx/branch/master/graph/badge.svg)](https://codecov.io/gh/lgatto/rpx)
+
 ## R Interface to the ProteomeXchange Repository
 
 Thre `rpx` package is a simple interface to proteomics data available
