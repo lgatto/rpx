@@ -37,9 +37,7 @@ r_packages:
 after_success:
   - Rscript -e 'library(covr); codecov()'
 
-# print timings (of examples) and sysinfo
 after_script:
-  - dump_logs_by_extension "timings"
   - dump_sysinfo
 
 notifications:
