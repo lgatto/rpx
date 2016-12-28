@@ -10,3 +10,10 @@ in the ProteomeXchange repository. The official Bioconductor is
 documentation and the vignette.
 
 
+### Installation
+
+```
+## try http:// if https:// URLs are not supported
+source("https://bioconductor.org/biocLite.R")
+biocLite("rpx")
+```
