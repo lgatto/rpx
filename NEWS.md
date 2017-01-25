@@ -1,5 +1,9 @@
 # rpx 1.11
 
+## CHANGES IN VERSION 1.11.2
+
+- Update unit test to reflect upstream changes <2017-01-25 Wed>
+
 ## CHANGES IN VERSION 1.11.1
 
 - Migrate vignette to BiocStyle::html_document2 <2016-12-22 Thu>

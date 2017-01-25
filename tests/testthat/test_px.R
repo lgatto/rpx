@@ -6,7 +6,8 @@ test_that("PXD000001", {
     ## Assertions manually looked up at
     url <- "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001"
     pxf <- pxfiles(px1)
-    fls <- sort(c("F063721.dat",
+    fls <- sort(c("README.txt",
+                  "F063721.dat",
                   "F063721.dat-mztab.txt",
                   "PRIDE_Exp_Complete_Ac_22134.xml.gz",
                   "PRIDE_Exp_mzData_Ac_22134.xml.gz",
@@ -16,7 +17,7 @@ test_that("PXD000001", {
                   "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML",
                   "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML",
                   "erwinia_carotovora.fasta"))
-    expect_identical(length(pxf), 10L)
+    expect_identical(length(pxf), 11L)
     expect_identical(sort(pxf), fls)
     expect_identical(pxtax(px1), "Erwinia carotovora")
     expect_identical(pxurl(px1), url)
