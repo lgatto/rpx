@@ -37,8 +37,13 @@ r_packages:
 after_success:
   - Rscript -e 'library(covr); codecov()'
 
+<<<<<<< HEAD
 after_script:
   - dump_sysinfo
+=======
+# after_script:
+#   - dump_sysinfo
+>>>>>>> master
 
 notifications:
   email:

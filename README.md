@@ -9,4 +9,16 @@ in the ProteomeXchange repository. The official Bioconductor is
 [GitHub](http://lgatto.github.io/rpx) page allows to browse the
 documentation and the vignette.
 
+Thre `rpx` package is a simple interface to proteomics data available
+in the ProteomeXchange repository. The official Bioconductor is
+[here](http://bioconductor.org/packages/release/bioc/html/rpx.html). The
+[GitHub](http://lgatto.github.io/rpx) page allows to browse the
+documentation and the vignette.
 
+### Installation
+
+```
+## try http:// if https:// URLs are not supported
+source("https://bioconductor.org/biocLite.R")
+biocLite("rpx")
+```
