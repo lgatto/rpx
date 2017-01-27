@@ -1,10 +1,10 @@
 
-## CHANGES IN VERSION 1.11.3
+CHANGES IN VERSION 1.11.3
 
 - `pxget` gains a `destdir` argument to specify the destination to which files
     should be downloaded <2017-01-27 Fri>
 
-## CHANGES IN VERSION 1.11.2
+CHANGES IN VERSION 1.11.2
 
 - Update unit test to reflect upstream changes <2017-01-25 Wed>
 
