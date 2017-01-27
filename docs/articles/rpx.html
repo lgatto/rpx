@@ -89,8 +89,8 @@ id &lt;-<span class="st"> "PXD000001"</span>
 px &lt;-<span class="st"> </span><span class="kw"><a href="../reference/PXDataset-class.html">PXDataset</a></span>(id)
 px</code></pre>
 <pre><code>## Object of class "PXDataset"
-##  Id: PXD000001 with 10 files
-##  [1] 'F063721.dat' ... [10] 'erwinia_carotovora.fasta'
+##  Id: PXD000001 with 11 files
+##  [1] 'F063721.dat' ... [11] 'erwinia_carotovora.fasta'
 ##  Use 'pxfiles(.)' to see all files.</code></pre>
 </div>
 <div id="data-and-meta-data" class="section level2">
@@ -118,45 +118,44 @@ px</code></pre>
 ##  [3] "PRIDE_Exp_Complete_Ac_22134.xml.gz"                                  
 ##  [4] "PRIDE_Exp_mzData_Ac_22134.xml.gz"                                    
 ##  [5] "PXD000001_mztab.txt"                                                 
-##  [6] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML" 
-##  [7] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML"
-##  [8] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML"         
-##  [9] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw"           
-## [10] "erwinia_carotovora.fasta"</code></pre>
+##  [6] "README.txt"                                                          
+##  [7] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML" 
+##  [8] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML"
+##  [9] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML"         
+## [10] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw"           
+## [11] "erwinia_carotovora.fasta"</code></pre>
 <p>The complete or partial data set can be downloaded with the <code>pxget</code> function. The function takes an instance of class <code>PXDataset</code> as first mandatory argument.</p>
 <p>The next argument, <code>list</code>, specifies what files to download. If missing, a menu is printed and the user can select a file. If set to <code>"all"</code>, all files of the experiment are downloaded in the working directory. Alternatively, numerics or logicals can also be used to subset the relevant files to be downloaded based on the <code><a href="../reference/PXDataset-class.html">pxfiles(.)</a></code> output.</p>
 <p>The last argument, <code>force</code>, can be set to <code>TRUE</code> to force the download of files that already exists in the working directory.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/PXDataset-class.html">pxget</a></span>(px, <span class="st">"erwinia_carotovora.fasta"</span>)</code></pre>
 <pre><code>## Downloading 1 file</code></pre>
-<pre><code>## Warning in download.file(urls[i], toget[i], ...): downloaded length
-## 1608768 != reported length 1657668</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dir</span>(<span class="dt">pattern =</span> <span class="st">"fasta"</span>)</code></pre>
 <pre><code>## [1] "erwinia_carotovora.fasta"</code></pre>
 <p>By default, <code>pxget</code> will not download and overwrite a file if already available. The last argument of <code>pxget</code>, <code>force</code>, can be set to <code>TRUE</code> to force the download of files that already exists in the working directory.</p>
 <pre class="sourceCode r"><code class="sourceCode r">(i &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="st">"fasta"</span>, <span class="kw"><a href="../reference/PXDataset-class.html">pxfiles</a></span>(px)))</code></pre>
-<pre><code>## [1] 10</code></pre>
+<pre><code>## [1] 11</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/PXDataset-class.html">pxget</a></span>(px, i) ## same as above</code></pre>
 <pre><code>## Downloading 1 file</code></pre>
 <pre><code>## erwinia_carotovora.fasta already present.</code></pre>
 <p>Finally, a list of recent PX additions and updates can be obtained using the <code><a href="../reference/pxannounced.html">pxannounced()</a></code> function:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/pxannounced.html">pxannounced</a></span>()</code></pre>
 <pre><code>## 15 new ProteomeXchange annoucements</code></pre>
-<pre><code>##     Data.Set    Publication.Data Message
-## 1  PXD005626 2016-12-26 12:14:40     New
-## 2  PXD004263 2016-12-24 17:54:35     New
-## 3  PXD004995 2016-12-24 06:09:07     New
-## 4  PXD005604 2016-12-24 02:24:29     New
-## 5  PXD005543 2016-12-24 02:13:08     New
-## 6  PXD003457 2016-12-24 02:05:37     New
-## 7  PXD003702 2016-12-24 01:55:46     New
-## 8  PXD000752 2016-12-23 23:54:44     New
-## 9  PXD004753 2016-12-23 23:28:52     New
-## 10 PXD004190 2016-12-23 23:06:22     New
-## 11 PXD004253 2016-12-23 21:38:37     New
-## 12 PXD004965 2016-12-23 21:08:17     New
-## 13 PXD004945 2016-12-23 19:49:30     New
-## 14 PXD001481 2016-12-23 19:15:59     New
-## 15 PXD004351 2016-12-23 18:25:20     New</code></pre>
+<pre><code>##     Data.Set    Publication.Data             Message
+## 1  PXD004292 2017-01-24 18:13:41                 New
+## 2  PXD003457 2017-01-24 11:07:36 Updated information
+## 3  PXD004447 2017-01-24 11:06:45 Updated information
+## 4  PXD005688 2017-01-24 09:18:50                 New
+## 5  PXD005770 2017-01-23 23:17:59                 New
+## 6  PXD004461 2017-01-23 19:13:52                 New
+## 7  PXD000219 2017-01-23 18:12:31                 New
+## 8  PXD002816 2017-01-23 15:47:59                 New
+## 9  PXD005106 2017-01-23 10:16:14                 New
+## 10 PXD004585 2017-01-23 09:54:13 Updated information
+## 11 PXD005356 2017-01-23 09:28:16                 New
+## 12 PXD005142 2017-01-23 09:27:15                 New
+## 13 PXD004732 2017-01-23 09:16:03                 New
+## 14 PXD004655 2017-01-20 13:03:03                 New
+## 15 PXD005489 2017-01-20 07:53:59 Updated information</code></pre>
 </div>
 <div id="a-simple-use-case" class="section level2">
 <h2 class="hasAnchor">
@@ -171,7 +170,7 @@ px</code></pre>
 <pre><code>## erwinia_carotovora.fasta already present.</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">"Biostrings"</span>)
 <span class="kw">readAAStringSet</span>(fas)</code></pre>
-<pre><code>##   A AAStringSet instance of length 4368
+<pre><code>##   A AAStringSet instance of length 4499
 ##        width seq                                       names               
 ##    [1]   147 MADITLISGSTLGSAEYVA...QIPEDPAEEWLGSWVNLLK ECA0001 putative ...
 ##    [2]   153 VAEIYQIDNLDRGILSALM...QSTETLISLQNPIMRTIAP ECA0002 AsnC-fami...
@@ -179,11 +178,11 @@ px</code></pre>
 ##    [4]   492 MITLESLEMLLSIDENELL...FDTGLKSRLMRRWQHGKAY ECA0004 conserved...
 ##    [5]   499 MRQTAALAERISRLSHALE...IEASLQQVAEQIQQSEQQD ECA0005 conserved...
 ##    ...   ... ...
-## [4364]   124 MTLLKSALFSFIITGSGAA...TSSQLATMPNNNTMPHNQL ECA4404 putative ...
-## [4365]   428 LSVEVQLTFNAVGHQLTNI...YMREIDGFNQLFVVACLSS ECA4405 conserved...
-## [4366]    85 MKNVKTIAAAVVLATMTFG...TITSATGNDQLRGSAVIFN ECA4406 putative ...
-## [4367]   465 MHDHLQNDFRFPANFWWGS...RTVKKSGEWFATVAAENGF ECA4407_1 putativ...
-## [4368]   372 MHDHLQNDFRFPANFWWGS...LTNLRVNYGNPRCFISENG ECA4407_2 putativ...</code></pre>
+## [4495]   634 MSDKIIHLTDDSFDTDVLK...KVDPLRVFASDMARRLELL trx-rv3790 trx-rv...
+## [4496]    93 MTKMNNKARRTARELKHLG...LRDEFPMGYLGDYKDDDDK TimBlower TimBlower
+## [4497]   309 MFSNLSKRWAQRTLSKSFY...KWAGIKTRKFVFNPPKPRK sp|P07143|CY1_YEA...
+## [4498]   231 FPTDDDDKIVGGYTCAANS...VYTKVCNYVNWIQQTIAAN sp|P00761|TRYP_PI...
+## [4499]   269 GVSGSCNIDVVCPEGNGHR...AGTGAQFIDGLDSTGTPPV sp|Q7M135|LYSC_LY...</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">"MSnbase"</span>)
 (x &lt;-<span class="st"> </span><span class="kw">readMzTabData</span>(mzt, <span class="st">"PEP"</span>, <span class="dt">version =</span> <span class="st">"0.9"</span>))</code></pre>
 <pre><code>## MSnSet (storageMode: lockedEnvironment)
@@ -201,8 +200,8 @@ px</code></pre>
 ## experimentData: use 'experimentData(object)'
 ## Annotation:  
 ## - - - Processing information - - -
-## mzTab read: Wed Dec 28 19:01:44 2016 
-##  MSnbase version: 2.1.7</code></pre>
+## mzTab read: Fri Jan 27 19:54:27 2017 
+##  MSnbase version: 2.1.9</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">exprs</span>(x))</code></pre>
 <pre><code>##     sub[1]   sub[2]   sub[3]   sub[4]   sub[5]   sub[6]
 ## 1 10630132 11238708 12424917 10997763  9928972 10398534
@@ -247,30 +246,30 @@ px</code></pre>
 ## [8] methods   base     
 ## 
 ## other attached packages:
-##  [1] rpx_1.11.1          MSnbase_2.1.7       ProtGenerics_1.7.0 
-##  [4] BiocParallel_1.9.3  mzR_2.9.1           Rcpp_0.12.8.3      
-##  [7] Biobase_2.35.0      Biostrings_2.43.1   XVector_0.15.0     
-## [10] IRanges_2.9.14      S4Vectors_0.13.5    BiocGenerics_0.21.1
+##  [1] rpx_1.11.1          MSnbase_2.1.9       ProtGenerics_1.7.0 
+##  [4] BiocParallel_1.9.5  mzR_2.9.4           Rcpp_0.12.9        
+##  [7] Biobase_2.35.0      Biostrings_2.43.3   XVector_0.15.1     
+## [10] IRanges_2.9.15      S4Vectors_0.13.8    BiocGenerics_0.21.3
 ## [13] BiocStyle_2.3.28    pkgdown_0.1.0.9000 
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] purrr_0.2.2           reshape2_1.4.2        lattice_0.20-34      
 ##  [4] colorspace_1.3-2      htmltools_0.3.5       yaml_2.1.14          
 ##  [7] vsn_3.43.7            XML_3.98-1.5          withr_1.0.2          
-## [10] affy_1.53.0           msdata_0.15.0         foreach_1.4.3        
+## [10] affy_1.53.0           msdata_0.15.1         foreach_1.4.3        
 ## [13] affyio_1.45.0         plyr_1.8.4            mzID_1.13.0          
 ## [16] stringr_1.1.0         zlibbioc_1.21.0       munsell_0.4.3        
 ## [19] pcaMethods_1.67.0     gtable_0.2.0          codetools_0.2-15     
 ## [22] evaluate_0.10         knitr_1.15.1          doParallel_1.0.10    
-## [25] BiocInstaller_1.25.2  preprocessCore_1.37.0 backports_1.0.4      
-## [28] scales_0.4.1          limma_3.31.7          desc_1.0.1           
-## [31] pkgload_0.0.0.9000    impute_1.49.0         ggplot2_2.2.0        
-## [34] digest_0.6.10         stringi_1.1.2         rprojroot_1.1        
+## [25] BiocInstaller_1.25.3  preprocessCore_1.37.0 backports_1.0.5      
+## [28] scales_0.4.1          limma_3.31.9          desc_1.0.1           
+## [31] pkgload_0.0.0.9000    impute_1.49.0         ggplot2_2.2.1        
+## [34] digest_0.6.11         stringi_1.1.2         rprojroot_1.2        
 ## [37] grid_3.4.0            bitops_1.0-6          tools_3.4.0          
 ## [40] magrittr_1.5          RCurl_1.95-4.8        lazyeval_0.2.0       
 ## [43] tibble_1.2            crayon_1.3.2          whisker_0.3-2        
 ## [46] iterators_1.0.8       assertthat_0.1        rmarkdown_1.3        
-## [49] roxygen2_5.0.1        R6_2.2.0              MALDIquant_1.16      
+## [49] roxygen2_5.0.1        R6_2.2.0              MALDIquant_1.16.1    
 ## [52] compiler_3.4.0</code></pre>
 </div>
 </div>
