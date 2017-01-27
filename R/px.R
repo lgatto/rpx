@@ -111,7 +111,7 @@ setMethod("pxfiles", "PXDataset",
 
 
 setMethod("pxget", "PXDataset",
-          function(object, list, force=FALSE, ...) {
+          function(object, list, force=FALSE, destdir=getwd(), ...) {
               fls <- pxfiles(object)
               url <- pxurl(object)
               if (missing(list)) 
@@ -126,6 +126,7 @@ setMethod("pxget", "PXDataset",
               if (length(toget) < 1)
                   stop("No files to download.")
               urls <- gsub(" ", "\ ", paste0(url, "/", toget))
+              toget <- file.path(destdir, toget)
               message("Downloading ", length(urls), " file",
                       ifelse(length(urls) > 1, "s", ""))
               for (i in 1:length(urls)) {
