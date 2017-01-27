@@ -27,6 +27,18 @@ test_that("PXD000001", {
     expect_equal(length(Biostrings::readAAStringSet(fa)), 4499)
 })
 
+test_that("pxget uses destdir", {
+    ## create tempdir
+    tmpdir <- file.path(tempdir(), "PXD000001fasta")
+    dir.create(tmpdir, showWarnings=FALSE, recursive=TRUE)
+    on.exit(unlink(tmpdir, recursive=TRUE))
+
+    px <- PXDataset("PXD000001")
+    fa <- pxget(px, "erwinia_carotovora.fasta", destdir=tmpdir)
+
+    expect_equal(fa, file.path(tmpdir, "erwinia_carotovora.fasta"))
+    expect_equal(length(Biostrings::readAAStringSet(fa)), 4499)
+})
 
 test_that("PXD version", {
     p <- PXDataset("PXD000001")

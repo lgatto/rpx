@@ -48,15 +48,16 @@
     \item{pxfiles}{\code{signature(object = "PXDataset")}: return a
       \code{character} of all available files. }
 
-    \item{pxget}{\code{signature(object = "PXDataset", list, force =
-      FALSE, ...)}: downloads the files from the ProteomeXchange
-      repository. If \code{list} is missing, the file to be downloaded
-      can be selected from a menu. If \code{list = "all"}, all files are
-      downloaded. The file names, as returned by \code{pxfiles} can also
-      be used. Alternatively, a \code{logical} or \code{numeric} indices
-      can be used. All files will be downloaded in the working
-      directory. Unless \code{force} is set to \code{TRUE}, files are
-      not downloaded if already present in the working directory.
+    \item{pxget}{\code{signature(object = "PXDataset", list,
+      force = FALSE, destdir = getwd(), ...)}: downloads the files from
+      the ProteomeXchange repository. If \code{list} is missing, the file
+      to be downloaded can be selected from a menu. If \code{list = "all"},
+      all files are downloaded. The file names, as returned by \code{pxfiles}
+      can also be used. Alternatively, a \code{logical} or \code{numeric}
+      indices can be used. All files will be downloaded into the directory
+      specified by \code{destdir} (default is the current working
+      directory). Unless \code{force} is set to \code{TRUE}, files are
+      not downloaded if already present in the \code{destdir} directory.
       Additional parameters can be passed to \code{\link{download.file}}
       via \code{...}.  Invisibly returns the names of the downloaded
       files. }
