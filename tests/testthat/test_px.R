@@ -16,6 +16,7 @@ test_that("PXD000001", {
                   "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw",
                   "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML",
                   "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML",
+                  "generated",
                   "erwinia_carotovora.fasta"))
     expect_identical(length(pxf), 11L)
     expect_identical(sort(pxf), fls)

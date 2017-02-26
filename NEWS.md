@@ -1,5 +1,9 @@
 # rpx 1.11
 
+## CHANGES IN VERSION 1.11.4
+
+- Update unit test to reflect upstream changes <2017-02-26 Sun>
+
 ## CHANGES IN VERSION 1.11.3
 
 - `pxget` gains a `destdir` argument to specify the destination to which files
