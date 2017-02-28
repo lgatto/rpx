@@ -1,6 +1,6 @@
 # rpx 1.11
 
-## CHANGES IN VERSION 1.11.4
+## CHANGES IN VERSION 1.11.5
 - (nothing yet)
 
 ## CHANGES IN VERSION 1.11.4
