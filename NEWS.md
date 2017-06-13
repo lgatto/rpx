@@ -85,7 +85,7 @@
 
 ## CHANGES IN VERSION 1.3.1
 
-o update vignette to reflect new files in px example, and avoid
+- update vignette to reflect new files in px example, and avoid
   downloaded the raw data [2015-03-31 Tue]
 
 # rpx 0.99
