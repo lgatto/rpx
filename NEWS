@@ -1,8 +1,8 @@
 CHANGES IN VERSION 1.12.1
 -------------------------
 
-- Using xml2 <2017-06-13 Tue>
-- Use functions instead of methods <2017-06-13 Tue>
+- Using xml2 (backported from devel) <2017-06-13 Tue>
+- Use functions instead of methods (backported from devel) <2017-06-13 Tue>
 
 CHANGES IN VERSION 1.12.0
 -------------------------
