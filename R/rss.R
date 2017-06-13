@@ -10,28 +10,18 @@
 pxannounced <- function() {
     rss <-
         "https://groups.google.com/forum/feed/proteomexchange/msgs/rss_v2_0.xml"
-    doc <- tryCatch(getURL(rss),
-                    error = function(e) {
-                        getURL(rss, ssl.verifypeer = FALSE)
-                    })    
-    doc <- xmlParse(doc)
-
+    x <- read_xml(rss)
     ## parse title
-    ttls <- getNodeSet(doc, "//title")    
-    ttls <- xmlSApply(ttls, function(xx) xmlSApply(xx, xmlValue))[-1]
+    ttls <- unlist(as_list(xml_find_all(x, "//title")))[-1]
     msg <- sub(" ProteomeXchange dataset.+$", "", ttls)
     msg <- sub(" for", "", msg)
     dat <- sub("^.+dataset ", "", ttls)
     n <- length(ttls)
     message(n, " new ProteomeXchange annoucements")
     names(ttls) <- NULL
-
     ## parse pubDate
-    pubs <- getNodeSet(doc, "//pubDate")
-    pubs <- xmlSApply(pubs, function(xx) xmlSApply(xx, xmlValue))
-    names(pubs) <- NULL
+    pubs <- unlist(as_list(xml_find_all(x, "//pubDate")))
     pubs <- strptime(pubs,  "%a, %d %b %Y %H:%M:%S", tz = "GMT")
-
     ann <- data.frame(Data.Set = dat,
                       Publication.Data = pubs,
                       Message = msg)
