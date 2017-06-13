@@ -1,7 +1,21 @@
+# rpx 1.13
+
+## CHANGES IN VERSION 1.13.1
+- Using xml2 <2017-06-13 Tue>
+- Use functions instead of methods <2017-06-13 Tue>
+
+## CHANGES IN VERSION 1.13.0
+- Bioc devel 3.6
+
+# rpx 1.12
+
+## CHANGES IN VERSION 1.12.0
+- Bioc release 3.5
+
 # rpx 1.11
 
-## CHANGES IN VERSION 1.11.5
-- (nothing yet)
+## CHANGES IN VERSION 1.11.0
+- Bioc devel 3.4
 
 ## CHANGES IN VERSION 1.11.4
 
