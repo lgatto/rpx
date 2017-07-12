@@ -23,7 +23,9 @@ test_that("PXD000001", {
     expect_identical(pxtax(px1), "Erwinia carotovora")
     expect_identical(pxurl(px1), url)
     ref <- "Gatto L, Christoforou A. Using R and Bioconductor for proteomics data analysis. Biochim Biophys Acta. 2014 Jan;1844(1 Pt A):42-51. Review"
-    expect_identical(pxref(px1), ref)
+    ## temporarily remove this test - for details, see
+    ## https://twitter.com/lgatt0/status/885091284142239744
+    ## expect_identical(pxref(px1), ref)
     fa <- pxget(px1, "erwinia_carotovora.fasta")
     expect_equal(length(Biostrings::readAAStringSet(fa)), 4499)
 })
@@ -41,9 +43,9 @@ test_that("pxget uses destdir", {
 
 test_that("PXD version", {
     p <- PXDataset("PXD000001")
-    expect_identical(p@formatVersion, "1.2.0")
+    expect_identical(p@formatVersion, "1.3.0") ## was 1.2.0
     p <- PXDataset("PXD000561")
-    expect_identical(p@formatVersion, "1.2.0")
+    expect_identical(p@formatVersion, "1.2.0") 
     p <- PXDataset("PXD004938")
     expect_identical(p@formatVersion, "1.3.0")
 })
