@@ -1,7 +1,7 @@
 Package: rpx
 Type: Package
 Title: R Interface to the ProteomeXchange Repository
-Version: 1.13.1
+Version: 1.13.2
 Authors@R: c(person(given = "Laurent", family = "Gatto",
 	            email = "lg390@cam.ac.uk", 
                     role = c("aut","cre")))
@@ -20,8 +20,7 @@ Suggests:
     Biostrings,
     BiocStyle,
     testthat,
-    knitr,
-    covr
+    knitr
 License: GPL-2
 URL: https://github.com/lgatto/rpx
 BugReports: https://github.com/lgatto/rpx/issues
