@@ -37,8 +37,8 @@ r_packages:
 after_success:
   - Rscript -e 'library(covr); codecov()'
 
-# after_script:
-#   - dump_sysinfo
+after_script:
+  - dump_sysinfo
 
 notifications:
   email:
