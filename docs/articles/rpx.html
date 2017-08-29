@@ -138,26 +138,26 @@ px</code></pre></div>
 <pre><code>## [1] 11</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/PXDataset-class.html">pxget</a></span>(px, i) ## same as above</code></pre></div>
 <pre><code>## Downloading 1 file</code></pre>
-<pre><code>## /home/lg390/dev/00_github/rpx/docs/articles/erwinia_carotovora.fasta already present.</code></pre>
+<pre><code>## /home/lg390/dev/rpx/docs/articles/erwinia_carotovora.fasta already present.</code></pre>
 <p>Finally, a list of recent PX additions and updates can be obtained using the <code><a href="../reference/pxannounced.html">pxannounced()</a></code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/pxannounced.html">pxannounced</a></span>()</code></pre></div>
 <pre><code>## 15 new ProteomeXchange annoucements</code></pre>
 <pre><code>##     Data.Set    Publication.Data             Message
-## 1  PXD006766 2017-07-12 12:38:11                 New
-## 2  PXD002901 2017-07-11 12:58:23                 New
-## 3  PXD006084 2017-07-11 12:41:58                 New
-## 4  PXD002118 2017-07-11 12:39:28                 New
-## 5  PXD006377 2017-07-11 11:57:22 Updated information
-## 6  PXD006834 2017-07-11 11:56:27                 New
-## 7  PXD006103 2017-07-11 11:39:10                 New
-## 8  PXD006412 2017-07-11 11:33:13                 New
-## 9  PXD002942 2017-07-11 11:22:43                 New
-## 10 PXD005854 2017-07-11 11:12:35                 New
-## 11 PXD004244 2017-07-11 10:33:27                 New
-## 12 PXD005554 2017-07-11 10:19:41                 New
-## 13 PXD005092 2017-07-11 09:35:12                 New
-## 14 PXD004261 2017-07-11 09:31:26                 New
-## 15 PXD001828 2017-07-10 14:43:04                 New</code></pre>
+## 1  PXD005550 2017-08-29 15:39:57                 New
+## 2  PXD006080 2017-08-29 13:18:05                 New
+## 3  PXD005838 2017-08-29 13:14:36                 New
+## 4  PXD007233 2017-08-29 10:54:09                 New
+## 5  PXD005613 2017-08-29 10:36:33                 New
+## 6  PXD005606 2017-08-29 07:00:37                 New
+## 7  PXD006552 2017-08-28 15:08:57                 New
+## 8  PXD005710 2017-08-28 10:49:56                 New
+## 9  PXD006142 2017-08-28 10:43:46                 New
+## 10 PXD004291 2017-08-28 10:42:42                 New
+## 11 PXD006717 2017-08-28 10:32:47                 New
+## 12 PXD005569 2017-08-28 10:14:12                 New
+## 13 PXD006625 2017-08-28 09:48:52 Updated information
+## 14 PXD004884 2017-08-28 09:48:07 Updated information
+## 15 PXD004886 2017-08-28 09:47:34 Updated information</code></pre>
 </div>
 <div id="a-simple-use-case" class="section level2">
 <h2 class="hasAnchor">
@@ -169,7 +169,7 @@ px</code></pre></div>
 <pre><code>## [1] "erwinia_carotovora.fasta"</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/PXDataset-class.html">pxget</a></span>(px, <span class="kw">c</span>(mzt, fas))</code></pre></div>
 <pre><code>## Downloading 2 files</code></pre>
-<pre><code>## /home/lg390/dev/00_github/rpx/docs/articles/erwinia_carotovora.fasta already present.</code></pre>
+<pre><code>## /home/lg390/dev/rpx/docs/articles/erwinia_carotovora.fasta already present.</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">"Biostrings"</span>)
 <span class="kw">readAAStringSet</span>(fas)</code></pre></div>
 <pre><code>##   A AAStringSet instance of length 4499
@@ -202,8 +202,8 @@ px</code></pre></div>
 ## experimentData: use 'experimentData(object)'
 ## Annotation:  
 ## - - - Processing information - - -
-## mzTab read: Wed Jul 12 14:34:26 2017 
-##  MSnbase version: 2.3.9</code></pre>
+## mzTab read: Tue Aug 29 21:41:28 2017 
+##  MSnbase version: 2.3.10</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">exprs</span>(x))</code></pre></div>
 <pre><code>##     sub[1]   sub[2]   sub[3]   sub[4]   sub[5]   sub[6]
 ## 1 10630132 11238708 12424917 10997763  9928972 10398534
@@ -252,28 +252,28 @@ px</code></pre></div>
 ## [8] methods   base     
 ## 
 ## other attached packages:
-##  [1] rpx_1.13.1          MSnbase_2.3.9       ProtGenerics_1.9.0 
-##  [4] BiocParallel_1.11.4 mzR_2.11.4          Rcpp_0.12.11       
-##  [7] Biobase_2.37.2      Biostrings_2.45.2   XVector_0.17.0     
-## [10] IRanges_2.11.6      S4Vectors_0.15.5    BiocGenerics_0.23.0
-## [13] BiocStyle_2.5.4    
+##  [1] rpx_1.13.3          MSnbase_2.3.10      ProtGenerics_1.9.0 
+##  [4] BiocParallel_1.11.6 mzR_2.11.7          Rcpp_0.12.12       
+##  [7] Biobase_2.37.2      Biostrings_2.45.4   XVector_0.17.1     
+## [10] IRanges_2.11.12     S4Vectors_0.15.5    BiocGenerics_0.23.0
+## [13] BiocStyle_2.5.19   
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] BiocInstaller_1.27.2  compiler_3.4.0        plyr_1.8.4           
+##  [1] BiocInstaller_1.27.3  compiler_3.4.0        plyr_1.8.4           
 ##  [4] bitops_1.0-6          iterators_1.0.8       tools_3.4.0          
 ##  [7] zlibbioc_1.23.0       MALDIquant_1.16.2     digest_0.6.12        
 ## [10] evaluate_0.10.1       tibble_1.3.3          preprocessCore_1.39.0
-## [13] gtable_0.2.0          lattice_0.20-35       rlang_0.1.1.9000     
-## [16] foreach_1.4.3         curl_2.7              yaml_2.1.14          
-## [19] xml2_1.1.1            stringr_1.2.0         knitr_1.16           
+## [13] gtable_0.2.0          lattice_0.20-35       rlang_0.1.2          
+## [16] foreach_1.4.3         curl_2.8.1            yaml_2.1.14          
+## [19] xml2_1.1.1            stringr_1.2.0         knitr_1.17           
 ## [22] rprojroot_1.2         grid_3.4.0            impute_1.51.0        
-## [25] XML_3.98-1.9          rmarkdown_1.6         limma_3.33.3         
+## [25] XML_3.98-1.9          rmarkdown_1.6         limma_3.33.7         
 ## [28] ggplot2_2.2.1         magrittr_1.5          backports_1.1.0      
 ## [31] scales_0.4.1          pcaMethods_1.69.0     codetools_0.2-15     
 ## [34] htmltools_0.3.6       mzID_1.15.0           colorspace_1.3-2     
 ## [37] affy_1.55.0           stringi_1.1.5         RCurl_1.95-4.8       
 ## [40] doParallel_1.0.10     lazyeval_0.2.0        munsell_0.4.3        
-## [43] vsn_3.45.0            affyio_1.47.0</code></pre>
+## [43] vsn_3.45.2            affyio_1.47.0</code></pre>
 </div>
 </div>
   </div>
