@@ -41,7 +41,7 @@ test_that("pxget uses destdir", {
 
 test_that("PXD version", {
     p <- PXDataset("PXD000001")
-    expect_identical(p@formatVersion, "1.2.0")
+    expect_identical(p@formatVersion, "1.3.0")
     p <- PXDataset("PXD000561")
     expect_identical(p@formatVersion, "1.2.0")
     p <- PXDataset("PXD004938")
