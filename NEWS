@@ -1,16 +1,22 @@
-# rpx 1.13
+CHANGES IN VERSION 1.13.4
+-------------------------
 
-## CHANGES IN VERSION 1.13.3
+- No commit yet
+
+CHANGES IN VERSION 1.13.3
+-------------------------
 
 - No commit
 
-## CHANGES IN VERSION 1.13.2
+CHANGES IN VERSION 1.13.2
+-------------------------
 
 - Fix errors due to changes on PX side. PXD000001 reference remains
   untested - see https://twitter.com/lgatt0/status/885091284142239744
   for details. <2017-07-12 Wed>
 
-## CHANGES IN VERSION 1.13.1
+CHANGES IN VERSION 1.13.1
+-------------------------
 
 - Using xml2 <2017-06-13 Tue>
 - Use functions instead of methods <2017-06-13 Tue>
