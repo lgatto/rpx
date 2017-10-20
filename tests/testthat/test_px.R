@@ -22,10 +22,8 @@ test_that("PXD000001", {
     expect_identical(sort(pxf), fls)
     expect_identical(pxtax(px1), "Erwinia carotovora")
     expect_identical(pxurl(px1), url)
-    ref <- "Gatto L, Christoforou A. Using R and Bioconductor for proteomics data analysis. Biochim Biophys Acta. 2014 Jan;1844(1 Pt A):42-51. Review"
-    ## temporarily remove this test - for details, see
-    ## https://twitter.com/lgatt0/status/885091284142239744
-    ## expect_identical(pxref(px1), ref)
+    ref <- "Gatto L, Christoforou A. Using R and Bioconductor for proteomics data analysis. Biochim Biophys Acta. 2014 1844(1 pt a):42-51"
+    expect_identical(pxref(px1), ref)
     fa <- pxget(px1, "erwinia_carotovora.fasta")
     expect_equal(length(Biostrings::readAAStringSet(fa)), 4499)
 })

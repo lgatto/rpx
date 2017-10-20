@@ -2,7 +2,7 @@
 
 ## CHANGES IN VERSION 1.13.4
 
-- No commit yet
+- Restore reference unit test
 
 ## CHANGES IN VERSION 1.13.3
 
