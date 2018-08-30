@@ -19,6 +19,7 @@ documentation and the vignette.
 
 ```
 ## try http:// if https:// URLs are not supported
-source("https://bioconductor.org/biocLite.R")
-biocLite("rpx")
+if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+BiocManager::install("rpx")
 ```
