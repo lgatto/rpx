@@ -1,3 +1,16 @@
+# rpx 1.17
+
+## CHANGES IN VERSION 1.17.2
+- New version for Bioconductor devel
+
+## CHANGES IN VERSION 1.17.1
+- New version for Bioconductor devel
+
+# rpx 1.16
+
+## CHANGES IN VERSION 1.16.0
+- New version for Bioconductor release
+
 # rpx 1.13
 
 ## CHANGES IN VERSION 1.13.5
