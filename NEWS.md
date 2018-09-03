@@ -1,9 +1,12 @@
 # rpx 1.17
 
 ## CHANGES IN VERSION 1.17.2
-- New version for Bioconductor devel
+- Update NEWS and pkgdown site
 
 ## CHANGES IN VERSION 1.17.1
+- replace BiocInstaller biocLite mentions with BiocManager
+
+## CHANGES IN VERSION 1.17.0
 - New version for Bioconductor devel
 
 # rpx 1.16

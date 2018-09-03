@@ -26,4 +26,4 @@ URL: https://github.com/lgatto/rpx
 BugReports: https://github.com/lgatto/rpx/issues
 VignetteBuilder: knitr
 biocViews: Proteomics, MassSpectrometry, DataImport, ThirdPartyClient
-RoxygenNote: 5.0.1
+RoxygenNote: 6.1.0

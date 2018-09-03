@@ -1,3 +1,26 @@
+CHANGES IN VERSION 1.17.2
+-------------------------
+- Update NEWS and pkgdown site
+
+CHANGES IN VERSION 1.17.1
+-------------------------
+- replace BiocInstaller biocLite mentions with BiocManager
+
+CHANGES IN VERSION 1.17.0
+-------------------------
+- New version for Bioconductor devel
+
+
+CHANGES IN VERSION 1.16.0
+-------------------------
+- New version for Bioconductor release
+
+
+CHANGES IN VERSION 1.13.5
+-------------------------
+
+- Nothing yet
+
 CHANGES IN VERSION 1.13.4
 -------------------------
 

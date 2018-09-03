@@ -20,4 +20,3 @@ pxannounced()
 \author{
 Laurent Gatto
 }
-
