@@ -60,7 +60,17 @@
       not downloaded if already present in the \code{destdir} directory.
       Additional parameters can be passed to \code{\link{download.file}}
       via \code{...}.  Invisibly returns the names of the downloaded
-      files. }
+      files.
+
+      On Windows, the error \preformatted{In download.file(urls[i], toget[i], ...) :
+    InternetOpenUrl failed: 'The login request was denied'
+      }had been reported when downloading files. In such cases, the
+      \code{method} argument to \code{download.file} can be set. If
+      \code{libcurl} is available (try \code{capailities("libcurl")} to
+      check this), using \code{pxget(..., method = "libcurl")} has
+      proven successful. See \code{?download.file} for more details.
+
+    }
 
     \item{pxid}{\code{signature(object = "PXDataset")}: returns the
       unique ProteomeXchange identifier. }

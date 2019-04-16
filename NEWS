@@ -1,3 +1,14 @@
+- Mention setting `method` on Windows <2019-04-16 Tue>
+
+- Add ImmunoOncology biocView
+
+- New release for Bioc 3.9
+
+
+
+- New release for Bioc 3.8
+
+
 CHANGES IN VERSION 1.17.2
 -------------------------
 - Update NEWS and pkgdown site

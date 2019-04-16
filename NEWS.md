@@ -1,3 +1,20 @@
+# rpx 1.19
+
+# rpx 1.19.2
+- Mention setting `method` on Windows <2019-04-16 Tue>
+
+# rpx 1.19.1
+- Add ImmunoOncology biocView
+
+# rpx 1.19.0
+- New release for Bioc 3.9
+
+# rpx 1.18
+
+# rpx 1.18.0
+
+- New release for Bioc 3.8
+
 # rpx 1.17
 
 ## CHANGES IN VERSION 1.17.2
