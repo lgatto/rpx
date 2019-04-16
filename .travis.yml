@@ -16,6 +16,7 @@ dist: trusty
 addons:
   apt:
     packages:
+      - openvpn
       - libnetcdf-dev
       - netcdf-bin # libnetcdf-dev doesn't contain nc-config in ubuntu 12.04 (in 16.04 [xerus] it is part of libnetcdf-dev)
       - libhdf5-dev
@@ -45,6 +46,7 @@ jobs:
         - mkdir -p ~/.R
         - echo -e 'MAKEFLAGS = -j2' > ~/.R/Makevars
         - echo 'options(Ncpus = 2)' > ~/.Rprofile
+        - sudo openvpn path/to/conf.ovpn &>>openvpn-client.log &
       script: true
       name: "Build dependencies and cache"
     - stage: "Check"
