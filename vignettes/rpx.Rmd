@@ -18,7 +18,7 @@ vignette: >
 suppressPackageStartupMessages(library("BiocStyle"))
 suppressPackageStartupMessages(library("Biostrings"))
 suppressPackageStartupMessages(library("MSnbase"))
-options("download.file.method" = "wget") ## for travis
+options("download.file.method" = "libcurl") ## for travis
 ```
 
 
