@@ -32,12 +32,13 @@ jobs:
         - BiocStyle
       r_packages:
         - XML
+        - xml2
         - RCurl
         - utils
         - testthat
         - knitr
         - rmarkdown
-        - covr	
+        - covr
         - pkgdown
         - roxygen2
       before_install:
