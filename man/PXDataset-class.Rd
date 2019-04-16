@@ -34,7 +34,7 @@
 \section{Slots}{
   \describe{
     \item{\code{id}:}{Object of class \code{"character"} storing the
-      datasets unique identifier. Can be accessed with \code{pxid()}.} 
+      datasets unique identifier. Can be accessed with \code{pxid()}.}
     \item{\code{formatVersion}:}{Object of class \code{"character"}
       storing the version of the ProteomeXchange schema.  }
     \item{\code{Data}:}{Object of class \code{"XMLNode"} storing the
@@ -88,7 +88,7 @@
     \item{show}{\code{signature(object = "PXDataset")}: textual
       representation of \code{object}. }
   }
-  
+
 }
 
 \references{
@@ -101,7 +101,7 @@
 }
 
 \author{
-  Laurent Gatto <lg390@cam.ac.uk>
+  Laurent Gatto
 }
 
 

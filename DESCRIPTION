@@ -3,10 +3,10 @@ Type: Package
 Title: R Interface to the ProteomeXchange Repository
 Version: 1.19.2
 Authors@R: c(person(given = "Laurent", family = "Gatto",
-	            email = "lg390@cam.ac.uk", 
-                    role = c("aut","cre")))
+		    email = "laurent.gatto@uclouvain.be",
+		    role = c("aut","cre")))
 Author: Laurent Gatto
-Maintainer: Laurent Gatto <lg390@cam.ac.uk>
+Maintainer: Laurent Gatto <laurent.gatto@uclouvain.be>
 Description: The rpx package implements an interface to proteomics
     data submitted to the ProteomeXchange consortium.
 Depends:
