@@ -59,13 +59,11 @@ setMethod("show", "PXDataset",
 pxid <- function(object) object@id
 
 
-pxurl <- function(object, as_http = FALSE) {
+pxurl <- function(object) {
     stopifnot(inherits(object, "PXDataset"))
     p <- "//cvParam[@accession = 'PRIDE:0000411']"
     url <- xml_attr(xml_find_all(object@Data, p), "value")
     names(url) <- NULL
-    if (as_http)
-        url <- sub("^ftp", "http", url)
     url
 }
 
@@ -97,9 +95,9 @@ pxfiles <- function(object) {
 }
 
 
-pxget <- function(object, list, force = FALSE, destdir = getwd(), ..., as_http = FALSE) {
+pxget <- function(object, list, force = FALSE, destdir = getwd(), ...) {
     fls <- pxfiles(object)
-    url <- pxurl(object, as_http)
+    url <- pxurl(object)
     if (missing(list))
         list <- menu(fls, FALSE, paste0("Files for ", object@id))
     if (length(list) == 1 && list == "all") {

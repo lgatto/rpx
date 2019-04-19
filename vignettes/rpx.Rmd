@@ -109,15 +109,8 @@ output.
 The last argument, `force`, can be set to `TRUE` to force the download
 of files that already exists in the working directory.
 
-```{r pxget0, echo = FALSE}
-pxget(px, "erwinia_carotovora.fasta", as_http = TRUE)
-```
-
-```{r pxget, eval = FALSE}
+```{r pxget}
 pxget(px, "erwinia_carotovora.fasta")
-```
-
-```{r}
 dir(pattern = "fasta")
 ```
 
