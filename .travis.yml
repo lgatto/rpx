@@ -5,7 +5,7 @@ cache:
   packages: true
   directories:
     - ~/.AnnotationHub
-sudo: required
+# sudo: required
 warnings_are_errors: true
 dist: trusty
 
