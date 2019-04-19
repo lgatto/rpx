@@ -50,7 +50,7 @@ setMethod("show", "PXDataset",
 ##         ans <- gsub("children", "", ans)
 ##         return(ans)
 ##     }
-##     if (missing(name)) ans <- names(names(pxdata@Data))        
+##     if (missing(name)) ans <- names(names(pxdata@Data))
 ##     else ans <- names(xmlChildren(pxdata@Data[[name]]))
 ##     ans
 ## }
@@ -59,11 +59,13 @@ setMethod("show", "PXDataset",
 pxid <- function(object) object@id
 
 
-pxurl <- function(object) {
+pxurl <- function(object, as_http = FALSE) {
     stopifnot(inherits(object, "PXDataset"))
     p <- "//cvParam[@accession = 'PRIDE:0000411']"
     url <- xml_attr(xml_find_all(object@Data, p), "value")
     names(url) <- NULL
+    if (as_http)
+        url <- sub("^ftp", "http", url)
     url
 }
 
@@ -78,7 +80,7 @@ pxtax <- function(object) {
 
 pxref <- function(object) {
     p <- "//cvParam[@accession = 'PRIDE:0000400']"
-    q <- "//cvParam[@accession = 'PRIDE:0000432']"    
+    q <- "//cvParam[@accession = 'PRIDE:0000432']"
     ref <- xml_attr(xml_find_all(object@Data, p), "value")
     pendingref <- xml_attr(xml_find_all(object@Data, q), "value")
     c(ref, pendingref)
@@ -95,10 +97,10 @@ pxfiles <- function(object) {
 }
 
 
-pxget <- function(object, list, force = FALSE, destdir = getwd(), ...) {
+pxget <- function(object, list, force = FALSE, destdir = getwd(), ..., as_http = FALSE) {
     fls <- pxfiles(object)
-    url <- pxurl(object)
-    if (missing(list)) 
+    url <- pxurl(object, as_http)
+    if (missing(list))
         list <- menu(fls, FALSE, paste0("Files for ", object@id))
     if (length(list) == 1 && list == "all") {
         toget <- fls
@@ -136,8 +138,8 @@ PXDataset <- function(id) {
         x <- x[grep("message=", x)]
         x <- sub("message=", "", x)
         stop(x)
-    }       
-    x <- x[x != ""]   
+    }
+    x <- x[x != ""]
     v <- sub("\".+$", "",  sub("^.+formatVersion=\"", "", x[2]))
     x <- read_xml(url)
     .formatVersion <- xml_attr(x, "formatVersion")

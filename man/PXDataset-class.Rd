@@ -48,19 +48,20 @@
     \item{pxfiles}{\code{signature(object = "PXDataset")}: return a
       \code{character} of all available files. }
 
-    \item{pxget}{\code{signature(object = "PXDataset", list,
-      force = FALSE, destdir = getwd(), ...)}: downloads the files from
-      the ProteomeXchange repository. If \code{list} is missing, the file
-      to be downloaded can be selected from a menu. If \code{list = "all"},
-      all files are downloaded. The file names, as returned by \code{pxfiles}
-      can also be used. Alternatively, a \code{logical} or \code{numeric}
-      indices can be used. All files will be downloaded into the directory
-      specified by \code{destdir} (default is the current working
-      directory). Unless \code{force} is set to \code{TRUE}, files are
-      not downloaded if already present in the \code{destdir} directory.
-      Additional parameters can be passed to \code{\link{download.file}}
-      via \code{...}.  Invisibly returns the names of the downloaded
-      files.
+    \item{pxget}{\code{signature(object = "PXDataset", list, force =
+      FALSE, destdir = getwd(), ..., as_http = FALSE)}: downloads the
+      files from the ProteomeXchange repository. If \code{list} is
+      missing, the file to be downloaded can be selected from a menu. If
+      \code{list = "all"}, all files are downloaded. The file names, as
+      returned by \code{pxfiles} can also be used. Alternatively, a
+      \code{logical} or \code{numeric} indices can be used. All files
+      will be downloaded into the directory specified by \code{destdir}
+      (default is the current working directory). Unless \code{force} is
+      set to \code{TRUE}, files are not downloaded if already present in
+      the \code{destdir} directory.  Additional parameters can be passed
+      to \code{\link{download.file}} via \code{...}.  Invisibly returns
+      the names of the downloaded files. See \code{pxurl} for details
+      about \code{as_http}.
 
       On Windows, the error \preformatted{In download.file(urls[i], toget[i], ...) :
     InternetOpenUrl failed: 'The login request was denied'
@@ -81,9 +82,10 @@
     \item{pxtax}{\code{signature(object = "PXDataset")}: returns the
       scientic taxonomic name of \code{object}. }
 
-    \item{pxurl}{\code{signature(object = "PXDataset")}: returns the
-      base url on the ProteomeXchange server where
-      \code{pxfiles(object)} reside. }
+    \item{pxurl}{\code{signature(object = "PXDataset", as_http =
+      FALSE)}: returns the base url on the ProteomeXchange server where
+      \code{pxfiles(object)} reside. \code{as_http} can be set to
+      \code{TRUE} to get an http url rather than the default ftp.}
 
     \item{show}{\code{signature(object = "PXDataset")}: textual
       representation of \code{object}. }
