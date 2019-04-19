@@ -1,18 +1,20 @@
 # rpx 1.19
 
-# rpx 1.19.2
+## rpx 1.19.3
+- Fix NEWS
+
+## rpx 1.19.2
 - Mention setting `method` on Windows <2019-04-16 Tue>
 
-# rpx 1.19.1
+## rpx 1.19.1
 - Add ImmunoOncology biocView
 
-# rpx 1.19.0
+## rpx 1.19.0
 - New release for Bioc 3.9
 
 # rpx 1.18
 
-# rpx 1.18.0
-
+## rpx 1.18.0
 - New release for Bioc 3.8
 
 # rpx 1.17
@@ -84,7 +86,7 @@
 ## CHANGES IN VERSION 1.11.3
 
 - `pxget` gains a `destdir` argument to specify the destination to which files
-    should be downloaded <2017-01-27 Fri>
+	should be downloaded <2017-01-27 Fri>
 
 ## CHANGES IN VERSION 1.11.2
 
@@ -104,9 +106,9 @@
 ## CHANGES IN VERSION 1.10.0
 
 - Bioconductor release 3.4
- 
+
 # rpx 1.9
- 
+
 ## CHANGES IN VERSION 1.9.4
 
 - Updating unit tests <2016-10-04 Tue>
@@ -157,14 +159,14 @@
 
 ## CHANGES IN VERSION 0.99.6
 
-- more typos in vignette [2014-03-12 Wed] 
+- more typos in vignette [2014-03-12 Wed]
 
 ## CHANGES IN VERSION 0.99.5
 
 - Suggestions, biocView and typos reported by Nate Hayden
    [2014-03-12 Wed]
-- added Runit test [2014-03-12 Wed] 
-- use ae fonts in vignette [2014-03-12 Wed] 
+- added Runit test [2014-03-12 Wed]
+- use ae fonts in vignette [2014-03-12 Wed]
 
 ## CHANGES IN VERSION 0.99.4
 
