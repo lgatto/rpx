@@ -1,5 +1,8 @@
 # rpx 1.19
 
+## rpx 1.19.4
+- Delete plain NEWS now that R supports NEWS.md
+
 ## rpx 1.19.3
 - Fix NEWS
 
