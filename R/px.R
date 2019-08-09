@@ -1,4 +1,4 @@
-setOldClass(c("xml_document", "xml_node"))
+## setOldClass(c("xml_document", "xml_node"))
 
 .PXDataset <- setClass("PXDataset",
                        slots = list(
