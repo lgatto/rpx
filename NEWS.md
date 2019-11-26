@@ -1,3 +1,13 @@
+# rpx 1.23
+
+## Changes in version 1.23.1
+- Define modifiable `rpx_fix_issue_5` <2019-11-26 Tue>
+
+
+## Changes in version 1.23.0
+- New devel version
+
+
 # rpx 1.21
 
 ## Changes in version 1.21.3

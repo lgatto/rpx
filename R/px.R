@@ -1,6 +1,8 @@
 ##  Wrong ftp URL in xml of data, as documented in issue #5
-rpx_fix_issue_5 <- TRUE
-apply_fix_issue_5 <- function(x = TRUE) rpx_fix_issue_5 <<- x
+rpx_env <- new.env(parent = emptyenv())
+rpx_env$rpx_fix_issue_5 <- TRUE
+apply_fix_issue_5 <- function(x = TRUE)
+    rpx_env$rpx_fix_issue_5 <- x
 
 
 ## setOldClass(c("xml_document", "xml_node"))
@@ -69,7 +71,7 @@ pxurl <- function(object) {
     p <- "//cvParam[@accession = 'PRIDE:0000411']"
     url <- xml_attr(xml_find_all(object@Data, p), "value")
     names(url) <- NULL
-    if (rpx_fix_issue_5)
+    if (rpx_env$rpx_fix_issue_5)
         url <- sub("ac\\.uk/", "ac\\.uk/pride/data/archive/", url)
     url
 }
