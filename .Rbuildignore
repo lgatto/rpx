@@ -9,4 +9,5 @@ pkgdown.css
 pkgdown.js
 reference
 .gitignores
+.github
 ^docs$
