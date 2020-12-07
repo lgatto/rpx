@@ -102,7 +102,7 @@ numerics or logicals can also be used to subset the relevant files to
 be downloaded based on the `pxfiles(.)` output.
 
 ```{r pxget}
-f <- pxget(px, "erwinia_carotovora.fasta")
+f <- pxget(px, "PXD000001_mztab.txt")
 f
 ```
 
@@ -122,30 +122,19 @@ pxannounced()
 
 ## A simple use-case
 
-Below, we show how to automate the extraction of files of interest
-(fasta and mzTab files), download them and read them using appropriate
-Bioconductor infrastructure. (Note that we read version 0.9 of the
-MzTab format below. For recent data, the `version` argument would be
-omitted.)
+Below, we download the fasta file from the PXD000001 dataset and load
+it with the Biostrings package.
 
 ```{r more, warning=FALSE}
-(mzt <- grep("F0.+mztab", pxfiles(px), value = TRUE))
-(fas <- grep("fasta", pxfiles(px), value = TRUE))
-f <- pxget(px, c(mzt, fas))
+fas <- grep("fasta", pxfiles(px), value = TRUE)
+fas
+f <- pxget(px, fas)
 f ## files available in the rpx cache
 ```
 
 ```{r example1}
 library("Biostrings")
-readAAStringSet(f[2])
-```
-
-
-```{r example2}
-library("MSnbase")
-(x <- readMzTabData(f[1], "PEP", version = "0.9"))
-head(exprs(x))
-head(fData(x)[, 1:2])
+readAAStringSet(f)
 ```
 
 # Questions and help

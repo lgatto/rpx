@@ -18,7 +18,6 @@ Imports:
     RCurl,
     utils
 Suggests:
-    MSnbase,
     Biostrings,
     BiocStyle,
     testthat,
