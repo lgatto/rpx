@@ -17,7 +17,6 @@ vignette: >
 ```{r env, echo = FALSE}
 suppressPackageStartupMessages(library("BiocStyle"))
 suppressPackageStartupMessages(library("Biostrings"))
-suppressPackageStartupMessages(library("MSnbase"))
 ```
 
 
