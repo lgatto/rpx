@@ -56,10 +56,8 @@ Several attributes can be extracted from an `PXDataset` instance, as
 described below.
 
 
-
 The experiment identifier, that was originally used to create the
-\Robject{PXDataset} instance can be extracted with the
-\Rfunction{pxid} method:
+`PXDataset` instance can be extracted with the `pxid()` method:
 
 ```{r pxid}
 pxid(px)
@@ -79,7 +77,6 @@ the `pxtax` function:
 pxtax(px)
 ```
 
-
 Relevant bibliographic references can be queried with the
 `pxref` method:
 
@@ -94,35 +91,27 @@ All files available for the PX experiment can be obtained with the
 pxfiles(px)
 ```
 
-
-The complete or partial data set can be downloaded with the `pxget`
+The complete or partial data set can be downloaded with the `pxget()`
 function. The function takes an instance of class `PXDataset` as first
 mandatory argument.
 
 The next argument, `list`, specifies what files to download. If
 missing, a menu is printed and the user can select a file. If set to
-`"all"`, all files of the experiment are downloaded in the working
-directory. Alternatively, numerics or logicals can also be used to
-subset the relevant files to be downloaded based on the `pxfiles(.)`
-output.
-
-The last argument, `force`, can be set to `TRUE` to force the download
-of files that already exists in the working directory.
+`"all"`, all files of the experiment are downloaded. Alternatively,
+numerics or logicals can also be used to subset the relevant files to
+be downloaded based on the `pxfiles(.)` output.
 
 ```{r pxget}
 f <- pxget(px, "erwinia_carotovora.fasta")
 f
 ```
 
-By default, `pxget` will not download and overwrite a file if already
-available. The last argument of `pxget`, `force`, can be set to `TRUE`
-to force the download of files that already exists in the working
-directory.
-
-```{r pxget2}
-(i <- grep("fasta", pxfiles(px)))
-pxget(px, i) ## same as above
-```
+The `rpx` package makes use of the `r Biocpkg("BiocFileCache")`
+package to avoid repeatedly dowloading files. When downloaded, file
+are cached, i.e. stored centrally in the package's cache
+directory. Next time the `pxget()` function attempts to get that file,
+it will be directly retrieved from the cache instead being downloaded
+again.
 
 Finally, a list of recent PX additions and updates can be obtained
 using the `pxannounced()` function:
@@ -143,10 +132,16 @@ omitted.)
 (mzt <- grep("F0.+mztab", pxfiles(px), value = TRUE))
 (fas <- grep("fasta", pxfiles(px), value = TRUE))
 f <- pxget(px, c(mzt, fas))
+f ## files available in the rpx cache
+```
 
+```{r example1}
 library("Biostrings")
 readAAStringSet(f[2])
+```
 
+
+```{r example2}
 library("MSnbase")
 (x <- readMzTabData(f[1], "PEP", version = "0.9"))
 head(exprs(x))
@@ -155,17 +150,12 @@ head(fData(x)[, 1:2])
 
 # Questions and help
 
-Eithe post questions on the
-[Bioconductor support forum](https://support.bioconductor.org/) or
-open a GitHub [issue](https://github.com/lgatto/rpx/issues).
+Either post questions on the [Bioconductor support
+forum](https://support.bioconductor.org/) or open a GitHub
+[issue](https://github.com/lgatto/rpx/issues).
 
 # Session information
 
 ```{r si}
 sessionInfo()
-```
-
-```{r clean, echo = FALSE}
-unlink("erwinia_carotovora.fasta")
-unlink("F063721.dat-mztab.txt")
 ```

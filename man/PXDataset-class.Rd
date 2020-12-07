@@ -42,6 +42,21 @@
   }
 }
 
+
+\section{Details}{
+
+  From version 1.99.1 on, rpx uses the Bioconductor BiocFileCache
+  package to automatically cache all downloaded ProteomeXchange
+  files. When a file is downloaded for the first time, it is added to
+  the cache. When already available, the file path to the cached file is
+  returned. The rpx chache is returned by \code{rpx:::.get_cache()}. The
+  user is asked to confirm its creation when data is first downloaded. 
+
+  For more details on how to manage the cache (for example if some files
+  need to be deleted), please refer to the BiocFileCache vignette.
+  
+}
+
 \section{Methods}{
   \describe{
 
