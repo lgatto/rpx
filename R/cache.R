@@ -6,7 +6,7 @@
 pxget1 <- function(url, ...) {
     ## Query the local rpx cache
     rpx_cache <- .get_cache()
-    rid <- bfcquery(rpx_cache, url, "fpath")$rid
+    rid <- bfcquery(rpx_cache, url, "fpath", exact = TRUE)$rid
     ## Add the new file to the cache
     if (!length(rid)) {
         message("Downloading ", basename(url), " file." )
