@@ -116,10 +116,11 @@ pxtax(px)
 pxurl(px)
 pxref(px)
 pxfiles(px)
-fnm <- pxget(px, "PXD000001_mztab.txt")
-library("MSnbase")
-readMzTabData(fnm, "PEP")
-unlink("PXD000001_mztab.txt")
+
+fas <- pxget(px, "erwinia_carotovora.fasta")
+fas
+library("Biostrings")
+readAAStringSet(fas)
 }
 
 \keyword{classes}
