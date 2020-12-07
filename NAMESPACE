@@ -1,12 +1,12 @@
 import(xml2)
+import(BiocFileCache)
 
 importMethodsFrom(methods, show)
 
 importFrom(methods, new)
-
 importFrom(RCurl, getURL)
-
 importFrom(utils, download.file, menu)
+importFrom(rappdirs, user_cache_dir)
 
 exportClasses(PXDataset)
 

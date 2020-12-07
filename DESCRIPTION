@@ -1,7 +1,7 @@
 Package: rpx
 Type: Package
 Title: R Interface to the ProteomeXchange Repository
-Version: 1.27.0
+Version: 1.99.1
 Authors@R: c(person(given = "Laurent", family = "Gatto",
 		    email = "laurent.gatto@uclouvain.be",
 		    role = c("aut","cre")))
@@ -12,6 +12,8 @@ Description: The rpx package implements an interface to proteomics
 Depends:
     methods
 Imports:
+    BiocFileCache,
+    rappdirs,
     xml2,
     RCurl,
     utils

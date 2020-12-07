@@ -104,7 +104,7 @@ pxfiles <- function(object) {
 }
 
 
-pxget <- function(object, list, force = FALSE, destdir = getwd(), ...) {
+pxget <- function(object, list, ...) {
     fls <- pxfiles(object)
     url <- pxurl(object)
     if (missing(list))
@@ -118,17 +118,14 @@ pxget <- function(object, list, force = FALSE, destdir = getwd(), ...) {
     }
     if (length(toget) < 1)
         stop("No files to download.")
-    urls <- gsub(" ", "\ ", paste0(url, "/", toget))
-    toget <- file.path(destdir, toget)
-    message("Downloading ", length(urls), " file",
-            ifelse(length(urls) > 1, "s", ""))
+    toget <- urls <- gsub(" ", "\ ", paste0(url, "/", toget))
     for (i in 1:length(urls)) {
-        if (file.exists(toget[i]) && !force)
-            message(toget[i], " already present.")
-        else download.file(urls[i], toget[i], ...)
+            toget[i] <- pxget1(urls[i])
     }
-    invisible(toget)
+    toget
 }
+
+
 
 ## ns10 <- "https://raw.githubusercontent.com/proteomexchange/proteomecentral/master/lib/schemas/proteomeXchange-1.0.xsd"
 ## ns11 <- "https://raw.githubusercontent.com/proteomexchange/proteomecentral/master/lib/schemas/proteomeXchange-1.1.0.xsd"

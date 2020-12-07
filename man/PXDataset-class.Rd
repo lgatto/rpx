@@ -48,28 +48,17 @@
     \item{pxfiles}{\code{signature(object = "PXDataset")}: return a
       \code{character} of all available files. }
 
-    \item{pxget}{\code{signature(object = "PXDataset", list, force =
-      FALSE, destdir = getwd(), ...)}: downloads the files from the
-      ProteomeXchange repository. If \code{list} is missing, the file to
-      be downloaded can be selected from a menu. If \code{list = "all"},
-      all files are downloaded. The file names, as returned by
-      \code{pxfiles} can also be used. Alternatively, a \code{logical}
-      or \code{numeric} indices can be used. All files will be
-      downloaded into the directory specified by \code{destdir} (default
-      is the current working directory). Unless \code{force} is set to
-      \code{TRUE}, files are not downloaded if already present in the
-      \code{destdir} directory.  Additional parameters can be passed to
-      \code{\link{download.file}} via \code{...}.  Invisibly returns the
-      names of the downloaded files.
+    \item{pxget}{\code{signature(object = "PXDataset", list, ...)}:
+      downloads the files from the ProteomeXchange repository. If
+      \code{list} is missing, the file to be downloaded can be selected
+      from a menu. If \code{list = "all"}, all files are downloaded. The
+      file names, as returned by \code{pxfiles} can also be
+      used. Alternatively, a \code{logical} or \code{numeric} indices
+      can be used.
 
-      On Windows, the error \preformatted{In download.file(urls[i], toget[i], ...) :
-    InternetOpenUrl failed: 'The login request was denied'
-      }had been reported when downloading files. In such cases, the
-      \code{method} argument to \code{download.file} can be set. If
-      \code{libcurl} is available (try \code{capailities("libcurl")} to
-      check this), using \code{pxget(..., method = "libcurl")} has
-      proven successful. See \code{?download.file} for more details.
-
+      If not already cached, the files are downloaded and added to the
+      package cache. The function then returns the names of the files in
+      the cache directory.
     }
 
     \item{pxid}{\code{signature(object = "PXDataset")}: returns the

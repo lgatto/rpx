@@ -1,8 +1,15 @@
+# rpx 1.99.0
+
+## rpx 1.99.1
+- Using BiocFileCache to cache PXD files that are downloaded.
+
+## Changes in version 1.27.0
+- New devel version
+
 # rpx 1.23
 
 ## Changes in version 1.23.1
 - Define modifiable `rpx_fix_issue_5` <2019-11-26 Tue>
-
 
 ## Changes in version 1.23.0
 - New devel version

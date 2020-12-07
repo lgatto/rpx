@@ -110,8 +110,8 @@ The last argument, `force`, can be set to `TRUE` to force the download
 of files that already exists in the working directory.
 
 ```{r pxget}
-pxget(px, "erwinia_carotovora.fasta")
-dir(pattern = "fasta")
+f <- pxget(px, "erwinia_carotovora.fasta")
+f
 ```
 
 By default, `pxget` will not download and overwrite a file if already
@@ -142,13 +142,13 @@ omitted.)
 ```{r more, warning=FALSE}
 (mzt <- grep("F0.+mztab", pxfiles(px), value = TRUE))
 (fas <- grep("fasta", pxfiles(px), value = TRUE))
-pxget(px, c(mzt, fas))
+f <- pxget(px, c(mzt, fas))
 
 library("Biostrings")
-readAAStringSet(fas)
+readAAStringSet(f[2])
 
 library("MSnbase")
-(x <- readMzTabData(mzt, "PEP", version = "0.9"))
+(x <- readMzTabData(f[1], "PEP", version = "0.9"))
 head(exprs(x))
 head(fData(x)[, 1:2])
 ```
