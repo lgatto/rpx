@@ -20,7 +20,6 @@
 ## Changes in version 1.23.0
 - New devel version
 
-
 # rpx 1.21
 
 ## Changes in version 1.21.3
