@@ -1,6 +1,6 @@
 .get_cache <- function() {
-    cache <- rappdirs::user_cache_dir(appname = "rpx", ask = interactive())
-    BiocFileCache::BiocFileCache(cache)
+    cache <- rappdirs::user_cache_dir(appname = "rpx")
+    BiocFileCache::BiocFileCache(cache, ask = interactive())
 }
 
 pxget1 <- function(url) {
