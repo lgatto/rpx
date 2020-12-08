@@ -147,7 +147,7 @@
 <pre><code>## Loading PXD000001_mztab.txt from cache.</code></pre>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f</span></code></pre></div>
-<pre><code>## [1] "/github/home/.cache/rpx/64632d77ed_PXD000001_mztab.txt"</code></pre>
+<pre><code>## [1] "/github/home/.cache/rpx/646796c7952_PXD000001_mztab.txt"</code></pre>
 <p>The <code>rpx</code> package makes use of the <em><a href="https://bioconductor.org/packages/3.13/BiocFileCache">BiocFileCache</a></em> package to avoid repeatedly dowloading files. When downloaded, file are cached, i.e. stored centrally in the package’s cache directory. Next time the <code><a href="../reference/PXDataset-class.html">pxget()</a></code> function attempts to get that file, it will be directly retrieved from the cache instead being downloaded again.</p>
 <p>Finally, a list of recent PX additions and updates can be obtained using the <code><a href="../reference/pxannounced.html">pxannounced()</a></code> function:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
@@ -183,7 +183,7 @@
 <pre><code>## Loading erwinia_carotovora.fasta from cache.</code></pre>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f</span> <span class="co">## files available in the rpx cache</span></code></pre></div>
-<pre><code>## [1] "/github/home/.cache/rpx/646546da9a2_erwinia_carotovora.fasta"</code></pre>
+<pre><code>## [1] "/github/home/.cache/rpx/6461f8393fa_erwinia_carotovora.fasta"</code></pre>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://bioconductor.org/packages/Biostrings">"Biostrings"</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/Biostrings/man/XStringSet-io.html">readAAStringSet</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></code></pre></div>
