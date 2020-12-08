@@ -1,5 +1,11 @@
 # rpx 1.99.0
 
+## rpx 1.99.2
+- Don't ask for cache location in non-interactive mode. This forces
+  the usage of the default cache location (rather than usage of a Rtmp
+  directory) and enables reusage of a persistent cache over different
+  build/check cycles.
+
 ## rpx 1.99.1
 - Using BiocFileCache to cache PXD files that are downloaded.
 

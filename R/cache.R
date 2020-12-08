@@ -1,9 +1,9 @@
 .get_cache <- function() {
-    cache <- rappdirs::user_cache_dir(appname = "rpx")
+    cache <- rappdirs::user_cache_dir(appname = "rpx", ask = interactive())
     BiocFileCache::BiocFileCache(cache)
 }
 
-pxget1 <- function(url, ...) {
+pxget1 <- function(url) {
     ## Query the local rpx cache
     rpx_cache <- .get_cache()
     rid <- bfcquery(rpx_cache, url, "fpath", exact = TRUE)$rid
