@@ -11,3 +11,4 @@ reference
 .gitignores
 .github
 ^docs$
+.git
