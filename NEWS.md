@@ -1,5 +1,9 @@
 # rpx 1.99.0
 
+## rpx 1.99.3
+- Use `MS:1002852` to get URL when `PRIDE:0000411` returns empty
+  string.
+
 ## rpx 1.99.2
 - Don't ask for cache location in non-interactive mode. This forces
   the usage of the default cache location (rather than usage of a Rtmp
@@ -123,7 +127,7 @@
 ## Changes in version 1.11.3
 
 - `pxget` gains a `destdir` argument to specify the destination to which files
-	should be downloaded <2017-01-27 Fri>
+    should be downloaded <2017-01-27 Fri>
 
 ## Changes in version 1.11.2
 
