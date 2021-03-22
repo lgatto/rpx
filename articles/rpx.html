@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rpx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.99.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.99.4</span>
       </span>
     </div>
 
@@ -149,28 +149,28 @@
 <pre><code>## Loading PXD000001_mztab.txt from cache.</code></pre>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f</span></code></pre></div>
-<pre><code>## [1] "~/.cache/rpx/5ec74c78115_PXD000001_mztab.txt"</code></pre>
+<pre><code>## [1] "~/.cache/rpx/5ef157b157a_PXD000001_mztab.txt"</code></pre>
 <p>The <code>rpx</code> package makes use of the <em><a href="https://bioconductor.org/packages/3.13/BiocFileCache" class="external-link">BiocFileCache</a></em> package to avoid repeatedly dowloading files. When downloaded, file are cached, i.e. stored centrally in the package’s cache directory. Next time the <code><a href="../reference/PXDataset-class.html">pxget()</a></code> function attempts to get that file, it will be directly retrieved from the cache instead being downloaded again.</p>
 <p>Finally, a list of recent PX additions and updates can be obtained using the <code><a href="../reference/pxannounced.html">pxannounced()</a></code> function:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/pxannounced.html">pxannounced</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>## 15 new ProteomeXchange annoucements</code></pre>
 <pre><code>##     Data.Set    Publication.Data Message
-## 1  PXD023088 2021-03-21 21:09:39     New
-## 2  PXD019345 2021-03-21 12:19:30     New
-## 3  PXD020565 2021-03-21 09:46:52     New
-## 4  PXD024803 2021-03-20 18:38:30     New
-## 5  PXD018451 2021-03-19 13:23:00     New
-## 6  PXD024445 2021-03-19 13:18:32     New
-## 7  PXD013906 2021-03-19 11:44:04     New
-## 8  PXD018785 2021-03-19 06:19:05     New
-## 9  PXD008563 2021-03-19 06:15:19     New
-## 10 PXD018542 2021-03-19 06:14:56     New
-## 11 PXD018539 2021-03-19 06:14:45     New
-## 12 PXD018543 2021-03-19 06:14:30     New
-## 13 PXD018540 2021-03-19 06:11:33     New
-## 14 PXD018541 2021-03-19 06:08:27     New
-## 15 PXD020084 2021-03-19 06:06:31     New</code></pre>
+## 1  PXD024218 2021-03-22 18:52:33     New
+## 2  PXD009420 2021-03-22 17:48:32     New
+## 3  PXD024925 2021-03-22 12:15:13     New
+## 4  PXD024923 2021-03-22 12:03:32     New
+## 5  PXD023037 2021-03-22 10:36:51     New
+## 6  PXD024356 2021-03-22 09:03:02     New
+## 7  PXD022846 2021-03-22 08:44:58     New
+## 8  PXD023689 2021-03-22 08:20:27     New
+## 9  PXD024901 2021-03-22 08:19:52     New
+## 10 PXD024900 2021-03-22 08:11:29     New
+## 11 PXD024899 2021-03-22 08:06:41     New
+## 12 PXD023689 2021-03-22 08:06:37     New
+## 13 PXD024897 2021-03-22 07:57:06     New
+## 14 PXD024896 2021-03-22 07:36:27     New
+## 15 PXD024892 2021-03-22 07:20:16     New</code></pre>
 </div>
 <div id="a-simple-use-case" class="section level2">
 <h2 class="hasAnchor">
@@ -185,7 +185,7 @@
 <pre><code>## Loading erwinia_carotovora.fasta from cache.</code></pre>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f</span> <span class="co">## files available in the rpx cache</span></code></pre></div>
-<pre><code>## [1] "~/.cache/rpx/5ec2dc6711f_erwinia_carotovora.fasta"</code></pre>
+<pre><code>## [1] "~/.cache/rpx/5efd037958_erwinia_carotovora.fasta"</code></pre>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://bioconductor.org/packages/Biostrings" class="external-link">"Biostrings"</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/Biostrings/man/XStringSet-io.html" class="external-link">readAAStringSet</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></code></pre></div>
@@ -234,7 +234,7 @@
 ## [8] methods   base     
 ## 
 ## other attached packages:
-## [1] rpx_1.99.3          Biostrings_2.59.2   XVector_0.31.1     
+## [1] rpx_1.99.4          Biostrings_2.59.2   XVector_0.31.1     
 ## [4] IRanges_2.25.6      S4Vectors_0.29.9    BiocGenerics_0.37.1
 ## [7] BiocStyle_2.19.1   
 ## 
