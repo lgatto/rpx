@@ -7,6 +7,13 @@ apply_fix_issue_5 <- function(x = TRUE)
 
 ## setOldClass(c("xml_document", "xml_node"))
 
+.valid_ftp_url <- function(url) {
+    if (length(url) == 0) return(FALSE)
+    valid <- try(RCurl::getURL(paste0(url, "/"), dirlistonly = TRUE),
+                 silent = TRUE)
+    ifelse(inherits(valid, "try-error"), FALSE, TRUE)
+}
+
 .PXDataset <- setClass("PXDataset",
                        slots = list(
                            ## attributes
@@ -65,21 +72,21 @@ setMethod("show", "PXDataset",
 
 pxid <- function(object) object@id
 
-
 pxurl <- function(object) {
     stopifnot(inherits(object, "PXDataset"))
     p <- "//cvParam[@accession = 'PRIDE:0000411']"
     url <- xml_attr(xml_find_all(object@Data, p), "value")
-    if (length(url) == 0) {
+    if (!.valid_ftp_url(url)) {
+        url <- sub("ac\\.uk/", "ac\\.uk/pride/data/archive/", url)
+    }
+    if (!.valid_ftp_url(url)) {
         p <- "//cvParam[@accession = 'MS:1002852']"
         url <- xml_attr(xml_find_all(object@Data, p), "value")
     }
-    if (length(url) == 0) {
-        stop("No URL detected")
+    if (!.valid_ftp_url(url)) {
+        stop("No URL detected: please open an issue at https://github.com/lgatto/rpx/issues")
     }
     names(url) <- NULL
-    if (rpx_env$rpx_fix_issue_5)
-        url <- sub("ac\\.uk/", "ac\\.uk/pride/data/archive/", url)
     url
 }
 

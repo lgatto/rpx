@@ -280,3 +280,27 @@ test_that("PX identifiers", {
 ##           "/RepositoryRecordList//RepositoryRecord/attributes/uri")
 ##     expect_identical(allnd, allnd0)
 ## })
+
+
+test_that("PXD000001: valid URLs and files", {
+    nfiles <- 11L
+    px1 <- PXDataset("PXD000001")
+    rpx:::apply_fix_issue_5(TRUE)
+    expect_identical(length(pxurl(px1)), 1L)
+    expect_identical(length(pxfiles(px1)), nfiles)
+    rpx:::apply_fix_issue_5(FALSE)
+    expect_identical(length(pxurl(px1)), 1L)
+    expect_identical(length(pxfiles(px1)), nfiles)
+})
+
+
+test_that("PXD022816: valid URLs and files", {
+    nfiles <- 32L
+    PXD022816 <- PXDataset("PXD022816")
+    rpx:::apply_fix_issue_5(TRUE)
+    expect_identical(length(pxurl(PXD022816)), 1L)
+    expect_identical(length(pxfiles(PXD022816)), nfiles)
+    rpx:::apply_fix_issue_5(FALSE)
+    expect_identical(length(pxurl(PXD022816)), 1L)
+    expect_identical(length(pxfiles(PXD022816)), nfiles)
+})

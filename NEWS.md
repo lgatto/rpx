@@ -1,5 +1,8 @@
 # rpx 1.99.0
 
+## rpx 1.99.4
+- Automatically detect/fix correct url <2021-03-22 Mon>
+
 ## rpx 1.99.3
 - Use `MS:1002852` to get URL when `PRIDE:0000411` returns empty
   string.
