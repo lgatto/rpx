@@ -1,5 +1,8 @@
 # rpx 1.99.0
 
+## rpx 1.99.5
+- User can pass an own cache when downloading files <2021-04-03 Sat>
+
 ## rpx 1.99.4
 - Automatically detect/fix correct url <2021-03-22 Mon>
 

@@ -50,11 +50,11 @@
   files. When a file is downloaded for the first time, it is added to
   the cache. When already available, the file path to the cached file is
   returned. The rpx chache is returned by \code{rpx:::.get_cache()}. The
-  user is asked to confirm its creation when data is first downloaded. 
+  user is asked to confirm its creation when data is first downloaded.
 
   For more details on how to manage the cache (for example if some files
   need to be deleted), please refer to the BiocFileCache vignette.
-  
+
 }
 
 \section{Methods}{
@@ -74,6 +74,12 @@
       If not already cached, the files are downloaded and added to the
       package cache. The function then returns the names of the files in
       the cache directory.
+
+      Additional argument \code{cache} can be passed to the internal
+      function \code{rpx:::pxget1()} that downloads files to and
+      retrieves them from cache. The default cache is the packages'
+      default \code{rappdirs::user_cache_dir(appname = "rpx")}.
+
     }
 
     \item{pxid}{\code{signature(object = "PXDataset")}: returns the

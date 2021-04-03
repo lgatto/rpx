@@ -136,7 +136,7 @@ pxget <- function(object, list, ...) {
         stop("No files to download.")
     toget <- urls <- gsub(" ", "\ ", paste0(url, "/", toget))
     for (i in 1:length(urls)) {
-            toget[i] <- pxget1(urls[i])
+            toget[i] <- pxget1(urls[i], ...)
     }
     toget
 }
