@@ -1,5 +1,11 @@
 # rpx 1.99.0
 
+## rpx 1.99.6
+- Switching to `tools::R_user_dir()` from `rappdirs::user_cache_dir()`
+  to set package cache directory, following changes in `BiocFileCache`
+  ([see](https://stat.ethz.ch/pipermail/bioc-devel/2021-April/017928.html)
+  for details).
+
 ## rpx 1.99.5
 - User can pass an own cache when downloading files <2021-04-03 Sat>
 

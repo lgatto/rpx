@@ -1,5 +1,5 @@
 .get_cache <- function() {
-    cache <- rappdirs::user_cache_dir(appname = "rpx")
+    cache <- tools::R_user_dir(package = "rpx", which = "cache")
     BiocFileCache::BiocFileCache(cache, ask = interactive())
 }
 
