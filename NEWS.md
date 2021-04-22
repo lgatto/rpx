@@ -1,5 +1,8 @@
 # rpx 1.99.0
 
+## rpx 1.99.7
+- Add `markdown` to Suggests.
+
 ## rpx 1.99.6
 - Switching to `tools::R_user_dir()` from `rappdirs::user_cache_dir()`
   to set package cache directory, following changes in `BiocFileCache`
