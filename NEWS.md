@@ -1,5 +1,8 @@
 # rpx 1.99.0
 
+## rpx 1.99.8
+- Remove `rappdirs` from Suggests.
+
 ## rpx 1.99.7
 - Add `markdown` to Suggests.
 
