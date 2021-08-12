@@ -1,6 +1,7 @@
-test_that("PXD000001", {
+px1 <- PXDataset("PXD000001")
+
+test_that("Object content is valid.", {
     id <- "PXD000001"
-    px1 <- PXDataset(id)
     expect_null(show(px1))
     expect_identical(pxid(px1), id)
     ## Assertions manually looked up at
@@ -21,16 +22,14 @@ test_that("PXD000001", {
     expect_identical(sort(pxf), fls)
     expect_identical(pxtax(px1), "Erwinia carotovora")
     expect_identical(pxurl(px1), url)
-    ref <- "Gatto L, Christoforou A. Using R and Bioconductor for proteomics data analysis. Biochim Biophys Acta. 2014 1844(1 pt a):42-51"
-    if (grepl("archive", pxurl(px1)))
-        ref <- "Gatto L, Christoforou A. Using R and Bioconductor for proteomics data analysis. Biochim Biophys Acta. 2013 May 18. doi:pii: S1570-9639(13)00186-6. 10.1016/j.bbapap.2013.04.032"
+    ref <- "Gatto L, Christoforou A. Using R and Bioconductor for proteomics data analysis. Biochim Biophys Acta. 2013 May 18. doi:pii: S1570-9639(13)00186-6. 10.1016/j.bbapap.2013.04.032"
     expect_identical(pxref(px1), ref)
     fa <- pxget(px1, "erwinia_carotovora.fasta")
     expect_equal(length(Biostrings::readAAStringSet(fa)), 4499)
 })
 
 test_that("PXD version", {
-    p <- PXDataset("PXD000001")
+    p <- px1
     ver_1 <- "1.3.0"
     if (grepl("archive", pxurl(p)))
         ver_1 <- "1.0.0"
@@ -50,11 +49,10 @@ test_that("PX announcements", {
 
 test_that("PX identifiers", {
     expect_error(PXDataset("P1"))
-    expect_warning(px1 <- PXDataset("1"))
-    expect_warning(px2 <- PXDataset("PXD1"))
-    px3 <- PXDataset("PXD000001")
-    expect_equal(px1, px2)
-    expect_equal(px1, px3)
+    expect_warning(px01 <- PXDataset("1"))
+    expect_equal(px01, px1)    
+    expect_warning(px02 <- PXDataset("PXD1"))
+    expect_equal(px01, px02)
 })
 
 ## test_that("PX nodes", {
@@ -280,19 +278,6 @@ test_that("PX identifiers", {
 ##           "/RepositoryRecordList//RepositoryRecord/attributes/uri")
 ##     expect_identical(allnd, allnd0)
 ## })
-
-
-test_that("PXD000001: valid URLs and files", {
-    nfiles <- 11L
-    px1 <- PXDataset("PXD000001")
-    rpx:::apply_fix_issue_5(TRUE)
-    expect_identical(length(pxurl(px1)), 1L)
-    expect_identical(length(pxfiles(px1)), nfiles)
-    rpx:::apply_fix_issue_5(FALSE)
-    expect_identical(length(pxurl(px1)), 1L)
-    expect_identical(length(pxfiles(px1)), nfiles)
-})
-
 
 test_that("PXD022816: valid URLs and files", {
     nfiles <- 32L
