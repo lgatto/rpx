@@ -1,5 +1,12 @@
 # rpx 2.1
 
+## rpx 2.1.2
+
+- New feature: PXDataset objects now query and store data (ref, tax,
+  files, url) when generated instead of fetching these on the fly
+  every time. This new feature has been added to circumvent the issues
+  with data access (see #5).
+
 ## rpx 2.1.1
 
 - `pxannouced()` paused (see #7).
