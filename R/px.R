@@ -158,8 +158,6 @@ pxget <- function(object, list, ...) {
     toget
 }
 
-
-
 ## ns10 <- "https://raw.githubusercontent.com/proteomexchange/proteomecentral/master/lib/schemas/proteomeXchange-1.0.xsd"
 ## ns11 <- "https://raw.githubusercontent.com/proteomexchange/proteomecentral/master/lib/schemas/proteomeXchange-1.1.0.xsd"
 ## ns12 <- "https://raw.githubusercontent.com/proteomexchange/proteomecentral/master/lib/schemas/proteomeXchange-1.2.0.xsd"
@@ -167,37 +165,53 @@ pxget <- function(object, list, ...) {
 
 ## constructor
 PXDataset <- function(id) {
-    url <- paste0(
-        "http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=",
-        id, "&outputMode=XML&test=no")
-    x <- readLines(url)
-    if (length(grep("ERROR", x)) > 0) {
-        x <- x[grep("message=", x)]
-        x <- sub("message=", "", x)
-        stop(x)
+    ## Check if that PX id is already available in BiocFileCache
+    cache <- .get_cache()
+    rpxId <- paste0(".rpx", id) 
+    rpath <- bfcquery(cache, rpxId, "rname", exact = TRUE)$rpath
+    if (!length(rpath)) {
+        ## Query PX identifier
+        url <- paste0(
+            "http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=",
+            id, "&outputMode=XML&test=no")
+        x <- readLines(url)
+        if (length(grep("ERROR", x)) > 0) {
+            x <- x[grep("message=", x)]
+            x <- sub("message=", "", x)
+            stop(x)
+        }
+        x <- x[x != ""]
+        v <- sub("\".+$", "",  sub("^.+formatVersion=\"", "", x[2]))
+        x <- read_xml(url)
+        .formatVersion <- xml_attr(x, "formatVersion")
+        .id <- xml_attr(x, "id")
+        if (length(.id) != 1)
+            stop("Got ", length(.id), " identifiers: ",
+                 paste(.id, collapse = ", "), ".")
+        if (id != .id)
+            warning("Identifier '", id, "' not found. Retrieved '",
+                    .id, "' instead.")
+        if (v != .formatVersion)
+            warning("Format version does not match. Got '",
+                    .formatVersion, "' instead of '", v, "'.")
+        ## Create PX object 
+        ans <- .PXDataset(id = .id,
+                          formatVersion = .formatVersion,
+                          Data = x)
+        ## Populate object data
+        ans@cache <- list(pxurl = pxurl(ans),
+                          pxref = pxref(ans),
+                          pxfile = pxfiles(ans),                      
+                          pxtax = pxtax(ans))
+        ## Add the object to cache
+        savepath <- bfcnew(cache, rpxId, ext=".rds")
+        saveRDS(ans, savepath)
+        return(ans)
     }
-    x <- x[x != ""]
-    v <- sub("\".+$", "",  sub("^.+formatVersion=\"", "", x[2]))
-    x <- read_xml(url)
-    .formatVersion <- xml_attr(x, "formatVersion")
-    .id <- xml_attr(x, "id")
-    if (length(.id) != 1)
-        stop("Got ", length(.id), " identifiers: ",
-             paste(.id, collapse = ", "), ".")
-    if (id != .id)
-        warning("Identifier '", id, "' not found. Retrieved '",
-                .id, "' instead.")
-    if (v != .formatVersion)
-        warning("Format version does not match. Got '",
-                .formatVersion, "' instead of '", v, "'.")
-    ## Create object 
-    ans <- .PXDataset(id = .id,
-                      formatVersion = .formatVersion,
-                      Data = x)
-    ## Populate object data
-    ans@cache <- list(pxurl = pxurl(ans),
-                      pxref = pxref(ans),
-                      pxfile = pxfiles(ans),                      
-                      pxtax = pxtax(ans))
-    ans
+    if (length(rpath) != 1)
+        stop(paste0("Non-unique internal ", rpxId, " found!\n",
+                    "Please check and clear your cache."))
+    ## Retrieve from cache and return
+    readRDS(rpath)
 }
+
