@@ -112,12 +112,12 @@ directory. Next time the `pxget()` function attempts to get that file,
 it will be directly retrieved from the cache instead being downloaded
 again.
 
-Finally, a list of recent PX additions and updates can be obtained
-using the `pxannounced()` function:
+<!-- Finally, a list of recent PX additions and updates can be obtained -->
+<!-- using the `pxannounced()` function: -->
 
-```{r pxan}
-pxannounced()
-```
+<!-- ```{r pxan} -->
+<!-- pxannounced() -->
+<!-- ``` -->
 
 ## A simple use-case
 

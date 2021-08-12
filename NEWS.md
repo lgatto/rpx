@@ -1,8 +1,8 @@
 # rpx 2.1
 
-## rpx 2.1.0
+## rpx 2.1.1
 
-- New devel version
+- `pxannouced()` paused (see #7).
 
 # rpx 1.99.0
 
