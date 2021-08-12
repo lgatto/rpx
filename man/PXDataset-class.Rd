@@ -33,10 +33,19 @@
 
 \section{Slots}{
   \describe{
+    
     \item{\code{id}:}{Object of class \code{"character"} storing the
       datasets unique identifier. Can be accessed with \code{pxid()}.}
+    
     \item{\code{formatVersion}:}{Object of class \code{"character"}
       storing the version of the ProteomeXchange schema.  }
+    
+    \item{\code{cache}:}{Object of class \code{"list"} storing the
+      available files (see \code{pxfiles}), the reference associated
+      with the data set (see \code{xref}), the taxonomy of the sample
+      (see \code{pxtax}) and the datasets' ProteomeXchange URL (see
+      \code{pxurl}).  }
+    
     \item{\code{Data}:}{Object of class \code{"XMLNode"} storing the
       ProteomeXchange description as XML node tree. }
   }
@@ -89,7 +98,7 @@
       reference associcated with the \code{object}. }
 
     \item{pxtax}{\code{signature(object = "PXDataset")}: returns the
-      scientic taxonomic name of \code{object}. }
+      taxonomic name of \code{object}. }
 
     \item{pxurl}{\code{signature(object = "PXDataset"}: returns the base
       url on the ProteomeXchange server where \code{pxfiles(object)}
