@@ -49,9 +49,11 @@ test_that("PX announcements", {
 
 test_that("PX identifiers", {
     expect_error(PXDataset("P1"))
-    expect_warning(px01 <- PXDataset("1"))
-    expect_equal(px01, px1)    
-    expect_warning(px02 <- PXDataset("PXD1"))
+    ## expect_warning(px01 <- PXDataset("1"))
+    px01 <- PXDataset("1")
+    expect_equal(px01, px1)
+    ## expect_warning(px02 <- PXDataset("PXD1"))
+    px02 <- PXDataset("PXD1")
     expect_equal(px01, px02)
 })
 

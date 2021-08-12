@@ -7,6 +7,9 @@
   every time. This new feature has been added to circumvent the issues
   with data access (see #5).
 
+  PXDatasets are also cached upon creation and retrieved from cache
+  next time they are generated.
+
 ## rpx 2.1.1
 
 - `pxannouced()` paused (see #7).
