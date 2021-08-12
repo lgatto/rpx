@@ -194,7 +194,7 @@ PXDataset <- function(id) {
     ans <- .PXDataset(id = .id,
                       formatVersion = .formatVersion,
                       Data = x)
-    ## Populate cache
+    ## Populate object data
     ans@cache <- list(pxurl = pxurl(ans),
                       pxref = pxref(ans),
                       pxfile = pxfiles(ans),                      
