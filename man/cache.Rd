@@ -10,21 +10,21 @@ rpxCache()
 pxCachedProjects(cache = rpxCache())
 }
 \arguments{
-\item{cache}{Object of class `BiocFileCache`.}
+\item{cache}{Object of class \code{BiocFileCache}.}
 }
 \value{
-`character(1)` with the path to the cache directory for
-    `rpxCache()` and a `tibble` for `pxCachedProjects()`.
+\code{character(1)} with the path to the cache directory for
+\code{rpxCache()} and a \code{tibble} for \code{pxCachedProjects()}.
 }
 \description{
-Function to access the cache directory. `rxpCache()` returns the
-central `rpx` cache. `pxCachedrojects()` prints the names of the
+Function to access the cache directory. \code{rxpCache()} returns the
+central \code{rpx} cache. \code{pxCachedrojects()} prints the names of the
 cached projects and invisibly returns the cache table.
 }
 \details{
-The cache is an object of class `BiocFileCache`, and created with
-`BiocFileCache::BiocFileCache()`. It can be either the
-package-wide cache as defined by `rpxCache()` or an instaned
+The cache is an object of class \code{BiocFileCache}, and created with
+\code{BiocFileCache::BiocFileCache()}. It can be either the
+package-wide cache as defined by \code{rpxCache()} or an instaned
 provided by the user.
 }
 \examples{
