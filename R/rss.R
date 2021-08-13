@@ -1,12 +1,16 @@
-##' Queries the PX rss feed file for the latest PX dataset
-##' announcements.
-##'
-##' @title Return recent PX announcements 
-##' @return A \code{data.frame} with announcements data set
-##' identifiers, publication dates and annoucement messages.
-##' @author Laurent Gatto
-##' @examples
-##' pxannounced()
+#' Return recent PX announcements
+#' 
+#' Queries the PX rss feed file for the latest PX dataset announcements.
+#' 
+#' 
+#' @return A \code{data.frame} with announcements data set identifiers,
+#' publication dates and annoucement messages.
+#' @author Laurent Gatto
+#' @examples
+#' 
+#' pxannounced()
+#' 
+#' @export pxannounced
 pxannounced <- function() {
     ## rss <-
     ##     "https://groups.google.com/forum/feed/proteomexchange/msgs/rss_v2_0.xml"

@@ -1,9 +1,25 @@
-.get_cache <- function() {
+##' This function returns the central `rpx` cache directory.
+##'
+##' @title Package cache
+##'
+##' @return `character(1)` with the path to the cache directory.
+##'
+##' @author Laurent Gatto
+##'
+##' @importFrom tools R_user_dir
+##'
+##' @export
+##'
+##' @examples
+##'
+##' rpxCache()
+rpxCache <- function() {
     cache <- tools::R_user_dir(package = "rpx", which = "cache")
     BiocFileCache::BiocFileCache(cache, ask = interactive())
 }
 
-pxget1 <- function(url, cache = .get_cache()) {
+##' @import BiocFileCache
+pxget1 <- function(url, cache) {
     ## Query the local rpx cache
     rid <- bfcquery(cache, url, "fpath", exact = TRUE)$rid
     ## Add the new file to the cache

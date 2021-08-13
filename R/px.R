@@ -1,9 +1,112 @@
+##' @title The PXDataset to find and download proteomics data
+##'
+##' @aliases PXDataset-class class:PXDataset PXDataset
+##'     pxfiles,PXDataset-method pxfiles pxget,PXDataset-method pxget
+##'     pxid,PXDataset-method pxid pxref,PXDataset-method pxref
+##'     pxtax,PXDataset-method pxtax pxurl,PXDataset-method pxurl
+##'     show,PXDataset-method
+##'
+##' @name PXDataset
+##'
+##' @description
+##'
+##' An S4 class to access, store and retrieve information for
+##' ProteomeXchange (PX) data sets. Objects can be created with the
+##' `PXDataset()` constructor.
+##'
+##' @details
+##'
+##' Since version 1.99.1, `rpx` uses the Bioconductor `BiocFileCache`
+##' package to automatically cache all downloaded ProteomeXchange
+##' files. When a file is downloaded for the first time, it is added
+##' to the cache. When already available, the file path to the cached
+##' file is returned. The rpx chache is returned by
+##' `rpxCache()`. The user is asked to confirm its creation on
+##' first usage of the package. Users can also provide their own cache
+##' directories instead of using the default central cache to
+##' `pxget()`.
+##'
+##' Since 2.1.1, `PXDataset` instances are also cached using the same
+##' mechanism as project files. Each `PXDataset` instance also stored
+##' the project file names, the reference, taxonomy of the sample and
+##' the project URL (see slot `cache`) instead of accessing these
+##' every time they are needed to reduce remote access and reliance on
+##' a stable internet connection.
+##'
+##' For more details on how to manage the cache (for example if some
+##' files need to be deleted), please refer to the BiocFileCache
+##' vignette.
+##'
+##' @slot id `character(1)` containing the dataset's unique
+##'     ProteomeXchange identifier, as used to create the object.
+##'
+##' @slot formatVersion `character(1)` storing the version of the
+##'     ProteomeXchange schema. Schema versions 1.0, 1.1 and 1.2 are
+##'     supported (see
+##'     https://code.google.com/p/proteomexchange/source/browse/schema/).
+##'
+##' @slot cache `list()` storing the available files (element
+##'     `pxfiles`), the reference associated with the data set
+##'     (`pxref`), the taxonomy of the sample (`pxtax`) and the
+##'     datasets' ProteomeXchange URL (`pxurl`). These are returned by
+##'     the respective accessors.
+##'
+##' @slot Data `XMLNode` storing the ProteomeXchange description as
+##'     XML node tree.
+##'
+##' @section Accessors:
+##'
+##' - `pxfiles(object)` returns the project file names.
+##'
+##' - `pxget(object, list, cache)`: downloads the files from the
+##'    ProteomeXchange repository. If `list` is missing, the file to
+##'    be downloaded can be selected from a menu. If `list = "all"`,
+##'    all files are downloaded. The file names, as returned by
+##'    `pxfiles()` can also be used. Alternatively, a `logical` or
+##'    `numeric` indices can be used.
+##'
+##'    If not already cached, the files are downloaded and added to
+##'    the package cache. The function then returns the names of the
+##'    files in the cache directory.
+##'
+##'    The argument `cache` can be passed to define the path to the
+##'    cache directory. The default cache is the packages' default as
+##'    returned by `rpxCache()`.
+##'
+##' - `pxtax(object)`: returns the taxonomic name of `object`.
+##'
+##' - `pxurl(object)`: returns the base url on the ProteomeXchange
+##'    server where `pxfiles` reside.
+##'
+##' @author Laurent Gatto
+##'
+##' @references Vizcaino J.A. et al. 'ProteomeXchange: globally co-ordinated
+##' proteomics data submission and dissemination', Nature Biotechnology 2014,
+##' 32, 223 -- 226, doi:10.1038/nbt.2839.
+##'
+##' Source repository for the ProteomeXchange project:
+##' https://code.google.com/p/proteomexchange/
+##'
+##' @examples
+##'
+##' px <- PXDataset("PXD000001")
+##' px
+##' pxtax(px)
+##' pxurl(px)
+##' pxref(px)
+##' pxfiles(px)
+##'
+##' fas <- pxget(px, "erwinia_carotovora.fasta")
+##' fas
+##' library("Biostrings")
+##' readAAStringSet(fas)
+NULL
+
 ##  Wrong ftp URL in xml of data, as documented in issue #5
 rpx_env <- new.env(parent = emptyenv())
 rpx_env$rpx_fix_issue_5 <- TRUE
 apply_fix_issue_5 <- function(x = TRUE)
     rpx_env$rpx_fix_issue_5 <- x
-
 
 ## setOldClass(c("xml_document", "xml_node"))
 
@@ -14,6 +117,7 @@ apply_fix_issue_5 <- function(x = TRUE)
     ifelse(inherits(valid, "try-error"), FALSE, TRUE)
 }
 
+##' @importFrom methods new
 .PXDataset <- setClass("PXDataset",
                        slots = list(
                            ## attributes
@@ -25,6 +129,9 @@ apply_fix_issue_5 <- function(x = TRUE)
                            Data = "xml_document"))
 
 
+##' @importFrom methods show
+##'
+##' @exportMethod show
 setMethod("show", "PXDataset",
           function(object) {
               cat("Object of class \"", class(object), "\"\n", sep = "")
@@ -73,8 +180,16 @@ setMethod("show", "PXDataset",
 ## }
 
 
+##' @param object An instance of class `PXDataset`.
+##'
+##' @rdname PXDataset
+##'
+##' @export
 pxid <- function(object) object@id
 
+##' @rdname PXDataset
+##'
+##' @export
 pxurl <- function(object) {
     stopifnot(inherits(object, "PXDataset"))
     if (is.null(object@cache$pxurl)) {
@@ -96,7 +211,9 @@ pxurl <- function(object) {
     object@cache$pxurl
 }
 
-
+##' @rdname PXDataset
+##'
+##' @export
 pxtax <- function(object) {
     stopifnot(inherits(object, "PXDataset"))
     if (is.null(object@cache$pxtax)) {
@@ -109,6 +226,9 @@ pxtax <- function(object) {
 }
 
 
+##' @rdname PXDataset
+##'
+##' @export
 pxref <- function(object) {
     stopifnot(inherits(object, "PXDataset"))
     if (is.null(object@cache$pxref)) {
@@ -121,7 +241,11 @@ pxref <- function(object) {
     object@cache$pxref
 }
 
-
+##' @rdname PXDataset
+##'
+##' @importFrom RCurl getURL
+##'
+##' @export
 pxfiles <- function(object) {
     stopifnot(inherits(object, "PXDataset"))
     if (is.null(object@cache$pxfiles)) {
@@ -136,8 +260,19 @@ pxfiles <- function(object) {
     object@cache$pxfiles
 }
 
-
-pxget <- function(object, list, ...) {
+##' @rdname PXDataset
+##'
+##' @param list `character()`, `numeric()` or `logical()` defining the
+##'     `pxfiles()` to be downloaded.
+##'
+##' @param cache `character(1)` with the path to the cache
+##'     directory. Default is to use the central `rpx` cache returned
+##'     by `rpxCache()`.
+##'
+##' @importFrom utils menu
+##'
+##' @export
+pxget <- function(object, list, cache = rpxCache()) {
     fls <- pxfiles(object)
     url <- pxurl(object)
     if (missing(list))
@@ -153,7 +288,7 @@ pxget <- function(object, list, ...) {
         stop("No files to download.")
     toget <- urls <- gsub(" ", "\ ", paste0(url, "/", toget))
     for (i in 1:length(urls)) {
-            toget[i] <- pxget1(urls[i], ...)
+            toget[i] <- pxget1(urls[i], cache)
     }
     toget
 }
@@ -163,10 +298,18 @@ pxget <- function(object, list, ...) {
 ## ns12 <- "https://raw.githubusercontent.com/proteomexchange/proteomecentral/master/lib/schemas/proteomeXchange-1.2.0.xsd"
 ## ns13 <- "https://raw.githubusercontent.com/proteomexchange/proteomecentral/master/lib/schemas/proteomeXchange-1.3.0.xsd"
 
-## constructor
-PXDataset <- function(id) {
+##' @name PXDataset
+##'
+##' @param id `character(1)` containing a valid ProteomeXchange
+##'     identifier.
+##'
+##' @import xml2
+##'
+##' @export
+##'
+##' @return An cached object of class `PXDataset`.
+PXDataset <- function(id, cache = rpxCache()) {
     ## Check if that PX id is already available in BiocFileCache
-    cache <- .get_cache()
     rpxId <- paste0(".rpx", id)
     rpath <- bfcquery(cache, rpxId, "rname", exact = TRUE)$rpath
     if (!length(rpath)) {
