@@ -83,7 +83,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rpx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.2</span>
       </span>
     </div>
 
@@ -139,10 +139,19 @@
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     <p></p><dl>
+    
     <dt><code>id</code>:</dt><dd><p>Object of class <code>"character"</code> storing the
       datasets unique identifier. Can be accessed with <code>pxid()</code>.</p></dd>
+    
     <dt><code>formatVersion</code>:</dt><dd><p>Object of class <code>"character"</code>
       storing the version of the ProteomeXchange schema.</p></dd>
+    
+    <dt><code>cache</code>:</dt><dd><p>Object of class <code>"list"</code> storing the
+      available files (see <code>pxfiles</code>), the reference associated
+      with the data set (see <code>xref</code>), the taxonomy of the sample
+      (see <code>pxtax</code>) and the datasets' ProteomeXchange URL (see
+      <code>pxurl</code>).</p></dd>
+    
     <dt><code>Data</code>:</dt><dd><p>Object of class <code>"XMLNode"</code> storing the
       ProteomeXchange description as XML node tree.</p></dd>
   
@@ -187,7 +196,7 @@
       reference associcated with the <code>object</code>.</p></dd>
 
     <dt>pxtax</dt><dd><p><code>signature(object = "PXDataset")</code>: returns the
-      scientic taxonomic name of <code>object</code>.</p></dd>
+      taxonomic name of <code>object</code>.</p></dd>
 
     <dt>pxurl</dt><dd><p><code>signature(object = "PXDataset"</code>: returns the base
       url on the ProteomeXchange server where <code>pxfiles(object)</code>
@@ -212,6 +221,7 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='va'>px</span> <span class='op'>&lt;-</span> <span class='fu'>PXDataset</span><span class='op'>(</span><span class='st'>"PXD000001"</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading PXD000001 from cache.</span>
 <span class='r-in'><span class='va'>px</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> Object of class "PXDataset"</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>  Id: PXD000001 with 11 files</span>
@@ -239,7 +249,7 @@
 <span class='r-in'><span class='va'>fas</span> <span class='op'>&lt;-</span> <span class='fu'>pxget</span><span class='op'>(</span><span class='va'>px</span>, <span class='st'>"erwinia_carotovora.fasta"</span><span class='op'>)</span></span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading erwinia_carotovora.fasta from cache.</span>
 <span class='r-in'><span class='va'>fas</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "/github/home/.cache/R/rpx/e051f678efb_erwinia_carotovora.fasta"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "/github/home/.cache/R/rpx/64541ad4ba_erwinia_carotovora.fasta"</span>
 <span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'><a href='https://bioconductor.org/packages/Biostrings'>"Biostrings"</a></span><span class='op'>)</span></span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required package: BiocGenerics</span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
