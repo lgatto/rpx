@@ -24,14 +24,11 @@ suppressPackageStartupMessages(library("Biostrings"))
 
 The goal of the `r Biocpkg("rpx")` package is to provide programmatic
 access to proteomics data from R, in particular to the ProteomeXchange
-(PX) central repository (see http://www.proteomexchange.org/ and
-http://central.proteomexchange.org/).
-
-> Vizcaino J.A. et al. *ProteomeXchange: globally co-ordinated
-> proteomics data submission and dissemination*, Nature Biotechnology
-> 2014, 32, 223 -- 226, doi:10.1038/nbt.2839.
-
-Additional repositories are likely to be added in the future.
+([Vizcaino J.A. et al,
+2014](https://www.nature.com/articles/nbt.2839/)) central repository
+(see http://www.proteomexchange.org/ and
+http://central.proteomexchange.org/). Additional repositories are
+likely to be added in the future.
 
 
 # The `r Biocpkg("rpx")`  package
@@ -96,9 +93,9 @@ mandatory argument.
 
 The next argument, `list`, specifies what files to download. If
 missing, a menu is printed and the user can select a file. If set to
-`"all"`, all files of the experiment are downloaded. Alternatively,
-numerics or logicals can also be used to subset the relevant files to
-be downloaded based on the `pxfiles(.)` output.
+`"all"`, all files of the experiment are downloaded. One of multiple
+file names, their indices or logicals can also be used to download
+specific files.
 
 ```{r pxget}
 f <- pxget(px, "PXD000001_mztab.txt")
@@ -106,10 +103,12 @@ f
 ```
 
 The `rpx` package makes use of the `r Biocpkg("BiocFileCache")`
-package to avoid repeatedly dowloading files. When downloaded, file
-are cached, i.e. stored centrally in the package's cache
-directory. Next time the `pxget()` function attempts to get that file,
-it will be directly retrieved from the cache instead being downloaded
+package to avoid repeatedly dowloading data. When `PXDataset` objects
+are created and and project files are downloaded, they stored in the
+package's central or a user-defined cache directory. Next time the
+project is instantiated with `PXDataset()` or a project file is
+downloaded with `pxget()`, existing artefacts will be retrieve from
+cache, instead of being created/downloaded from the remote server
 again.
 
 <!-- Finally, a list of recent PX additions and updates can be obtained -->
@@ -128,10 +127,10 @@ it with the Biostrings package.
 fas <- grep("fasta", pxfiles(px), value = TRUE)
 fas
 f <- pxget(px, fas)
-f ## files available in the rpx cache
+f ## file available in the rpx cache
 ```
 
-```{r example1}
+```{r example1, message = FALSE}
 library("Biostrings")
 readAAStringSet(f)
 ```
