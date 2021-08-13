@@ -40,7 +40,9 @@
 
 
 <meta property="og:title" content="Package cache — rpxCache" />
-<meta property="og:description" content="This function returns the central `rpx` cache directory." />
+<meta property="og:description" content="Function to access the cache directory. `rxpCache()` returns the
+central `rpx` cache. `pxCachedrojects()` prints the names of the
+cached projects and invisibly returns the cache table." />
 
 
 
@@ -80,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rpx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.4</span>
       </span>
     </div>
 
@@ -118,19 +120,38 @@
     <div class="page-header">
     <h1>Package cache</h1>
     <small class="dont-index">Source: <a href='https://github.com/lgatto/rpx/blob/master/R/cache.R'><code>R/cache.R</code></a></small>
-    <div class="hidden name"><code>rpxCache.Rd</code></div>
+    <div class="hidden name"><code>cache.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function returns the central `rpx` cache directory.</p>
+    <p>Function to access the cache directory. `rxpCache()` returns the
+central `rpx` cache. `pxCachedrojects()` prints the names of the
+cached projects and invisibly returns the cache table.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>rpxCache</span><span class='op'>(</span><span class='op'>)</span></code></pre></div>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>rpxCache</span><span class='op'>(</span><span class='op'>)</span>
 
+<span class='fu'>pxCachedProjects</span><span class='op'>(</span>cache <span class='op'>=</span> <span class='fu'>rpxCache</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></code></pre></div>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>cache</th>
+      <td><p>Object of class `BiocFileCache`.</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>`character(1)` with the path to the cache directory.</p>
+    <p>`character(1)` with the path to the cache directory for
+    `rpxCache()` and a `tibble` for `pxCachedProjects()`.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The cache is an object of class `BiocFileCache`, and created with
+`BiocFileCache::BiocFileCache()`. It can be either the
+package-wide cache as defined by `rpxCache()` or an instaned
+provided by the user.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Laurent Gatto</p>
@@ -142,6 +163,9 @@
 <span class='r-out co'><span class='r-pr'>#&gt;</span> bfccache: /github/home/.cache/R/rpx</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> bfccount: 8</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> For more information see: bfcinfo() or bfcquery()</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>pxCachedProjects</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Cached projects: PXD000001, PXD000561, PXD004938, 1, PXD1, PXD022816</span>
 </code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
