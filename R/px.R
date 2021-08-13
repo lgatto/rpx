@@ -20,11 +20,11 @@
 ##' package to automatically cache all downloaded ProteomeXchange
 ##' files. When a file is downloaded for the first time, it is added
 ##' to the cache. When already available, the file path to the cached
-##' file is returned. The rpx chache is returned by
-##' `rpxCache()`. The user is asked to confirm its creation on
-##' first usage of the package. Users can also provide their own cache
-##' directories instead of using the default central cache to
-##' `pxget()`.
+##' file is returned. The rpx chache is returned by `rpxCache()`. The
+##' user is asked to confirm its creation on first usage of the
+##' package. Users can also provide their own cache object instead of
+##' using the default central cache to `pxget()`. Caches can be
+##' generated with the [BiocFileCache::BiocFileCache()] function.
 ##'
 ##' Since 2.1.1, `PXDataset` instances are also cached using the same
 ##' mechanism as project files. Each `PXDataset` instance also stored
@@ -35,7 +35,7 @@
 ##'
 ##' For more details on how to manage the cache (for example if some
 ##' files need to be deleted), please refer to the BiocFileCache
-##' vignette.
+##' package vignette. See also [rpxCache()].
 ##'
 ##' @slot id `character(1)` containing the dataset's unique
 ##'     ProteomeXchange identifier, as used to create the object.
@@ -70,8 +70,8 @@
 ##'    files in the cache directory.
 ##'
 ##'    The argument `cache` can be passed to define the path to the
-##'    cache directory. The default cache is the packages' default as
-##'    returned by `rpxCache()`.
+##'    cache. The default cache is the packages' default as returned
+##'    by `rpxCache()`.
 ##'
 ##' - `pxtax(object)`: returns the taxonomic name of `object`.
 ##'
@@ -265,9 +265,8 @@ pxfiles <- function(object) {
 ##' @param list `character()`, `numeric()` or `logical()` defining the
 ##'     `pxfiles()` to be downloaded.
 ##'
-##' @param cache `character(1)` with the path to the cache
-##'     directory. Default is to use the central `rpx` cache returned
-##'     by `rpxCache()`.
+##' @param cache Object of class `BiocFileCache`. Default is to use
+##'     the central `rpx` cache returned by `rpxCache()`.
 ##'
 ##' @importFrom utils menu
 ##'

@@ -1,8 +1,22 @@
-##' This function returns the central `rpx` cache directory.
-##'
 ##' @title Package cache
 ##'
-##' @return `character(1)` with the path to the cache directory.
+##' @description
+##'
+##' Function to access the cache directory. `rxpCache()` returns the
+##' central `rpx` cache. `pxCachedrojects()` prints the names of the
+##' cached projects and invisibly returns the cache table.
+##'
+##' @details
+##'
+##' The cache is an object of class `BiocFileCache`, and created with
+##' `BiocFileCache::BiocFileCache()`. It can be either the
+##' package-wide cache as defined by `rpxCache()` or an instaned
+##' provided by the user.
+##'
+##' @return `character(1)` with the path to the cache directory for
+##'     `rpxCache()` and a `tibble` for `pxCachedProjects()`.
+##'
+##' @rdname cache
 ##'
 ##' @author Laurent Gatto
 ##'
@@ -13,6 +27,8 @@
 ##' @examples
 ##'
 ##' rpxCache()
+##'
+##' pxCachedProjects()
 rpxCache <- function() {
     cache <- tools::R_user_dir(package = "rpx", which = "cache")
     BiocFileCache::BiocFileCache(cache, ask = interactive())
@@ -36,4 +52,16 @@ pxget1 <- function(url, cache) {
     ## if (!isFALSE(bfcneedsupdate(cache, rid)))
     ##     bfcdownload(rpx_cache, rid)
     bfcrpath(cache, rids = rid)
+}
+
+##' @rdname cache
+##'
+##' @param cache Object of class `BiocFileCache`.
+##'
+##' @export
+pxCachedProjects <- function(cache = rpxCache()) {
+    res <- bfcquery(cache, "^.rpx")
+    ids <- sub("^\\.rpx", "", res$rname)
+    message("Cached projects: ", paste(ids, collapse = ", "))
+    invisible(res)
 }
