@@ -134,7 +134,6 @@ apply_fix_issue_5 <- function(x = TRUE)
 ##' @exportMethod show
 setMethod("show", "PXDataset",
           function(object) {
-              browser()
               cat("Object of class \"", class(object), "\"\n", sep = "")
               fls <- pxfiles(object)
               fls <- paste0("'", fls, "'")
