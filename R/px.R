@@ -134,6 +134,7 @@ apply_fix_issue_5 <- function(x = TRUE)
 ##' @exportMethod show
 setMethod("show", "PXDataset",
           function(object) {
+              browser()
               cat("Object of class \"", class(object), "\"\n", sep = "")
               fls <- pxfiles(object)
               fls <- paste0("'", fls, "'")
@@ -346,7 +347,7 @@ PXDataset <- function(id, cache = rpxCache()) {
         message("Populating object...")
         ans@cache <- list(pxurl = pxurl(ans),
                           pxref = pxref(ans),
-                          pxfile = pxfiles(ans),
+                          pxfiles = pxfiles(ans),
                           pxtax = pxtax(ans))
         ## Add the object to cache
         savepath <- bfcnew(cache, rpxId, ext=".rds")
