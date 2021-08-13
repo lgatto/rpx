@@ -42,7 +42,7 @@
 <meta property="og:title" content="The PXDataset to find and download proteomics data — PXDataset" />
 <meta property="og:description" content="An S4 class to access, store and retrieve information for
 ProteomeXchange (PX) data sets. Objects can be created with the
-`PXDataset()` constructor." />
+PXDataset() constructor." />
 
 
 
@@ -126,7 +126,7 @@ ProteomeXchange (PX) data sets. Objects can be created with the
     <div class="ref-description">
     <p>An S4 class to access, store and retrieve information for
 ProteomeXchange (PX) data sets. Objects can be created with the
-`PXDataset()` constructor.</p>
+<code>PXDataset()</code> constructor.</p>
     </div>
 
     <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>pxid</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
@@ -148,68 +148,68 @@ ProteomeXchange (PX) data sets. Objects can be created with the
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>An instance of class `PXDataset`.</p></td>
+      <td><p>An instance of class <code>PXDataset</code>.</p></td>
     </tr>
     <tr>
       <th>list</th>
-      <td><p>`character()`, `numeric()` or `logical()` defining the
-`pxfiles()` to be downloaded.</p></td>
+      <td><p><code><a href='https://rdrr.io/r/base/character.html'>character()</a></code>, <code><a href='https://rdrr.io/r/base/numeric.html'>numeric()</a></code> or <code><a href='https://rdrr.io/r/base/logical.html'>logical()</a></code> defining the
+<code>pxfiles()</code> to be downloaded.</p></td>
     </tr>
     <tr>
       <th>cache</th>
-      <td><p>Object of class `BiocFileCache`. Default is to use
-the central `rpx` cache returned by `rpxCache()`.</p></td>
+      <td><p>Object of class <code>BiocFileCache</code>. Default is to use
+the central <code>rpx</code> cache returned by <code><a href='cache.html'>rpxCache()</a></code>.</p></td>
     </tr>
     <tr>
       <th>id</th>
-      <td><p>`character(1)` containing a valid ProteomeXchange
+      <td><p><code>character(1)</code> containing a valid ProteomeXchange
 identifier.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An cached object of class `PXDataset`.</p>
+    <p>An cached object of class <code>PXDataset</code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Since version 1.99.1, `rpx` uses the Bioconductor `BiocFileCache`
+    <p>Since version 1.99.1, <code>rpx</code> uses the Bioconductor <code>BiocFileCache</code>
 package to automatically cache all downloaded ProteomeXchange
 files. When a file is downloaded for the first time, it is added
 to the cache. When already available, the file path to the cached
-file is returned. The rpx chache is returned by `rpxCache()`. The
+file is returned. The rpx chache is returned by <code><a href='cache.html'>rpxCache()</a></code>. The
 user is asked to confirm its creation on first usage of the
 package. Users can also provide their own cache object instead of
-using the default central cache to `pxget()`. Caches can be
-generated with the [BiocFileCache::BiocFileCache()] function.</p>
-<p>Since 2.1.1, `PXDataset` instances are also cached using the same
-mechanism as project files. Each `PXDataset` instance also stored
+using the default central cache to <code>pxget()</code>. Caches can be
+generated with the <code><a href='https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html'>BiocFileCache::BiocFileCache()</a></code> function.</p>
+<p>Since 2.1.1, <code>PXDataset</code> instances are also cached using the same
+mechanism as project files. Each <code>PXDataset</code> instance also stored
 the project file names, the reference, taxonomy of the sample and
-the project URL (see slot `cache`) instead of accessing these
+the project URL (see slot <code>cache</code>) instead of accessing these
 every time they are needed to reduce remote access and reliance on
 a stable internet connection.</p>
 <p>For more details on how to manage the cache (for example if some
 files need to be deleted), please refer to the BiocFileCache
-package vignette. See also [rpxCache()].</p>
+package vignette. See also <code><a href='cache.html'>rpxCache()</a></code>.</p>
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     
 
 <dl>
-<dt><code>id</code></dt><dd><p>`character(1)` containing the dataset's unique
+<dt><code>id</code></dt><dd><p><code>character(1)</code> containing the dataset's unique
 ProteomeXchange identifier, as used to create the object.</p></dd>
 
-<dt><code>formatVersion</code></dt><dd><p>`character(1)` storing the version of the
+<dt><code>formatVersion</code></dt><dd><p><code>character(1)</code> storing the version of the
 ProteomeXchange schema. Schema versions 1.0, 1.1 and 1.2 are
 supported (see
 https://code.google.com/p/proteomexchange/source/browse/schema/).</p></dd>
 
-<dt><code>cache</code></dt><dd><p>`list()` storing the available files (element
-`pxfiles`), the reference associated with the data set
-(`pxref`), the taxonomy of the sample (`pxtax`) and the
-datasets' ProteomeXchange URL (`pxurl`). These are returned by
+<dt><code>cache</code></dt><dd><p><code><a href='https://rdrr.io/r/base/list.html'>list()</a></code> storing the available files (element
+<code>pxfiles</code>), the reference associated with the data set
+(<code>pxref</code>), the taxonomy of the sample (<code>pxtax</code>) and the
+datasets' ProteomeXchange URL (<code>pxurl</code>). These are returned by
 the respective accessors.</p></dd>
 
-<dt><code>Data</code></dt><dd><p>`XMLNode` storing the ProteomeXchange description as
+<dt><code>Data</code></dt><dd><p><code>XMLNode</code> storing the ProteomeXchange description as
 XML node tree.</p></dd>
 
 </dl>
@@ -217,23 +217,25 @@ XML node tree.</p></dd>
 
     
 
-
-<p>- `pxfiles(object)` returns the project file names.</p>
-<p>- `pxget(object, list, cache)`: downloads the files from the
-   ProteomeXchange repository. If `list` is missing, the file to
-   be downloaded can be selected from a menu. If `list = "all"`,
-   all files are downloaded. The file names, as returned by
-   `pxfiles()` can also be used. Alternatively, a `logical` or
-   `numeric` indices can be used.</p>
+<ul>
+<li><p><code>pxfiles(object)</code> returns the project file names.</p></li>
+<li><p><code>pxget(object, list, cache)</code>: downloads the files from the
+ProteomeXchange repository. If <code>list</code> is missing, the file to
+be downloaded can be selected from a menu. If <code>list = "all"</code>,
+all files are downloaded. The file names, as returned by
+<code>pxfiles()</code> can also be used. Alternatively, a <code>logical</code> or
+<code>numeric</code> indices can be used.</p>
 <p>If not already cached, the files are downloaded and added to
-   the package cache. The function then returns the names of the
-   files in the cache directory.</p>
-<p>The argument `cache` can be passed to define the path to the
-   cache. The default cache is the packages' default as returned
-   by `rpxCache()`.</p>
-<p>- `pxtax(object)`: returns the taxonomic name of `object`.</p>
-<p>- `pxurl(object)`: returns the base url on the ProteomeXchange
-   server where `pxfiles` reside.</p>
+the package cache. The function then returns the names of the
+files in the cache directory.</p>
+<p>The argument <code>cache</code> can be passed to define the path to the
+cache. The default cache is the packages' default as returned
+by <code><a href='cache.html'>rpxCache()</a></code>.</p></li>
+<li><p><code>pxtax(object)</code>: returns the taxonomic name of <code>object</code>.</p></li>
+<li><p><code>pxurl(object)</code>: returns the base url on the ProteomeXchange
+server where <code>pxfiles</code> reside.</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Vizcaino J.A. et al. 'ProteomeXchange: globally co-ordinated
@@ -276,7 +278,7 @@ https://code.google.com/p/proteomexchange/</p>
 <span class='r-in'><span class='va'>fas</span> <span class='op'>&lt;-</span> <span class='fu'>pxget</span><span class='op'>(</span><span class='va'>px</span>, <span class='st'>"erwinia_carotovora.fasta"</span><span class='op'>)</span></span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading erwinia_carotovora.fasta from cache.</span>
 <span class='r-in'><span class='va'>fas</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "/github/home/.cache/R/rpx/5e255f4b491_erwinia_carotovora.fasta"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "/github/home/.cache/R/rpx/5a830b59df0_erwinia_carotovora.fasta"</span>
 <span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'><a href='https://bioconductor.org/packages/Biostrings'>"Biostrings"</a></span><span class='op'>)</span></span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required package: BiocGenerics</span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
