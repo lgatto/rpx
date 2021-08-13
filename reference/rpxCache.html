@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Return recent PX announcements — pxannounced • rpx</title>
+<title>Package cache — rpxCache • rpx</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Return recent PX announcements — pxannounced" />
-<meta property="og:description" content="Queries the PX rss feed file for the latest PX dataset announcements." />
+<meta property="og:title" content="Package cache — rpxCache" />
+<meta property="og:description" content="This function returns the central `rpx` cache directory." />
 
 
 
@@ -116,33 +116,32 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Return recent PX announcements</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lgatto/rpx/blob/master/R/rss.R'><code>R/rss.R</code></a></small>
-    <div class="hidden name"><code>pxannounced.Rd</code></div>
+    <h1>Package cache</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lgatto/rpx/blob/master/R/cache.R'><code>R/cache.R</code></a></small>
+    <div class="hidden name"><code>rpxCache.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Queries the PX rss feed file for the latest PX dataset announcements.</p>
+    <p>This function returns the central `rpx` cache directory.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>pxannounced</span><span class='op'>(</span><span class='op'>)</span></code></pre></div>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>rpxCache</span><span class='op'>(</span><span class='op'>)</span></code></pre></div>
 
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code>data.frame</code> with announcements data set identifiers,
-publication dates and annoucement messages.</p>
+    <p>`character(1)` with the path to the cache directory.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Laurent Gatto</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'></span>
-<span class='r-in'><span class='fu'>pxannounced</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> The google group rss feeds are currenlty down (see</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> https://github.com/lgatto/rpx/issues/7 for details). Please visit</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> https://groups.google.com/g/proteomexchange for the latest annoucements</span>
-<span class='r-in'></span>
+<span class='r-in'><span class='fu'>rpxCache</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> class: BiocFileCache</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> bfccache: /github/home/.cache/R/rpx</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> bfccount: 8</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> For more information see: bfcinfo() or bfcquery()</span>
 </code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
