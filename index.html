@@ -72,7 +72,7 @@
 <div id="r-interface-to-the-proteomexchange-repository" class="section level2">
 <h2 class="hasAnchor">
 <a href="#r-interface-to-the-proteomexchange-repository" class="anchor" aria-hidden="true"></a>R Interface to the ProteomeXchange Repository</h2>
-<p>Thre <code>rpx</code> package is a simple interface to proteomics data available in the ProteomeXchange repository. The official Bioconductor is <a href="http://bioconductor.org/packages/release/bioc/html/rpx.html" class="external-link">here</a>. The GitHub page allows to browse the documentation and the vignette.</p>
+<p>Thre <code>rpx</code> package is a simple programmatic interface to proteomics data available in the ProteomeXchange repository. It uses a ProteomeXchange identifier such as <code>PXD000001</code> to find and download files associated with that project. The official Bioconductor is <a href="http://bioconductor.org/packages/release/bioc/html/rpx.html" class="external-link">here</a>. The GitHub page allows to browse the documentation and the vignette.</p>
 <div id="installation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#installation" class="anchor" aria-hidden="true"></a>Installation</h3>
@@ -80,6 +80,7 @@
 if (!requireNamespace("BiocManager", quietly=TRUE))
     install.packages("BiocManager")
 BiocManager::install("rpx")</code></pre>
+<p>For a similar python-based software, see <a href="https://github.com/wfondrie/ppx/" class="external-link"><code>ppx</code></a> by Will Fondrie.</p>
 </div>
 </div>
   </div>
