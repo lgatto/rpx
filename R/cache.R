@@ -36,7 +36,8 @@
 ##' ## Default rpx cache
 ##' rpxCache()
 ##'
-##' ## Set up your own cache with
+##' ## Set up your own cache by providing a file or a directory to
+##' ## BiocFileCache::BiocFileCache()
 ##' my_cache <- BiocFileCache::BiocFileCache(tempfile())
 ##' my_cache
 ##' \dontrun{
