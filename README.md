@@ -9,12 +9,21 @@ GitHub page allows to browse the documentation and the vignette.
 
 ### Installation
 
+To install the version matching your local R installation from the
+Bioconductor repository:
+
 ```
-## try http:// if https:// URLs are not supported
 if (!requireNamespace("BiocManager", quietly=TRUE))
     install.packages("BiocManager")
 BiocManager::install("rpx")
 ```
+
+And to install the very latest version from GitHub:
+
+```
+BiocManager::install("lgatto/rpx")
+```
+
 
 For a similar python-based software, see
 [`ppx`](https://github.com/wfondrie/ppx/) by Will Fondrie.

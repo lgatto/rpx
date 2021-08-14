@@ -1,5 +1,9 @@
 # rpx 2.1
 
+## rpx 2.1.6
+
+- Update installation instruction in `README.md`.
+
 ## rpx 2.1.5
 
 - Improve documentation.
