@@ -1,5 +1,9 @@
 # rpx 2.1
 
+## rpx 2.1.5
+
+- Improve documentation.
+
 ## rpx 2.1.4
 
 - Fix bug in PXDdataset internal data storage.

@@ -105,11 +105,11 @@ f
 The `rpx` package makes use of the `r Biocpkg("BiocFileCache")`
 package to avoid repeatedly dowloading data. When `PXDataset` objects
 are created and and project files are downloaded, they stored in the
-package's central or a user-defined cache directory. Next time the
-project is instantiated with `PXDataset()` or a project file is
-downloaded with `pxget()`, existing artefacts will be retrieve from
-cache, instead of being created/downloaded from the remote server
-again.
+package's central or a user-defined cache. Next time the project is
+instantiated with `PXDataset()` or a project file is downloaded with
+`pxget()`, existing artefacts will be retrieve from cache, instead of
+being created/downloaded from the remote server again. See
+`rpxCached()` for details about caching.
 
 <!-- Finally, a list of recent PX additions and updates can be obtained -->
 <!-- using the `pxannounced()` function: -->
@@ -126,8 +126,8 @@ it with the Biostrings package.
 ```{r more, warning=FALSE}
 fas <- grep("fasta", pxfiles(px), value = TRUE)
 fas
-f <- pxget(px, fas)
-f ## file available in the rpx cache
+f <- pxget(px, fas) ## file available in the rpx cache
+f
 ```
 
 ```{r example1, message = FALSE}
