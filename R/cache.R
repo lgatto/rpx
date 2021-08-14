@@ -29,6 +29,10 @@
 ##' rpxCache()
 ##'
 ##' pxCachedProjects()
+##'
+##' ## Set up your own cache with
+##' my_cache <- BiocFileCache::BiocFileCache(tempfile())
+##' my_cache
 rpxCache <- function() {
     cache <- tools::R_user_dir(package = "rpx", which = "cache")
     BiocFileCache::BiocFileCache(cache, ask = interactive())
