@@ -1,5 +1,9 @@
 # rpx 2.1
 
+## rpx 2.1.7
+
+- Improve object creating printout.
+
 ## rpx 2.1.6
 
 - Update installation instruction in `README.md`.

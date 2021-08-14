@@ -318,7 +318,7 @@ PXDataset <- function(id, cache = rpxCache()) {
     rpath <- bfcquery(cache, rpxId, "rname", exact = TRUE)$rpath
     if (!length(rpath)) {
         ## Query PX identifier
-        message("Querying ProteomeXchange for ", id, "...")
+        message("Querying ProteomeXchange for ", id, " ...", appendLF = FALSE)
         url <- paste0(
             "http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=",
             id, "&outputMode=XML&test=no")
@@ -346,13 +346,15 @@ PXDataset <- function(id, cache = rpxCache()) {
         ans <- .PXDataset(id = .id,
                           formatVersion = .formatVersion,
                           Data = x)
-        ## Populate object datag
-        message("Retrieving project data...")
-        ans@cache <- list(pxurl = pxurl(ans),
-                          pxref = pxref(ans),
-                          pxfiles = pxfiles(ans),
-                          pxtax = pxtax(ans),
-                          cachepath = bfccache(cache))
+        message(" done")
+        ## Populate object data
+        message("Retrieving project data ", appendLF = FALSE)
+        ans@cache <- list(pxurl = { message(".", appendLF = FALSE); pxurl(ans) },
+                          pxref = { message(".", appendLF = FALSE); pxref(ans) },
+                          pxfiles =  { message(".", appendLF = FALSE); pxfiles(ans) },
+                          pxtax = { message(".", appendLF = FALSE); pxtax(ans) },
+                          cachepath = { message(".", appendLF = FALSE); bfccache(cache) })
+        message(" done")
         ## Add the object to cache
         savepath <- bfcnew(cache, rpxId, ext=".rds")
         saveRDS(ans, savepath)
