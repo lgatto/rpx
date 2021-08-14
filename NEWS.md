@@ -3,6 +3,7 @@
 ## rpx 2.1.7
 
 - Improve object creating printout.
+- Improve `pxCachedProjects()` output.
 
 ## rpx 2.1.6
 
