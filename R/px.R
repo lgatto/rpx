@@ -312,6 +312,8 @@ pxget <- function(object, list, cache = rpxCache()) {
 ##'
 ##' @import xml2
 ##'
+##' @importFrom methods validObject
+##'
 ##' @export
 ##'
 ##' @return The `PXDataset()` constructor returns a cached `PXDataset`
@@ -365,7 +367,7 @@ PXDataset <- function(id, cache = rpxCache()) {
     ## Retrieve from cache and return
     message("Loading ", id, " from cache.")
     px <- readRDS(rpath)
-    if (!inherits(px, "PXDataset") | !validObject(px))
+    if (!inherits(px, "PXDataset") | !methods::validObject(px))
         stop("Project ", id, " isn't a valid PXDataset object.\n",
              "  Please delete it from cache and regenerate it.\n",
              "  See ?rpxCached() for details.")
