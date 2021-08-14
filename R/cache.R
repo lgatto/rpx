@@ -56,7 +56,8 @@
 ##' ## Alternatively, extact the information from the project
 ##' px <- PXDataset("PXD000001")
 ##' px1_cache_info <- pxCacheInfo(px)
-##' rid <- px1_cache_info["rid"]
+##' (rid <- px1_cache_info["rid"])
+##'
 ##' ## Then remove it with BiocFileCache:: bfcremove()
 ##' \dontrun{
 ##' BiocFileCache:::bfcremove(rpxCache(), rid)
