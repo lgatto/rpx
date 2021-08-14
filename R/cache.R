@@ -81,7 +81,9 @@ rpxCache <- function() {
 pxCachedProjects <- function(cache = rpxCache()) {
     res <- bfcquery(cache, "^.rpx")
     ids <- sub("^\\.rpx", "", res$rname)
-    message("Cached projects: ", paste(ids, collapse = ", "))
+    msg <- paste(strwrap(paste0("Cached projects (", length(ids), "): ",
+                               paste(ids, collapse = ", "))), sep = "\n")
+    message(paste(msg, "\n"), appendLF = FALSE)
     invisible(res)
 }
 
