@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Package cache — rpxCache • rpx</title>
+<title>Package cache — cache • rpx</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Package cache — rpxCache" />
-<meta property="og:description" content="Function to access the cache directory. rxpCache() returns the
+<meta property="og:title" content="Package cache — cache" />
+<meta property="og:description" content="Function to access and manage the cache. rxpCache() returns the
 central rpx cache. pxCachedrojects() prints the names of the
 cached projects and invisibly returns the cache table." />
 
@@ -82,7 +82,7 @@ cached projects and invisibly returns the cache table." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rpx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.5</span>
       </span>
     </div>
 
@@ -124,7 +124,7 @@ cached projects and invisibly returns the cache table." />
     </div>
 
     <div class="ref-description">
-    <p>Function to access the cache directory. <code>rxpCache()</code> returns the
+    <p>Function to access and manage the cache. <code>rxpCache()</code> returns the
 central <code>rpx</code> cache. <code>pxCachedrojects()</code> prints the names of the
 cached projects and invisibly returns the cache table.</p>
     </div>
@@ -144,28 +144,69 @@ cached projects and invisibly returns the cache table.</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>character(1)</code> with the path to the cache directory for
-<code>rpxCache()</code> and a <code>tibble</code> for <code>pxCachedProjects()</code>.</p>
+    <p>The <code>rpxCache()</code> function returns an instance of class
+<code>BiocFileCache</code>. <code>pxCachedProjects()</code> invisbly returns a
+<code>tibble</code> of cached ProteomeXchange projects.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The cache is an object of class <code>BiocFileCache</code>, and created with
 <code><a href='https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html'>BiocFileCache::BiocFileCache()</a></code>. It can be either the
 package-wide cache as defined by <code>rpxCache()</code> or an instaned
 provided by the user.</p>
+<p>When projects are cached, they are given a resource name (<code>rname</code>)
+composed of the <code>.rpx</code> prefix followed by the ProteomeXchange
+identifier. For example, project <code>PXD000001</code> is named
+<code>.rpxPXD000001</code> to avoid any conflicts with other resources that
+user-created resources.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Laurent Gatto</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'></span>
+<span class='r-in'><span class='co'>## Default rpx cache</span></span>
 <span class='r-in'><span class='fu'>rpxCache</span><span class='op'>(</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> class: BiocFileCache</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> bfccache: /github/home/.cache/R/rpx</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> bfccount: 8</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> For more information see: bfcinfo() or bfcquery()</span>
 <span class='r-in'></span>
+<span class='r-in'><span class='co'>## Set up your own cache with</span></span>
+<span class='r-in'><span class='va'>my_cache</span> <span class='op'>&lt;-</span> <span class='fu'>BiocFileCache</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html'>BiocFileCache</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>my_cache</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> class: BiocFileCache</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> bfccache: /tmp/RtmpXyzURE/file945149ab17b</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> bfccount: 0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> For more information see: bfcinfo() or bfcquery()</span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='va'>px</span> <span class='op'>&lt;-</span> <span class='fu'><a href='PXDataset.html'>PXDataset</a></span><span class='op'>(</span><span class='st'>"PXD000001"</span>, cache <span class='op'>=</span> <span class='va'>my_cache</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='PXDataset.html'>pxget</a></span><span class='op'>(</span><span class='va'>px</span>, <span class='st'>"README.txt"</span>, cache <span class='op'>=</span> <span class='va'>my_cache</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## List of cached projects</span></span>
 <span class='r-in'><span class='fu'>pxCachedProjects</span><span class='op'>(</span><span class='op'>)</span></span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> Cached projects: PXD000001, PXD000561, PXD004938, 1, PXD1, PXD022816</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## To delete project a project from the default cache, first find</span></span>
+<span class='r-in'><span class='co'>## its resource id (rid) in the cache</span></span>
+<span class='r-in'><span class='op'>(</span><span class='va'>cache_tbl</span> <span class='op'>&lt;-</span> <span class='fu'>pxCachedProjects</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Cached projects: PXD000001, PXD000561, PXD004938, 1, PXD1, PXD022816</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 × 10</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   rid   rname  create_time access_time rpath  rtype fpath last_modified_t… etag </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> BFC1  .rpxP… 2021-08-14… 2021-08-14… /gith… rela… 5aa6…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> BFC4  .rpxP… 2021-08-14… 2021-08-14… /gith… rela… 7756…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> BFC5  .rpxP… 2021-08-14… 2021-08-14… /gith… rela… 7756…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> BFC6  .rpx1  2021-08-14… 2021-08-14… /gith… rela… 7753…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> BFC7  .rpxP… 2021-08-14… 2021-08-14… /gith… rela… 775c…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> BFC8  .rpxP… 2021-08-14… 2021-08-14… /gith… rela… 7754…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 1 more variable: expires &lt;dbl&gt;</span></span>
+<span class='r-in'><span class='op'>(</span><span class='va'>rid</span> <span class='op'>&lt;-</span> <span class='va'>cache_tbl</span><span class='op'>[</span><span class='va'>cache_tbl</span><span class='op'>$</span><span class='va'>rname</span> <span class='op'>==</span> <span class='st'>".rpxPXD000001"</span>, <span class='st'>"rid"</span><span class='op'>]</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "BFC1"</span>
+<span class='r-in'><span class='co'>## Then remove it with BiocFileCache:: bfcremove()</span></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='fu'>BiocFileCache</span><span class='fu'>:::</span><span class='fu'><a href='https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html'>bfcremove</a></span><span class='op'>(</span><span class='fu'>rpxCache</span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>rid</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
 </code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
