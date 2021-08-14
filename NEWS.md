@@ -4,6 +4,8 @@
 
 - Improve documentation.
 
+- Check for cached PXDataset object validity.
+
 ## rpx 2.1.4
 
 - Fix bug in PXDdataset internal data storage.
