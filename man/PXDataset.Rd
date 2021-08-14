@@ -2,7 +2,6 @@
 % Please edit documentation in R/px.R
 \name{PXDataset}
 \alias{PXDataset}
-\alias{PXDataset-class}
 \alias{class:PXDataset}
 \alias{pxfiles,PXDataset-method}
 \alias{pxfiles}
@@ -34,46 +33,55 @@ pxget(object, list, cache = rpxCache())
 PXDataset(id, cache = rpxCache())
 }
 \arguments{
-\item{object}{An instance of class \code{PXDataset}.}
+\item{object}{An instance of class \code{PXDataset}, as created by
+\code{PXDataset()}.}
 
 \item{list}{\code{character()}, \code{numeric()} or \code{logical()} defining the
-\code{pxfiles()} to be downloaded.}
+project files to be downloaded. This list of files can
+retrieved with \code{pxfiles()}.}
 
 \item{cache}{Object of class \code{BiocFileCache}. Default is to use
-the central \code{rpx} cache returned by \code{rpxCache()}.}
+the central \code{rpx} cache returned by \code{rpxCache()}, but users
+can use their own cache. See \code{\link[=rpxCache]{rpxCache()}} for details.}
 
 \item{id}{\code{character(1)} containing a valid ProteomeXchange
 identifier.}
 }
 \value{
-An cached object of class \code{PXDataset}.
+The \code{PXDataset()} constructor returns a cached \code{PXDataset}
+object. It thus also modifies the cache used to projet
+caching, as defined by the \code{cache} argument.
 }
 \description{
-An S4 class to access, store and retrieve information for
-ProteomeXchange (PX) data sets. Objects can be created with the
-\code{PXDataset()} constructor.
+The \code{rpx} package provides the infrastructure to access, store and
+retrieve information for ProteomeXchange (PX) data sets. This can
+be achieved with \code{PXDataset} objects can be created with the
+\code{PXDataset()} constructor that takes the unique ProteomeXchange
+project identifier as input.
 }
 \details{
 Since version 1.99.1, \code{rpx} uses the Bioconductor \code{BiocFileCache}
 package to automatically cache all downloaded ProteomeXchange
 files. When a file is downloaded for the first time, it is added
 to the cache. When already available, the file path to the cached
-file is returned. The rpx chache is returned by \code{rpxCache()}. The
-user is asked to confirm its creation on first usage of the
-package. Users can also provide their own cache object instead of
-using the default central cache to \code{pxget()}. Caches can be
-generated with the \code{\link[BiocFileCache:BiocFileCache-class]{BiocFileCache::BiocFileCache()}} function.
+file is directly returned. The central \code{rpx} package chache,
+object of class \code{BiocFileCache}, is returned by
+\code{\link[=rpxCache]{rpxCache()}}. Users can also provide their own cache object
+instead of using the default central cache to \code{pxget()}.
 
 Since 2.1.1, \code{PXDataset} instances are also cached using the same
 mechanism as project files. Each \code{PXDataset} instance also stored
 the project file names, the reference, taxonomy of the sample and
 the project URL (see slot \code{cache}) instead of accessing these
 every time they are needed to reduce remote access and reliance on
-a stable internet connection.
+a stable internet connection. As for files, the default cache is
+as returned by \code{\link[=rpxCache]{rpxCache()}}, but users can pass their own
+\code{BiocFileCache} objects.
 
 For more details on how to manage the cache (for example if some
-files need to be deleted), please refer to the BiocFileCache
-package vignette. See also \code{\link[=rpxCache]{rpxCache()}}.
+files need to be deleted), please refer to the \code{BiocFileCache}
+package vignette and documentation. See also \code{\link[=rpxCache]{rpxCache()}} for
+additional details.
 }
 \section{Slots}{
 
@@ -84,7 +92,7 @@ ProteomeXchange identifier, as used to create the object.}
 \item{\code{formatVersion}}{\code{character(1)} storing the version of the
 ProteomeXchange schema. Schema versions 1.0, 1.1 and 1.2 are
 supported (see
-https://code.google.com/p/proteomexchange/source/browse/schema/).}
+\url{https://code.google.com/p/proteomexchange/source/browse/schema/}).}
 
 \item{\code{cache}}{\code{list()} storing the available files (element
 \code{pxfiles}), the reference associated with the data set
@@ -100,23 +108,24 @@ XML node tree.}
 
 \itemize{
 \item \code{pxfiles(object)} returns the project file names.
-\item \code{pxget(object, list, cache)}: downloads the files from the
-ProteomeXchange repository. If \code{list} is missing, the file to
-be downloaded can be selected from a menu. If \code{list = "all"},
-all files are downloaded. The file names, as returned by
-\code{pxfiles()} can also be used. Alternatively, a \code{logical} or
-\code{numeric} indices can be used.
+\item \code{pxget(object, list, cache)}: if the file(s) in \code{list} have
+never been requested, \code{pxget()} downloads the files from the
+ProteomeXchange repository, caches them in \code{cache} and returns
+their path. If the files have previously been downloaded and
+are available in \code{cache}, their path is directly returned.
 
-If not already cached, the files are downloaded and added to
-the package cache. The function then returns the names of the
-files in the cache directory.
+If \code{list} is missing, the file to be downloaded can be selected
+from a menu. If \code{list = "all"}, all files are downloaded. The
+file names, as returned by \code{pxfiles()} can also be
+used. Alternatively, a \code{logical} or \code{numeric} index can be
+used.
 
 The argument \code{cache} can be passed to define the path to the
 cache. The default cache is the packages' default as returned
 by \code{rpxCache()}.
 \item \code{pxtax(object)}: returns the taxonomic name of \code{object}.
 \item \code{pxurl(object)}: returns the base url on the ProteomeXchange
-server where \code{pxfiles} reside.
+server where the project files reside.
 }
 }
 

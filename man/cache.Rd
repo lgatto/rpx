@@ -13,11 +13,12 @@ pxCachedProjects(cache = rpxCache())
 \item{cache}{Object of class \code{BiocFileCache}.}
 }
 \value{
-\code{character(1)} with the path to the cache directory for
-\code{rpxCache()} and a \code{tibble} for \code{pxCachedProjects()}.
+The \code{rpxCache()} function returns an instance of class
+\code{BiocFileCache}. \code{pxCachedProjects()} invisbly returns a
+\code{tibble} of cached ProteomeXchange projects.
 }
 \description{
-Function to access the cache directory. \code{rxpCache()} returns the
+Function to access and manage the cache. \code{rxpCache()} returns the
 central \code{rpx} cache. \code{pxCachedrojects()} prints the names of the
 cached projects and invisibly returns the cache table.
 }
@@ -26,12 +27,22 @@ The cache is an object of class \code{BiocFileCache}, and created with
 \code{BiocFileCache::BiocFileCache()}. It can be either the
 package-wide cache as defined by \code{rpxCache()} or an instaned
 provided by the user.
+
+When projects are cached, they are given a resource name (\code{rname})
+composed of the \code{.rpx} prefix followed by the ProteomeXchange
+identifier. For example, project \code{PXD000001} is named
+\code{.rpxPXD000001} to avoid any conflicts with other resources that
+user-created resources.
 }
 \examples{
 
 rpxCache()
 
 pxCachedProjects()
+
+## Set up your own cache with
+my_cache <- BiocFileCache::BiocFileCache(tempfile())
+my_cache
 }
 \author{
 Laurent Gatto

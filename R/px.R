@@ -1,6 +1,6 @@
 ##' @title The PXDataset to find and download proteomics data
 ##'
-##' @aliases PXDataset-class class:PXDataset PXDataset
+##' @aliases class:PXDataset PXDataset
 ##'     pxfiles,PXDataset-method pxfiles pxget,PXDataset-method pxget
 ##'     pxid,PXDataset-method pxid pxref,PXDataset-method pxref
 ##'     pxtax,PXDataset-method pxtax pxurl,PXDataset-method pxurl
@@ -10,9 +10,11 @@
 ##'
 ##' @description
 ##'
-##' An S4 class to access, store and retrieve information for
-##' ProteomeXchange (PX) data sets. Objects can be created with the
-##' `PXDataset()` constructor.
+##' The `rpx` package provides the infrastructure to access, store and
+##' retrieve information for ProteomeXchange (PX) data sets. This can
+##' be achieved with `PXDataset` objects can be created with the
+##' `PXDataset()` constructor that takes the unique ProteomeXchange
+##' project identifier as input.
 ##'
 ##' @details
 ##'
@@ -20,22 +22,24 @@
 ##' package to automatically cache all downloaded ProteomeXchange
 ##' files. When a file is downloaded for the first time, it is added
 ##' to the cache. When already available, the file path to the cached
-##' file is returned. The rpx chache is returned by `rpxCache()`. The
-##' user is asked to confirm its creation on first usage of the
-##' package. Users can also provide their own cache object instead of
-##' using the default central cache to `pxget()`. Caches can be
-##' generated with the [BiocFileCache::BiocFileCache()] function.
+##' file is directly returned. The central `rpx` package chache,
+##' object of class `BiocFileCache`, is returned by
+##' [rpxCache()]. Users can also provide their own cache object
+##' instead of using the default central cache to `pxget()`.
 ##'
 ##' Since 2.1.1, `PXDataset` instances are also cached using the same
 ##' mechanism as project files. Each `PXDataset` instance also stored
 ##' the project file names, the reference, taxonomy of the sample and
 ##' the project URL (see slot `cache`) instead of accessing these
 ##' every time they are needed to reduce remote access and reliance on
-##' a stable internet connection.
+##' a stable internet connection. As for files, the default cache is
+##' as returned by [rpxCache()], but users can pass their own
+##' `BiocFileCache` objects.
 ##'
 ##' For more details on how to manage the cache (for example if some
-##' files need to be deleted), please refer to the BiocFileCache
-##' package vignette. See also [rpxCache()].
+##' files need to be deleted), please refer to the `BiocFileCache`
+##' package vignette and documentation. See also [rpxCache()] for
+##' additional details.
 ##'
 ##' @slot id `character(1)` containing the dataset's unique
 ##'     ProteomeXchange identifier, as used to create the object.
@@ -43,7 +47,7 @@
 ##' @slot formatVersion `character(1)` storing the version of the
 ##'     ProteomeXchange schema. Schema versions 1.0, 1.1 and 1.2 are
 ##'     supported (see
-##'     https://code.google.com/p/proteomexchange/source/browse/schema/).
+##'     [https://code.google.com/p/proteomexchange/source/browse/schema/](https://code.google.com/p/proteomexchange/source/browse/schema/)).
 ##'
 ##' @slot cache `list()` storing the available files (element
 ##'     `pxfiles`), the reference associated with the data set
@@ -58,16 +62,17 @@
 ##'
 ##' - `pxfiles(object)` returns the project file names.
 ##'
-##' - `pxget(object, list, cache)`: downloads the files from the
-##'    ProteomeXchange repository. If `list` is missing, the file to
-##'    be downloaded can be selected from a menu. If `list = "all"`,
-##'    all files are downloaded. The file names, as returned by
-##'    `pxfiles()` can also be used. Alternatively, a `logical` or
-##'    `numeric` indices can be used.
+##' - `pxget(object, list, cache)`: if the file(s) in `list` have
+##'    never been requested, `pxget()` downloads the files from the
+##'    ProteomeXchange repository, caches them in `cache` and returns
+##'    their path. If the files have previously been downloaded and
+##'    are available in `cache`, their path is directly returned.
 ##'
-##'    If not already cached, the files are downloaded and added to
-##'    the package cache. The function then returns the names of the
-##'    files in the cache directory.
+##'    If `list` is missing, the file to be downloaded can be selected
+##'    from a menu. If `list = "all"`, all files are downloaded. The
+##'    file names, as returned by `pxfiles()` can also be
+##'    used. Alternatively, a `logical` or `numeric` index can be
+##'    used.
 ##'
 ##'    The argument `cache` can be passed to define the path to the
 ##'    cache. The default cache is the packages' default as returned
@@ -76,7 +81,7 @@
 ##' - `pxtax(object)`: returns the taxonomic name of `object`.
 ##'
 ##' - `pxurl(object)`: returns the base url on the ProteomeXchange
-##'    server where `pxfiles` reside.
+##'    server where the project files reside.
 ##'
 ##' @author Laurent Gatto
 ##'
@@ -180,7 +185,8 @@ setMethod("show", "PXDataset",
 ## }
 
 
-##' @param object An instance of class `PXDataset`.
+##' @param object An instance of class `PXDataset`, as created by
+##'     `PXDataset()`.
 ##'
 ##' @rdname PXDataset
 ##'
@@ -263,10 +269,12 @@ pxfiles <- function(object) {
 ##' @rdname PXDataset
 ##'
 ##' @param list `character()`, `numeric()` or `logical()` defining the
-##'     `pxfiles()` to be downloaded.
+##'     project files to be downloaded. This list of files can
+##'     retrieved with `pxfiles()`.
 ##'
 ##' @param cache Object of class `BiocFileCache`. Default is to use
-##'     the central `rpx` cache returned by `rpxCache()`.
+##'     the central `rpx` cache returned by `rpxCache()`, but users
+##'     can use their own cache. See [rpxCache()] for details.
 ##'
 ##' @importFrom utils menu
 ##'
@@ -306,7 +314,9 @@ pxget <- function(object, list, cache = rpxCache()) {
 ##'
 ##' @export
 ##'
-##' @return An cached object of class `PXDataset`.
+##' @return The `PXDataset()` constructor returns a cached `PXDataset`
+##'     object. It thus also modifies the cache used to projet
+##'     caching, as defined by the `cache` argument.
 PXDataset <- function(id, cache = rpxCache()) {
     ## Check if that PX id is already available in BiocFileCache
     rpxId <- paste0(".rpx", id)

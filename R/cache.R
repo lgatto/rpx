@@ -2,7 +2,7 @@
 ##'
 ##' @description
 ##'
-##' Function to access the cache directory. `rxpCache()` returns the
+##' Function to access and manage the cache. `rxpCache()` returns the
 ##' central `rpx` cache. `pxCachedrojects()` prints the names of the
 ##' cached projects and invisibly returns the cache table.
 ##'
@@ -13,8 +13,15 @@
 ##' package-wide cache as defined by `rpxCache()` or an instaned
 ##' provided by the user.
 ##'
-##' @return `character(1)` with the path to the cache directory for
-##'     `rpxCache()` and a `tibble` for `pxCachedProjects()`.
+##' When projects are cached, they are given a resource name (`rname`)
+##' composed of the `.rpx` prefix followed by the ProteomeXchange
+##' identifier. For example, project `PXD000001` is named
+##' `.rpxPXD000001` to avoid any conflicts with other resources that
+##' user-created resources.
+##'
+##' @return The `rpxCache()` function returns an instance of class
+##'     `BiocFileCache`. `pxCachedProjects()` invisbly returns a
+##'     `tibble` of cached ProteomeXchange projects.
 ##'
 ##' @rdname cache
 ##'
