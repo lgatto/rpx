@@ -1,5 +1,7 @@
 ##' @title Package cache
 ##'
+##' @name cache
+##'
 ##' @description
 ##'
 ##' Function to access and manage the cache. `rxpCache()` returns the
@@ -29,20 +31,51 @@
 ##'
 ##' @importFrom tools R_user_dir
 ##'
-##' @export
-##'
 ##' @examples
 ##'
+##' ## Default rpx cache
 ##' rpxCache()
-##'
-##' pxCachedProjects()
 ##'
 ##' ## Set up your own cache with
 ##' my_cache <- BiocFileCache::BiocFileCache(tempfile())
 ##' my_cache
+##' \dontrun{
+##' px <- PXDataset("PXD000001", cache = my_cache)
+##' pxget(px, "README.txt", cache = my_cache)
+##' }
+##'
+##' ## List of cached projects
+##' pxCachedProjects()
+##'
+##' ## To delete project a project from the default cache, first find
+##' ## its resource id (rid) in the cache
+##' (cache_tbl <- pxCachedProjects())
+##' (rid <- cache_tbl[cache_tbl$rname == ".rpxPXD000001", "rid"][[1]])
+##' ## Then remove it with BiocFileCache:: bfcremove()
+##' \dontrun{
+##' BiocFileCache:::bfcremove(rpxCache(), rid)
+##' }
+NULL
+
+##' @rdname cache
+##'
+##' @export
 rpxCache <- function() {
     cache <- tools::R_user_dir(package = "rpx", which = "cache")
     BiocFileCache::BiocFileCache(cache, ask = interactive())
+}
+
+
+##' @rdname cache
+##'
+##' @param cache Object of class `BiocFileCache`.
+##'
+##' @export
+pxCachedProjects <- function(cache = rpxCache()) {
+    res <- bfcquery(cache, "^.rpx")
+    ids <- sub("^\\.rpx", "", res$rname)
+    message("Cached projects: ", paste(ids, collapse = ", "))
+    invisible(res)
 }
 
 ##' @import BiocFileCache
@@ -63,16 +96,4 @@ pxget1 <- function(url, cache) {
     ## if (!isFALSE(bfcneedsupdate(cache, rid)))
     ##     bfcdownload(rpx_cache, rid)
     bfcrpath(cache, rids = rid)
-}
-
-##' @rdname cache
-##'
-##' @param cache Object of class `BiocFileCache`.
-##'
-##' @export
-pxCachedProjects <- function(cache = rpxCache()) {
-    res <- bfcquery(cache, "^.rpx")
-    ids <- sub("^\\.rpx", "", res$rname)
-    message("Cached projects: ", paste(ids, collapse = ", "))
-    invisible(res)
 }
