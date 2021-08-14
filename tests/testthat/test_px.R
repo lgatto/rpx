@@ -294,7 +294,7 @@ test_that("PXD022816: valid URLs and files", {
 
 test_that("Object content is valid.", {
     ## Add a resource with rname .rpxPXD000001 to a tmp cache
-    tmp_cache <- BiocFileCache::BiocFileCache(tempfile())
+    tmp_cache <- BiocFileCache::BiocFileCache(tempfile(), ask = FALSE)
     path <- BiocFileCache::bfcnew(tmp_cache, rname = ".rpxPXD000001")
     saveRDS(1, "/tmp/RtmpEKIeV9/BiocFileCache/5394f58dff966_5394f58dff966")
     ## Try to load if from cache
