@@ -149,7 +149,7 @@
 <pre><code>## Loading PXD000001_mztab.txt from cache.</code></pre>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f</span></code></pre></div>
-<pre><code>## [1] "/github/home/.cache/R/rpx/5a9410234f7_PXD000001_mztab.txt"</code></pre>
+<pre><code>## [1] "/github/home/.cache/R/rpx/5e42ee81637_PXD000001_mztab.txt"</code></pre>
 <p>The <code>rpx</code> package makes use of the <em><a href="https://bioconductor.org/packages/3.14/BiocFileCache" class="external-link">BiocFileCache</a></em> package to avoid repeatedly dowloading data. When <code>PXDataset</code> objects are created and and project files are downloaded, they stored in the package’s central or a user-defined cache. Next time the project is instantiated with <code><a href="../reference/PXDataset.html">PXDataset()</a></code> or a project file is downloaded with <code><a href="../reference/PXDataset.html">pxget()</a></code>, existing artefacts will be retrieve from cache, instead of being created/downloaded from the remote server again. See <code>rpxCached()</code> for details about caching.</p>
 <!-- Finally, a list of recent PX additions and updates can be obtained -->
 <!-- using the `pxannounced()` function: -->
@@ -170,7 +170,7 @@
 <pre><code>## Loading erwinia_carotovora.fasta from cache.</code></pre>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f</span></code></pre></div>
-<pre><code>## [1] "/github/home/.cache/R/rpx/5a930417449_erwinia_carotovora.fasta"</code></pre>
+<pre><code>## [1] "/github/home/.cache/R/rpx/5e46ab950cf_erwinia_carotovora.fasta"</code></pre>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://bioconductor.org/packages/Biostrings" class="external-link">"Biostrings"</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/Biostrings/man/XStringSet-io.html" class="external-link">readAAStringSet</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></code></pre></div>
