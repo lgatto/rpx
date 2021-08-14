@@ -53,7 +53,8 @@
 ##'     `pxfiles`), the reference associated with the data set
 ##'     (`pxref`), the taxonomy of the sample (`pxtax`) and the
 ##'     datasets' ProteomeXchange URL (`pxurl`). These are returned by
-##'     the respective accessors.
+##'     the respective accessors. It also stores the path to the cache
+##'     it is stored in (element `cachepath`).
 ##'
 ##' @slot Data `XMLNode` storing the ProteomeXchange description as
 ##'     XML node tree.
@@ -83,6 +84,11 @@
 ##' - `pxurl(object)`: returns the base url on the ProteomeXchange
 ##'    server where the project files reside.
 ##'
+##' - `pxCacheInfo(object, cache): prints and invisibly returns
+##'    `object`'s caching information from `cache` (default is
+##'    `rpxCache()`). The return value is a named vector of length two
+##'    containing the resourne identifier and the cache location.
+##'
 ##' @author Laurent Gatto
 ##'
 ##' @references Vizcaino J.A. et al. 'ProteomeXchange: globally co-ordinated
@@ -100,6 +106,7 @@
 ##' pxurl(px)
 ##' pxref(px)
 ##' pxfiles(px)
+##' pxCacheInfo(px)
 ##'
 ##' fas <- pxget(px, "erwinia_carotovora.fasta")
 ##' fas
@@ -144,7 +151,8 @@ setMethod("show", "PXDataset",
               fls <- paste0("'", fls, "'")
               n <- length(fls)
               cat(" Id:", object@id, "with ")
-              cat(n, "files\n")
+              cat(n, "files\n ")
+              pxCacheInfo(object)
               cat(" ")
               if (n < 3) {
                   cat(paste(fls, collapse = ", "), "\n")
@@ -156,34 +164,6 @@ setMethod("show", "PXDataset",
                   cat(" Use 'pxfiles(.)' to see all files.\n")
               }
           })
-
-## ##' Returns the node names of the underliyng XML content of an
-## ##' \code{PXDataset} object, available in the \code{Data} slot. This
-## ##' function is meant to be used if additional parsing of the XML
-## ##' structure is needed.
-## ##'
-## ##' @title Return the nodes of a \code{PXDataset}
-## ##' @param pxdata An instance of class \code{PXDataset}.
-## ##' @param name The name of a node.
-## ##' @param all Should node from all levels be returned. Default is
-## ##' \code{FALSE}.
-## ##' @return A \code{character} with XML node names.
-## ##' @author Laurent Gatto
-## pxnodes <- function(pxdata, name, all = FALSE) {
-##     stopifnot(inherits(pxdata, "PXDataset"))
-##     stop("Not available for new version")
-##     if (all) {
-##         ans <- names(unlist(pxdata@Data))
-##         ans <- ans[grep("children", ans)]
-##         ans <- gsub("\\.", "/", ans)
-##         ans <- gsub("children", "", ans)
-##         return(ans)
-##     }
-##     if (missing(name)) ans <- names(names(pxdata@Data))
-##     else ans <- names(xmlChildren(pxdata@Data[[name]]))
-##     ans
-## }
-
 
 ##' @param object An instance of class `PXDataset`, as created by
 ##'     `PXDataset()`.
@@ -300,6 +280,19 @@ pxget <- function(object, list, cache = rpxCache()) {
     toget
 }
 
+
+##' @rdname PXDataset
+##'
+##' @export
+##'
+pxCacheInfo <- function(object, cache = rpxCache()) {
+    rid <- ridFromCache(object)
+    if (is.na(rid)) msg <- "No caching information found."
+    else msg <- paste0("Resource ID ", rid, " in cache in ", object@cache$cachepath, ".")
+    message(msg)
+    invisible(c(rid = rid, cachepath = object@cache$cachepath))
+}
+
 ## ns10 <- "https://raw.githubusercontent.com/proteomexchange/proteomecentral/master/lib/schemas/proteomeXchange-1.0.xsd"
 ## ns11 <- "https://raw.githubusercontent.com/proteomexchange/proteomecentral/master/lib/schemas/proteomeXchange-1.1.0.xsd"
 ## ns12 <- "https://raw.githubusercontent.com/proteomexchange/proteomecentral/master/lib/schemas/proteomeXchange-1.2.0.xsd"
@@ -353,12 +346,13 @@ PXDataset <- function(id, cache = rpxCache()) {
         ans <- .PXDataset(id = .id,
                           formatVersion = .formatVersion,
                           Data = x)
-        ## Populate object data
-        message("Populating object...")
+        ## Populate object datag
+        message("Retrieving project data...")
         ans@cache <- list(pxurl = pxurl(ans),
                           pxref = pxref(ans),
                           pxfiles = pxfiles(ans),
-                          pxtax = pxtax(ans))
+                          pxtax = pxtax(ans),
+                          cachepath = bfccache(cache))
         ## Add the object to cache
         savepath <- bfcnew(cache, rpxId, ext=".rds")
         saveRDS(ans, savepath)

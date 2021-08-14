@@ -3,6 +3,9 @@
 ## rpx 2.1.6
 
 - Update installation instruction in `README.md`.
+- Cache location is now also stored inside the `PXDataset` object.
+- New `pxCacheInfo()` function and use it to show caching info in
+  `show,PXDataset`.
 
 ## rpx 2.1.5
 

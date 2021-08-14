@@ -16,6 +16,7 @@
 \alias{pxurl,PXDataset-method}
 \alias{pxurl}
 \alias{show,PXDataset-method}
+\alias{pxCacheInfo}
 \title{The PXDataset to find and download proteomics data}
 \usage{
 pxid(object)
@@ -29,6 +30,8 @@ pxref(object)
 pxfiles(object)
 
 pxget(object, list, cache = rpxCache())
+
+pxCacheInfo(object, cache = rpxCache())
 
 PXDataset(id, cache = rpxCache())
 }
@@ -98,7 +101,8 @@ supported (see
 \code{pxfiles}), the reference associated with the data set
 (\code{pxref}), the taxonomy of the sample (\code{pxtax}) and the
 datasets' ProteomeXchange URL (\code{pxurl}). These are returned by
-the respective accessors.}
+the respective accessors. It also stores the path to the cache
+it is stored in (element \code{cachepath}).}
 
 \item{\code{Data}}{\code{XMLNode} storing the ProteomeXchange description as
 XML node tree.}
@@ -126,6 +130,8 @@ by \code{rpxCache()}.
 \item \code{pxtax(object)}: returns the taxonomic name of \code{object}.
 \item \code{pxurl(object)}: returns the base url on the ProteomeXchange
 server where the project files reside.
+\item \verb{pxCacheInfo(object, cache): prints and invisibly returns }object\verb{'s caching information from }cache\verb{(default is}rpxCache()`). The return value is a named vector of length two
+containing the resourne identifier and the cache location.
 }
 }
 
@@ -137,6 +143,7 @@ pxtax(px)
 pxurl(px)
 pxref(px)
 pxfiles(px)
+pxCacheInfo(px)
 
 fas <- pxget(px, "erwinia_carotovora.fasta")
 fas

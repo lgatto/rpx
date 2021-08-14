@@ -52,6 +52,11 @@
 ##' ## its resource id (rid) in the cache
 ##' (cache_tbl <- pxCachedProjects())
 ##' (rid <- cache_tbl[cache_tbl$rname == ".rpxPXD000001", "rid"][[1]])
+##'
+##' ## Alternatively, extact the information from the project
+##' px <- PXDataset("PXD000001")
+##' px1_cache_info <- pxCacheInfo(px)
+##' rid <- px1_cache_info["rid"]
 ##' ## Then remove it with BiocFileCache:: bfcremove()
 ##' \dontrun{
 ##' BiocFileCache:::bfcremove(rpxCache(), rid)
@@ -97,4 +102,19 @@ pxget1 <- function(url, cache) {
     ## if (!isFALSE(bfcneedsupdate(cache, rid)))
     ##     bfcdownload(rpx_cache, rid)
     bfcrpath(cache, rids = rid)
+}
+
+ridFromCache <- function(object) {
+    if (is.null(object@cache$cachepath))
+        return(NA)
+    rid <- bfcquery(BiocFileCache(object@cache$cachepath),
+                    paste0(".rpx", pxid(object)),
+                    "rname", exact = TRUE)$rid
+    if (!length(rid)) {
+        warning("Project not found in cache.")
+        rid <- NA
+    }
+    if (length(rid) > 1)
+        stop("Multiple resource ids found.")
+    rid
 }

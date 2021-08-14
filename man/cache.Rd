@@ -56,6 +56,11 @@ pxCachedProjects()
 ## its resource id (rid) in the cache
 (cache_tbl <- pxCachedProjects())
 (rid <- cache_tbl[cache_tbl$rname == ".rpxPXD000001", "rid"][[1]])
+
+## Alternatively, extact the information from the project
+px <- PXDataset("PXD000001")
+px1_cache_info <- pxCacheInfo(px)
+rid <- px1_cache_info["rid"]
 ## Then remove it with BiocFileCache:: bfcremove()
 \dontrun{
 BiocFileCache:::bfcremove(rpxCache(), rid)
