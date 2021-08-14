@@ -362,10 +362,12 @@ PXDataset <- function(id, cache = rpxCache()) {
         saveRDS(ans, savepath)
         return(ans)
     }
-    if (length(rpath) != 1)
-        stop(paste0("Non-unique internal ", rpxId, " found!\n",
-                    "Please check and clear your cache."))
     ## Retrieve from cache and return
     message("Loading ", id, " from cache.")
-    readRDS(rpath)
+    px <- readRDS(rpath)
+    if (!inherits(px, "PXDataset") | !validObject(px))
+        stop("Project ", id, " isn't a valid PXDataset object.\n",
+             "  Please delete it from cache and regenerate it.\n",
+             "  See ?rpxCached() for details.")
+    return(px)
 }

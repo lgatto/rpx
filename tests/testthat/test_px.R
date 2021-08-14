@@ -291,3 +291,12 @@ test_that("PXD022816: valid URLs and files", {
     expect_identical(length(pxurl(PXD022816)), 1L)
     expect_identical(length(pxfiles(PXD022816)), nfiles)
 })
+
+test_that("Object content is valid.", {
+    ## Add a resource with rname .rpxPXD000001 to a tmp cache
+    tmp_cache <- BiocFileCache::BiocFileCache(tempfile())
+    path <- BiocFileCache::bfcnew(tmp_cache, rname = ".rpxPXD000001")
+    saveRDS(1, "/tmp/RtmpEKIeV9/BiocFileCache/5394f58dff966_5394f58dff966")
+    ## Try to load if from cache
+    expect_error(p <- PXDataset("PXD000001", cache = tmp_cache))
+})
