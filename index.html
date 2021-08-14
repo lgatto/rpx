@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">rpx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.6</span>
       </span>
     </div>
 
@@ -76,10 +76,12 @@
 <div id="installation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#installation" class="anchor" aria-hidden="true"></a>Installation</h3>
-<pre><code>## try http:// if https:// URLs are not supported
-if (!requireNamespace("BiocManager", quietly=TRUE))
+<p>To install the version matching your local R installation from the Bioconductor repository:</p>
+<pre><code>if (!requireNamespace("BiocManager", quietly=TRUE))
     install.packages("BiocManager")
 BiocManager::install("rpx")</code></pre>
+<p>And to install the very latest version from GitHub:</p>
+<pre><code>BiocManager::install("lgatto/rpx")</code></pre>
 <p>For a similar python-based software, see <a href="https://github.com/wfondrie/ppx/" class="external-link"><code>ppx</code></a> by Will Fondrie.</p>
 </div>
 </div>
