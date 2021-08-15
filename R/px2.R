@@ -178,12 +178,14 @@ PXDataset2 <- function(id, cache = rpxCache()) {
         px_id <- px_metadata$accession
         if (id != px_id)
             message("Replacing ", id, " with ", px_id, ".")
-        if (!length(px_metadata$references))
-            px_ref <- px_ref_doi <- px_pubmed <- NA_character_
-        else {
-            px_ref <- px_metadata$references$referenceLine
-            px_ref_doi <- px_metadata$references$doi
-            px_pubmed <- as.character(px_metadata$references$pubmedId)
+        px_ref <- px_ref_doi <- px_pubmed <- NA_character_
+        if (length(px_metadata$references)) {
+            if (!is.null(px_metadata$references$referenceLine))
+                px_ref <- px_metadata$references$referenceLine
+            if (!is.null(px_metadata$references$doi))
+                px_ref_doi <- px_metadata$references$doi
+            if (!is.null(px_metadata$references$pubmedId))
+                px_pubmed <- as.character(px_metadata$references$pubmedId)
         }
         ans <- .PXDataset2(px_id = px_id,
                            px_rid = paste0(".rpx2", px_id),
