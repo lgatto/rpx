@@ -61,6 +61,8 @@ retrieve information for ProteomeXchange (PX) data sets. This can
 be achieved with \code{PXDataset} objects can be created with the
 \code{PXDataset()} constructor that takes the unique ProteomeXchange
 project identifier as input.
+
+The \code{PXDataset} class is being replaced by \code{PXDataset2}.
 }
 \details{
 Since version 1.99.1, \code{rpx} uses the Bioconductor \code{BiocFileCache}

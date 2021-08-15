@@ -49,7 +49,7 @@ rpxCache()
 my_cache <- BiocFileCache::BiocFileCache(tempfile())
 my_cache
 \dontrun{
-px <- PXDataset("PXD000001", cache = my_cache)
+px <- PXDataset2("PXD000001", cache = my_cache)
 pxget(px, "README.txt", cache = my_cache)
 }
 
@@ -62,7 +62,7 @@ pxCachedProjects()
 (rid <- cache_tbl[cache_tbl$rname == ".rpxPXD000001", "rid"][[1]])
 
 ## Alternatively, extact the information from the project
-px <- PXDataset("PXD000001")
+px <- PXDataset2("PXD000001")
 px1_cache_info <- pxCacheInfo(px)
 (rid <- px1_cache_info["rid"])
 

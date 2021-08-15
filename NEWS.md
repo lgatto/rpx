@@ -6,6 +6,8 @@
   downloading functions. The accessors to `PXDataset2` are prefixed
   with `px_` to differentiate them from the previous infrastructure.
 
+- Add deprecation notice in `PXDataset()` constructor.
+
 ## rpx 2.1.7
 
 - Improve object creating printout.

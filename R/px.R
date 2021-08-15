@@ -16,6 +16,8 @@
 ##' `PXDataset()` constructor that takes the unique ProteomeXchange
 ##' project identifier as input.
 ##'
+##' The `PXDataset` class is being replaced by `PXDataset2`.
+##'
 ##' @details
 ##'
 ##' Since version 1.99.1, `rpx` uses the Bioconductor `BiocFileCache`
@@ -313,6 +315,7 @@ pxCacheInfo <- function(object, cache = rpxCache()) {
 ##'     object. It thus also modifies the cache used to projet
 ##'     caching, as defined by the `cache` argument.
 PXDataset <- function(id, cache = rpxCache()) {
+    .Deprecated("PXDataset2")
     ## Check if that PX id is already available in BiocFileCache
     rpxId <- paste0(".rpx", id)
     rpath <- bfcquery(cache, rpxId, "rname", exact = TRUE)$rpath

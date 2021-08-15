@@ -64,11 +64,27 @@ be achieved with \code{PXDataset2} objects can be created with the
 \code{PXDataset2()} constructor that takes the unique ProteomeXchange
 project identifier as input.
 
-The new \code{PXDataset2} class superseeds the previous \code{\link[=PXDataset]{PXDataset()}}
-version.
+The new \code{PXDataset2} class superseeds the previous and now
+deprecated \code{PXDataset} version.
 }
 \details{
-\code{PXDataset2} objects ...
+The \code{rpx} packages uses caching to store ProteomeXchange projects
+and project files. When creating an object with \code{PXDataset2()},
+the cache is first queried for the projects identifier. If a
+unique hit is found, the project is retrieved and returned. If no
+matching project identifier is found, then the remote resource is
+accessed to first create the new \code{PXDataset2()} project, then
+cache it before returning it to the user. The same mechanism is
+applied when project files are requested.
+
+Caching is supported by BiocFileCache package. The \code{PXDataset2()}
+constructor and the \code{px_get()} function can be passed a instance
+of class \code{BiocFileCache} that defines the cache. The default is to
+use the package-wide cache defined in \code{rpxCache()}. For more
+details on how to manage the cache (for example if some files need
+to be deleted), please refer to the \code{BiocFileCache} package
+vignette and documentation. See also \code{\link[=rpxCache]{rpxCache()}} for additional
+details.
 }
 \section{Slots}{
 

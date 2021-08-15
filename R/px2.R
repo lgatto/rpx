@@ -12,12 +12,29 @@
 ##' `PXDataset2()` constructor that takes the unique ProteomeXchange
 ##' project identifier as input.
 ##'
-##' The new `PXDataset2` class superseeds the previous [PXDataset()]
-##' version.
+##' The new `PXDataset2` class superseeds the previous and now
+##' deprecated `PXDataset` version.
 ##'
 ##' @details
 ##'
-##' `PXDataset2` objects ...
+##' The `rpx` packages uses caching to store ProteomeXchange projects
+##' and project files. When creating an object with `PXDataset2()`,
+##' the cache is first queried for the projects identifier. If a
+##' unique hit is found, the project is retrieved and returned. If no
+##' matching project identifier is found, then the remote resource is
+##' accessed to first create the new `PXDataset2()` project, then
+##' cache it before returning it to the user. The same mechanism is
+##' applied when project files are requested.
+##'
+##' Caching is supported by BiocFileCache package. The `PXDataset2()`
+##' constructor and the `px_get()` function can be passed a instance
+##' of class `BiocFileCache` that defines the cache. The default is to
+##' use the package-wide cache defined in `rpxCache()`. For more
+##' details on how to manage the cache (for example if some files need
+##' to be deleted), please refer to the `BiocFileCache` package
+##' vignette and documentation. See also [rpxCache()] for additional
+##' details.
+##'
 ##'
 ##' @slot px_id `character(1)` containing the dataset's unique
 ##'     ProteomeXchange identifier, as used to create the object.
@@ -188,8 +205,9 @@ PXDataset2 <- function(id, cache = rpxCache()) {
     message("Loading ", id, " from cache.")
     px <- readRDS(rpath)
     if (!inherits(px, "PXDataset2") | !methods::validObject(px))
-        stop("Project ", id, " isn't a valid PXDataset object.\n",
-             "  Please delete it from cache and regenerate it.")
+        stop("Project ", id, " isn't a valid PXDataset2 object.\n",
+             "  Please delete it from cache and regenerate it.",
+             "  See ?rpxCached() for details.")
     return(px)
 }
 
