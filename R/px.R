@@ -286,7 +286,7 @@ pxget <- function(object, list, cache = rpxCache()) {
 ##' @export
 ##'
 pxCacheInfo <- function(object, cache = rpxCache()) {
-    rid <- ridFromCache(object)
+    rid <- ridFromCache1(object)
     if (is.na(rid)) msg <- "No caching information found."
     else msg <- paste0("Resource ID ", rid, " in cache in ", object@cache$cachepath, ".")
     message(msg)

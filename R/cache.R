@@ -77,10 +77,14 @@ rpxCache <- function() {
 ##'
 ##' @param cache Object of class `BiocFileCache`.
 ##'
+##' @param rpxprefix `character(1)` defining the resourne name prefix
+##'     in `cache`. Default is `"^\\.rpx(2?)"` to match objects of
+##'     class `PXDataset` and `PXDataset2`.
+##'
 ##' @export
-pxCachedProjects <- function(cache = rpxCache()) {
-    res <- bfcquery(cache, "^.rpx")
-    ids <- sub("^\\.rpx", "", res$rname)
+pxCachedProjects <- function(cache = rpxCache(), rpxprefix = "^\\.rpx(2?)") {
+    res <- bfcquery(cache, rpxprefix, "rname")
+    ids <- grep(rpxprefix, bfcinfo(rpxCache())$rname, value = TRUE)
     msg <- paste(strwrap(paste0("Cached projects (", length(ids), "): ",
                                paste(ids, collapse = ", "))), sep = "\n")
     message(paste(msg, "\n"), appendLF = FALSE)
@@ -107,7 +111,23 @@ pxget1 <- function(url, cache) {
     bfcrpath(cache, rids = rid)
 }
 
-ridFromCache <- function(object) {
+ridFromCache2 <- function(object) {
+    stopifnot(inherits(object, "PXDataset2"))
+    rid <- bfcquery(BiocFileCache(object@cachepath),
+                    object@px_rid, "rname", exact = TRUE)$rid
+    if (!length(rid)) {
+        warning("Project not found in cache.")
+        rid <- NA
+    }
+    if (length(rid) > 1)
+        stop("Multiple resource ids found.")
+    rid
+}
+
+
+
+ridFromCache1 <- function(object) {
+    stopifnot(inherits(object, "PXDataset"))
     if (is.null(object@cache$cachepath))
         return(NA)
     rid <- bfcquery(BiocFileCache(object@cache$cachepath),

@@ -1,5 +1,11 @@
 # rpx 2.1
 
+## rpx 2.1.8
+
+- New `PXDataset2` class with richer interface and more stable data
+  downloading functions. The accessors to `PXDataset2` are prefixed
+  with `px_` to differentiate them from the previous infrastructure.
+
 ## rpx 2.1.7
 
 - Improve object creating printout.

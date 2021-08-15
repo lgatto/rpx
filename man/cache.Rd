@@ -8,10 +8,14 @@
 \usage{
 rpxCache()
 
-pxCachedProjects(cache = rpxCache())
+pxCachedProjects(cache = rpxCache(), rpxprefix = "^\\\\.rpx(2?)")
 }
 \arguments{
 \item{cache}{Object of class \code{BiocFileCache}.}
+
+\item{rpxprefix}{\code{character(1)} defining the resourne name prefix
+in \code{cache}. Default is \code{"^\\\\.rpx(2?)"} to match objects of
+class \code{PXDataset} and \code{PXDataset2}.}
 }
 \value{
 The \code{rpxCache()} function returns an instance of class
