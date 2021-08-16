@@ -22,7 +22,7 @@ Suggests:
     BiocStyle,
     testthat,
     knitr,
-    markdown
+    rmarkdown
 License: GPL-2
 URL: https://github.com/lgatto/rpx
 BugReports: https://github.com/lgatto/rpx/issues
