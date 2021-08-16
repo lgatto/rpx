@@ -3,8 +3,8 @@
 ## rpx 2.1.8
 
 - New `PXDataset2` class with richer interface and more stable data
-  downloading functions. The accessors to `PXDataset2` are prefixed
-  with `px_` to differentiate them from the previous infrastructure.
+  downloading functions. `PXDataset` and `PXDataset2` work
+  transparently and `PXDataset2` is now default.
 
 - Add deprecation notice in `PXDataset()` constructor.
 
