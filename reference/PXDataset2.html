@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The PXDataset to find and download proteomics data — PXDataset • rpx</title>
+<title>New PXDataset (v2) to find and download proteomics data — PXDataset2 • rpx</title>
 
 
 <!-- jquery -->
@@ -39,12 +39,14 @@
 
 
 
-<meta property="og:title" content="The PXDataset to find and download proteomics data — PXDataset" />
+<meta property="og:title" content="New PXDataset (v2) to find and download proteomics data — PXDataset2" />
 <meta property="og:description" content="The rpx package provides the infrastructure to access, store and
 retrieve information for ProteomeXchange (PX) data sets. This can
-be achieved with PXDataset objects can be created with the
-PXDataset() constructor that takes the unique ProteomeXchange
-project identifier as input." />
+be achieved with PXDataset2 objects can be created with the
+PXDataset2() constructor that takes the unique ProteomeXchange
+project identifier as input.
+The new PXDataset2 class superseeds the previous and now
+deprecated PXDataset version." />
 
 
 
@@ -84,7 +86,7 @@ project identifier as input." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rpx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.8</span>
       </span>
     </div>
 
@@ -120,48 +122,55 @@ project identifier as input." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>The PXDataset to find and download proteomics data</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lgatto/rpx/blob/master/R/px.R'><code>R/px.R</code></a></small>
-    <div class="hidden name"><code>PXDataset.Rd</code></div>
+    <h1>New PXDataset (v2) to find and download proteomics data</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lgatto/rpx/blob/master/R/px2.R'><code>R/px2.R</code></a></small>
+    <div class="hidden name"><code>PXDataset2.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>The <code>rpx</code> package provides the infrastructure to access, store and
 retrieve information for ProteomeXchange (PX) data sets. This can
-be achieved with <code>PXDataset</code> objects can be created with the
-<code>PXDataset()</code> constructor that takes the unique ProteomeXchange
+be achieved with <code>PXDataset2</code> objects can be created with the
+<code>PXDataset2()</code> constructor that takes the unique ProteomeXchange
 project identifier as input.</p>
+<p>The new <code>PXDataset2</code> class superseeds the previous and now
+deprecated <code>PXDataset</code> version.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>pxid</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>PXDataset2</span><span class='op'>(</span><span class='va'>id</span>, cache <span class='op'>=</span> <span class='fu'><a href='cache.html'>rpxCache</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
+<span class='fu'>PXDataset</span><span class='op'>(</span><span class='va'>id</span>, cache <span class='op'>=</span> <span class='fu'><a href='cache.html'>rpxCache</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'># S4 method for PXDataset2</span>
+<span class='fu'>pxid</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+
+<span class='co'># S4 method for PXDataset2</span>
 <span class='fu'>pxurl</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
 
+<span class='co'># S4 method for PXDataset2</span>
 <span class='fu'>pxtax</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
 
+<span class='co'># S4 method for PXDataset2</span>
 <span class='fu'>pxref</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
 
-<span class='fu'>pxfiles</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+<span class='fu'>pxtitle</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
 
-<span class='fu'>pxget</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>list</span>, cache <span class='op'>=</span> <span class='fu'><a href='cache.html'>rpxCache</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># S4 method for PXDataset2</span>
+<span class='fu'>pxfiles</span><span class='op'>(</span><span class='va'>object</span>, n <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
 
-<span class='fu'>pxCacheInfo</span><span class='op'>(</span><span class='va'>object</span>, cache <span class='op'>=</span> <span class='fu'><a href='cache.html'>rpxCache</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># S4 method for PXDataset2</span>
+<span class='fu'>pxCacheInfo</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
 
-<span class='fu'>PXDataset</span><span class='op'>(</span><span class='va'>id</span>, cache <span class='op'>=</span> <span class='fu'><a href='cache.html'>rpxCache</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></code></pre></div>
+<span class='co'># S4 method for PXDataset2</span>
+<span class='fu'>pxget</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>list</span>, cache <span class='op'>=</span> <span class='fu'><a href='cache.html'>rpxCache</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>object</th>
-      <td><p>An instance of class <code>PXDataset</code>, as created by
-<code>PXDataset()</code>.</p></td>
-    </tr>
-    <tr>
-      <th>list</th>
-      <td><p><code><a href='https://rdrr.io/r/base/character.html'>character()</a></code>, <code><a href='https://rdrr.io/r/base/numeric.html'>numeric()</a></code> or <code><a href='https://rdrr.io/r/base/logical.html'>logical()</a></code> defining the
-project files to be downloaded. This list of files can
-retrieved with <code>pxfiles()</code>.</p></td>
+      <th>id</th>
+      <td><p><code>character(1)</code> containing a valid ProteomeXchange
+identifier.</p></td>
     </tr>
     <tr>
       <th>cache</th>
@@ -170,61 +179,81 @@ the central <code>rpx</code> cache returned by <code><a href='cache.html'>rpxCac
 can use their own cache. See <code><a href='cache.html'>rpxCache()</a></code> for details.</p></td>
     </tr>
     <tr>
-      <th>id</th>
-      <td><p><code>character(1)</code> containing a valid ProteomeXchange
-identifier.</p></td>
+      <th>object</th>
+      <td><p>An instance of class <code>PXDataset2</code>.</p></td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td><p><code>integer(1)</code> indicating the number of files to be printed.</p></td>
+    </tr>
+    <tr>
+      <th>list</th>
+      <td><p><code><a href='https://rdrr.io/r/base/character.html'>character()</a></code>, <code><a href='https://rdrr.io/r/base/numeric.html'>numeric()</a></code> or <code><a href='https://rdrr.io/r/base/logical.html'>logical()</a></code> defining the
+project files to be downloaded. This list of files can
+retrieved with <code>pxfiles()</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The <code>PXDataset()</code> constructor returns a cached <code>PXDataset</code>
+    <p>The <code>PXDataset2()</code> returns a cached <code>PXDataset2</code>
 object. It thus also modifies the cache used to projet
 caching, as defined by the <code>cache</code> argument.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Since version 1.99.1, <code>rpx</code> uses the Bioconductor <code>BiocFileCache</code>
-package to automatically cache all downloaded ProteomeXchange
-files. When a file is downloaded for the first time, it is added
-to the cache. When already available, the file path to the cached
-file is directly returned. The central <code>rpx</code> package chache,
-object of class <code>BiocFileCache</code>, is returned by
-<code><a href='cache.html'>rpxCache()</a></code>. Users can also provide their own cache object
-instead of using the default central cache to <code>pxget()</code>.</p>
-<p>Since 2.1.1, <code>PXDataset</code> instances are also cached using the same
-mechanism as project files. Each <code>PXDataset</code> instance also stored
-the project file names, the reference, taxonomy of the sample and
-the project URL (see slot <code>cache</code>) instead of accessing these
-every time they are needed to reduce remote access and reliance on
-a stable internet connection. As for files, the default cache is
-as returned by <code><a href='cache.html'>rpxCache()</a></code>, but users can pass their own
-<code>BiocFileCache</code> objects.</p>
-<p>For more details on how to manage the cache (for example if some
-files need to be deleted), please refer to the <code>BiocFileCache</code>
-package vignette and documentation. See also <code><a href='cache.html'>rpxCache()</a></code> for
-additional details.</p>
+    <p>The <code>rpx</code> packages uses caching to store ProteomeXchange projects
+and project files. When creating an object with <code>PXDataset2()</code>,
+the cache is first queried for the projects identifier. If a
+unique hit is found, the project is retrieved and returned. If no
+matching project identifier is found, then the remote resource is
+accessed to first create the new <code>PXDataset2()</code> project, then
+cache it before returning it to the user. The same mechanism is
+applied when project files are requested.</p>
+<p>Caching is supported by BiocFileCache package. The <code>PXDataset2()</code>
+constructor and the <code>px_get()</code> function can be passed a instance
+of class <code>BiocFileCache</code> that defines the cache. The default is to
+use the package-wide cache defined in <code><a href='cache.html'>rpxCache()</a></code>. For more
+details on how to manage the cache (for example if some files need
+to be deleted), please refer to the <code>BiocFileCache</code> package
+vignette and documentation. See also <code><a href='cache.html'>rpxCache()</a></code> for additional
+details.</p>
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     
 
 <dl>
-<dt><code>id</code></dt><dd><p><code>character(1)</code> containing the dataset's unique
+<dt><code>px_id</code></dt><dd><p><code>character(1)</code> containing the dataset's unique
 ProteomeXchange identifier, as used to create the object.</p></dd>
 
-<dt><code>formatVersion</code></dt><dd><p><code>character(1)</code> storing the version of the
-ProteomeXchange schema. Schema versions 1.0, 1.1 and 1.2 are
-supported (see
-<a href='https://code.google.com/p/proteomexchange/source/browse/schema/'>https://code.google.com/p/proteomexchange/source/browse/schema/</a>).</p></dd>
+<dt><code>px_rid</code></dt><dd><p><code>character(1)</code> storing the cached resource name in
+the BiocFileCache instance stored in <code>cachepath</code>.</p></dd>
 
-<dt><code>cache</code></dt><dd><p><code><a href='https://rdrr.io/r/base/list.html'>list()</a></code> storing the available files (element
-<code>pxfiles</code>), the reference associated with the data set
-(<code>pxref</code>), the taxonomy of the sample (<code>pxtax</code>) and the
-datasets' ProteomeXchange URL (<code>pxurl</code>). These are returned by
-the respective accessors. It also stores the path to the cache
-it is stored in (element <code>cachepath</code>).</p></dd>
+<dt><code>px_title</code></dt><dd><p><code>character(1)</code> with the project's title.</p></dd>
 
-<dt><code>Data</code></dt><dd><p><code>XMLNode</code> storing the ProteomeXchange description as
-XML node tree.</p></dd>
+<dt><code>px_url</code></dt><dd><p>`character(1) with the project's URL.</p></dd>
+
+<dt><code>px_doi</code></dt><dd><p><code>character(1)</code> with the project's DOI.</p></dd>
+
+<dt><code>px_ref</code></dt><dd><p><code>character</code> containing the project's reference(s).</p></dd>
+
+<dt><code>px_ref_doi</code></dt><dd><p><code>character</code> containing the project's reference DOIs.</p></dd>
+
+<dt><code>px_pubmed</code></dt><dd><p><code>character</code> containing the project's reference
+PubMed identifier.</p></dd>
+
+<dt><code>px_files</code></dt><dd><p><code>data.frame</code> containing information about the
+project files, including file names, URIs and types. The files
+are retrieved from the project's README.txt file.</p></dd>
+
+<dt><code>px_tax</code></dt><dd><p><code>charcter</code> (typically of length 1) containing the
+taxonomy of the sample.</p></dd>
+
+<dt><code>px_metadata</code></dt><dd><p><code>list</code> containing the project's metadata, as
+downloaded from the ProteomeXchange site. All slots but
+<code>px_files</code> are populated from this one.</p></dd>
+
+<dt><code>cachepath</code></dt><dd><p><code>character(1)</code> storing the path to the cache the
+project object is stored in.</p></dd>
 
 </dl>
     <h2 class="hasAnchor" id="accessors"><a class="anchor" href="#accessors"></a>Accessors</h2>
@@ -232,17 +261,17 @@ XML node tree.</p></dd>
     
 
 <ul>
-<li><p><code>pxfiles(object)</code> returns the project file names.</p></li>
-<li><p><code>pxget(object, list, cache)</code>: if the file(s) in <code>list</code> have
-never been requested, <code>pxget()</code> downloads the files from the
-ProteomeXchange repository, caches them in <code>cache</code> and returns
-their path. If the files have previously been downloaded and
-are available in <code>cache</code>, their path is directly returned.</p>
-<p>If <code>list</code> is missing, the file to be downloaded can be selected
-from a menu. If <code>list = "all"</code>, all files are downloaded. The
-file names, as returned by <code>pxfiles()</code> can also be
-used. Alternatively, a <code>logical</code> or <code>numeric</code> index can be
-used.</p>
+<li><p><code>pxfiles(object, n = 10)</code> invisibly returns all the project file
+names. The function prints the first <code>n</code> files specifying
+whether they are local of remote (based on the cache the object
+is stored in). The printing can be ignored by wrapping the call
+in <code><a href='https://rdrr.io/r/base/message.html'>suppressMessages()</a></code>.</p></li>
+<li><p><code>pxget(object, list, cache)</code>: <code>list</code> is a vector defining the
+files to be downloaded. If <code>list = "all"</code>, all files are
+downloaded. The file names, as returned by <code>pxfiles()</code> can also
+be used. Alternatively, a <code>logical</code> or <code>numeric</code> index can be
+used. If missing, the file to be downloaded can be selected
+from a menu.</p>
 <p>The argument <code>cache</code> can be passed to define the path to the
 cache. The default cache is the packages' default as returned
 by <code><a href='cache.html'>rpxCache()</a></code>.</p></li>
@@ -251,6 +280,9 @@ by <code><a href='cache.html'>rpxCache()</a></code>.</p></li>
 server where the project files reside.</p></li>
 <li><p><code>pxCacheInfo(object, cache): prints and invisibly returns </code>object<code>'s caching information from </code>cache<code>(default is</code>rpxCache()`). The return value is a named vector of length two
 containing the resourne identifier and the cache location.</p></li>
+<li><p>`pxtitle(object): returns the project's title.</p></li>
+<li><p><code>pxref(object)</code>: returns the project's bibliographic
+reference(s).</p></li>
 </ul>
 
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
@@ -266,70 +298,40 @@ https://code.google.com/p/proteomexchange/</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'></span>
-<span class='r-in'><span class='va'>px</span> <span class='op'>&lt;-</span> <span class='fu'>PXDataset</span><span class='op'>(</span><span class='st'>"PXD000001"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>px</span> <span class='op'>&lt;-</span> <span class='fu'>PXDataset2</span><span class='op'>(</span><span class='st'>"PXD000001"</span><span class='op'>)</span></span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading PXD000001 from cache.</span>
 <span class='r-in'><span class='va'>px</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Object of class "PXDataset"</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  Id: PXD000001 with 11 files</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Project PXD000001 with 10 files</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>  </span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> Resource ID BFC1 in cache in /github/home/.cache/R/rpx.</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] 'F063721.dat' ... [11] 'erwinia_carotovora.fasta'</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] 'erwinia_carotovora.fasta' ... [10] 'PRIDE_Exp_Complete_Ac_22134.pride.mgf.gz'</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>  Use 'pxfiles(.)' to see all files.</span>
 <span class='r-in'><span class='fu'>pxtax</span><span class='op'>(</span><span class='va'>px</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Erwinia carotovora"</span>
 <span class='r-in'><span class='fu'>pxurl</span><span class='op'>(</span><span class='va'>px</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001"</span>
 <span class='r-in'><span class='fu'>pxref</span><span class='op'>(</span><span class='va'>px</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Gatto L, Christoforou A. Using R and Bioconductor for proteomics data analysis. Biochim Biophys Acta. 2013 May 18. doi:pii: S1570-9639(13)00186-6. 10.1016/j.bbapap.2013.04.032"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Gatto L, Christoforou A; Using R and Bioconductor for proteomics data analysis., Biochim Biophys Acta, 2013 May 18, doi:10.1016/j.bbapap.2013.04.032 PMID:23692960"</span>
 <span class='r-in'><span class='fu'>pxfiles</span><span class='op'>(</span><span class='va'>px</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "F063721.dat"                                                         </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [2] "F063721.dat-mztab.txt"                                               </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [3] "PRIDE_Exp_Complete_Ac_22134.xml.gz"                                  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [4] "PRIDE_Exp_mzData_Ac_22134.xml.gz"                                    </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [5] "PXD000001_mztab.txt"                                                 </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [6] "README.txt"                                                          </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML" </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [8] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML"</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML"         </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [10] "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw"           </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [11] "erwinia_carotovora.fasta"                                            </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Project PXD000001 files (10):</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>  [local]  erwinia_carotovora.fasta</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>  [remote] F063721.dat</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>  [local]  F063721.dat-mztab.txt</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>  [remote] PRIDE_Exp_Complete_Ac_22134.xml.gz</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>  [remote] PRIDE_Exp_Complete_Ac_22134.pride.mztab.gz</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>  [remote] PRIDE_Exp_Complete_Ac_22134.pride.mgf.gz</span>
 <span class='r-in'><span class='fu'>pxCacheInfo</span><span class='op'>(</span><span class='va'>px</span><span class='op'>)</span></span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> Resource ID BFC1 in cache in /github/home/.cache/R/rpx.</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>fas</span> <span class='op'>&lt;-</span> <span class='fu'>pxget</span><span class='op'>(</span><span class='va'>px</span>, <span class='st'>"erwinia_carotovora.fasta"</span><span class='op'>)</span></span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading erwinia_carotovora.fasta from cache.</span>
 <span class='r-in'><span class='va'>fas</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "/github/home/.cache/R/rpx/5e46ab950cf_erwinia_carotovora.fasta"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "/github/home/.cache/R/rpx/5e272640347_erwinia_carotovora.fasta"</span>
 <span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'><a href='https://bioconductor.org/packages/Biostrings'>"Biostrings"</a></span><span class='op'>)</span></span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required package: BiocGenerics</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> Attaching package: ‘BiocGenerics’</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> The following objects are masked from ‘package:stats’:</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span>     IQR, mad, sd, var, xtabs</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> The following objects are masked from ‘package:base’:</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span>     Filter, Find, Map, Position, Reduce, anyDuplicated, append,</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span>     as.data.frame, basename, cbind, colnames, dirname, do.call,</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span>     duplicated, eval, evalq, get, grep, grepl, intersect, is.unsorted,</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span>     lapply, mapply, match, mget, order, paste, pmax, pmax.int, pmin,</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span>     pmin.int, rank, rbind, rownames, sapply, setdiff, sort, table,</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span>     tapply, union, unique, unsplit, which.max, which.min</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required package: S4Vectors</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required package: stats4</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> Attaching package: ‘S4Vectors’</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> The following objects are masked from ‘package:base’:</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span>     I, expand.grid, unname</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required package: IRanges</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required package: XVector</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required package: GenomeInfoDb</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> Attaching package: ‘Biostrings’</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> The following object is masked from ‘package:base’:</span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span>     strsplit</span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/pkg/Biostrings/man/XStringSet-io.html'>readAAStringSet</a></span><span class='op'>(</span><span class='va'>fas</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> AAStringSet object of length 4499:</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>        width seq                                            names               </span>
