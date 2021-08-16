@@ -98,7 +98,7 @@ file names, their indices or logicals can also be used to download
 specific files.
 
 ```{r pxget}
-f <- px_get(px, "PXD000001_mztab.txt")
+f <- px_get(px, "F063721.dat-mztab.txt")
 f
 ```
 
