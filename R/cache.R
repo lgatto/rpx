@@ -18,8 +18,9 @@
 ##' When projects are cached, they are given a resource name (`rname`)
 ##' composed of the `.rpx` prefix followed by the ProteomeXchange
 ##' identifier. For example, project `PXD000001` is named
-##' `.rpxPXD000001` to avoid any conflicts with other resources that
-##' user-created resources.
+##' `.rpxPXD000001` (`.rpx2PXD000001` for the `PXDataset2` class) to
+##' avoid any conflicts with other resources that user-created
+##' resources.
 ##'
 ##' @return The `rpxCache()` function returns an instance of class
 ##'     `BiocFileCache`. `pxCachedProjects()` invisbly returns a
@@ -40,28 +41,22 @@
 ##' ## BiocFileCache::BiocFileCache()
 ##' my_cache <- BiocFileCache::BiocFileCache(tempfile())
 ##' my_cache
-##' \dontrun{
-##' px <- PXDataset2("PXD000001", cache = my_cache)
-##' pxget(px, "README.txt", cache = my_cache)
-##' }
+##' px <- PXDataset("PXD000001", cache = my_cache)
+##' pxget(px, "erwinia_carotovora.fasta", cache = my_cache)
+##'
 ##'
 ##' ## List of cached projects
-##' pxCachedProjects()
+##' pxCachedProjects() ## default rpx cache
+##' pxCachedProjects(my_cache)
 ##'
 ##' ## To delete project a project from the default cache, first find
 ##' ## its resource id (rid) in the cache
-##' (cache_tbl <- pxCachedProjects())
-##' (rid <- cache_tbl[cache_tbl$rname == ".rpxPXD000001", "rid"][[1]])
-##'
-##' ## Alternatively, extact the information from the project
-##' px <- PXDataset2("PXD000001")
 ##' px1_cache_info <- pxCacheInfo(px)
 ##' (rid <- px1_cache_info["rid"])
 ##'
 ##' ## Then remove it with BiocFileCache:: bfcremove()
-##' \dontrun{
-##' BiocFileCache:::bfcremove(rpxCache(), rid)
-##' }
+##' BiocFileCache:::bfcremove(my_cache, rid)
+##' pxCachedProjects(my_cache)
 NULL
 
 ##' @rdname cache
@@ -84,7 +79,7 @@ rpxCache <- function() {
 ##' @export
 pxCachedProjects <- function(cache = rpxCache(), rpxprefix = "^\\.rpx(2?)") {
     res <- bfcquery(cache, rpxprefix, "rname")
-    ids <- grep(rpxprefix, bfcinfo(rpxCache())$rname, value = TRUE)
+    ids <- grep(rpxprefix, bfcinfo(cache)$rname, value = TRUE)
     ids <- sub("^\\.rpx(2?)", "", ids)
     msg <- paste(strwrap(paste0("Cached projects (", length(ids), "): ",
                                paste(ids, collapse = ", "))), sep = "\n")
