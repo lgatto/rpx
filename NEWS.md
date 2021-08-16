@@ -1,5 +1,9 @@
 # rpx 2.1
 
+## rpx 2.1.9
+
+- Internal function to tally local project vs full PX.
+
 ## rpx 2.1.8
 
 - New `PXDataset2` class with richer interface and more stable data
