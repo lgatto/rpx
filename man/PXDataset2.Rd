@@ -3,40 +3,45 @@
 \name{PXDataset2}
 \alias{PXDataset2}
 \alias{class:PXDataset2}
+\alias{PXDataset}
+\alias{pxtitle}
+\alias{pxfiles,PXDataset2-method}
+\alias{pxfiles}
+\alias{pxget,PXDataset2-method}
+\alias{pxget}
+\alias{pxid,PXDataset2-method}
+\alias{pxid}
+\alias{pxref,PXDataset2-method}
+\alias{pxref}
+\alias{pxtax,PXDataset2-method}
+\alias{pxtax}
+\alias{pxurl,PXDataset2-method}
+\alias{pxurl}
 \alias{show,PXDataset2-method}
-\alias{px_id}
-\alias{px_url}
-\alias{px_tax}
-\alias{px_ref}
-\alias{px_pubmed}
-\alias{px_ref_doi}
-\alias{px_title}
-\alias{px_files}
-\alias{px_cache_info}
-\alias{px_get}
+\alias{pxCacheInfo,PXdataset-method}
+\alias{pxCacheInfo}
+\alias{pxCacheInfo,PXDataset2-method}
 \title{New PXDataset (v2) to find and download proteomics data}
 \usage{
 PXDataset2(id, cache = rpxCache())
 
-px_id(object)
+PXDataset(id, cache = rpxCache())
 
-px_url(object)
+\S4method{pxid}{PXDataset2}(object)
 
-px_tax(object)
+\S4method{pxurl}{PXDataset2}(object)
 
-px_ref(object)
+\S4method{pxtax}{PXDataset2}(object)
 
-px_pubmed(object)
+\S4method{pxref}{PXDataset2}(object)
 
-px_ref_doi(object)
+pxtitle(object)
 
-px_title(object)
+\S4method{pxfiles}{PXDataset2}(object, n = 10)
 
-px_files(object, n = 10)
+\S4method{pxCacheInfo}{PXDataset2}(object)
 
-px_cache_info(object)
-
-px_get(object, list, cache = rpxCache())
+\S4method{pxget}{PXDataset2}(object, list, cache = rpxCache())
 }
 \arguments{
 \item{id}{\code{character(1)} containing a valid ProteomeXchange
@@ -47,6 +52,8 @@ the central \code{rpx} cache returned by \code{rpxCache()}, but users
 can use their own cache. See \code{\link[=rpxCache]{rpxCache()}} for details.}
 
 \item{object}{An instance of class \code{PXDataset2}.}
+
+\item{n}{\code{integer(1)} indicating the number of files to be printed.}
 
 \item{list}{\code{character()}, \code{numeric()} or \code{logical()} defining the
 project files to be downloaded. This list of files can
@@ -126,12 +133,12 @@ project object is stored in.}
 \section{Accessors}{
 
 \itemize{
-\item \code{px_files(object, n = 10)} invisibly returns all the project
-file names. The function prints the first \code{n} files specifying
+\item \code{pxfiles(object, n = 10)} invisibly returns all the project file
+names. The function prints the first \code{n} files specifying
 whether they are local of remote (based on the cache the object
 is stored in). The printing can be ignored by wrapping the call
 in \code{suppressMessages()}.
-\item \code{px_get(object, list, cache)}: \code{list} is a vector defining the
+\item \code{pxget(object, list, cache)}: \code{list} is a vector defining the
 files to be downloaded. If \code{list = "all"}, all files are
 downloaded. The file names, as returned by \code{pxfiles()} can also
 be used. Alternatively, a \code{logical} or \code{numeric} index can be
@@ -141,18 +148,14 @@ from a menu.
 The argument \code{cache} can be passed to define the path to the
 cache. The default cache is the packages' default as returned
 by \code{rpxCache()}.
-\item \code{px_tax(object)}: returns the taxonomic name of \code{object}.
-\item \code{px_url(object)}: returns the base url on the ProteomeXchange
+\item \code{pxtax(object)}: returns the taxonomic name of \code{object}.
+\item \code{pxurl(object)}: returns the base url on the ProteomeXchange
 server where the project files reside.
-\item \verb{px_cache_info(object, cache): prints and invisibly returns }object\verb{'s caching information from }cache\verb{(default is}rpxCache()`). The return value is a named vector of length two
+\item \verb{pxCacheInfo(object, cache): prints and invisibly returns }object\verb{'s caching information from }cache\verb{(default is}rpxCache()`). The return value is a named vector of length two
 containing the resourne identifier and the cache location.
-\item `px_title(object): returns the project's title.
-\item \code{px_ref(object)}: returns the project's bibliographic
+\item `pxtitle(object): returns the project's title.
+\item \code{pxref(object)}: returns the project's bibliographic
 reference(s).
-\item \code{px_ref_doi(object)}: returns the project's bibliographic
-reference DOI(s).
-\item `px_pubmed(object): returns the project reference(s) PubMed
-identifier(s).
 }
 }
 
@@ -160,13 +163,13 @@ identifier(s).
 
 px <- PXDataset2("PXD000001")
 px
-px_tax(px)
-px_url(px)
-px_ref(px)
-px_files(px)
-px_cache_info(px)
+pxtax(px)
+pxurl(px)
+pxref(px)
+pxfiles(px)
+pxCacheInfo(px)
 
-fas <- px_get(px, "erwinia_carotovora.fasta")
+fas <- pxget(px, "erwinia_carotovora.fasta")
 fas
 library("Biostrings")
 readAAStringSet(fas)

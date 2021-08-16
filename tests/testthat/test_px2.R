@@ -3,10 +3,10 @@ px1 <- PXDataset2("PXD000001")
 test_that("Object content is valid (v2)", {
     id <- "PXD000001"
     expect_null(show(px1))
-    expect_identical(px_id(px1), id)
+    expect_identical(pxid(px1), id)
     ## Assertions manually looked up at
     url <- "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001"
-    pxf <- px_files(px1)
+    pxf <- pxfiles(px1)
     fls <- sort(c("F063721.dat",
                   "F063721.dat-mztab.txt",
                   "PRIDE_Exp_Complete_Ac_22134.pride.mgf.gz",
@@ -20,11 +20,11 @@ test_that("Object content is valid (v2)", {
     expect_identical(sort(pxf), fls)
 
     expect_identical(length(pxf), 10L)
-    expect_identical(px_tax(px1), "Erwinia carotovora")
-    expect_identical(px_url(px1), url)
-    ref <- "Gatto L, Christoforou A; Using R and Bioconductor for proteomics data analysis., Biochim Biophys Acta, 2013 May 18, "
-    expect_identical(px_ref(px1), ref)
-    fa <- px_get(px1, "erwinia_carotovora.fasta")
+    expect_identical(pxtax(px1), "Erwinia carotovora")
+    expect_identical(pxurl(px1), url)
+    ref <- "Gatto L, Christoforou A; Using R and Bioconductor for proteomics data analysis., Biochim Biophys Acta, 2013 May 18, doi:10.1016/j.bbapap.2013.04.032 PMID:23692960"
+    expect_identical(pxref(px1), ref)
+    fa <- pxget(px1, "erwinia_carotovora.fasta")
     expect_equal(length(Biostrings::readAAStringSet(fa)), 4499)
 })
 
@@ -44,8 +44,8 @@ test_that("PX identifiers (v2)", {
 test_that("PXD022816: valid URLs and files (v2)", {
     nfiles <- 31L
     PXD022816 <- PXDataset2("PXD022816")
-    expect_identical(length(px_url(PXD022816)), 1L)
-    expect_identical(length(px_files(PXD022816)), nfiles)
+    expect_identical(length(pxurl(PXD022816)), 1L)
+    expect_identical(length(pxfiles(PXD022816)), nfiles)
 })
 
 test_that("Object content is valid.", {

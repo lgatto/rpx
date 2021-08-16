@@ -1,4 +1,4 @@
-px1 <- PXDataset("PXD000001")
+px1 <- PXDataset1("PXD000001")
 
 test_that("Object content is valid.", {
     id <- "PXD000001"
@@ -34,9 +34,9 @@ test_that("PXD version", {
     if (grepl("archive", pxurl(p)))
         ver_1 <- "1.0.0"
     expect_identical(p@formatVersion, ver_1)
-    p <- PXDataset("PXD000561")
+    p <- PXDataset1("PXD000561")
     expect_identical(p@formatVersion, "1.2.0")
-    p <- PXDataset("PXD004938")
+    p <- PXDataset1("PXD004938")
     expect_identical(p@formatVersion, "1.3.0")
 })
 
@@ -48,18 +48,16 @@ test_that("PX announcements", {
 })
 
 test_that("PX identifiers", {
-    expect_error(PXDataset("P1"))
-    ## expect_warning(px01 <- PXDataset("1"))
-    px01 <- PXDataset("1")
+    expect_error(PXDataset1("P1"))
+    px01 <- PXDataset1("1")
     expect_equal(px01, px1)
-    ## expect_warning(px02 <- PXDataset("PXD1"))
-    px02 <- PXDataset("PXD1")
+    px02 <- PXDataset1("PXD1")
     expect_equal(px01, px02)
 })
 
 test_that("PXD022816: valid URLs and files", {
     nfiles <- 32L
-    PXD022816 <- PXDataset("PXD022816")
+    PXD022816 <- PXDataset1("PXD022816")
     rpx:::apply_fix_issue_5(TRUE)
     expect_identical(length(pxurl(PXD022816)), 1L)
     expect_identical(length(pxfiles(PXD022816)), nfiles)
@@ -74,5 +72,5 @@ test_that("Object content is valid.", {
     path <- BiocFileCache::bfcnew(tmp_cache, rname = ".rpxPXD000001")
     saveRDS(1, path)
     ## Try to load if from cache
-    expect_error(p <- PXDataset("PXD000001", cache = tmp_cache))
+    expect_error(p <- PXDataset1("PXD000001", cache = tmp_cache))
 })

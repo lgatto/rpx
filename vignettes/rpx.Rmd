@@ -53,41 +53,41 @@ described below.
 
 
 The experiment identifier, that was originally used to create the
-`PXDataset2` instance can be extracted with the `px_id()` method:
+`PXDataset2` instance can be extracted with the `pxid()` method:
 
 ```{r pxid}
-px_id(px)
+pxid(px)
 ```
 
 The file transfer url where the data files can be accessed can be
-queried with the `px_url()` method:
+queried with the `pxurl()` method:
 
 ```{r purl}
-px_url(px)
+pxurl(px)
 ```
 
 The species the data has been generated the data can be obtain calling
-the `px_tax()` function:
+the `pxtax()` function:
 
 ```{r pxtax}
-px_tax(px)
+pxtax(px)
 ```
 
 Relevant bibliographic references can be queried with the
-`px_ref()` method:
+`pxref()` method:
 
 ```{r pxref}
-strwrap(px_ref(px))
+strwrap(pxref(px))
 ```
 
 All files available for the PX experiment can be obtained with the
 `pxfiles` method:
 
 ```{r pxfiles}
-px_files(px)
+pxfiles(px)
 ```
 
-The complete or partial data set can be downloaded with the `px_get()`
+The complete or partial data set can be downloaded with the `pxget()`
 function. The function takes an instance of class `PXDataset2` as
 first mandatory argument.
 
@@ -98,7 +98,7 @@ file names, their indices or logicals can also be used to download
 specific files.
 
 ```{r pxget}
-f <- px_get(px, "F063721.dat-mztab.txt")
+f <- pxget(px, "F063721.dat-mztab.txt")
 f
 ```
 
@@ -107,7 +107,7 @@ package to avoid repeatedly dowloading data. When `PXDataset2` objects
 are created and and project files are downloaded, they stored in the
 package's central or a user-defined cache. Next time the project is
 instantiated with `PXDataset2()` or a project file is downloaded with
-`px_get()`, existing artefacts will be retrieve from cache, instead of
+`pxget()`, existing artefacts will be retrieve from cache, instead of
 being created/downloaded from the remote server again. See `?rpxCache`
 for details about caching.
 
@@ -124,9 +124,9 @@ Below, we download the fasta file from the PXD000001 dataset and load
 it with the Biostrings package.
 
 ```{r more, warning=FALSE}
-fas <- grep("fasta", px_files(px), value = TRUE)
+fas <- grep("fasta", pxfiles(px), value = TRUE)
 fas
-f <- px_get(px, fas) ## file available in the rpx cache
+f <- pxget(px, fas) ## file available in the rpx cache
 f
 ```
 

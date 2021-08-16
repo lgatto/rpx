@@ -1,12 +1,11 @@
 ##' @title The PXDataset to find and download proteomics data
 ##'
-##' @aliases class:PXDataset PXDataset PXDataset1
-##'     pxfiles,PXDataset-method pxfiles pxget,PXDataset-method pxget
-##'     pxid,PXDataset-method pxid pxref,PXDataset-method pxref
-##'     pxtax,PXDataset-method pxtax pxurl,PXDataset-method pxurl
-##'     show,PXDataset-method
+##' @aliases class:PXDataset PXDataset1 pxfiles,PXDataset-method
+##'     pxget,PXDataset-method pxid,PXDataset-method
+##'     pxref,PXDataset-method pxtax,PXDataset-method
+##'     pxurl,PXDataset-method show,PXDataset-method
 ##'
-##' @name PXDataset
+##' @name PXDataset1
 ##'
 ##' @description
 ##'
@@ -170,14 +169,14 @@ setMethod("show", "PXDataset",
 ##' @param object An instance of class `PXDataset`, as created by
 ##'     `PXDataset()`.
 ##'
-##' @rdname PXDataset
+##' @rdname PXDataset1
 ##'
-##' @export
+##' @exportMethod pxid
 setMethod("pxid", "PXDataset", function(object) object@id)
 
-##' @rdname PXDataset
+##' @rdname PXDataset1
 ##'
-##' @export
+##' @exportMethod pxurl
 setMethod("pxurl", "PXDataset",
           function(object) {
               if (is.null(object@cache$pxurl)) {
@@ -199,9 +198,9 @@ setMethod("pxurl", "PXDataset",
               object@cache$pxurl
           })
 
-##' @rdname PXDataset
+##' @rdname PXDataset1
 ##'
-##' @export
+##' @exportMethod pxtax
 setMethod("pxtax", "PXDataset",
           function(object) {
               if (is.null(object@cache$pxtax)) {
@@ -214,9 +213,9 @@ setMethod("pxtax", "PXDataset",
           })
 
 
-##' @rdname PXDataset
+##' @rdname PXDataset1
 ##'
-##' @export
+##' @exportMethod pxref
 setMethod("pxref", "PXDataset",
           function(object) {
               if (is.null(object@cache$pxref)) {
@@ -229,11 +228,11 @@ setMethod("pxref", "PXDataset",
               object@cache$pxref
           })
 
-##' @rdname PXDataset
+##' @rdname PXDataset1
 ##'
 ##' @importFrom RCurl getURL
 ##'
-##' @export
+##' @exportMethod pxfiles
 setMethod("pxfiles", "PXDataset",
           function(object) {
               if (is.null(object@cache$pxfiles)) {
@@ -248,7 +247,7 @@ setMethod("pxfiles", "PXDataset",
               object@cache$pxfiles
           })
 
-##' @rdname PXDataset
+##' @rdname PXDataset1
 ##'
 ##' @param list `character()`, `numeric()` or `logical()` defining the
 ##'     project files to be downloaded. This list of files can
@@ -260,7 +259,7 @@ setMethod("pxfiles", "PXDataset",
 ##'
 ##' @importFrom utils menu
 ##'
-##' @export
+##' @exportMethod pxget
 setMethod("pxget", "PXDataset",
           function(object, list, cache = rpxCache()) {
               fls <- pxfiles(object)
@@ -284,10 +283,9 @@ setMethod("pxget", "PXDataset",
           })
 
 
-##' @rdname PXDataset
+##' @rdname PXDataset1
 ##'
-##' @export
-##'
+##' @exportMethod pxCacheInfo
 setMethod("pxCacheInfo", "PXDataset",
           function(object, cache = rpxCache()) {
               rid <- ridFromCache1(object)
@@ -302,7 +300,7 @@ setMethod("pxCacheInfo", "PXDataset",
 ## ns12 <- "https://raw.githubusercontent.com/proteomexchange/proteomecentral/master/lib/schemas/proteomeXchange-1.2.0.xsd"
 ## ns13 <- "https://raw.githubusercontent.com/proteomexchange/proteomecentral/master/lib/schemas/proteomeXchange-1.3.0.xsd"
 
-##' @name PXDataset
+##' @name PXDataset1
 ##'
 ##' @param id `character(1)` containing a valid ProteomeXchange
 ##'     identifier.
@@ -317,7 +315,6 @@ setMethod("pxCacheInfo", "PXDataset",
 ##'     object. It thus also modifies the cache used to projet
 ##'     caching, as defined by the `cache` argument.
 PXDataset1 <- function(id, cache = rpxCache()) {
-    .Deprecated("PXDataset2")
     ## Check if that PX id is already available in BiocFileCache
     rpxId <- paste0(".rpx", id)
     rpath <- bfcquery(cache, rpxId, "rname", exact = TRUE)$rpath
@@ -374,8 +371,3 @@ PXDataset1 <- function(id, cache = rpxCache()) {
              "  See ?rpxCached() for details.")
     return(px)
 }
-
-##' @export
-##'
-##' @rdname PXDataset
-PXDataset <- PXDataset1

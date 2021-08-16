@@ -1,6 +1,10 @@
 ##' @title New PXDataset (v2) to find and download proteomics data
 ##'
-##' @aliases class:PXDataset2 PXDataset2 show,PXDataset2-method
+##' @aliases class:PXDataset2 PXDataset2 PXDataset pxtitle
+##'     pxfiles,PXDataset2-method pxfiles pxget,PXDataset2-method pxget
+##'     pxid,PXDataset2-method pxid pxref,PXDataset2-method pxref
+##'     pxtax,PXDataset2-method pxtax pxurl,PXDataset2-method pxurl
+##'     show,PXDataset2-method pxCacheInfo,PXdataset-method pxCacheInfo
 ##'
 ##' @name PXDataset2
 ##'
@@ -71,13 +75,13 @@
 ##'
 ##' @section Accessors:
 ##'
-##' - `px_files(object, n = 10)` invisibly returns all the project
-##'    file names. The function prints the first `n` files specifying
+##' - `pxfiles(object, n = 10)` invisibly returns all the project file
+##'    names. The function prints the first `n` files specifying
 ##'    whether they are local of remote (based on the cache the object
 ##'    is stored in). The printing can be ignored by wrapping the call
 ##'    in `suppressMessages()`.
 ##'
-##' - `px_get(object, list, cache)`: `list` is a vector defining the
+##' - `pxget(object, list, cache)`: `list` is a vector defining the
 ##'    files to be downloaded. If `list = "all"`, all files are
 ##'    downloaded. The file names, as returned by `pxfiles()` can also
 ##'    be used. Alternatively, a `logical` or `numeric` index can be
@@ -88,26 +92,20 @@
 ##'    cache. The default cache is the packages' default as returned
 ##'    by `rpxCache()`.
 ##'
-##' - `px_tax(object)`: returns the taxonomic name of `object`.
+##' - `pxtax(object)`: returns the taxonomic name of `object`.
 ##'
-##' - `px_url(object)`: returns the base url on the ProteomeXchange
+##' - `pxurl(object)`: returns the base url on the ProteomeXchange
 ##'    server where the project files reside.
 ##'
-##' - `px_cache_info(object, cache): prints and invisibly returns
+##' - `pxCacheInfo(object, cache): prints and invisibly returns
 ##'    `object`'s caching information from `cache` (default is
 ##'    `rpxCache()`). The return value is a named vector of length two
 ##'    containing the resourne identifier and the cache location.
 ##'
-##' - `px_title(object): returns the project's title.
+##' - `pxtitle(object): returns the project's title.
 ##'
-##' - `px_ref(object)`: returns the project's bibliographic
+##' - `pxref(object)`: returns the project's bibliographic
 ##'   reference(s).
-##'
-##' - `px_ref_doi(object)`: returns the project's bibliographic
-##'   reference DOI(s).
-##'
-##' - `px_pubmed(object): returns the project reference(s) PubMed
-##'   identifier(s).
 ##'
 ##' @author Laurent Gatto
 ##'
@@ -122,13 +120,13 @@
 ##'
 ##' px <- PXDataset2("PXD000001")
 ##' px
-##' px_tax(px)
-##' px_url(px)
-##' px_ref(px)
-##' px_files(px)
-##' px_cache_info(px)
+##' pxtax(px)
+##' pxurl(px)
+##' pxref(px)
+##' pxfiles(px)
+##' pxCacheInfo(px)
 ##'
-##' fas <- px_get(px, "erwinia_carotovora.fasta")
+##' fas <- pxget(px, "erwinia_carotovora.fasta")
 ##' fas
 ##' library("Biostrings")
 ##' readAAStringSet(fas)
@@ -215,6 +213,11 @@ PXDataset2 <- function(id, cache = rpxCache()) {
     return(px)
 }
 
+##' @export
+##'
+##' @rdname PXDataset2
+PXDataset <- PXDataset2
+
 ##' @importFrom methods show
 ##'
 ##' @exportMethod show
@@ -225,7 +228,7 @@ setMethod("show", "PXDataset2",
               n <- length(fls)
               cat("Project", object@px_id, "with ")
               cat(n, "files\n ")
-              px_cache_info(object)
+              pxCacheInfo(object)
               cat(" ")
               if (n < 3) {
                   cat(paste(fls, collapse = ", "), "\n")
@@ -242,68 +245,65 @@ setMethod("show", "PXDataset2",
 ##'
 ##' @rdname PXDataset2
 ##'
-##' @export
-px_id <-  function(object) object@px_id
+##' @exportMethod pxid
+setMethod("pxid", "PXDataset2", function(object) object@px_id)
+
+##' @rdname PXDataset2
+##'
+##' @exportMethod pxurl
+setMethod("pxurl", "PXDataset2", function(object) object@px_url)
+
+##' @rdname PXDataset2
+##'
+##' @exportMethod pxtax
+setMethod("pxtax", "PXDataset2", function(object) object@px_tax)
+
+##' @rdname PXDataset2
+##'
+##' @exportMethod pxref
+setMethod("pxref", "PXDataset2",
+          function(object)
+              paste0(sub(" +$", "", object@px_ref),
+                     " doi:", object@px_ref_doi,
+                     " PMID:", object@px_pubmed))
 
 ##' @rdname PXDataset2
 ##'
 ##' @export
-px_url <-  function(object) object@px_url
+pxtitle <-  function(object) object@px_title
 
 ##' @rdname PXDataset2
 ##'
-##' @export
-px_tax <- function(object) object@px_tax
+##' @param n `integer(1)` indicating the number of files to be printed.
+##'
+##' @exportMethod pxfiles
+setMethod("pxfiles", "PXDataset2",
+          function(object, n = 10) {
+              ans <- fls <- object@px_files$NAME
+              uris <- object@px_files$URI
+              tbl <- bfcinfo(BiocFileCache(object@cachepath))
+              n_fls <- length(fls)
+              is_local <- match(uris, tbl$fpath)
+              is_local <- ifelse(is.na(is_local), "[remote] ", "[local]  ")
+              message("Project ", object@px_id, " files (", n_fls, "):")
+              for (k in seq_len(min(n, n_fls)))
+                  message(" ", is_local[k], fls[k])
+              if (n_fls > n)
+                  message(" ...")
+              invisible(ans)
+          })
 
 ##' @rdname PXDataset2
 ##'
-##' @export
-px_ref <-  function(object) object@px_ref
-
-##' @rdname PXDataset2
-##'
-##' @export
-px_pubmed <-  function(object) object@px_pubmed
-
-##' @rdname PXDataset2
-##'
-##' @export
-px_ref_doi <- function(object) object@px_ref_doi
-
-##' @rdname PXDataset2
-##'
-##' @export
-px_title <-  function(object) object@px_title
-
-##' @rdname PXDataset2
-##'
-##' @export
-px_files <- function(object, n = 10) {
-    ans <- fls <- object@px_files$NAME
-    uris <- object@px_files$URI
-    tbl <- bfcinfo(BiocFileCache(object@cachepath))
-    n_fls <- length(fls)
-    is_local <- match(uris, tbl$fpath)
-    is_local <- ifelse(is.na(is_local), "[remote] ", "[local]  ")
-    message("Project ", object@px_id, " files (", n_fls, "):")
-    for (k in seq_len(min(n, n_fls)))
-        message(" ", is_local[k], fls[k])
-    if (n_fls > n)
-        message(" ...")
-    invisible(ans)
-}
-
-##' @rdname PXDataset2
-##'
-##' @export
-##'
-px_cache_info <- function(object) {
-    rid <- ridFromCache2(object)
-    if (is.na(rid)) msg <- "No caching information found."
-    else msg <- paste0("Resource ID ", rid, " in cache in ", object@cachepath, ".")
-    message(msg)
-    invisible(c(rid = rid, cachepath = object@cachepath))
-}
+##' @exportMethod pxCacheInfo
+setMethod("pxCacheInfo", "PXDataset2",
+          function(object) {
+              rid <- ridFromCache2(object)
+              if (is.na(rid)) msg <- "No caching information found."
+              else msg <- paste0("Resource ID ", rid, " in cache in ", object@cachepath, ".")
+              message(msg)
+              invisible(c(rid = rid, cachepath = object@cachepath))
+          })
 
 ##' @rdname PXDataset2
 ##'
@@ -317,24 +317,25 @@ px_cache_info <- function(object) {
 ##'
 ##' @importFrom utils menu
 ##'
-##' @export
-px_get <- function(object, list, cache = rpxCache()) {
-    suppressMessages(fls <- px_files(object))
-    if (missing(list))
-        list <- menu(fls, FALSE, paste0("Files for ", object@px_id))
-    if (length(list) == 1 && list == "all") {
-        toget <- fls
-    } else {
-        if (is.character(list)) {
-            toget <- fls[fls %in% list]
-        } else toget <- fls[list]
-    }
-    if (length(toget) < 1)
-        stop("No files to download.")
-    k <- match(toget, fls)
-    uris <- object@px_files$URI[k]
-    for (i in 1:length(uris)) {
-        toget[i] <- pxget1(uris[i], cache)
-    }
-    toget
-}
+##' @exportMethod pxget
+setMethod("pxget", "PXDataset2",
+          function(object, list, cache = rpxCache()) {
+              suppressMessages(fls <- pxfiles(object))
+              if (missing(list))
+                  list <- menu(fls, FALSE, paste0("Files for ", object@px_id))
+              if (length(list) == 1 && list == "all") {
+                  toget <- fls
+              } else {
+                  if (is.character(list)) {
+                      toget <- fls[fls %in% list]
+                  } else toget <- fls[list]
+              }
+              if (length(toget) < 1)
+                  stop("No files to download.")
+              k <- match(toget, fls)
+              uris <- object@px_files$URI[k]
+              for (i in 1:length(uris)) {
+                  toget[i] <- pxget1(uris[i], cache)
+              }
+              toget
+          })
