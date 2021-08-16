@@ -71,7 +71,11 @@
 ##'
 ##' @section Accessors:
 ##'
-##' - `px_files(object)` returns the project file names.
+##' - `px_files(object, n = 10)` invisibly returns all the project
+##'    file names. The function prints the first `n` files specifying
+##'    whether they are local of remote (based on the cache the object
+##'    is stored in). The printing can be ignored by wrapping the call
+##'    in `suppressMessages()`.
 ##'
 ##' - `px_get(object, list, cache)`: `list` is a vector defining the
 ##'    files to be downloaded. If `list = "all"`, all files are
@@ -144,8 +148,6 @@ NULL
                             px_tax = "character",
                             px_metadata = "list",
                             cachepath = "character"))
-
-
 
 ##' @name PXDataset2
 ##'
@@ -276,7 +278,20 @@ px_title <-  function(object) object@px_title
 ##' @rdname PXDataset2
 ##'
 ##' @export
-px_files <- function(object) object@px_files$NAME
+px_files <- function(object, n = 10) {
+    ans <- fls <- object@px_files$NAME
+    uris <- object@px_files$URI
+    tbl <- bfcinfo(BiocFileCache(object@cachepath))
+    n_fls <- length(fls)
+    is_local <- match(uris, tbl$fpath)
+    is_local <- ifelse(is.na(is_local), "[remote] ", "[local]  ")
+    message("Project ", object@px_id, " files (", n_fls, "):")
+    for (k in seq_len(min(n, n_fls)))
+        message(" ", is_local[k], fls[k])
+    if (n_fls > n)
+        message(" ...")
+    invisible(ans)
+}
 
 ##' @rdname PXDataset2
 ##'
@@ -304,7 +319,7 @@ px_cache_info <- function(object) {
 ##'
 ##' @export
 px_get <- function(object, list, cache = rpxCache()) {
-    fls <- px_files(object)
+    suppressMessages(fls <- px_files(object))
     if (missing(list))
         list <- menu(fls, FALSE, paste0("Files for ", object@px_id))
     if (length(list) == 1 && list == "all") {
@@ -319,7 +334,7 @@ px_get <- function(object, list, cache = rpxCache()) {
     k <- match(toget, fls)
     uris <- object@px_files$URI[k]
     for (i in 1:length(uris)) {
-         toget[i] <- pxget1(uris[i], cache)
+        toget[i] <- pxget1(uris[i], cache)
     }
     toget
 }

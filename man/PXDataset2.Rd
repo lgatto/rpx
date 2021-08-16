@@ -32,7 +32,7 @@ px_ref_doi(object)
 
 px_title(object)
 
-px_files(object)
+px_files(object, n = 10)
 
 px_cache_info(object)
 
@@ -126,7 +126,11 @@ project object is stored in.}
 \section{Accessors}{
 
 \itemize{
-\item \code{px_files(object)} returns the project file names.
+\item \code{px_files(object, n = 10)} invisibly returns all the project
+file names. The function prints the first \code{n} files specifying
+whether they are local of remote (based on the cache the object
+is stored in). The printing can be ignored by wrapping the call
+in \code{suppressMessages()}.
 \item \code{px_get(object, list, cache)}: \code{list} is a vector defining the
 files to be downloaded. If \code{list = "all"}, all files are
 downloaded. The file names, as returned by \code{pxfiles()} can also
