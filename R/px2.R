@@ -334,7 +334,7 @@ setMethod("pxget", "PXDataset2",
                   stop("No files to download.")
               k <- match(toget, fls)
               uris <- object@px_files$URI[k]
-              for (i in 1:length(uris)) {
+              for (i in seq_along(uris)) {
                   toget[i] <- pxget1(uris[i], cache)
               }
               toget

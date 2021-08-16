@@ -276,7 +276,7 @@ setMethod("pxget", "PXDataset",
               if (length(toget) < 1)
                   stop("No files to download.")
               toget <- urls <- gsub(" ", "\ ", paste0(url, "/", toget))
-              for (i in 1:length(urls)) {
+              for (i in seq_along(urls)) {
                   toget[i] <- pxget1(urls[i], cache)
               }
               toget

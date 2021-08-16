@@ -7,7 +7,6 @@ output:
   BiocStyle::html_document:
     toc_float: true
 vignette: >
-  %\VignetteEngine{knitr}
   %\VignetteIndexEntry{An R interface to the ProteomeXchange repository}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteKeywords{Infrastructure, Bioinformatics, Proteomics, Mass spectrometry}
