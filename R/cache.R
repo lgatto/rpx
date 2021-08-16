@@ -137,3 +137,10 @@ ridFromCache1 <- function(object) {
         stop("Multiple resource ids found.")
     rid
 }
+
+
+
+allPXD <- function()
+    sub("^.+projects/", "",
+        grep("PXD", readLines("https://www.ebi.ac.uk/pride/ws/archive/v2/misc/sitemap"),
+             value = TRUE))
