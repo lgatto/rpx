@@ -183,14 +183,14 @@ resources.</p>
 <span class='r-in'><span class='va'>my_cache</span> <span class='op'>&lt;-</span> <span class='fu'>BiocFileCache</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html'>BiocFileCache</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
 <span class='r-in'><span class='va'>my_cache</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> class: BiocFileCache</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> bfccache: /tmp/RtmpS5RoDE/file92b421c51b5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> bfccache: /tmp/Rtmp5L3jcU/file92e706abf75</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> bfccount: 0</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> For more information see: bfcinfo() or bfcquery()</span>
 <span class='r-in'><span class='va'>px</span> <span class='op'>&lt;-</span> <span class='fu'><a href='PXDataset2.html'>PXDataset</a></span><span class='op'>(</span><span class='st'>"PXD000001"</span>, cache <span class='op'>=</span> <span class='va'>my_cache</span><span class='op'>)</span></span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> Querying ProteomeXchange for PXD000001.</span>
 <span class='r-in'><span class='fu'><a href='PXDataset2.html'>pxget</a></span><span class='op'>(</span><span class='va'>px</span>, <span class='st'>"erwinia_carotovora.fasta"</span>, cache <span class='op'>=</span> <span class='va'>my_cache</span><span class='op'>)</span></span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> Downloading erwinia_carotovora.fasta file.</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "/tmp/RtmpS5RoDE/file92b421c51b5/92b4775780c_erwinia_carotovora.fasta"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "/tmp/Rtmp5L3jcU/file92e706abf75/92e18c6beff_erwinia_carotovora.fasta"</span>
 <span class='r-in'></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>## List of cached projects</span></span>
@@ -202,7 +202,7 @@ resources.</p>
 <span class='r-in'><span class='co'>## To delete project a project from the default cache, first find</span></span>
 <span class='r-in'><span class='co'>## its resource id (rid) in the cache</span></span>
 <span class='r-in'><span class='va'>px1_cache_info</span> <span class='op'>&lt;-</span> <span class='fu'><a href='PXDataset2.html'>pxCacheInfo</a></span><span class='op'>(</span><span class='va'>px</span><span class='op'>)</span></span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> Resource ID BFC1 in cache in /tmp/RtmpS5RoDE/file92b421c51b5.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Resource ID BFC1 in cache in /tmp/Rtmp5L3jcU/file92e706abf75.</span>
 <span class='r-in'><span class='op'>(</span><span class='va'>rid</span> <span class='op'>&lt;-</span> <span class='va'>px1_cache_info</span><span class='op'>[</span><span class='st'>"rid"</span><span class='op'>]</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>    rid </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> "BFC1" </span>

@@ -130,25 +130,25 @@
 <p>All files available for the PX experiment can be obtained with the <code>pxfiles</code> method:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/PXDataset2.html">pxfiles</a></span><span class="op">(</span><span class="va">px</span><span class="op">)</span></code></pre></div>
-<pre><code>## Project PXD000001 files (10):</code></pre>
-<pre><code>##  [local]  erwinia_carotovora.fasta</code></pre>
-<pre><code>##  [remote] F063721.dat</code></pre>
-<pre><code>##  [local]  F063721.dat-mztab.txt</code></pre>
-<pre><code>##  [remote] PRIDE_Exp_Complete_Ac_22134.xml.gz</code></pre>
-<pre><code>##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw</code></pre>
-<pre><code>##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML</code></pre>
-<pre><code>##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML</code></pre>
-<pre><code>##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML</code></pre>
-<pre><code>##  [remote] PRIDE_Exp_Complete_Ac_22134.pride.mztab.gz</code></pre>
-<pre><code>##  [remote] PRIDE_Exp_Complete_Ac_22134.pride.mgf.gz</code></pre>
+<pre><code>## Project PXD000001 files (10):
+##  [local]  erwinia_carotovora.fasta
+##  [remote] F063721.dat
+##  [local]  F063721.dat-mztab.txt
+##  [remote] PRIDE_Exp_Complete_Ac_22134.xml.gz
+##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw
+##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML
+##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML
+##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML
+##  [remote] PRIDE_Exp_Complete_Ac_22134.pride.mztab.gz
+##  [remote] PRIDE_Exp_Complete_Ac_22134.pride.mgf.gz</code></pre>
 <p>The complete or partial data set can be downloaded with the <code><a href="../reference/PXDataset2.html">pxget()</a></code> function. The function takes a project instance as first mandatory argument.</p>
 <p>The next argument, <code>list</code>, specifies what files to download. If missing, a menu is printed and the user can select a file. If set to <code>"all"</code>, all files of the experiment are downloaded. One of multiple file names, their indices or logicals can also be used to download specific files.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/PXDataset2.html">pxget</a></span><span class="op">(</span><span class="va">px</span>, <span class="st">"F063721.dat-mztab.txt"</span><span class="op">)</span></code></pre></div>
 <pre><code>## Loading F063721.dat-mztab.txt from cache.</code></pre>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f</span></code></pre></div>
-<pre><code>## [1] "/github/home/.cache/R/rpx/5a874183c54_F063721.dat-mztab.txt"</code></pre>
+<pre><code>## [1] "/github/home/.cache/R/rpx/5abdd66ac2_F063721.dat-mztab.txt"</code></pre>
 <p>The <code>rpx</code> package makes use of the <em><a href="https://bioconductor.org/packages/3.14/BiocFileCache" class="external-link">BiocFileCache</a></em> package to avoid repeatedly dowloading data. When <code>PXDataset</code> projects are created and and project files are downloaded, they stored in the package’s central or a user-defined cache. Next time the project is instantiated with <code><a href="../reference/PXDataset2.html">PXDataset()</a></code> or a project file is downloaded with <code><a href="../reference/PXDataset2.html">pxget()</a></code>, existing artefacts will be retrieve from cache, instead of being created/downloaded from the remote server again. See <code><a href="../reference/cache.html">?rpxCache</a></code> for details about caching.</p>
 <!-- Finally, a list of recent PX additions and updates can be obtained -->
 <!-- using the `pxannounced()` function: -->
@@ -160,29 +160,29 @@
 <h2 class="hasAnchor">
 <a href="#a-simple-use-case" class="anchor" aria-hidden="true"></a>A simple use-case</h2>
 <p>Below, we download the fasta file from the PXD000001 dataset and load it with the Biostrings package.</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/grep.html" class="external-link">grep</a></span><span class="op">(</span><span class="st">"fasta"</span>, <span class="fu"><a href="../reference/PXDataset2.html">pxfiles</a></span><span class="op">(</span><span class="va">px</span><span class="op">)</span>, value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<pre><code>## Project PXD000001 files (10):</code></pre>
-<pre><code>##  [local]  erwinia_carotovora.fasta</code></pre>
-<pre><code>##  [remote] F063721.dat</code></pre>
-<pre><code>##  [local]  F063721.dat-mztab.txt</code></pre>
-<pre><code>##  [remote] PRIDE_Exp_Complete_Ac_22134.xml.gz</code></pre>
-<pre><code>##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw</code></pre>
-<pre><code>##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML</code></pre>
-<pre><code>##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML</code></pre>
-<pre><code>##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML</code></pre>
-<pre><code>##  [remote] PRIDE_Exp_Complete_Ac_22134.pride.mztab.gz</code></pre>
-<pre><code>##  [remote] PRIDE_Exp_Complete_Ac_22134.pride.mgf.gz</code></pre>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<pre><code>## Project PXD000001 files (10):
+##  [local]  erwinia_carotovora.fasta
+##  [remote] F063721.dat
+##  [local]  F063721.dat-mztab.txt
+##  [remote] PRIDE_Exp_Complete_Ac_22134.xml.gz
+##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw
+##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML
+##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML
+##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML
+##  [remote] PRIDE_Exp_Complete_Ac_22134.pride.mztab.gz
+##  [remote] PRIDE_Exp_Complete_Ac_22134.pride.mgf.gz</code></pre>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fas</span></code></pre></div>
 <pre><code>## [1] "erwinia_carotovora.fasta"</code></pre>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/PXDataset2.html">pxget</a></span><span class="op">(</span><span class="va">px</span>, <span class="va">fas</span><span class="op">)</span> <span class="co">## file available in the rpx cache</span></code></pre></div>
 <pre><code>## Loading erwinia_carotovora.fasta from cache.</code></pre>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f</span></code></pre></div>
-<pre><code>## [1] "/github/home/.cache/R/rpx/5a86750c88_erwinia_carotovora.fasta"</code></pre>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<pre><code>## [1] "/github/home/.cache/R/rpx/5ab3ac43a03_erwinia_carotovora.fasta"</code></pre>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://bioconductor.org/packages/Biostrings" class="external-link">"Biostrings"</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/Biostrings/man/XStringSet-io.html" class="external-link">readAAStringSet</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></code></pre></div>
 <pre><code>## AAStringSet object of length 4499:
@@ -208,7 +208,7 @@
 <div id="session-information" class="section level1">
 <h1 class="hasAnchor">
 <a href="#session-information" class="anchor" aria-hidden="true"></a>Session information</h1>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>## R version 4.1.0 (2021-05-18)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
