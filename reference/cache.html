@@ -174,7 +174,7 @@ user-created resources.</p>
 <span class='r-in'><span class='fu'>rpxCache</span><span class='op'>(</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> class: BiocFileCache</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> bfccache: /github/home/.cache/R/rpx</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> bfccount: 10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> bfccount: 4</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> For more information see: bfcinfo() or bfcquery()</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>## Set up your own cache by providing a file or a directory to</span></span>
@@ -182,7 +182,7 @@ user-created resources.</p>
 <span class='r-in'><span class='va'>my_cache</span> <span class='op'>&lt;-</span> <span class='fu'>BiocFileCache</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html'>BiocFileCache</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
 <span class='r-in'><span class='va'>my_cache</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> class: BiocFileCache</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> bfccache: /tmp/RtmpttaL5S/file98a7285376d</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> bfccache: /tmp/RtmpYZQlyV/file9561012ff2e</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> bfccount: 0</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> For more information see: bfcinfo() or bfcquery()</span>
 <span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
@@ -192,28 +192,20 @@ user-created resources.</p>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>## List of cached projects</span></span>
 <span class='r-in'><span class='fu'>pxCachedProjects</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> Cached projects (8): PXD000001, PXD000001, PXD000561, PXD004938, 1, </span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> PXD1, PXD022816, PXD022816 </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Cached projects (2): PXD000001, PXD022816 </span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>## To delete project a project from the default cache, first find</span></span>
 <span class='r-in'><span class='co'>## its resource id (rid) in the cache</span></span>
 <span class='r-in'><span class='op'>(</span><span class='va'>cache_tbl</span> <span class='op'>&lt;-</span> <span class='fu'>pxCachedProjects</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> Cached projects (8): PXD000001, PXD000001, PXD000561, PXD004938, 1, </span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> PXD1, PXD022816, PXD022816 </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 8 × 10</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Cached projects (2): PXD000001, PXD022816 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 2 × 10</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>   rid   rname  create_time access_time rpath  rtype fpath last_modified_t… etag </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> BFC1  .rpx2… 2021-08-16… 2021-08-16… /gith… rela… 5e24…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> BFC4  .rpxP… 2021-08-16… 2021-08-16… /gith… rela… 7a67…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> BFC5  .rpxP… 2021-08-16… 2021-08-16… /gith… rela… 7a61…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> BFC6  .rpxP… 2021-08-16… 2021-08-16… /gith… rela… 7a64…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> BFC7  .rpx1  2021-08-16… 2021-08-16… /gith… rela… 7a64…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> BFC8  .rpxP… 2021-08-16… 2021-08-16… /gith… rela… 7a67…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>7</span> BFC9  .rpxP… 2021-08-16… 2021-08-16… /gith… rela… 7a61…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>8</span> BFC10 .rpx2… 2021-08-16… 2021-08-16… /gith… rela… 7a65…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> BFC1  .rpx2… 2021-08-16… 2021-08-16… /gith… rela… 5e77…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> BFC4  .rpx2… 2021-08-16… 2021-08-16… /gith… rela… 7ab1…               <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>   </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 1 more variable: expires &lt;dbl&gt;</span></span>
 <span class='r-in'><span class='op'>(</span><span class='va'>rid</span> <span class='op'>&lt;-</span> <span class='va'>cache_tbl</span><span class='op'>[</span><span class='va'>cache_tbl</span><span class='op'>$</span><span class='va'>rname</span> <span class='op'>==</span> <span class='st'>".rpxPXD000001"</span>, <span class='st'>"rid"</span><span class='op'>]</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "BFC4"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> character(0)</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>## Alternatively, extact the information from the project</span></span>
 <span class='r-in'><span class='va'>px</span> <span class='op'>&lt;-</span> <span class='fu'><a href='PXDataset2.html'>PXDataset2</a></span><span class='op'>(</span><span class='st'>"PXD000001"</span><span class='op'>)</span></span>
