@@ -3,6 +3,7 @@
 \name{PXDataset}
 \alias{PXDataset}
 \alias{class:PXDataset}
+\alias{PXDataset1}
 \alias{pxfiles,PXDataset-method}
 \alias{pxfiles}
 \alias{pxget,PXDataset-method}
@@ -16,22 +17,24 @@
 \alias{pxurl,PXDataset-method}
 \alias{pxurl}
 \alias{show,PXDataset-method}
-\alias{pxCacheInfo}
+\alias{pxCacheInfo,PXDataset-method}
 \title{The PXDataset to find and download proteomics data}
 \usage{
-pxid(object)
+\S4method{pxid}{PXDataset}(object)
 
-pxurl(object)
+\S4method{pxurl}{PXDataset}(object)
 
-pxtax(object)
+\S4method{pxtax}{PXDataset}(object)
 
-pxref(object)
+\S4method{pxref}{PXDataset}(object)
 
-pxfiles(object)
+\S4method{pxfiles}{PXDataset}(object)
 
-pxget(object, list, cache = rpxCache())
+\S4method{pxget}{PXDataset}(object, list, cache = rpxCache())
 
-pxCacheInfo(object, cache = rpxCache())
+\S4method{pxCacheInfo}{PXDataset}(object, cache = rpxCache())
+
+PXDataset1(id, cache = rpxCache())
 
 PXDataset(id, cache = rpxCache())
 }
