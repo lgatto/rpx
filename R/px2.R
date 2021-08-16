@@ -285,11 +285,13 @@ setMethod("pxfiles", "PXDataset2",
               n_fls <- length(fls)
               is_local <- match(uris, tbl$fpath)
               is_local <- ifelse(is.na(is_local), "[remote] ", "[local]  ")
-              message("Project ", object@px_id, " files (", n_fls, "):")
+              msg <- paste0("Project ", object@px_id, " files (", n_fls, "):\n")
               for (k in seq_len(min(n, n_fls)))
-                  message(" ", is_local[k], fls[k])
-              if (n_fls > n)
-                  message(" ...")
+                  msg <- c(msg, paste0(" ", is_local[k], fls[k], "\n"))
+              if (n_fls > n) {
+                  msg <- c(msg, " ...\n")
+              }
+              message(msg, appendLF = FALSE)
               invisible(ans)
           })
 
