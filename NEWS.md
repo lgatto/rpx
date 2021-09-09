@@ -1,5 +1,9 @@
 # rpx 2.1
 
+## rpx 2.1.10
+
+- Caching PRIDE sitemap with all PXD projects.
+
 ## rpx 2.1.9
 
 - Internal function to tally local project vs full PX.

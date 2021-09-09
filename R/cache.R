@@ -138,12 +138,37 @@ ridFromCache1 <- function(object) {
     rid
 }
 
-
-
-allPXD <- function()
-    sub("^.+projects/", "",
-        grep("PXD", readLines("https://www.ebi.ac.uk/pride/ws/archive/v2/misc/sitemap"),
-             value = TRUE))
+##' @importFrom curl has_internet
+allPXD <- function(cache = rpxCache()) {
+    .read_and_parse_sitemap <- function(rpath) {
+        x <- readLines(rpath)
+        sub("^.+projects/", "", grep("PXD", x, value = TRUE))
+    }
+    url <- "https://www.ebi.ac.uk/pride/ws/archive/v2/misc/sitemap"
+    rid <- bfcquery(cache, url)
+    ## initial download
+    if (nrow(rid) == 0L) {
+        if (!curl::has_internet())
+            stop("Need an internet connection to download sitemap.")
+        bfcadd(cache, "PrideSitemap", fpath = url)
+        rid <- bfcquery(cache, url)
+        return(.read_and_parse_sitemap(rid$rpath))
+    }
+    if (nrow(rid) > 1L) {
+        ## clean cache and call again
+        bfcremove(cache, rid$rid)
+        return(allPXD(cache = cache))
+    } ## nrow(rid) == 1
+    if (!curl::has_internet()) {
+        ## return from cache
+        return(.read_and_parse_sitemap(rid$rpath))
+    } else {
+        ## update and return
+        bfcdownload(cache, rid$rid, ask = FALSE)
+        rid <- bfcquery(cache, url)
+        return(.read_and_parse_sitemap(rid$rpath))
+    }
+}
 
 localPxRepo <- function(cache = rpxCache()) {
     ids <- allPXD()
