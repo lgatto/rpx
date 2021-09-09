@@ -107,6 +107,16 @@
 ##' - `pxref(object)`: returns the project's bibliographic
 ##'   reference(s).
 ##'
+##' - `pxinstruments(object)`: returns the instrument(s) used to
+##'   acquire the data.
+##'
+##' - `pxptms(object)`: returns the PTMs searched for in the
+##'   experiment.
+##'
+##' - `pxprotocols(object, which)`: returns a list with the project
+##'    description, sample processing and/or data processing
+##'    protocols.
+##'
 ##' @author Laurent Gatto
 ##'
 ##' @references Vizcaino J.A. et al. 'ProteomeXchange: globally co-ordinated
@@ -271,6 +281,37 @@ setMethod("pxref", "PXDataset2",
 ##'
 ##' @export
 pxtitle <-  function(object) object@px_title
+
+##' @rdname PXDataset2
+##'
+##' @export
+pxinstruments <- function (object) object@px_metadata$instruments
+
+##' @rdname PXDataset2
+##'
+##' @export
+pxptms <- function(object) object@px_metadata$identifiedPTMStrings
+
+##' @rdname PXDataset2
+##'
+##' @param which `character()` with one or multiple protocols defined
+##'     as `"project"`, `"samples"` and `"data"`.
+##'
+##' @export
+pxprotocols <- function(object,
+                        which = c("project", "samples", "data")) {
+    which <- match.arg(which, several.ok = TRUE)
+    ans <- list(project = object@px_metadata$projectDescription,
+                samples = object@px_metadata$sampleProcessingProtocol,
+                data = object@px_metadata$dataProcessingProtocol)
+    ans <- ans[which]
+    for (k in which)
+        message(paste0(strwrap(paste0(casefold(k, upper = TRUE),
+                                      ": ", ans[k][[1]])),
+                       collapse = "\n"))
+    invisible(ans)
+}
+
 
 ##' @rdname PXDataset2
 ##'

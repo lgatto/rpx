@@ -3,6 +3,7 @@
 ## rpx 2.1.10
 
 - Caching PRIDE sitemap with all PXD projects.
+- New `pxinstruments()`, `pxptms()` and `pxprotocols()` accessors.
 
 ## rpx 2.1.9
 

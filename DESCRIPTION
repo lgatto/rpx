@@ -16,6 +16,7 @@ Imports:
     jsonlite,
     xml2,
     RCurl,
+    curl,
     utils
 Suggests:
     Biostrings,

@@ -20,6 +20,9 @@
 \alias{show,PXDataset2-method}
 \alias{pxCacheInfo,PXdataset-method}
 \alias{pxCacheInfo}
+\alias{pxinstruments}
+\alias{pxptms}
+\alias{pxprotocols}
 \alias{pxCacheInfo,PXDataset2-method}
 \title{New PXDataset (v2) to find and download proteomics data}
 \usage{
@@ -37,6 +40,12 @@ PXDataset(id, cache = rpxCache())
 
 pxtitle(object)
 
+pxinstruments(object)
+
+pxptms(object)
+
+pxprotocols(object, which = c("project", "samples", "data"))
+
 \S4method{pxfiles}{PXDataset2}(object, n = 10)
 
 \S4method{pxCacheInfo}{PXDataset2}(object)
@@ -52,6 +61,9 @@ the central \code{rpx} cache returned by \code{rpxCache()}, but users
 can use their own cache. See \code{\link[=rpxCache]{rpxCache()}} for details.}
 
 \item{object}{An instance of class \code{PXDataset2}.}
+
+\item{which}{\code{character()} with one or multiple protocols defined
+as \code{"project"}, \code{"samples"} and \code{"data"}.}
 
 \item{n}{\code{integer(1)} indicating the number of files to be printed.}
 
@@ -156,6 +168,13 @@ containing the resourne identifier and the cache location.
 \item `pxtitle(object): returns the project's title.
 \item \code{pxref(object)}: returns the project's bibliographic
 reference(s).
+\item \code{pxinstruments(object)}: returns the instrument(s) used to
+acquire the data.
+\item \code{pxptms(object)}: returns the PTMs searched for in the
+experiment.
+\item \code{pxprotocols(object, which)}: returns a list with the project
+description, sample processing and/or data processing
+protocols.
 }
 }
 
