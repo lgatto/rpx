@@ -173,8 +173,9 @@ allPXD <- function(cache = rpxCache()) {
 localPxRepo <- function(cache = rpxCache()) {
     ids <- allPXD()
     x <- data.frame(id = ids, status = "remote")
-    ## see https://twitter.com/lgatt0/status/1427283018058813446?s=20
+    ## See GitHub issue
     x[x$id == "PXD009968", "status"] <- "error"
+    x[x$id == "PXD012095", "status"] <- "error"
     rnames <- suppressMessages(pxCachedProjects(cache, rpxprefix = "^\\.rpx2")$rname)
     already_local <- sub("^\\.rpx2", "", rnames)
     x[x$id %in% already_local, "status"] <- "local"

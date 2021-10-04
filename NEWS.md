@@ -1,5 +1,9 @@
 # rpx 2.1
 
+## rpx 2.1.11
+
+- Annotate PXD012095 as returning an error (see #12) <2021-10-04 Mon>
+
 ## rpx 2.1.10
 
 - Caching PRIDE sitemap with all PXD projects.
