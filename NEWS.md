@@ -1,5 +1,10 @@
 # rpx 2.1
 
+## rpx 2.1.12
+
+- Annotate additional experiments as returning errors (see issues for
+  full list) <2021-10-07 Thu>
+
 ## rpx 2.1.11
 
 - Annotate PXD012095 as returning an error (see #12) <2021-10-04 Mon>

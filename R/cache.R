@@ -176,6 +176,10 @@ localPxRepo <- function(cache = rpxCache()) {
     ## See GitHub issue
     x[x$id == "PXD009968", "status"] <- "error"
     x[x$id == "PXD012095", "status"] <- "error"
+    x[x$id == "PXD012922", "status"] <- "error"
+    x[x$id == "PXD012577", "status"] <- "error"
+    x[x$id == "PXD010692", "status"] <- "error"
+    x[x$id == "PXD012097", "status"] <- "error"
     rnames <- suppressMessages(pxCachedProjects(cache, rpxprefix = "^\\.rpx2")$rname)
     already_local <- sub("^\\.rpx2", "", rnames)
     x[x$id %in% already_local, "status"] <- "local"
