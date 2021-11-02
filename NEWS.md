@@ -1,3 +1,9 @@
+# rpx 2.3.0
+
+## rpx 2.3.0
+
+- New bioconductor devel branch
+
 # rpx 2.1
 
 ## rpx 2.1.12
