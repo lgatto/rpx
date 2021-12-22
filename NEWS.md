@@ -1,5 +1,10 @@
 # rpx 2.3.0
 
+## rpx 2.3.1
+
+- Use `BiocFileCache::bfcrpath` to get correct rpath, irrespective of
+  absolute or relative.
+
 ## rpx 2.3.0
 
 - New bioconductor devel branch

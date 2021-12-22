@@ -168,6 +168,8 @@ NULL
 ##'
 ##' @importFrom utils read.delim
 ##'
+##' @importFrom RCurl url.exists
+##'
 ##' @export
 ##'
 ##' @return The `PXDataset2()` returns a cached `PXDataset2`
@@ -176,8 +178,9 @@ NULL
 PXDataset2 <- function(id, cache = rpxCache()) {
     ## Check if that PX id is already available in BiocFileCache
     rpxId <- paste0(".rpx2", id)
-    rpath <- BiocFileCache::bfcquery(cache, rpxId, "rname", exact = TRUE)$rpath
-    if (!length(rpath)) {
+    rid <- BiocFileCache::bfcquery(cache, rpxId, "rname", exact = TRUE)$rid
+    browser()
+    if (!length(rid)) {
         ## Generate new object
         message("Querying ProteomeXchange for ", id, ".")
         ws_url <- "https://www.ebi.ac.uk/pride/ws/archive/v2/projects/"
@@ -215,6 +218,7 @@ PXDataset2 <- function(id, cache = rpxCache()) {
     }
     ## Retrieve from cache
     message("Loading ", id, " from cache.")
+    rpath <- BiocFileCache::bfcrpath(cache, rids = rid)
     px <- readRDS(rpath)
     if (!inherits(px, "PXDataset2") | !methods::validObject(px))
         stop("Project ", id, " isn't a valid PXDataset2 object.\n",
