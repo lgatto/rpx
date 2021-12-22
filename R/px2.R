@@ -179,7 +179,6 @@ PXDataset2 <- function(id, cache = rpxCache()) {
     ## Check if that PX id is already available in BiocFileCache
     rpxId <- paste0(".rpx2", id)
     rid <- BiocFileCache::bfcquery(cache, rpxId, "rname", exact = TRUE)$rid
-    browser()
     if (!length(rid)) {
         ## Generate new object
         message("Querying ProteomeXchange for ", id, ".")
