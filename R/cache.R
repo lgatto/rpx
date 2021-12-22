@@ -89,6 +89,7 @@ pxCachedProjects <- function(cache = rpxCache(), rpxprefix = "^\\.rpx(2?)") {
 
 ##' @import BiocFileCache
 pxget1 <- function(url, cache) {
+    url <- get_url(url)
     ## Query the local rpx cache
     rid <- bfcquery(cache, url, "fpath", exact = TRUE)$rid
     ## Add the new file to the cache

@@ -185,7 +185,7 @@ PXDataset2 <- function(id, cache = rpxCache()) {
         ws_url <- "https://www.ebi.ac.uk/pride/ws/archive/v2/projects/"
         project_url <- paste0(ws_url, id)
         px_metadata <- jsonlite::fromJSON(project_url)
-        px_url  <- px_metadata[["_links"]]$datasetFtpUrl$href
+        px_url  <- get_url(px_metadata[["_links"]]$datasetFtpUrl$href)
         px_files <- read.delim(paste0(px_url, "/README.txt"))
         px_id <- px_metadata$accession
         if (id != px_id)

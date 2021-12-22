@@ -5,7 +5,8 @@ test_that("Object content is valid (v2)", {
     expect_null(show(px1))
     expect_identical(pxid(px1), id)
     ## Assertions manually looked up at
-    url <- "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001"
+    ## url <- "ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001"
+    url <- "ftp://ftp.pride.ebi.ac.uk/pride-archive/2012/03/PXD000001"
     pxf <- pxfiles(px1)
     fls <- sort(c("F063721.dat",
                   "F063721.dat-mztab.txt",
