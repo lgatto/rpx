@@ -19,7 +19,7 @@ cached projects and invisibly returns the cache table."><!-- mathjax --><script 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rpx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
       </span>
     </div>
 
@@ -34,7 +34,7 @@ cached projects and invisibly returns the cache table."><!-- mathjax --><script 
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/lgatto/rpx/">
+  <a href="https://github.com/lgatto/rpx/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -49,7 +49,7 @@ cached projects and invisibly returns the cache table."><!-- mathjax --><script 
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Package cache</h1>
-    <small class="dont-index">Source: <a href="https://github.com/lgatto/rpx/blob/master/R/cache.R"><code>R/cache.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/lgatto/rpx/blob/HEAD/R/cache.R" class="external-link"><code>R/cache.R</code></a></small>
     <div class="hidden name"><code>cache.Rd</code></div>
     </div>
 
@@ -59,26 +59,31 @@ central <code>rpx</code> cache. <code>pxCachedrojects()</code> prints the names 
 cached projects and invisibly returns the cache table.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">rpxCache</span><span class="op">(</span><span class="op">)</span>
+    <div id="ref-usage">
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">rpxCache</span><span class="op">(</span><span class="op">)</span>
 
 <span class="fu">pxCachedProjects</span><span class="op">(</span>cache <span class="op">=</span> <span class="fu">rpxCache</span><span class="op">(</span><span class="op">)</span>, rpxprefix <span class="op">=</span> <span class="st">"^\\.rpx(2?)"</span><span class="op">)</span></code></pre></div>
+    </div>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>cache</th>
-      <td><p>Object of class <code>BiocFileCache</code>.</p></td>
-    </tr><tr><th>rpxprefix</th>
-      <td><p><code>character(1)</code> defining the resourne name prefix
+    <div id="arguments">
+    <h2>Arguments</h2>
+    <dl><dt>cache</dt>
+<dd><p>Object of class <code>BiocFileCache</code>.</p></dd>
+<dt>rpxprefix</dt>
+<dd><p><code>character(1)</code> defining the resourne name prefix
 in <code>cache</code>. Default is <code>"^\\.rpx(2?)"</code> to match objects of
-class <code>PXDataset</code> and <code>PXDataset2</code>.</p></td>
-    </tr></table><h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
+class <code>PXDataset</code> and <code>PXDataset2</code>.</p></dd>
+</dl></div>
+    <div id="value">
+    <h2>Value</h2>
     <p>The <code>rpxCache()</code> function returns an instance of class
 <code>BiocFileCache</code>. <code>pxCachedProjects()</code> invisbly returns a
 <code>tibble</code> of cached ProteomeXchange projects.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
+    </div>
+    <div id="details">
+    <h2>Details</h2>
     <p>The cache is an object of class <code>BiocFileCache</code>, and created with
-<code><a href="https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html">BiocFileCache::BiocFileCache()</a></code>. It can be either the
+<code><a href="https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html" class="external-link">BiocFileCache::BiocFileCache()</a></code>. It can be either the
 package-wide cache as defined by <code>rpxCache()</code> or an instaned
 provided by the user.</p>
 <p>When projects are cached, they are given a resource name (<code>rname</code>)
@@ -87,12 +92,15 @@ identifier. For example, project <code>PXD000001</code> is named
 <code>.rpxPXD000001</code> (<code>.rpx2PXD000001</code> for the <code>PXDataset2</code> class) to
 avoid any conflicts with other resources that user-created
 resources.</p>
-    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
-
+    </div>
+    <div id="author">
+    <h2>Author</h2>
     <p>Laurent Gatto</p>
+    </div>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
 <span class="r-in"><span class="co">## Default rpx cache</span></span>
 <span class="r-in"><span class="fu">rpxCache</span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class: BiocFileCache</span>
@@ -102,17 +110,17 @@ resources.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Set up your own cache by providing a file or a directory to</span></span>
 <span class="r-in"><span class="co">## BiocFileCache::BiocFileCache()</span></span>
-<span class="r-in"><span class="va">my_cache</span> <span class="op">&lt;-</span> <span class="fu">BiocFileCache</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html">BiocFileCache</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempfile</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">my_cache</span> <span class="op">&lt;-</span> <span class="fu">BiocFileCache</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html" class="external-link">BiocFileCache</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">my_cache</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class: BiocFileCache</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> bfccache: /tmp/RtmpUnwrl0/file10ad114becb</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> bfccache: /tmp/RtmpKnalAY/file28da1b181c4d</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> bfccount: 0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> For more information see: bfcinfo() or bfcquery()</span>
 <span class="r-in"><span class="va">px</span> <span class="op">&lt;-</span> <span class="fu"><a href="PXDataset2.html">PXDataset</a></span><span class="op">(</span><span class="st">"PXD000001"</span>, cache <span class="op">=</span> <span class="va">my_cache</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Querying ProteomeXchange for PXD000001.</span>
 <span class="r-in"><span class="fu"><a href="PXDataset2.html">pxget</a></span><span class="op">(</span><span class="va">px</span>, <span class="st">"erwinia_carotovora.fasta"</span>, cache <span class="op">=</span> <span class="va">my_cache</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Downloading erwinia_carotovora.fasta file.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpUnwrl0/file10ad114becb/10ad2a04f01_erwinia_carotovora.fasta"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpKnalAY/file28da1b181c4d/28dae87993a_erwinia_carotovora.fasta"</span>
 <span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## List of cached projects</span></span>
@@ -124,16 +132,17 @@ resources.</p>
 <span class="r-in"><span class="co">## To delete project a project from the default cache, first find</span></span>
 <span class="r-in"><span class="co">## its resource id (rid) in the cache</span></span>
 <span class="r-in"><span class="va">px1_cache_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="PXDataset2.html">pxCacheInfo</a></span><span class="op">(</span><span class="va">px</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Resource ID BFC1 in cache in /tmp/RtmpUnwrl0/file10ad114becb.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Resource ID BFC1 in cache in /tmp/RtmpKnalAY/file28da1b181c4d.</span>
 <span class="r-in"><span class="op">(</span><span class="va">rid</span> <span class="op">&lt;-</span> <span class="va">px1_cache_info</span><span class="op">[</span><span class="st">"rid"</span><span class="op">]</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    rid </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> "BFC1" </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Then remove it with BiocFileCache:: bfcremove()</span></span>
-<span class="r-in"><span class="fu">BiocFileCache</span><span class="fu">:::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html">bfcremove</a></span><span class="op">(</span><span class="va">my_cache</span>, <span class="va">rid</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">BiocFileCache</span><span class="fu">:::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html" class="external-link">bfcremove</a></span><span class="op">(</span><span class="va">my_cache</span>, <span class="va">rid</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">pxCachedProjects</span><span class="op">(</span><span class="va">my_cache</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Cached projects (0): </span>
 </code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>
@@ -146,7 +155,7 @@ resources.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
 </div>
 
       </footer></div>
