@@ -16,5 +16,9 @@ fix_issue_17 <- function(x) {
          paste(failed_url, collapse = "\n "))
 }
 
-get_url <- function(x)
-    fix_issue_17(x)
+get_url <- function(x) {
+    ## if there's not internet, don't check/fix URL
+    if (curl::has_internet())
+        fix_issue_17(x)
+    else x
+}
