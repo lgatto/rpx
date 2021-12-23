@@ -1,5 +1,12 @@
 # rpx 2.3.0
 
+## rpx 2.3.2
+
+- Provide fix for PRIDE migration and annotation discrepancies (see
+  issue #7). This fix will however lead to re-downloading some cached
+  files due to different URLs. The fix might only be temporary, based
+  on if/how PRIDE will address their inconsistencies.
+
 ## rpx 2.3.1
 
 - Use `BiocFileCache::bfcrpath` to get correct rpath, irrespective of
