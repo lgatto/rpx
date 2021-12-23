@@ -16,6 +16,5 @@ fix_issue_17 <- function(x) {
          paste(failed_url, collapse = "\n "))
 }
 
-
 get_url <- function(x)
     fix_issue_17(x)

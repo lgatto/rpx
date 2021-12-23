@@ -128,7 +128,7 @@
 ##'
 ##' @examples
 ##'
-##' px <- PXDataset2("PXD000001")
+##' px <- PXDataset("PXD000001")
 ##' px
 ##' pxtax(px)
 ##' pxurl(px)
