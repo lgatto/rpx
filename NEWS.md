@@ -1,5 +1,10 @@
 # rpx 2.3.0
 
+## rpx 2.3.3
+
+- Don't run caching example as it replies on PRIDE which is failing
+  too often for the tests to pass on all systems.
+
 ## rpx 2.3.2
 
 - Provide fix for PRIDE migration and annotation discrepancies (see

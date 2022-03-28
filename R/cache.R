@@ -37,6 +37,8 @@
 ##' ## Default rpx cache
 ##' rpxCache()
 ##'
+##' \dontrun{
+##'
 ##' ## Set up your own cache by providing a file or a directory to
 ##' ## BiocFileCache::BiocFileCache()
 ##' my_cache <- BiocFileCache::BiocFileCache(tempfile())
@@ -57,6 +59,7 @@
 ##' ## Then remove it with BiocFileCache:: bfcremove()
 ##' BiocFileCache:::bfcremove(my_cache, rid)
 ##' pxCachedProjects(my_cache)
+##' }
 NULL
 
 ##' @rdname cache
