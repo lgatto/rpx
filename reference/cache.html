@@ -19,7 +19,7 @@ cached projects and invisibly returns the cache table."><!-- mathjax --><script 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rpx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.3</span>
       </span>
     </div>
 
@@ -108,39 +108,29 @@ resources.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> bfccount: 4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> For more information see: bfcinfo() or bfcquery()</span>
 <span class="r-in"></span>
+<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
+<span class="r-in"></span>
 <span class="r-in"><span class="co">## Set up your own cache by providing a file or a directory to</span></span>
 <span class="r-in"><span class="co">## BiocFileCache::BiocFileCache()</span></span>
 <span class="r-in"><span class="va">my_cache</span> <span class="op">&lt;-</span> <span class="fu">BiocFileCache</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html" class="external-link">BiocFileCache</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">my_cache</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> class: BiocFileCache</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> bfccache: /tmp/Rtmp5T3h1B/fileea46bbaa3c8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> bfccount: 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> For more information see: bfcinfo() or bfcquery()</span>
 <span class="r-in"><span class="va">px</span> <span class="op">&lt;-</span> <span class="fu"><a href="PXDataset2.html">PXDataset</a></span><span class="op">(</span><span class="st">"PXD000001"</span>, cache <span class="op">=</span> <span class="va">my_cache</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying ProteomeXchange for PXD000001.</span>
 <span class="r-in"><span class="fu"><a href="PXDataset2.html">pxget</a></span><span class="op">(</span><span class="va">px</span>, <span class="st">"erwinia_carotovora.fasta"</span>, cache <span class="op">=</span> <span class="va">my_cache</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Downloading erwinia_carotovora.fasta file.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/Rtmp5T3h1B/fileea46bbaa3c8/ea45faf9af8_erwinia_carotovora.fasta"</span>
 <span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## List of cached projects</span></span>
 <span class="r-in"><span class="fu">pxCachedProjects</span><span class="op">(</span><span class="op">)</span> <span class="co">## default rpx cache</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Cached projects (2): PXD000001, PXD022816 </span>
 <span class="r-in"><span class="fu">pxCachedProjects</span><span class="op">(</span><span class="va">my_cache</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Cached projects (1): PXD000001 </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## To delete project a project from the default cache, first find</span></span>
 <span class="r-in"><span class="co">## its resource id (rid) in the cache</span></span>
 <span class="r-in"><span class="va">px1_cache_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="PXDataset2.html">pxCacheInfo</a></span><span class="op">(</span><span class="va">px</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Resource ID BFC1 in cache in /tmp/Rtmp5T3h1B/fileea46bbaa3c8.</span>
 <span class="r-in"><span class="op">(</span><span class="va">rid</span> <span class="op">&lt;-</span> <span class="va">px1_cache_info</span><span class="op">[</span><span class="st">"rid"</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    rid </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "BFC1" </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Then remove it with BiocFileCache:: bfcremove()</span></span>
 <span class="r-in"><span class="fu">BiocFileCache</span><span class="fu">:::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html" class="external-link">bfcremove</a></span><span class="op">(</span><span class="va">my_cache</span>, <span class="va">rid</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">pxCachedProjects</span><span class="op">(</span><span class="va">my_cache</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Cached projects (0): </span>
+<span class="r-in"><span class="op">}</span></span>
 </code></pre></div>
     </div>
   </div>
@@ -155,7 +145,8 @@ resources.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.2.9000.</p>
 </div>
 
       </footer></div>

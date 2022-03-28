@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rpx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.3</span>
       </span>
     </div>
 
@@ -53,15 +53,24 @@
     <div class="section level2">
 <h2 class="page-header" data-toc-text="2.3.0" id="rpx-230">rpx 2.3.0<a class="anchor" aria-label="anchor" href="#rpx-230"></a></h2>
 <div class="section level3">
-<h3 id="rpx-2-3-0">rpx 2.3.2<a class="anchor" aria-label="anchor" href="#rpx-2-3-0"></a></h3>
-<ul><li>Provide fix for PRIDE migration and annotation discrepancies (see issue <a href="https://github.com/lgatto/rpx/issues/17" class="external-link">#17</a>). This fix will however lead to re-downloading some cached files due to different URLs. The fix might only be temporary, based on if/how PRIDE will address their inconsistencies.</li>
+<h3 id="rpx-2-3-0">rpx 2.3.3<a class="anchor" aria-label="anchor" href="#rpx-2-3-0"></a></h3>
+<ul><li>Don’t run caching example as it replies on PRIDE which is failing
+too often for the tests to pass on all systems.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="rpx-2-3-0-1">rpx 2.3.1<a class="anchor" aria-label="anchor" href="#rpx-2-3-0-1"></a></h3>
-<ul><li>Use <code><a href="https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html" class="external-link">BiocFileCache::bfcrpath</a></code> to get correct rpath, irrespective of absolute or relative.</li>
+<h3 id="rpx-2-3-0-1">rpx 2.3.2<a class="anchor" aria-label="anchor" href="#rpx-2-3-0-1"></a></h3>
+<ul><li>Provide fix for PRIDE migration and annotation discrepancies (see
+issue <a href="https://github.com/lgatto/rpx/issues/17" class="external-link">#17</a>). This fix will however lead to re-downloading some cached
+files due to different URLs. The fix might only be temporary, based on
+if/how PRIDE will address their inconsistencies.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="rpx-2-3-0-2">rpx 2.3.0<a class="anchor" aria-label="anchor" href="#rpx-2-3-0-2"></a></h3>
+<h3 id="rpx-2-3-0-2">rpx 2.3.1<a class="anchor" aria-label="anchor" href="#rpx-2-3-0-2"></a></h3>
+<ul><li>Use <code><a href="https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html" class="external-link">BiocFileCache::bfcrpath</a></code> to get correct rpath,
+irrespective of absolute or relative.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="rpx-2-3-0-3">rpx 2.3.0<a class="anchor" aria-label="anchor" href="#rpx-2-3-0-3"></a></h3>
 <ul><li>New bioconductor devel branch</li>
 </ul></div>
 </div>
@@ -69,16 +78,19 @@
 <h2 class="page-header" data-toc-text="2.1" id="rpx-21">rpx 2.1<a class="anchor" aria-label="anchor" href="#rpx-21"></a></h2>
 <div class="section level3">
 <h3 id="rpx-2-1">rpx 2.1.12<a class="anchor" aria-label="anchor" href="#rpx-2-1"></a></h3>
-<ul><li>Annotate additional experiments as returning errors (see issues for full list) &lt;2021-10-07 Thu&gt;</li>
+<ul><li>Annotate additional experiments as returning errors (see issues for
+full list) &lt;2021-10-07 Thu&gt;</li>
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-2-1-1">rpx 2.1.11<a class="anchor" aria-label="anchor" href="#rpx-2-1-1"></a></h3>
-<ul><li>Annotate PXD012095 as returning an error (see <a href="https://github.com/lgatto/rpx/issues/12" class="external-link">#12</a>) &lt;2021-10-04 Mon&gt;</li>
+<ul><li>Annotate PXD012095 as returning an error (see <a href="https://github.com/lgatto/rpx/issues/12" class="external-link">#12</a>) &lt;2021-10-04
+Mon&gt;</li>
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-2-1-2">rpx 2.1.10<a class="anchor" aria-label="anchor" href="#rpx-2-1-2"></a></h3>
 <ul><li>Caching PRIDE sitemap with all PXD projects.</li>
-<li>New <code><a href="../reference/PXDataset2.html">pxinstruments()</a></code>, <code><a href="../reference/PXDataset2.html">pxptms()</a></code> and <code><a href="../reference/PXDataset2.html">pxprotocols()</a></code> accessors.</li>
+<li>New <code><a href="../reference/PXDataset2.html">pxinstruments()</a></code>, <code><a href="../reference/PXDataset2.html">pxptms()</a></code> and
+<code><a href="../reference/PXDataset2.html">pxprotocols()</a></code> accessors.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-2-1-3">rpx 2.1.9<a class="anchor" aria-label="anchor" href="#rpx-2-1-3"></a></h3>
@@ -86,8 +98,12 @@
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-2-1-4">rpx 2.1.8<a class="anchor" aria-label="anchor" href="#rpx-2-1-4"></a></h3>
-<ul><li><p>New <code>PXDataset2</code> class with richer interface and more stable data downloading functions. <code>PXDataset</code> and <code>PXDataset2</code> work transparently and <code>PXDataset2</code> is now default.</p></li>
-<li><p>Add deprecation notice in <code><a href="../reference/PXDataset2.html">PXDataset()</a></code> constructor.</p></li>
+<ul><li><p>New <code>PXDataset2</code> class with richer interface and more
+stable data downloading functions. <code>PXDataset</code> and
+<code>PXDataset2</code> work transparently and <code>PXDataset2</code>
+is now default.</p></li>
+<li><p>Add deprecation notice in <code><a href="../reference/PXDataset2.html">PXDataset()</a></code>
+constructor.</p></li>
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-2-1-5">rpx 2.1.7<a class="anchor" aria-label="anchor" href="#rpx-2-1-5"></a></h3>
@@ -97,8 +113,10 @@
 <div class="section level3">
 <h3 id="rpx-2-1-6">rpx 2.1.6<a class="anchor" aria-label="anchor" href="#rpx-2-1-6"></a></h3>
 <ul><li>Update installation instruction in <code>README.md</code>.</li>
-<li>Cache location is now also stored inside the <code>PXDataset</code> object.</li>
-<li>New <code><a href="../reference/PXDataset2.html">pxCacheInfo()</a></code> function and use it to show caching info in <code>show,PXDataset</code>.</li>
+<li>Cache location is now also stored inside the <code>PXDataset</code>
+object.</li>
+<li>New <code><a href="../reference/PXDataset2.html">pxCacheInfo()</a></code> function and use it to show caching
+info in <code>show,PXDataset</code>.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-2-1-7">rpx 2.1.5<a class="anchor" aria-label="anchor" href="#rpx-2-1-7"></a></h3>
@@ -108,17 +126,22 @@
 <div class="section level3">
 <h3 id="rpx-2-1-8">rpx 2.1.4<a class="anchor" aria-label="anchor" href="#rpx-2-1-8"></a></h3>
 <ul><li><p>Fix bug in PXDdataset internal data storage.</p></li>
-<li><p>New <code><a href="../reference/cache.html">pxCachedProjects()</a></code> function that return the cached projects.</p></li>
+<li><p>New <code><a href="../reference/cache.html">pxCachedProjects()</a></code> function that return the
+cached projects.</p></li>
 <li><p>Fixes and improvements in the documentation.</p></li>
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-2-1-9">rpx 2.1.3<a class="anchor" aria-label="anchor" href="#rpx-2-1-9"></a></h3>
-<ul><li><p>PXDatasets are also cached upon creation and retrieved from cache next time they are generated.</p></li>
+<ul><li><p>PXDatasets are also cached upon creation and retrieved from cache
+next time they are generated.</p></li>
 <li><p>cache is now returned by <code><a href="../reference/cache.html">rpxCache()</a></code>.</p></li>
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-2-1-10">rpx 2.1.2<a class="anchor" aria-label="anchor" href="#rpx-2-1-10"></a></h3>
-<ul><li>New feature: PXDataset objects now query and store data (ref, tax, files, url) when generated instead of fetching these on the fly every time. This new feature has been added to circumvent the issues with data access (see <a href="https://github.com/lgatto/rpx/issues/5" class="external-link">#5</a>).</li>
+<ul><li>New feature: PXDataset objects now query and store data (ref, tax,
+files, url) when generated instead of fetching these on the fly every
+time. This new feature has been added to circumvent the issues with data
+access (see <a href="https://github.com/lgatto/rpx/issues/5" class="external-link">#5</a>).</li>
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-2-1-11">rpx 2.1.1<a class="anchor" aria-label="anchor" href="#rpx-2-1-11"></a></h3>
@@ -138,11 +161,15 @@
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-1-99-0-2">rpx 1.99.6<a class="anchor" aria-label="anchor" href="#rpx-1-99-0-2"></a></h3>
-<ul><li>Switching to <code><a href="https://rdrr.io/r/tools/userdir.html" class="external-link">tools::R_user_dir()</a></code> from <code><a href="https://rappdirs.r-lib.org/reference/user_cache_dir.html" class="external-link">rappdirs::user_cache_dir()</a></code> to set package cache directory, following changes in <code>BiocFileCache</code> (<a href="https://stat.ethz.ch/pipermail/bioc-devel/2021-April/017928.html" class="external-link">see</a> for details).</li>
+<ul><li>Switching to <code><a href="https://rdrr.io/r/tools/userdir.html" class="external-link">tools::R_user_dir()</a></code> from
+<code><a href="https://rappdirs.r-lib.org/reference/user_cache_dir.html" class="external-link">rappdirs::user_cache_dir()</a></code> to set package cache directory,
+following changes in <code>BiocFileCache</code> (<a href="https://stat.ethz.ch/pipermail/bioc-devel/2021-April/017928.html" class="external-link">see</a>
+for details).</li>
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-1-99-0-3">rpx 1.99.5<a class="anchor" aria-label="anchor" href="#rpx-1-99-0-3"></a></h3>
-<ul><li>User can pass an own cache when downloading files &lt;2021-04-03 Sat&gt;</li>
+<ul><li>User can pass an own cache when downloading files &lt;2021-04-03
+Sat&gt;</li>
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-1-99-0-4">rpx 1.99.4<a class="anchor" aria-label="anchor" href="#rpx-1-99-0-4"></a></h3>
@@ -150,11 +177,15 @@
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-1-99-0-5">rpx 1.99.3<a class="anchor" aria-label="anchor" href="#rpx-1-99-0-5"></a></h3>
-<ul><li>Use <code>MS:1002852</code> to get URL when <code>PRIDE:0000411</code> returns empty string.</li>
+<ul><li>Use <code>MS:1002852</code> to get URL when
+<code>PRIDE:0000411</code> returns empty string.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-1-99-0-6">rpx 1.99.2<a class="anchor" aria-label="anchor" href="#rpx-1-99-0-6"></a></h3>
-<ul><li>Don’t ask for cache location in non-interactive mode. This forces the usage of the default cache location (rather than usage of a Rtmp directory) and enables reusage of a persistent cache over different build/check cycles.</li>
+<ul><li>Don’t ask for cache location in non-interactive mode. This forces
+the usage of the default cache location (rather than usage of a Rtmp
+directory) and enables reusage of a persistent cache over different
+build/check cycles.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="rpx-1-99-0-7">rpx 1.99.1<a class="anchor" aria-label="anchor" href="#rpx-1-99-0-7"></a></h3>
@@ -169,7 +200,8 @@
 <h2 class="page-header" data-toc-text="1.23" id="rpx-123">rpx 1.23<a class="anchor" aria-label="anchor" href="#rpx-123"></a></h2>
 <div class="section level3">
 <h3 id="changes-in-version-1-23">Changes in version 1.23.1<a class="anchor" aria-label="anchor" href="#changes-in-version-1-23"></a></h3>
-<ul><li>Define modifiable <code>rpx_fix_issue_5</code> &lt;2019-11-26 Tue&gt;</li>
+<ul><li>Define modifiable <code>rpx_fix_issue_5</code> &lt;2019-11-26
+Tue&gt;</li>
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-1-23-1">Changes in version 1.23.0<a class="anchor" aria-label="anchor" href="#changes-in-version-1-23-1"></a></h3>
@@ -184,7 +216,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-1-21-1">Changes in version 1.21.2<a class="anchor" aria-label="anchor" href="#changes-in-version-1-21-1"></a></h3>
-<ul><li>Temporary fix for issue <a href="https://github.com/lgatto/rpx/issues/5" class="external-link">#5</a> (wrong URL from PRIDE server) &lt;2019-10-02 Wed&gt;</li>
+<ul><li>Temporary fix for issue <a href="https://github.com/lgatto/rpx/issues/5" class="external-link">#5</a> (wrong URL from PRIDE server)
+&lt;2019-10-02 Wed&gt;</li>
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-1-21-2">Changes in version 1.21.1<a class="anchor" aria-label="anchor" href="#changes-in-version-1-21-2"></a></h3>
@@ -203,7 +236,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-1-19-2">Changes in version 1.19.2<a class="anchor" aria-label="anchor" href="#changes-in-version-1-19-2"></a></h3>
-<ul><li>Mention setting <code>method</code> on Windows &lt;2019-04-16 Tue&gt;</li>
+<ul><li>Mention setting <code>method</code> on Windows &lt;2019-04-16
+Tue&gt;</li>
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-1-19-3">Changes in version 1.19.1<a class="anchor" aria-label="anchor" href="#changes-in-version-1-19-3"></a></h3>
@@ -259,7 +293,9 @@
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-1-13-3">Changes in version 1.13.2<a class="anchor" aria-label="anchor" href="#changes-in-version-1-13-3"></a></h3>
-<ul><li>Fix errors due to changes on PX side. PXD000001 reference remains untested - see <a href="https://twitter.com/lgatt0/status/885091284142239744" class="external-link uri">https://twitter.com/lgatt0/status/885091284142239744</a> for details. &lt;2017-07-12 Wed&gt;</li>
+<ul><li>Fix errors due to changes on PX side. PXD000001 reference remains
+untested - see <a href="https://twitter.com/lgatt0/status/885091284142239744" class="external-link uri">https://twitter.com/lgatt0/status/885091284142239744</a> for
+details. &lt;2017-07-12 Wed&gt;</li>
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-1-13-4">Changes in version 1.13.1<a class="anchor" aria-label="anchor" href="#changes-in-version-1-13-4"></a></h3>
@@ -276,7 +312,8 @@
 <div class="section level3">
 <h3 id="changes-in-version-1-12">Changes in version 1.12.1<a class="anchor" aria-label="anchor" href="#changes-in-version-1-12"></a></h3>
 <ul><li>Using xml2 (backported from devel) &lt;2017-06-13 Tue&gt;</li>
-<li>Use functions instead of methods (backported from devel) &lt;2017-06-13 Tue&gt;</li>
+<li>Use functions instead of methods (backported from devel)
+&lt;2017-06-13 Tue&gt;</li>
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-1-12-1">Changes in version 1.12.0<a class="anchor" aria-label="anchor" href="#changes-in-version-1-12-1"></a></h3>
@@ -291,20 +328,25 @@
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-1-11-1">Changes in version 1.11.4<a class="anchor" aria-label="anchor" href="#changes-in-version-1-11-1"></a></h3>
-<ul><li>Update unit test to reflect upstream changes &lt;2017-02-26 Sun&gt;</li>
+<ul><li>Update unit test to reflect upstream changes &lt;2017-02-26
+Sun&gt;</li>
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-1-11-2">Changes in version 1.11.3<a class="anchor" aria-label="anchor" href="#changes-in-version-1-11-2"></a></h3>
 <ul><li>
-<code>pxget</code> gains a <code>destdir</code> argument to specify the destination to which files should be downloaded &lt;2017-01-27 Fri&gt;</li>
+<code>pxget</code> gains a <code>destdir</code> argument to specify
+the destination to which files should be downloaded &lt;2017-01-27
+Fri&gt;</li>
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-1-11-3">Changes in version 1.11.2<a class="anchor" aria-label="anchor" href="#changes-in-version-1-11-3"></a></h3>
-<ul><li>Update unit test to reflect upstream changes &lt;2017-01-25 Wed&gt;</li>
+<ul><li>Update unit test to reflect upstream changes &lt;2017-01-25
+Wed&gt;</li>
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-1-11-4">Changes in version 1.11.1<a class="anchor" aria-label="anchor" href="#changes-in-version-1-11-4"></a></h3>
-<ul><li>Migrate vignette to BiocStyle::html_document2 &lt;2016-12-22 Thu&gt;</li>
+<ul><li>Migrate vignette to BiocStyle::html_document2 &lt;2016-12-22
+Thu&gt;</li>
 <li>Use NEWS.md &lt;2016-12-28 Wed&gt;</li>
 </ul></div>
 <div class="section level3">
@@ -327,7 +369,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-1-9-1">Changes in version 1.9.3<a class="anchor" aria-label="anchor" href="#changes-in-version-1-9-1"></a></h3>
-<ul><li>Update vignette to use readMzTabData v0.9 &lt;2016-07-24 Sun&gt;</li>
+<ul><li>Update vignette to use readMzTabData v0.9 &lt;2016-07-24
+Sun&gt;</li>
 </ul></div>
 </div>
     <div class="section level2">
@@ -353,18 +396,21 @@
 <h2 class="page-header" data-toc-text="1.3" id="rpx-13">rpx 1.3<a class="anchor" aria-label="anchor" href="#rpx-13"></a></h2>
 <div class="section level3">
 <h3 id="changes-in-version-1-3">Changes in version 1.3.1<a class="anchor" aria-label="anchor" href="#changes-in-version-1-3"></a></h3>
-<ul><li>update vignette to reflect new files in px example, and avoid downloaded the raw data [2015-03-31 Tue]</li>
+<ul><li>update vignette to reflect new files in px example, and avoid
+downloaded the raw data [2015-03-31 Tue]</li>
 </ul></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.99" id="rpx-099">rpx 0.99<a class="anchor" aria-label="anchor" href="#rpx-099"></a></h2>
 <div class="section level3">
 <h3 id="changes-in-version-0-99">Changes in version 0.99.9<a class="anchor" aria-label="anchor" href="#changes-in-version-0-99"></a></h3>
-<ul><li>In pxref, dealing with cases without any-r pending publications [2014-04-01 Tue]</li>
+<ul><li>In pxref, dealing with cases without any-r pending publications
+[2014-04-01 Tue]</li>
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-0-99-1">Changes in version 0.99.8<a class="anchor" aria-label="anchor" href="#changes-in-version-0-99-1"></a></h3>
-<ul><li>fix leftover issues from renaming package (d.tenenbaum) [2014-03-30 Sun]</li>
+<ul><li>fix leftover issues from renaming package (d.tenenbaum) [2014-03-30
+Sun]</li>
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-0-99-2">Changes in version 0.99.7<a class="anchor" aria-label="anchor" href="#changes-in-version-0-99-2"></a></h3>
@@ -376,7 +422,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-0-99-4">Changes in version 0.99.5<a class="anchor" aria-label="anchor" href="#changes-in-version-0-99-4"></a></h3>
-<ul><li>Suggestions, biocView and typos reported by Nate Hayden [2014-03-12 Wed]</li>
+<ul><li>Suggestions, biocView and typos reported by Nate Hayden [2014-03-12
+Wed]</li>
 <li>added Runit test [2014-03-12 Wed]</li>
 <li>use ae fonts in vignette [2014-03-12 Wed]</li>
 </ul></div>
@@ -387,11 +434,13 @@
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-0-99-6">Changes in version 0.99.3<a class="anchor" aria-label="anchor" href="#changes-in-version-0-99-6"></a></h3>
-<ul><li>reverting pxannounced to empty signature to fix warning [2014-03-05 Wed]</li>
+<ul><li>reverting pxannounced to empty signature to fix warning [2014-03-05
+Wed]</li>
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-0-99-7">Changes in version 0.99.2<a class="anchor" aria-label="anchor" href="#changes-in-version-0-99-7"></a></h3>
-<ul><li>replacing download.file by getURL to download annoucement rss-ver https &lt;2014-03-05 Wed&gt;</li>
+<ul><li>replacing download.file by getURL to download annoucement rss-ver
+https &lt;2014-03-05 Wed&gt;</li>
 </ul></div>
 <div class="section level3">
 <h3 id="changes-in-version-0-99-8">Changes in version 0.99.1<a class="anchor" aria-label="anchor" href="#changes-in-version-0-99-8"></a></h3>
@@ -417,7 +466,8 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.2.9000.</p>
 </div>
 
       </footer></div>
