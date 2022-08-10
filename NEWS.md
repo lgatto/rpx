@@ -1,5 +1,9 @@
 # rpx 2.5
 
+## rpx 2.5.1
+
+- Address failing unit test since PRIDE URL has changed back.
+
 ## rpx 2.5.0
 
 - New bioconductor devel version
