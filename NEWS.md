@@ -1,4 +1,16 @@
-# rpx 2.3.0
+# rpx 2.5
+
+## rpx 2.5.0
+
+- New bioconductor devel version
+
+# rpx 2.4
+
+## rpx 2.4.0
+
+- New bioconductor release version
+
+# rpx 2.3
 
 ## rpx 2.3.3
 
