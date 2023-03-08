@@ -186,7 +186,16 @@ PXDataset2 <- function(id, cache = rpxCache()) {
         project_url <- paste0(ws_url, id)
         px_metadata <- jsonlite::fromJSON(project_url)
         px_url  <- get_url(px_metadata[["_links"]]$datasetFtpUrl$href)
-        px_files <- read.delim(paste0(px_url, "/README.txt"))
+        ftp_url <- paste0(px_url, "/")
+        ## There is no systematic README.txt file in each PX directory
+        ## anymore (see issue #21). The following command will thus
+        ## fail:
+        ## px_files <- read.delim(paste0(px_url, "/README.txt"))
+        ## Need to get the files by querying the ftp directory with
+        ## list_files() and convert them to a data.frame to comply
+        ## with class structure with pride_files_dataframe().
+        ftp_files <- list_files(ftp_url)
+        px_files <- pride_files_dataframe(ftp_files, ftp_url)
         px_id <- px_metadata$accession
         if (id != px_id)
             message("Replacing ", id, " with ", px_id, ".")

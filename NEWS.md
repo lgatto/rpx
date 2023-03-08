@@ -1,3 +1,11 @@
+# rpx 2.6
+
+## rpx 2.6.1
+
+- Don't reply on a PRIDE project's README.txt files anymore, as it has
+  been discontinued (see issue #21). The files in a project are now
+  listed from the remote ftp directory.
+
 # rpx 2.5
 
 ## rpx 2.5.1
