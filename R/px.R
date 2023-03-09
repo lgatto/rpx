@@ -15,7 +15,8 @@
 ##' `PXDataset()` constructor that takes the unique ProteomeXchange
 ##' project identifier as input.
 ##'
-##' The `PXDataset` class is being replaced by `PXDataset2`.
+##' The `PXDataset` class is replaced by `PXDataset2` and is now
+##' deprecated. It will be defunct in the next release.
 ##'
 ##' @details
 ##'
@@ -98,21 +99,6 @@
 ##'
 ##' Source repository for the ProteomeXchange project:
 ##' https://code.google.com/p/proteomexchange/
-##'
-##' @examples
-##'
-##' px <- PXDataset("PXD000001")
-##' px
-##' pxtax(px)
-##' pxurl(px)
-##' pxref(px)
-##' pxfiles(px)
-##' pxCacheInfo(px)
-##'
-##' fas <- pxget(px, "erwinia_carotovora.fasta")
-##' fas
-##' library("Biostrings")
-##' readAAStringSet(fas)
 NULL
 
 ##  Wrong ftp URL in xml of data, as documented in issue #5
@@ -121,14 +107,7 @@ rpx_env$rpx_fix_issue_5 <- TRUE
 apply_fix_issue_5 <- function(x = TRUE)
     rpx_env$rpx_fix_issue_5 <- x
 
-## setOldClass(c("xml_document", "xml_node"))
 
-.valid_ftp_url <- function(url) {
-    if (length(url) == 0) return(FALSE)
-    valid <- try(RCurl::getURL(paste0(url, "/"), dirlistonly = TRUE),
-                 silent = TRUE)
-    ifelse(inherits(valid, "try-error"), FALSE, TRUE)
-}
 
 ##' @importFrom methods new
 .PXDataset <- setClass("PXDataset",
@@ -164,6 +143,7 @@ setMethod("show", "PXDataset",
                       "\n", sep = "")
                   cat(" Use 'pxfiles(.)' to see all files.\n")
               }
+              .Deprecated("the PXDataset2 class", old = NULL)
           })
 
 ##' @param object An instance of class `PXDataset`, as created by
@@ -315,6 +295,7 @@ setMethod("pxCacheInfo", "PXDataset",
 ##'     object. It thus also modifies the cache used to projet
 ##'     caching, as defined by the `cache` argument.
 PXDataset1 <- function(id, cache = rpxCache()) {
+    .Deprecated("PXDataset()")
     ## Check if that PX id is already available in BiocFileCache
     rpxId <- paste0(".rpx", id)
     rpath <- bfcquery(cache, rpxId, "rname", exact = TRUE)$rpath

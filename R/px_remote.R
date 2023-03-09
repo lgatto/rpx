@@ -1,3 +1,10 @@
+.valid_ftp_url <- function(url) {
+    if (length(url) == 0) return(FALSE)
+    valid <- try(RCurl::getURL(paste0(url, "/"), dirlistonly = TRUE),
+                 silent = TRUE)
+    ifelse(inherits(valid, "try-error"), FALSE, TRUE)
+}
+
 ## See https://github.com/lgatto/rpx/issues/17
 fix_issue_17 <- function(x) {
     make_http_url <- function(x)

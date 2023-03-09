@@ -1,5 +1,10 @@
 # rpx 2.7
 
+## rpx 2.7.2
+
+- Deprecation warning: PXDataset class/methods and PXDataset1()
+  constructor.
+
 ## rpx 2.7.1
 
 - Don't rely on a PRIDE project's README.txt files anymore, as it has
