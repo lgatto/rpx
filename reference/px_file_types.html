@@ -100,188 +100,198 @@ identify several file types.</p>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">file_types</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             type                                  ext</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        archive                                  zip</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2        archive                               tar.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3        archive                                  rar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4        archive                                   7z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5        archive                                  tgz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6        archive                                  ZIP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7        archive                                  tar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8        archive                                  tgz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9        archive                                  RAR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10       archive                                  bz2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11       archive                           webarchive</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12       archive                                   gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13       archive                                   xy</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14           doc                                  doc</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15           doc                                  pdf</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16           doc                                  PDF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17           doc                                  ppt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18           doc                                  odt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19           doc                                 docx</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20           doc                                 pptx</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21           doc                                  rtf</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22           doc                                 html</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23           doc                                 html</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24           doc                                  htm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25           doc                                shtml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26           doc                               readme</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27           doc                                  txt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28           doc                                   md</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29        binary                                  raw</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30        binary                                  Raw</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31        binary                                  RAW</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32        binary                                    d</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33        binary                                d.zip</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34        binary                              raw.zip</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35        binary                               raw.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36        binary                                 wiff</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37        binary                                wiff2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38        binary                            wiff.scan</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39        binary                         wiff.1.~idx2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40        binary                             wiff.mtd</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41        binary                                  t2d</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42           raw                                 mzML</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43           raw                              mzML.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44           raw                             mzML.zip</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45           raw                                mzXML</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46           raw                             mzXML.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47           raw                            mzXML.zip</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48           raw                                mzxml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49           raw                                TraML</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50           raw                                traML</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51           raw                                traml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52           raw                               netCDF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53           raw                               mzData</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54           raw                               mzdata</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55           raw                                  mz5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56           raw                                imzML</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57           pkl                                  mgf</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58           pkl                                  MGF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59           pkl                               mgf.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60           pkl                               MGF.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61           pkl                                  pkl</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62           pkl                               pkl.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63           pkl                                  PKL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64           fas                                  fas</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65           fas                                fasta</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66           fas                                   fa</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67           fas                                  faa</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68           fas                                FASTA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69           fas                                fasts</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70        reflib                                 blib</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71        reflib                                 elib</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72        reflib                                 dlib</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73        reflib                                  msp</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74            id                            mzIdentML</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75            id                                 mzID</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76            id                              mzID.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77            id                                 mzid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78            id                              mzid.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79            id                                  dat</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80            id                               dat.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81            id                              dat.zip</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82            id                                idXML</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83            id                                  omx</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84            id                                  dta</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85            id                              dta.tgz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86            id                          dta.tar.bz2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87           tbl                                  csv</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88           tbl                                  tsv</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89           tbl                                  xls</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90           tbl                                 xlsx</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91           tbl                                 XLSX</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92           tbl                                 xlsb</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93           tbl                               csv.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94           tbl                               tsv.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95           tbl                               psmtsv</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96           tbl                                delim</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97           tbl                              tabular</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98         mztab                                mztab</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99         mztab                             mztab.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100        mztab                                mzTab</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101        mztab                             mzTab.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102        mztab                              mzTabNA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103        mztab                           -mztab.txt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104          fig                                  png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105          fig                                  jpg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106          fig                                 jpeg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 107          fig                                 tiff</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 108          fig                                  TIF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 109          fig                                  tif</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 110          fig                                  gif</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 111          fig                                  PNG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 112          fig                                  JPG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 113          fig                                  svg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 114          xml                                  xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 115          xml                               xml.gz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 116      prophet                               pepXML</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 117      prophet                              protXML</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 118       bruker                                  yep</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 119       bruker                                  baf</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 120     scaffold                                  sf3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 121     scaffold                                 sptm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 122     scaffold                                 sfdb</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 123     scaffold                                 sdia</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 124     scaffold                                metdb</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 125           pd                             pdResult</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 126           pd                                  msf</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 127           pd                         pdResultView</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 128           pd                              msfView</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 129           pd                           pdAnalysis</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 130           pd                       pdProcessingWF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 131           pd                        pdConsensusWF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 132           pd                              pdStudy</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 133           pd                          pdStudy.bak</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 134      sequest                                  ms1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 135      sequest                                  ms2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 136      sequest                                  srf</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 137      sequest                                  out</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 138      sequest                              out.tgz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 139      sequest                          out.tar.bz2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 140 proteinpilot                                group</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 141   progenesis              ProgenesisQIPExperiment</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 142   progenesis                 ProgenesisQIPArchive</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 143   progenesis             ProgenesisLcmsExperiment</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 144   progenesis ProgenesisQIPMultiFractionExperiment</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 145      skyline                                  sky</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 146      skyline                             sky.view</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 147      skyline                                 skyd</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 148      skyline                                 skyl</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 149  spectronaut                                  sne</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 150       params                               params</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 151       params                                 apar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 152       params                                 knwf</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 153       params                                 json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 154         code                                    R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 155         code                                   py</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 156         code                                    r</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 157         code                                   pl</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 158         code                                   js</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 159         code                                  jar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 160         code                                  Rmd</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 161         code                                   sh</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 162         code                                ipynb</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 163         data                                RData</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 164         data                                  RDS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 165         data                               sqlite</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 166         data                                   h5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 167          chk                                  md5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 168          chk                                cksum</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 169          chk                               chksum</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 170          gen                                  gtf</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 171          gen                                  gff</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 172          gen                                fastq</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 173          gen                                  vcf</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 174          gen                                plink</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 175          ssv                                  ssv</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 176          sqt                                  sqt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 177          apl                                  apl</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 178        htrms                                htrms</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 179         cpsx                                 cpsx</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 180          res                                  res</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 181         pcml                                 pcml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              type                                  ext</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         archive                                  zip</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2         archive                               tar.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3         archive                                  rar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4         archive                                   7z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5         archive                                  tgz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6         archive                                  ZIP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7         archive                                  tar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8         archive                                  tgz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9         archive                                  RAR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10        archive                                  bz2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11        archive                           webarchive</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12        archive                                   gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13        archive                                   xy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14            doc                                  doc</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15            doc                                  pdf</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16            doc                                  PDF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17            doc                                  ppt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18            doc                                  odt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19            doc                                 docx</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20            doc                                 pptx</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21            doc                                  rtf</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22            doc                                 html</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23            doc                                 html</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24            doc                                  htm</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25            doc                                shtml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26            doc                               readme</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27            doc                                  txt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28            doc                                   md</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29         binary                                  raw</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30         binary                                  Raw</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31         binary                                  RAW</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32         binary                                    d</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33         binary                                d.zip</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34         binary                              raw.zip</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35         binary                               raw.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36         binary                                 wiff</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37         binary                                wiff2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38         binary                            wiff.scan</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39         binary                         wiff.1.~idx2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40         binary                             wiff.mtd</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41         binary                                  t2d</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42            raw                                 mzML</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43            raw                              mzML.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44            raw                             mzML.zip</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45            raw                                mzXML</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46            raw                             mzXML.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47            raw                            mzXML.zip</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48            raw                                mzxml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49            raw                                TraML</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50            raw                                traML</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51            raw                                traml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52            raw                               netCDF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53            raw                               mzData</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54            raw                               mzdata</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55            raw                                  mz5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56            raw                                imzML</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57            pkl                                  mgf</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58            pkl                                  MGF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59            pkl                               mgf.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60            pkl                               MGF.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61            pkl                                  apl</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62            pkl                                  pkl</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63            pkl                               pkl.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64            pkl                                  PKL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65            fas                                  fas</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66            fas                                fasta</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67            fas                                   fa</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68            fas                                  faa</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69            fas                                FASTA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70            fas                                fasts</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71            fas                             FALSE.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72            fas                           FALSTA.zip</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73            fas                             fasta.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74            fas                            fasta.zip</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75            fas                                fa.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76            fas                               fa.zip</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77            fas                               faa.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78            fas                              faa.zip</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79         reflib                                 blib</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80         reflib                                 elib</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81         reflib                                 dlib</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82         reflib                                  msp</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83             id                            mzIdentML</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84             id                                 mzID</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85             id                              mzID.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86             id                                 mzid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87             id                              mzid.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88             id                             mzid.zip</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89             id                                  dat</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90             id                               dat.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91             id                              dat.zip</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92             id                                idXML</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93             id                                  omx</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94             id                                  sqt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95             id                                 pcml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96             id                                  dta</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97             id                              dta.tgz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98             id                          dta.tar.bz2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99            tbl                                  csv</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 100           tbl                                  tsv</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 101           tbl                                  xls</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 102           tbl                                 xlsx</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 103           tbl                                 XLSX</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 104           tbl                                 xlsb</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 105           tbl                                  ssv</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 106           tbl                               csv.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 107           tbl                               tsv.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 108           tbl                               psmtsv</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 109           tbl                                delim</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 110           tbl                              tabular</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 111         mztab                                mztab</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 112         mztab                             mztab.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 113         mztab                                mzTab</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 114         mztab                             mzTab.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 115         mztab                              mzTabNA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 116         mztab                           -mztab.txt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 117         mztab                            mztab.txt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118           fig                                  png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 119           fig                                  jpg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 120           fig                                 jpeg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 121           fig                                 tiff</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 122           fig                                  TIF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 123           fig                                  tif</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 124           fig                                  gif</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 125           fig                                  PNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 126           fig                                  JPG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 127           fig                                  svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 128           xml                                  xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 129           xml                               xml.gz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 130       prophet                               pepXML</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 131       prophet                              protXML</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 132        bruker                                  yep</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 133        bruker                                  baf</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 134      scaffold                                  sf3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 135      scaffold                                 sptm</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 136      scaffold                                 sfdb</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 137      scaffold                                 sdia</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 138      scaffold                                metdb</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 139            pd                             pdResult</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 140            pd                                  msf</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 141            pd                         pdResultView</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 142            pd                              msfView</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 143            pd                           pdAnalysis</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 144            pd                       pdProcessingWF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 145            pd                        pdConsensusWF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 146            pd                              pdStudy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 147            pd                          pdStudy.bak</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 148       sequest                                  ms1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 149       sequest                                  ms2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 150       sequest                                  srf</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 151       sequest                                  out</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 152       sequest                              out.tgz</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 153       sequest                          out.tar.bz2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 154  proteinpilot                                group</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 155    progenesis              ProgenesisQIPExperiment</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 156    progenesis                 ProgenesisQIPArchive</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 157    progenesis             ProgenesisLcmsExperiment</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 158    progenesis ProgenesisQIPMultiFractionExperiment</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 159       skyline                                  sky</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 160       skyline                             sky.view</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 161       skyline                                 skyd</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 162       skyline                                 skyl</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 163   spectronaut                                  sne</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 164   spectronaut                                htrms</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 165 peptideshaker                                 cpsx</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 166        params                               params</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 167        params                                 apar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 168        params                                 knwf</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 169        params                                 json</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 170          code                                    R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 171          code                                   py</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 172          code                                    r</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 173          code                                   pl</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 174          code                                   js</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 175          code                                  jar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 176          code                                  Rmd</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 177          code                                   sh</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 178          code                                ipynb</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 179          data                                RData</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 180          data                                  RDS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 181          data                               sqlite</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 182          data                                   h5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 183           chk                                  md5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 184           chk                                cksum</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 185           chk                               chksum</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 186           gen                                  gtf</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 187           gen                                  gff</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 188           gen                                fastq</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 189           gen                                  vcf</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 190           gen                                plink</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 191           gen                                  res</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                      pattern</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1                                    \\.zip$</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2                               \\.tar\\.gz$</span>
@@ -343,127 +353,137 @@ identify several file types.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 58                                   \\.MGF$</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 59                              \\.mgf\\.gz$</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 60                              \\.MGF\\.gz$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61                                   \\.pkl$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62                              \\.pkl\\.gz$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63                                   \\.PKL$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64                                   \\.fas$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65                                 \\.fasta$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66                                    \\.fa$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67                                   \\.faa$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68                                 \\.FASTA$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69                                 \\.fasts$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70                                  \\.blib$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71                                  \\.elib$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72                                  \\.dlib$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73                                   \\.msp$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74                             \\.mzIdentML$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75                                  \\.mzID$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76                             \\.mzID\\.gz$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77                                  \\.mzid$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78                             \\.mzid\\.gz$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79                                   \\.dat$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80                              \\.dat\\.gz$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81                             \\.dat\\.zip$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82                                 \\.idXML$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83                                   \\.omx$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84                                   \\.dta$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85                             \\.dta\\.tgz$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86                       \\.dta\\.tar\\.bz2$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87                                   \\.csv$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88                                   \\.tsv$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89                                   \\.xls$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90                                  \\.xlsx$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91                                  \\.XLSX$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92                                  \\.xlsb$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93                              \\.csv\\.gz$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94                              \\.tsv\\.gz$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95                                \\.psmtsv$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96                                 \\.delim$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97                               \\.tabular$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98                                 \\.mztab$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99                            \\.mztab\\.gz$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100                                \\.mzTab$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101                           \\.mzTab\\.gz$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102                              \\.mzTabNA$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103                         \\.-mztab\\.txt$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104                                  \\.png$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105                                  \\.jpg$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106                                 \\.jpeg$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 107                                 \\.tiff$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 108                                  \\.TIF$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 109                                  \\.tif$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 110                                  \\.gif$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 111                                  \\.PNG$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 112                                  \\.JPG$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 113                                  \\.svg$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 114                                  \\.xml$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 115                             \\.xml\\.gz$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 116                               \\.pepXML$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 117                              \\.protXML$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 118                                  \\.yep$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 119                                  \\.baf$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 120                                  \\.sf3$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 121                                 \\.sptm$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 122                                 \\.sfdb$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 123                                 \\.sdia$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 124                                \\.metdb$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 125                             \\.pdResult$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 126                                  \\.msf$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 127                         \\.pdResultView$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 128                              \\.msfView$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 129                           \\.pdAnalysis$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 130                       \\.pdProcessingWF$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 131                        \\.pdConsensusWF$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 132                              \\.pdStudy$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 133                        \\.pdStudy\\.bak$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 134                                  \\.ms1$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 135                                  \\.ms2$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 136                                  \\.srf$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 137                                  \\.out$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 138                            \\.out\\.tgz$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 139                      \\.out\\.tar\\.bz2$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 140                                \\.group$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 141              \\.ProgenesisQIPExperiment$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 142                 \\.ProgenesisQIPArchive$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 143             \\.ProgenesisLcmsExperiment$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 144 \\.ProgenesisQIPMultiFractionExperiment$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 145                                  \\.sky$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 146                           \\.sky\\.view$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 147                                 \\.skyd$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 148                                 \\.skyl$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 149                                  \\.sne$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 150                               \\.params$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 151                                 \\.apar$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 152                                 \\.knwf$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 153                                 \\.json$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 154                                    \\.R$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 155                                   \\.py$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 156                                    \\.r$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 157                                   \\.pl$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 158                                   \\.js$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 159                                  \\.jar$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 160                                  \\.Rmd$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 161                                   \\.sh$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 162                                \\.ipynb$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 163                                \\.RData$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 164                                  \\.RDS$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 165                               \\.sqlite$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 166                                   \\.h5$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 167                                  \\.md5$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 168                                \\.cksum$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 169                               \\.chksum$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 170                                  \\.gtf$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 171                                  \\.gff$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 172                                \\.fastq$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 173                                  \\.vcf$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 174                                \\.plink$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 175                                  \\.ssv$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 176                                  \\.sqt$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 177                                  \\.apl$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 178                                \\.htrms$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 179                                 \\.cpsx$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 180                                  \\.res$</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 181                                 \\.pcml$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61                                   \\.apl$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62                                   \\.pkl$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63                              \\.pkl\\.gz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64                                   \\.PKL$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65                                   \\.fas$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66                                 \\.fasta$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67                                    \\.fa$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68                                   \\.faa$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69                                 \\.FASTA$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70                                 \\.fasts$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71                            \\.FALSE\\.gz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72                          \\.FALSTA\\.zip$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73                            \\.fasta\\.gz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74                           \\.fasta\\.zip$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75                               \\.fa\\.gz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76                              \\.fa\\.zip$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77                              \\.faa\\.gz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78                             \\.faa\\.zip$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79                                  \\.blib$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80                                  \\.elib$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81                                  \\.dlib$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82                                   \\.msp$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83                             \\.mzIdentML$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84                                  \\.mzID$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85                             \\.mzID\\.gz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86                                  \\.mzid$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87                             \\.mzid\\.gz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88                            \\.mzid\\.zip$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89                                   \\.dat$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90                              \\.dat\\.gz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91                             \\.dat\\.zip$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92                                 \\.idXML$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93                                   \\.omx$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94                                   \\.sqt$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95                                  \\.pcml$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96                                   \\.dta$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97                             \\.dta\\.tgz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98                       \\.dta\\.tar\\.bz2$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99                                   \\.csv$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 100                                  \\.tsv$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 101                                  \\.xls$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 102                                 \\.xlsx$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 103                                 \\.XLSX$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 104                                 \\.xlsb$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 105                                  \\.ssv$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 106                             \\.csv\\.gz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 107                             \\.tsv\\.gz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 108                               \\.psmtsv$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 109                                \\.delim$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 110                              \\.tabular$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 111                                \\.mztab$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 112                           \\.mztab\\.gz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 113                                \\.mzTab$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 114                           \\.mzTab\\.gz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 115                              \\.mzTabNA$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 116                            -mztab\\.txt$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 117                          \\.mztab\\.txt$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118                                  \\.png$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 119                                  \\.jpg$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 120                                 \\.jpeg$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 121                                 \\.tiff$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 122                                  \\.TIF$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 123                                  \\.tif$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 124                                  \\.gif$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 125                                  \\.PNG$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 126                                  \\.JPG$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 127                                  \\.svg$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 128                                  \\.xml$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 129                             \\.xml\\.gz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 130                               \\.pepXML$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 131                              \\.protXML$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 132                                  \\.yep$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 133                                  \\.baf$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 134                                  \\.sf3$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 135                                 \\.sptm$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 136                                 \\.sfdb$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 137                                 \\.sdia$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 138                                \\.metdb$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 139                             \\.pdResult$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 140                                  \\.msf$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 141                         \\.pdResultView$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 142                              \\.msfView$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 143                           \\.pdAnalysis$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 144                       \\.pdProcessingWF$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 145                        \\.pdConsensusWF$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 146                              \\.pdStudy$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 147                        \\.pdStudy\\.bak$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 148                                  \\.ms1$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 149                                  \\.ms2$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 150                                  \\.srf$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 151                                  \\.out$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 152                            \\.out\\.tgz$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 153                      \\.out\\.tar\\.bz2$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 154                                \\.group$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 155              \\.ProgenesisQIPExperiment$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 156                 \\.ProgenesisQIPArchive$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 157             \\.ProgenesisLcmsExperiment$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 158 \\.ProgenesisQIPMultiFractionExperiment$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 159                                  \\.sky$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 160                           \\.sky\\.view$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 161                                 \\.skyd$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 162                                 \\.skyl$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 163                                  \\.sne$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 164                                \\.htrms$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 165                                 \\.cpsx$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 166                               \\.params$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 167                                 \\.apar$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 168                                 \\.knwf$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 169                                 \\.json$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 170                                    \\.R$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 171                                   \\.py$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 172                                    \\.r$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 173                                   \\.pl$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 174                                   \\.js$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 175                                  \\.jar$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 176                                  \\.Rmd$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 177                                   \\.sh$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 178                                \\.ipynb$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 179                                \\.RData$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 180                                  \\.RDS$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 181                               \\.sqlite$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 182                                   \\.h5$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 183                                  \\.md5$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 184                                \\.cksum$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 185                               \\.chksum$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 186                                  \\.gtf$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 187                                  \\.gff$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 188                                \\.fastq$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 189                                  \\.vcf$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 190                                \\.plink$</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 191                                  \\.res$</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">px_file_types</span><span class="op">(</span><span class="st">"foo"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   file type</span>
