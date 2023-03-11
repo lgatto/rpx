@@ -75,11 +75,16 @@
 ##'
 ##' @section Accessors:
 ##'
-##' - `pxfiles(object, n = 10)` invisibly returns all the project file
-##'    names. The function prints the first `n` files specifying
-##'    whether they are local of remote (based on the cache the object
-##'    is stored in). The printing can be ignored by wrapping the call
-##'    in `suppressMessages()`.
+##' - `pxfiles(object, n = 10, as.vector = TRUE)` by default,
+##'    invisibly returns all the project file names. The function
+##'    prints the first `n` files specifying whether they are local of
+##'    remote (based on the cache the object is stored in). The
+##'    printing can be ignored by wrapping the call in
+##'    `suppressMessages()`. If `as.vector` is set to `FALSE`, it
+##'    returns a `data.frame` with variables ID, NAME, URI, TYPE,
+##'    MAPPINGS and PXID. Note that the variables and their content
+##'    will depend on the `rpx` version that was installed when these
+##'    objects were created and cached.
 ##'
 ##' - `pxget(object, list, cache)`: `list` is a vector defining the
 ##'    files to be downloaded. If `list = "all"`, all files are
@@ -196,6 +201,7 @@ PXDataset2 <- function(id, cache = rpxCache()) {
         ## with class structure with pride_files_dataframe().
         ftp_files <- list_files(ftp_url)
         px_files <- pride_files_dataframe(ftp_files, ftp_url)
+        px_files$PX <- id
         px_id <- px_metadata$accession
         if (id != px_id)
             message("Replacing ", id, " with ", px_id, ".")
@@ -329,23 +335,31 @@ pxprotocols <- function(object,
 ##'
 ##' @param n `integer(1)` indicating the number of files to be printed.
 ##'
+##' @param as.vector `logical(1)` defining if the output should be a
+##'     vector of character with filenames (default) or a data.frame
+##'     with additional details about each file.
+##'
 ##' @exportMethod pxfiles
 setMethod("pxfiles", "PXDataset2",
-          function(object, n = 10) {
-              ans <- fls <- object@px_files$NAME
-              uris <- object@px_files$URI
-              tbl <- bfcinfo(BiocFileCache(object@cachepath))
-              n_fls <- length(fls)
-              is_local <- match(uris, tbl$fpath)
-              is_local <- ifelse(is.na(is_local), "[remote] ", "[local]  ")
-              msg <- paste0("Project ", object@px_id, " files (", n_fls, "):\n")
-              for (k in seq_len(min(n, n_fls)))
-                  msg <- c(msg, paste0(" ", is_local[k], fls[k], "\n"))
-              if (n_fls > n) {
-                  msg <- c(msg, " ...\n")
+          function(object, n = 10, as.vector = TRUE) {
+              if (as.vector) {
+                  ans <- fls <- object@px_files$NAME
+                  uris <- object@px_files$URI
+                  tbl <- bfcinfo(BiocFileCache(object@cachepath))
+                  n_fls <- length(fls)
+                  is_local <- match(uris, tbl$fpath)
+                  is_local <- ifelse(is.na(is_local), "[remote] ", "[local]  ")
+                  msg <- paste0("Project ", object@px_id, " files (", n_fls, "):\n")
+                  for (k in seq_len(min(n, n_fls)))
+                      msg <- c(msg, paste0(" ", is_local[k], fls[k], "\n"))
+                  if (n_fls > n) {
+                      msg <- c(msg, " ...\n")
+                  }
+                  message(msg, appendLF = FALSE)
+                  invisible(ans)
+              } else {
+                  return(object@px_files)
               }
-              message(msg, appendLF = FALSE)
-              invisible(ans)
           })
 
 ##' @rdname PXDataset2

@@ -44,7 +44,8 @@ exts <- list(
     tbl = c("csv", "tsv", "xls", "xlsx", "XLSX", "xlsb", "ssv",
             "csv.gz", "tsv.gz", "psmtsv", "delim", "tabular"),
     mztab = c("mztab", "mztab.gz", "mzTab", "mzTab.gz",
-              "mzTabNA", "-mztab.txt", "mztab.txt"),
+              "mzTabNA", "-mztab.txt", "_mztab.txt",
+              "mztab.txt"),
     fig = c("png", "jpg", "jpeg", "tiff", "TIF", "tif",
             "gif", "PNG", "JPG", "svg"),
     xml = c("xml", "xml.gz"),
@@ -75,8 +76,9 @@ file_types <- data.frame(type = rep(names(lengths(exts)), lengths(exts)),
 
 ## Update some patterns
 file_types[file_types$ext == "-mztab.txt", "pattern"] <- "-mztab\\.txt$"
+file_types[file_types$ext == "_mztab.txt", "pattern"] <- "_mztab\\.txt$"
 
 file_types |>
-    filter(ext %in% c("-mztab.txt"))
+    filter(ext %in% c("-mztab.txt", "_mztab.txt"))
 
 saveRDS(file_types, file = "../extdata/file_types.rds")

@@ -9,6 +9,7 @@ test_that("Test file types.", {
         "foo.mztab",          "mztab",
         "foo.mztab.txt",      "mztab",
         "foo.data-mztab.txt", "mztab",
+        "foo.data_mztab.txt", "mztab",
         "foo.pkl",            "pkl",
         "foo.pkl.gz",         "pkl",
         "foo.mgf.gz",         "pkl",
@@ -18,6 +19,6 @@ test_that("Test file types.", {
         "foo.fasta",          "fas",
         "foo.fasta.gz",       "fas"
     )
-    ans <- px_file_types(x$file)
+    ans <- pxFileTypes(x$file)
     expect_identical(x$expected_type, ans$type)
 })

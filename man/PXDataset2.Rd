@@ -46,7 +46,7 @@ pxptms(object)
 
 pxprotocols(object, which = c("project", "samples", "data"))
 
-\S4method{pxfiles}{PXDataset2}(object, n = 10)
+\S4method{pxfiles}{PXDataset2}(object, n = 10, as.vector = TRUE)
 
 \S4method{pxCacheInfo}{PXDataset2}(object)
 
@@ -66,6 +66,10 @@ can use their own cache. See \code{\link[=rpxCache]{rpxCache()}} for details.}
 as \code{"project"}, \code{"samples"} and \code{"data"}.}
 
 \item{n}{\code{integer(1)} indicating the number of files to be printed.}
+
+\item{as.vector}{\code{logical(1)} defining if the output should be a
+vector of character with filenames (default) or a data.frame
+with additional details about each file.}
 
 \item{list}{\code{character()}, \code{numeric()} or \code{logical()} defining the
 project files to be downloaded. This list of files can
@@ -145,11 +149,16 @@ project object is stored in.}
 \section{Accessors}{
 
 \itemize{
-\item \code{pxfiles(object, n = 10)} invisibly returns all the project file
-names. The function prints the first \code{n} files specifying
-whether they are local of remote (based on the cache the object
-is stored in). The printing can be ignored by wrapping the call
-in \code{suppressMessages()}.
+\item \code{pxfiles(object, n = 10, as.vector = TRUE)} by default,
+invisibly returns all the project file names. The function
+prints the first \code{n} files specifying whether they are local of
+remote (based on the cache the object is stored in). The
+printing can be ignored by wrapping the call in
+\code{suppressMessages()}. If \code{as.vector} is set to \code{FALSE}, it
+returns a \code{data.frame} with variables ID, NAME, URI, TYPE,
+MAPPINGS and PXID. Note that the variables and their content
+will depend on the \code{rpx} version that was installed when these
+objects were created and cached.
 \item \code{pxget(object, list, cache)}: \code{list} is a vector defining the
 files to be downloaded. If \code{list = "all"}, all files are
 downloaded. The file names, as returned by \code{pxfiles()} can also

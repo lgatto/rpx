@@ -50,6 +50,6 @@ pride_files_dataframe <- function(files, ftp_url) {
                       URI = paste0(ftp_url, files),
                       TYPE = NA_character_,
                       MAPPINGS = "-")
-    ## TODO: set TYPES
+    ans$TYPE <- pxFileTypes(ans$NAME)$type
     ans
 }
