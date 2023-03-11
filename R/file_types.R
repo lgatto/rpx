@@ -29,7 +29,8 @@ file_types <- function()
 ##'
 ##' @export
 ##'
-##' @author Laurent Gatto
+##' @author Laurent Gatto with contributions from Dr. Samuel Wein to
+##'     identify several file types.
 ##'
 ##' @examples
 ##'

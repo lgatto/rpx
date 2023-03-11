@@ -43,5 +43,6 @@ px_file_types("foo.fasta")
 px_file_types(c("foo", "foo.mzML", "foo.R", "foo.fasta"))
 }
 \author{
-Laurent Gatto
+Laurent Gatto with contributions from Dr. Samuel Wein to
+identify several file types.
 }
