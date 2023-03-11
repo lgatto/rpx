@@ -24,6 +24,7 @@ Suggests:
     BiocStyle,
     testthat,
     knitr,
+    tibble,
     rmarkdown
 License: GPL-2
 URL: https://github.com/lgatto/rpx

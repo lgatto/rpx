@@ -29,9 +29,14 @@ exts <- list(
     pkl = c("mgf", "MGF", "mgf.gz", "MGF.gz",
             "apl", ## MaxQuant peaklist file
             "pkl", "pkl.gz", "PKL"),
-    fas = c("fas", "fasta", "fa", "faa", "FASTA", "fasts"),
+    fas = c("fas", "fasta", "fa", "faa", "FASTA", "fasts",
+            "FALSE.gz", "FALSTA.zip",
+            "fasta.gz", "fasta.zip",
+            "fa.gz", "fa.zip",
+            "faa.gz", "faa.zip"),
     reflib = c("blib", "elib", "dlib", "msp"),
-    id = c("mzIdentML", "mzID", "mzID.gz", "mzid", "mzid.gz",
+    id = c("mzIdentML", "mzID", "mzID.gz",
+           "mzid", "mzid.gz", "mzid.zip",
            "dat", "dat.gz", "dat.zip", "idXML", "omx",
            "sqt", ## ancient Bruker format for database search results
            "pcml", ## Proteoform markup language file
@@ -39,7 +44,7 @@ exts <- list(
     tbl = c("csv", "tsv", "xls", "xlsx", "XLSX", "xlsb", "ssv",
             "csv.gz", "tsv.gz", "psmtsv", "delim", "tabular"),
     mztab = c("mztab", "mztab.gz", "mzTab", "mzTab.gz",
-              "mzTabNA", "-mztab.txt"),
+              "mzTabNA", "-mztab.txt", "mztab.txt"),
     fig = c("png", "jpg", "jpeg", "tiff", "TIF", "tif",
             "gif", "PNG", "JPG", "svg"),
     xml = c("xml", "xml.gz"),
@@ -69,7 +74,7 @@ file_types <- data.frame(type = rep(names(lengths(exts)), lengths(exts)),
     mutate(pattern = gsub("\\.", "\\\\.", paste0(".", ext, "$")))
 
 ## Update some patterns
-file_types[file_types$ext == "-mztab", "pattern"] <- "-mztab\\.txt$"
+file_types[file_types$ext == "-mztab.txt", "pattern"] <- "-mztab\\.txt$"
 
 file_types |>
     filter(ext %in% c("-mztab.txt"))
