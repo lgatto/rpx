@@ -61,6 +61,6 @@ pxFileTypes(c("foo", "foo.mzML", "foo.R", "foo.fasta"))
 }
 \author{
 Laurent Gatto with contributions via mastodon from
-Dr. Samuel Wein and Michael MacCoss to identify several file
-types.
+Dr. Samuel Wein, Michael MacCoss and Marc Vaudel to identify
+several file types.
 }

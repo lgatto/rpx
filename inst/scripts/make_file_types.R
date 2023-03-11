@@ -10,6 +10,8 @@ library(tidyverse)
 ## - https://fediscience.org/@samweingamgee/110004273656629947
 ## - https://fediscience.org/@samweingamgee/110004344762810013
 ## - https://fediscience.org/@samweingamgee/110004359133956180
+## Marc Vaudel
+## - https://sciencemastodon.com/@mvaudel/110006600573181489
 ## Michael MacCoss
 ## - https://genomic.social/@maccoss/110005441931739135
 
@@ -32,8 +34,8 @@ exts <- list(
             "mzData", "mzdata",
             "mz5", "imzML"),
     pkl = c("mgf", "MGF", "mgf.gz", "MGF.gz",
-            "apl", ## MaxQuant peaklist file
             "pkl", "pkl.gz", "PKL"),
+    maxquant = c("res", "apl"), ## MaxQuant peaklist file
     fas = c("fas", "fasta", "fa", "faa", "FASTA", "fasts",
             "FALSE.gz", "FALSTA.zip",
             "fasta.gz", "fasta.zip",
@@ -80,7 +82,7 @@ exts <- list(
     data = c("RData", "RDS", "sqlite", "h5"),
     chk = c("md5", "cksum", "chksum"),
     tmp = c("bak", "download", "crdownload", "sgdownload", "temp", "tmp"),
-    gen = c("gtf", "gff", "fastq", "vcf", "plink", "res"))
+    gen = c("gtf", "gff", "fastq", "vcf", "plink"))
 
 file_types <- data.frame(type = rep(names(lengths(exts)), lengths(exts)),
                          ext = unname(unlist(exts))) |>
