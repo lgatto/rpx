@@ -56,7 +56,8 @@ be achieved with \code{PXDataset} objects can be created with the
 \code{PXDataset()} constructor that takes the unique ProteomeXchange
 project identifier as input.
 
-The \code{PXDataset} class is being replaced by \code{PXDataset2}.
+The \code{PXDataset} class is replaced by \code{PXDataset2} and is now
+deprecated. It will be defunct in the next release.
 }
 \details{
 Since version 1.99.1, \code{rpx} uses the Bioconductor \code{BiocFileCache}
@@ -131,21 +132,6 @@ containing the resourne identifier and the cache location.
 }
 }
 
-\examples{
-
-px <- PXDataset("PXD000001")
-px
-pxtax(px)
-pxurl(px)
-pxref(px)
-pxfiles(px)
-pxCacheInfo(px)
-
-fas <- pxget(px, "erwinia_carotovora.fasta")
-fas
-library("Biostrings")
-readAAStringSet(fas)
-}
 \references{
 Vizcaino J.A. et al. 'ProteomeXchange: globally co-ordinated
 proteomics data submission and dissemination', Nature Biotechnology 2014,

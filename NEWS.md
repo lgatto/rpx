@@ -1,5 +1,10 @@
 # rpx 2.7
 
+## rpx 2.7.3
+
+- New `px_file_types()` and `file_types()` functions to infer mass
+  spectrometry and proteomics file types based on their extensions.
+
 ## rpx 2.7.2
 
 - Deprecation warning: PXDataset class/methods and PXDataset1()
