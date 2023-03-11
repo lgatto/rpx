@@ -139,6 +139,8 @@
 ##' pxurl(px)
 ##' pxref(px)
 ##' pxfiles(px)
+##' pxfiles(px, as.vector = FALSE)
+##'
 ##' pxCacheInfo(px)
 ##'
 ##' fas <- pxget(px, "erwinia_carotovora.fasta")
