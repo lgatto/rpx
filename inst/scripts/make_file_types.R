@@ -1,14 +1,17 @@
 library(tidyverse)
 
-## Useful sources:
-## https://www.ebi.ac.uk/pride/markdownpage/pridefileformats
-## https://www.mcponline.org/article/S1535-9476(20)33457-5/fulltext
+## Useful sources/references:
+## - https://www.ebi.ac.uk/pride/markdownpage/pridefileformats
+## - https://www.mcponline.org/article/S1535-9476(20)33457-5/fulltext
+## - https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/10.1002/rcm.1603
 
 ## The following people have helped in compiling this list:
 ## Dr. Samuel Wein
 ## - https://fediscience.org/@samweingamgee/110004273656629947
 ## - https://fediscience.org/@samweingamgee/110004344762810013
 ## - https://fediscience.org/@samweingamgee/110004359133956180
+## Michael MacCoss
+## - https://genomic.social/@maccoss/110005441931739135
 
 exts <- list(
     ## put archive and doc first so that more specific filetypes (such
@@ -42,7 +45,6 @@ exts <- list(
            "mzid", "mzid.gz", "mzid.zip",
            "dat", "dat.gz", "dat.zip", "idXML", "omx",
            "IdXML", "idxml", "pepnovo",
-           "sqt", ## ancient Bruker format for database search results
            "pcml", ## Proteoform markup language file
            "dta", "dta.tgz", "dta.tar.bz2"),
     tbl = c("csv", "tsv", "xls", "xlsx", "XLSX", "xlsb", "ssv",
@@ -59,7 +61,8 @@ exts <- list(
     pd = c("pdResult", "msf", "pdResultView", "msfView",
            "pdAnalysis", "pdProcessingWF", "pdConsensusWF",
            "pdStudy", "pdStudy.bak"), ## ProteomeDiscoverer
-    sequest = c("ms1", "ms2", "srf", "out", "out.tgz", "out.tar.bz2"),
+    sequest = c("ms1", "ms2", "srf", "sqt",
+                "out", "out.tgz", "out.tar.bz2"),
     proteinpilot = "group",
     progenesis = c("ProgenesisQIPExperiment", "ProgenesisQIPArchive",
                    "ProgenesisLcmsExperiment",

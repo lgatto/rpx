@@ -43,6 +43,7 @@ pxFileTypes("foo.fasta")
 pxFileTypes(c("foo", "foo.mzML", "foo.R", "foo.fasta"))
 }
 \author{
-Laurent Gatto with contributions from Dr. Samuel Wein to
-identify several file types.
+Laurent Gatto with contributions via mastodon from
+Dr. Samuel Wein and Michael MacCoss to identify several file
+types.
 }

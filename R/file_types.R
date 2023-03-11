@@ -29,8 +29,9 @@ fileTypes <- function()
 ##'
 ##' @export
 ##'
-##' @author Laurent Gatto with contributions from Dr. Samuel Wein to
-##'     identify several file types.
+##' @author Laurent Gatto with contributions via mastodon from
+##'     Dr. Samuel Wein and Michael MacCoss to identify several file
+##'     types.
 ##'
 ##' @examples
 ##'
