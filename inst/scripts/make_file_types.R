@@ -22,7 +22,7 @@ exts <- list(
                 "webarchive", "gz", "xy"),
     doc = c("doc", "pdf", "PDF", "ppt", "odt", "docx", "pptx", "rtf",
             "html","html", "htm", "shtml", "readme", "txt", "md", "css"),
-    binary = c("raw", "Raw", "RAW", "d", "d.zip", "raw.zip", "raw.gz",
+    rawbin = c("raw", "Raw", "RAW", "d", "d.zip", "raw.zip", "raw.gz",
                "wiff", "wiff2", "wiff.scan", "wiff.1.~idx2", "wiff.mtd",
                "t2d"),
     raw = c("mzML", "mzML.gz", "mzML.zip",
