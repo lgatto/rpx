@@ -13,18 +13,20 @@ library(tidyverse)
 exts <- list(
     ## put archive and doc first so that more specific filetypes (such
     ## as "xml.gz" or "dat-mztab.txt") or get re-annotated later.
-    archive = c("zip", "tar.gz", "rar", "7z", "tgz",
+    archive = c("zip", "tar.gz", "rar", "RAR",
+                "7z", "tgz",
                 "ZIP", "tar", "tgz", "RAR", "bz2",
                 "webarchive", "gz", "xy"),
     doc = c("doc", "pdf", "PDF", "ppt", "odt", "docx", "pptx", "rtf",
-            "html","html", "htm", "shtml", "readme", "txt", "md"),
+            "html","html", "htm", "shtml", "readme", "txt", "md", "css"),
     binary = c("raw", "Raw", "RAW", "d", "d.zip", "raw.zip", "raw.gz",
                "wiff", "wiff2", "wiff.scan", "wiff.1.~idx2", "wiff.mtd",
                "t2d"),
     raw = c("mzML", "mzML.gz", "mzML.zip",
-            "mzXML", "mzXML.gz", "mzXML.zip", "mzxml",
+            "mzXML", "mzXML.gz", "mzXML.zip", "mzxml", "MZXML",
             "TraML", "traML", "traml",
-            "netCDF", "mzData", "mzdata",
+            "netCDF", "CDF",
+            "mzData", "mzdata",
             "mz5", "imzML"),
     pkl = c("mgf", "MGF", "mgf.gz", "MGF.gz",
             "apl", ## MaxQuant peaklist file
@@ -35,9 +37,11 @@ exts <- list(
             "fa.gz", "fa.zip",
             "faa.gz", "faa.zip"),
     reflib = c("blib", "elib", "dlib", "msp"),
-    id = c("mzIdentML", "mzID", "mzID.gz",
+    id = c("mzIdentML", "mzidentml", "mzidentML",
+           "mzID", "mzID.gz",
            "mzid", "mzid.gz", "mzid.zip",
            "dat", "dat.gz", "dat.zip", "idXML", "omx",
+           "IdXML", "idxml", "pepnovo",
            "sqt", ## ancient Bruker format for database search results
            "pcml", ## Proteoform markup language file
            "dta", "dta.tgz", "dta.tar.bz2"),
@@ -49,7 +53,7 @@ exts <- list(
     fig = c("png", "jpg", "jpeg", "tiff", "TIF", "tif",
             "gif", "PNG", "JPG", "svg"),
     xml = c("xml", "xml.gz"),
-    prophet = c("pepXML", "protXML"),
+    prophet = c("pepXML", "protXML", "pepxml", "protxml"),
     bruker = c("yep", "baf"),
     scaffold = c("sf3", "sptm", "sfdb", "sdia", "metdb"),
     pd = c("pdResult", "msf", "pdResultView", "msfView",
@@ -60,14 +64,19 @@ exts <- list(
     progenesis = c("ProgenesisQIPExperiment", "ProgenesisQIPArchive",
                    "ProgenesisLcmsExperiment",
                    "ProgenesisQIPMultiFractionExperiment"),
-    skyline = c("sky", "sky.view", "skyd", "skyl"),
+    skyline = c("sky", "sky.view", "view", "skyd", "skyl"),
     spectronaut = c("sne", "htrms"),
     peptideshaker = "cpsx",
-    params = c("params", "apar", "knwf", ##  KNIME workflow
-               "json"),
+    params = c("PARAMS", "params", "param", "par",
+               "config", "apar", "knwf", ##  KNIME workflow
+               "json", "toml", "yaml",
+               "ini", "mtd", "index",
+               "method", "Method", "FAmethod", "properties"),
     code = c("R", "py", "r", "pl", "js", "jar", "Rmd", "sh", "ipynb"),
+    exe = c("exe", "bin", "dll"),
     data = c("RData", "RDS", "sqlite", "h5"),
     chk = c("md5", "cksum", "chksum"),
+    tmp = c("bak", "download", "crdownload", "sgdownload", "temp", "tmp"),
     gen = c("gtf", "gff", "fastq", "vcf", "plink", "res"))
 
 file_types <- data.frame(type = rep(names(lengths(exts)), lengths(exts)),
