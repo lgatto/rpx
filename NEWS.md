@@ -1,5 +1,9 @@
 # rpx 2.7
 
+## rpx 2.7.4
+
+- New Github devel version.
+
 ## rpx 2.7.3
 
 - New `px_file_types()` and `file_types()` functions to infer mass
