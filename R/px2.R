@@ -310,6 +310,18 @@ pxinstruments <- function (object) object@px_metadata$instruments
 ##' @rdname PXDataset2
 ##'
 ##' @export
+pxSubmissionDate <- function (object)
+    as.Date(object@px_metadata$submissionDate, "%Y-%m-%d")
+
+##' @rdname PXDataset2
+##'
+##' @export
+pxPublicationDate <- function (object)
+    as.Date(object@px_metadata$publicationDate, "%Y-%m-%d")
+
+##' @rdname PXDataset2
+##'
+##' @export
 pxptms <- function(object) object@px_metadata$identifiedPTMStrings
 
 ##' @rdname PXDataset2

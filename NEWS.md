@@ -4,6 +4,8 @@
 
 - New `px_file_types()` and `file_types()` functions to infer mass
   spectrometry and proteomics file types based on their extensions.
+- New `pxSubmissionDate()` and `pxPublicationDate()` accessor
+  functions.
 
 ## rpx 2.7.2
 

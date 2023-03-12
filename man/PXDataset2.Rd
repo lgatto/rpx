@@ -21,6 +21,8 @@
 \alias{pxCacheInfo,PXdataset-method}
 \alias{pxCacheInfo}
 \alias{pxinstruments}
+\alias{pxSubmissionDate}
+\alias{pxPublicationDate}
 \alias{pxptms}
 \alias{pxprotocols}
 \alias{pxCacheInfo,PXDataset2-method}
@@ -41,6 +43,10 @@ PXDataset(id, cache = rpxCache())
 pxtitle(object)
 
 pxinstruments(object)
+
+pxSubmissionDate(object)
+
+pxPublicationDate(object)
 
 pxptms(object)
 

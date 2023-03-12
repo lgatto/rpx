@@ -12,7 +12,7 @@ test_that("Object content is valid (v2)", {
     ## expect_identical(pxurl(px1), url)
     pxf <- pxfiles(px1)
     fls <- sort(c("erwinia_carotovora.fasta", "F063721.dat",
-                  "F063721.dat-mztab.txt", "generated",
+                  "F063721.dat-mztab.txt",
                   "PRIDE_Exp_Complete_Ac_22134.xml.gz",
                   "PRIDE_Exp_mzData_Ac_22134.xml.gz",
                   "PXD000001_mztab.txt", "README.txt",
@@ -22,7 +22,7 @@ test_that("Object content is valid (v2)", {
                   "TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw"))
 
     expect_identical(sort(pxf), fls)
-    expect_identical(length(pxf), 12L)
+    expect_identical(length(pxf), 11L)
     expect_identical(pxtax(px1), "Erwinia carotovora")
     ref <- "Gatto L, Christoforou A; Using R and Bioconductor for proteomics data analysis., Biochim Biophys Acta, 2013 May 18, doi:10.1016/j.bbapap.2013.04.032 PMID:23692960"
     expect_identical(pxref(px1), ref)

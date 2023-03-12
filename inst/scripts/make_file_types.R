@@ -14,6 +14,9 @@ library(tidyverse)
 ## - https://sciencemastodon.com/@mvaudel/110006600573181489
 ## Michael MacCoss
 ## - https://genomic.social/@maccoss/110005441931739135
+## Phil Wilmarth
+## - https://scicomm.xyz/@pwilmart/110007105655512944
+## - https://scicomm.xyz/@pwilmart/110007164186137857
 
 exts <- list(
     ## put archive and doc first so that more specific filetypes (such

@@ -59,8 +59,21 @@ pxFileTypes("foo.fasta")
 
 pxFileTypes(c("foo", "foo.mzML", "foo.R", "foo.fasta"))
 }
+\references{
+\itemize{
+\item McDonald, W. \emph{et al.} 2004. "MS1, MS2, and SQT-Three Unified, Compact,
+and Easily Parsed File Formats for the Storage of Shotgun Proteomic
+Spectra and Identifications." Rapid Communications in Mass Spectrometry
+18 (18):2162–68.
+\item Deutsch, Eric W. 2012. "File Formats Commonly Used in Mass Spectrometry
+Proteomics." Molecular & Cellular Proteomics 11 (12):1612–21.
+\item File formats in PRIDE Archive:
+\url{https://www.ebi.ac.uk/pride/markdownpage/pridefileformats}.
+}
+}
 \author{
 Laurent Gatto with contributions via mastodon from
-Dr. Samuel Wein, Michael MacCoss and Marc Vaudel to identify
-several file types.
+Dr. Samuel Wein, Michael MacCoss, Marc Vaudel and Phil
+Wilmarth to identify several file types (see
+\code{inst/make_file_types.R} for details).
 }
