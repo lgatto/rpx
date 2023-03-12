@@ -88,6 +88,10 @@ deprecated <code>PXDataset</code> version.</p>
 <span></span>
 <span><span class="fu">pxinstruments</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">pxSubmissionDate</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">pxPublicationDate</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">pxptms</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">pxprotocols</span><span class="op">(</span><span class="va">object</span>, which <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"project"</span>, <span class="st">"samples"</span>, <span class="st">"data"</span><span class="op">)</span><span class="op">)</span></span>
@@ -289,10 +293,10 @@ https://code.google.com/p/proteomexchange/</p>
 <span class="r-in"><span><span class="va">px</span> <span class="op">&lt;-</span> <span class="fu">PXDataset</span><span class="op">(</span><span class="st">"PXD000001"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading PXD000001 from cache.</span>
 <span class="r-in"><span><span class="va">px</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Project PXD000001 with 12 files</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Project PXD000001 with 11 files</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Resource ID BFC1 in cache in /github/home/.cache/R/rpx.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 'F063721.dat' ... [12] 'generated'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 'F063721.dat' ... [11] 'erwinia_carotovora.fasta'</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Use 'pxfiles(.)' to see all files.</span>
 <span class="r-in"><span><span class="fu">pxtax</span><span class="op">(</span><span class="va">px</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Erwinia carotovora"</span>
@@ -301,7 +305,7 @@ https://code.google.com/p/proteomexchange/</p>
 <span class="r-in"><span><span class="fu">pxref</span><span class="op">(</span><span class="va">px</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Gatto L, Christoforou A; Using R and Bioconductor for proteomics data analysis., Biochim Biophys Acta, 2013 May 18, doi:10.1016/j.bbapap.2013.04.032 PMID:23692960"</span>
 <span class="r-in"><span><span class="fu">pxfiles</span><span class="op">(</span><span class="va">px</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Project PXD000001 files (12):</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Project PXD000001 files (11):</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  [remote] F063721.dat</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  [local]  F063721.dat-mztab.txt</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>  [remote] PRIDE_Exp_Complete_Ac_22134.xml.gz</span>
@@ -326,7 +330,6 @@ https://code.google.com/p/proteomexchange/</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9   9          TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10 10            TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11 11                                             erwinia_carotovora.fasta</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 12                                                            generated</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                    URI</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                           ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/F063721.dat</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                 ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/F063721.dat-mztab.txt</span>
@@ -339,7 +342,6 @@ https://code.google.com/p/proteomexchange/</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9           ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10            ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11                                             ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/erwinia_carotovora.fasta</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                            ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/generated</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      TYPE MAPPINGS        PX</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1      id        - PXD000001</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2   mztab        - PXD000001</span>
@@ -352,7 +354,6 @@ https://code.google.com/p/proteomexchange/</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9     raw        - PXD000001</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10 rawbin        - PXD000001</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11    fas        - PXD000001</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12   &lt;NA&gt;        - PXD000001</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">pxCacheInfo</span><span class="op">(</span><span class="va">px</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Resource ID BFC1 in cache in /github/home/.cache/R/rpx.</span>
@@ -360,7 +361,7 @@ https://code.google.com/p/proteomexchange/</p>
 <span class="r-in"><span><span class="va">fas</span> <span class="op">&lt;-</span> <span class="fu">pxget</span><span class="op">(</span><span class="va">px</span>, <span class="st">"erwinia_carotovora.fasta"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading erwinia_carotovora.fasta from cache.</span>
 <span class="r-in"><span><span class="va">fas</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/github/home/.cache/R/rpx/b4e2ab1602b_erwinia_carotovora.fasta"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/github/home/.cache/R/rpx/b51420ed4b4_erwinia_carotovora.fasta"</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://bioconductor.org/packages/Biostrings" class="external-link">"Biostrings"</a></span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: BiocGenerics</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
