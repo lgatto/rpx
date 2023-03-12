@@ -1,3 +1,9 @@
+## Delete entry in default cache. This assures that the instance
+## matches any updates in the class definition.
+px1 <- PXDataset2("PXD000001")
+BiocFileCache::bfcremove(rpxCache(), pxCacheInfo(px1)["rid"])
+
+## Create new object
 px1 <- PXDataset2("PXD000001")
 
 test_that("Object content is valid (v2)", {
