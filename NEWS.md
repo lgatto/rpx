@@ -1,5 +1,9 @@
 # rpx 2.7
 
+## rpx 2.7.5
+
+- New Github devel version.
+
 ## rpx 2.7.4
 
 - Delete entries in default cache before running the unit tests. This
