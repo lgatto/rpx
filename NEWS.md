@@ -2,7 +2,9 @@
 
 ## rpx 2.7.4
 
-- New Github devel version.
+- Delete entries in default cache before running the unit tests. This
+  assures that the instances matche any updates in the class
+  definition.
 
 ## rpx 2.7.3
 
