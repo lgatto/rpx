@@ -40,8 +40,8 @@ fileTypes <- function()
 ##' @export
 ##'
 ##' @author Laurent Gatto with contributions via mastodon from
-##'     Dr. Samuel Wein, Michael MacCoss, Marc Vaudel and Phil
-##'     Wilmarth to identify several file types (see
+##'     Dr. Samuel Wein, Michael MacCoss, Marc Vaudel, Phil Wilmarth
+##'     and Dave Tabb to identify several file types (see
 ##'     `inst/make_file_types.R` for details).
 ##'
 ##' @references

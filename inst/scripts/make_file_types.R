@@ -17,6 +17,8 @@ library(tidyverse)
 ## Phil Wilmarth
 ## - https://scicomm.xyz/@pwilmart/110007105655512944
 ## - https://scicomm.xyz/@pwilmart/110007164186137857
+## Dave Tabb
+## - https://scicomm.xyz/@dtabb73/110015621246465642
 
 exts <- list(
     ## put archive and doc first so that more specific filetypes (such
@@ -50,7 +52,8 @@ exts <- list(
            "mzid", "mzid.gz", "mzid.zip",
            "dat", "dat.gz", "dat.zip", "idXML", "omx",
            "IdXML", "idxml", "pepnovo",
-           "pcml", ## Proteoform markup language file
+           "pcml", ## PCML stores proteoform spectrum match for the
+                   ## free ProSight Lite PrSM viewer
            "dta", "dta.tgz", "dta.tar.bz2"),
     tbl = c("csv", "tsv", "xls", "xlsx", "XLSX", "xlsb", "ssv",
             "csv.gz", "tsv.gz", "psmtsv", "delim", "tabular"),

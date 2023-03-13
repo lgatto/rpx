@@ -73,7 +73,7 @@ Proteomics." Molecular & Cellular Proteomics 11 (12):1612–21.
 }
 \author{
 Laurent Gatto with contributions via mastodon from
-Dr. Samuel Wein, Michael MacCoss, Marc Vaudel and Phil
-Wilmarth to identify several file types (see
+Dr. Samuel Wein, Michael MacCoss, Marc Vaudel, Phil Wilmarth
+and Dave Tabb to identify several file types (see
 \code{inst/make_file_types.R} for details).
 }
