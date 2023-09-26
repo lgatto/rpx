@@ -3,7 +3,7 @@
 ## rpx 2.9.1
 
 - Remove the generated subdir in the ftp_url when creating the
-  PXDataset object <2023-09-26 Tue>.
+  PXDataset object <2023-09-26 Tue> (see issue #25).
 
 # rpx 2.7
 
