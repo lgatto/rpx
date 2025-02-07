@@ -18,14 +18,23 @@
 ## -----------------------------------------------------------------------------
 
 ## /status/{accession}: Check if the dataset is public/private in PRIDE
-status <- function(accession) {
+api_project_status <- function(accession) {
     url <- paste0("https://www.ebi.ac.uk/pride/ws/archive/v3/status/", accession)
     RCurl::getURL(url)
 }
 
 ## /search/projects
 ## /search/autocomplete
-## /projects/{projectAccession}
+
+## /projects/{projectAccession}: Return the dataset for a given accession
+project_data <- function(accession) {
+    stopifnot(length(accession) == 1)
+    url <- paste0("https://www.ebi.ac.uk/pride/ws/archive/v3/projects/",
+                  accession)
+    jsonlite::fromJSON(url)
+}
+
+
 ## /projects/{projectAccession}/files/count
 ## /projects/{projectAccession}/files/all
 ## /projects/{projectAccession}/files
@@ -34,7 +43,7 @@ status <- function(accession) {
 ## /projects/metadata
 
 ## /projects/files-path/{projectAccession}: Return the path of the dataset's files
-projects_filespath <- function(accession) {
+api_projects_filespath <- function(accession) {
     url <- paste0("https://www.ebi.ac.uk/pride/ws/archive/v3/projects/files-path/",
                   accession)
     jsonlite::fromJSON(url)
@@ -82,7 +91,7 @@ projects_filespath <- function(accession) {
 ## /files/sdrf/{projectAccession}
 
 ## /files/count: Count of all PRIDE Archive Files
-files_count <- function() {
+api_files_count <- function() {
     res <- RCurl::getURL("https://www.ebi.ac.uk/pride/ws/archive/v3/files/count")
     as.integer(res)
 }

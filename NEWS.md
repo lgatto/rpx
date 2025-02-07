@@ -1,3 +1,13 @@
+# rpx 2.15
+
+## rpx 2.15.1
+
+- Fix error due to remote side change (another one).
+
+## rpx 2.15.0
+
+- New devel version (Bioc 3.20)
+
 # rpx 2.9
 
 ## rpx 2.9.1
