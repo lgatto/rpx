@@ -6,7 +6,7 @@
 
 ## rpx 2.15.0
 
-- New devel version (Bioc 3.20)
+- New devel version (Bioc 3.21)
 
 # rpx 2.9
 
