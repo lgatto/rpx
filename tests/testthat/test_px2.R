@@ -55,7 +55,7 @@ test_that("PX announcements (v2)", {
 ## })
 
 test_that("PXD022816: valid URLs and files (v2)", {
-    nfiles <- 32L
+    nfiles <- 33L ## changed v2.21.1
     PXD022816 <- PXDataset2("PXD022816")
     expect_identical(length(pxurl(PXD022816)), 1L)
     expect_identical(length(pxfiles(PXD022816)), nfiles)
