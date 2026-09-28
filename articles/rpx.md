@@ -30,12 +30,12 @@ constructor.
 \
 `px`
 
-    ## Project PXD000001 with 11 files
+    ## Project PXD000001 with 12 files
     ## 
 
     ## Resource ID BFC7 in cache in /github/home/.cache/R/rpx.
 
-    ##  [1] 'F063721.dat' ... [11] 'erwinia_carotovora.fasta'
+    ##  [1] 'F063721.dat' ... [12] 'erwinia_carotovora.fasta'
     ##  Use 'pxfiles(.)' to see all files.
 
 ### Data and meta-data
@@ -88,17 +88,17 @@ All files available for the PX experiment can be obtained with the
 \
 [`pxfiles`](https://lgatto.github.io/rpx/reference/PXDataset2.md)`(``px``)`
 
-    ## Project PXD000001 files (11):
+    ## Project PXD000001 files (12):
     ##  [remote] F063721.dat
     ##  [local]  F063721.dat-mztab.txt
     ##  [remote] PRIDE_Exp_Complete_Ac_22134.xml.gz
     ##  [remote] PRIDE_Exp_mzData_Ac_22134.xml.gz
+    ##  [remote] PXD000001_community_annotated.sdrf.tsv
     ##  [remote] PXD000001_mztab.txt
     ##  [remote] README.txt
     ##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML
     ##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML
     ##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML
-    ##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw
     ##  ...
 
 The complete or partial data set can be downloaded with the
@@ -119,7 +119,7 @@ their indices or logicals can also be used to download specific files.
 \
 `f`
 
-    ## [1] "/github/home/.cache/R/rpx/9742561a3cb_F063721.dat-mztab.txt"
+    ## [1] "/github/home/.cache/R/rpx/d66e9717c1_F063721.dat-mztab.txt"
 
 The `rpx` package makes use of the
 *[BiocFileCache](https://bioconductor.org/packages/3.24/BiocFileCache)*
@@ -143,17 +143,17 @@ with the Biostrings package.
 \
 `fas`` ``<-`` `[`grep`](https://rdrr.io/pkg/BiocGenerics/man/grep.html)`(``"fasta"``, `[`pxfiles`](https://lgatto.github.io/rpx/reference/PXDataset2.md)`(``px``)``, value ``=`` ``TRUE``)`
 
-    ## Project PXD000001 files (11):
+    ## Project PXD000001 files (12):
     ##  [remote] F063721.dat
     ##  [local]  F063721.dat-mztab.txt
     ##  [remote] PRIDE_Exp_Complete_Ac_22134.xml.gz
     ##  [remote] PRIDE_Exp_mzData_Ac_22134.xml.gz
+    ##  [remote] PXD000001_community_annotated.sdrf.tsv
     ##  [remote] PXD000001_mztab.txt
     ##  [remote] README.txt
     ##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML
     ##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML
     ##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML
-    ##  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw
     ##  ...
 
 \
@@ -169,7 +169,7 @@ with the Biostrings package.
 \
 `f`
 
-    ## [1] "/github/home/.cache/R/rpx/97474dfd637_erwinia_carotovora.fasta"
+    ## [1] "/github/home/.cache/R/rpx/d6658624a71_erwinia_carotovora.fasta"
 
 \
 [`library`](https://rdrr.io/r/base/library.html)`(`[`"Biostrings"`](https://bioconductor.org/packages/Biostrings)`)`\
@@ -224,7 +224,7 @@ forum](https://support.bioconductor.org/) or open a GitHub
     ## [8] base     
     ## 
     ## other attached packages:
-    ## [1] rpx_2.21.1           Biostrings_2.81.9    Seqinfo_1.3.2       
+    ## [1] rpx_2.21.2           Biostrings_2.81.9    Seqinfo_1.3.2       
     ## [4] XVector_0.53.0       IRanges_2.47.5       S4Vectors_0.51.10   
     ## [7] BiocGenerics_0.59.12 generics_0.1.4       BiocStyle_2.41.0    
     ## 

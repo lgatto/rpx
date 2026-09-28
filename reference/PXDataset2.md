@@ -240,10 +240,10 @@ Laurent Gatto
 px <- PXDataset("PXD000001")
 #> Loading PXD000001 from cache.
 px
-#> Project PXD000001 with 11 files
+#> Project PXD000001 with 12 files
 #>  
 #> Resource ID BFC7 in cache in /github/home/.cache/R/rpx.
-#>  [1] 'F063721.dat' ... [11] 'erwinia_carotovora.fasta'
+#>  [1] 'F063721.dat' ... [12] 'erwinia_carotovora.fasta'
 #>  Use 'pxfiles(.)' to see all files.
 pxtax(px)
 #> [1] "Erwinia carotovora"
@@ -252,17 +252,17 @@ pxurl(px)
 pxref(px)
 #> [1] "Gatto L, Christoforou A; Using R and Bioconductor for proteomics data analysis., Biochim Biophys Acta, 2013 May 18, doi:10.1016/j.bbapap.2013.04.032 PMID:NA"
 pxfiles(px)
-#> Project PXD000001 files (11):
+#> Project PXD000001 files (12):
 #>  [remote] F063721.dat
 #>  [local]  F063721.dat-mztab.txt
 #>  [remote] PRIDE_Exp_Complete_Ac_22134.xml.gz
 #>  [remote] PRIDE_Exp_mzData_Ac_22134.xml.gz
+#>  [remote] PXD000001_community_annotated.sdrf.tsv
 #>  [remote] PXD000001_mztab.txt
 #>  [remote] README.txt
 #>  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML
 #>  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML
 #>  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML
-#>  [remote] TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw
 #>  ...
 pxfiles(px, as.vector = FALSE)
 #>    ID                                                                 NAME
@@ -270,37 +270,40 @@ pxfiles(px, as.vector = FALSE)
 #> 2   2                                                F063721.dat-mztab.txt
 #> 3   3                                   PRIDE_Exp_Complete_Ac_22134.xml.gz
 #> 4   4                                     PRIDE_Exp_mzData_Ac_22134.xml.gz
-#> 5   5                                                  PXD000001_mztab.txt
-#> 6   6                                                           README.txt
-#> 7   7  TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML
-#> 8   8 TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML
-#> 9   9          TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML
-#> 10 10            TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw
-#> 11 11                                             erwinia_carotovora.fasta
+#> 5   5                               PXD000001_community_annotated.sdrf.tsv
+#> 6   6                                                  PXD000001_mztab.txt
+#> 7   7                                                           README.txt
+#> 8   8  TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML
+#> 9   9 TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML
+#> 10 10          TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML
+#> 11 11            TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw
+#> 12 12                                             erwinia_carotovora.fasta
 #>                                                                                                                                    URI
 #> 1                                                           ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/F063721.dat
 #> 2                                                 ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/F063721.dat-mztab.txt
 #> 3                                    ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/PRIDE_Exp_Complete_Ac_22134.xml.gz
 #> 4                                      ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/PRIDE_Exp_mzData_Ac_22134.xml.gz
-#> 5                                                   ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/PXD000001_mztab.txt
-#> 6                                                            ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/README.txt
-#> 7   ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML
-#> 8  ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML
-#> 9           ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML
-#> 10            ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw
-#> 11                                             ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/erwinia_carotovora.fasta
+#> 5                                ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/PXD000001_community_annotated.sdrf.tsv
+#> 6                                                   ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/PXD000001_mztab.txt
+#> 7                                                            ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/README.txt
+#> 8   ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzML
+#> 9  ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01-20141210.mzXML
+#> 10          ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.mzXML
+#> 11            ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/TMT_Erwinia_1uLSike_Top10HCD_isol2_45stepped_60min_01.raw
+#> 12                                             ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2012/03/PXD000001/erwinia_carotovora.fasta
 #>      TYPE MAPPINGS        PX
 #> 1      id        - PXD000001
 #> 2   mztab        - PXD000001
 #> 3     xml        - PXD000001
 #> 4     xml        - PXD000001
-#> 5   mztab        - PXD000001
-#> 6     doc        - PXD000001
-#> 7     raw        - PXD000001
+#> 5     tbl        - PXD000001
+#> 6   mztab        - PXD000001
+#> 7     doc        - PXD000001
 #> 8     raw        - PXD000001
 #> 9     raw        - PXD000001
-#> 10 rawbin        - PXD000001
-#> 11    fas        - PXD000001
+#> 10    raw        - PXD000001
+#> 11 rawbin        - PXD000001
+#> 12    fas        - PXD000001
 
 pxCacheInfo(px)
 #> Resource ID BFC7 in cache in /github/home/.cache/R/rpx.
@@ -308,7 +311,7 @@ pxCacheInfo(px)
 fas <- pxget(px, "erwinia_carotovora.fasta")
 #> Loading erwinia_carotovora.fasta from cache.
 fas
-#> [1] "/github/home/.cache/R/rpx/97474dfd637_erwinia_carotovora.fasta"
+#> [1] "/github/home/.cache/R/rpx/d6658624a71_erwinia_carotovora.fasta"
 library("Biostrings")
 #> Loading required package: BiocGenerics
 #> Loading required package: generics
